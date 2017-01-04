@@ -1,0 +1,121 @@
+Started GET "/cmb/get_bagels_history?bagel=%7B%22hex_id%22:%22d73e3f88-d1c2-11e6-91de-d95f1b4afb97%22,%22cursor_after%22:%221483454544.65%22,%22cursor_before%22:%221483454544.65%22,%22more_after%22:false,%22more_before%22:false%7D&fbToken=EAAE998BGKHABAFyaUvgLvw7Wc0CW5K51ZBNZAixjuqBmrB7ZCYz3C7xDuPZANfYnhIT59ZAvJQQMPf3vAm0DxqpYeBbMeQDXeSAhRhoFol6NSKRGg5svezXfh4LdZADMQMQrtocH16FxQ40wkxyRWjfOmsmng0wlYSWZCSH7vwJYgZB4SXBZCJdFl&format=json&sessionid=d3hq195r257ypickqut9ln9fiozh0tnn" for 127.0.0.1 at 2017-01-03 22:50:26 +0800
+Processing by CmbController#get_bagels_history as JSON
+  Parameters: {"bagel"=>"{\"hex_id\":\"d73e3f88-d1c2-11e6-91de-d95f1b4afb97\",\"cursor_after\":\"1483454544.65\",\"cursor_before\":\"1483454544.65\",\"more_after\":false,\"more_before\":false}", "fbToken"=>"EAAE998BGKHABAFyaUvgLvw7Wc0CW5K51ZBNZAixjuqBmrB7ZCYz3C7xDuPZANfYnhIT59ZAvJQQMPf3vAm0DxqpYeBbMeQDXeSAhRhoFol6NSKRGg5svezXfh4LdZADMQMQrtocH16FxQ40wkxyRWjfOmsmng0wlYSWZCSH7vwJYgZB4SXBZCJdFl", "sessionid"=>"d3hq195r257ypickqut9ln9fiozh0tnn"}
+  Rendering cmb/get_bagels_history.json.jbuilder
+  Rendered cmb/_bagelsInfoElement.json.jbuilder (0.4ms)
+  Rendered cmb/get_bagels_history.json.jbuilder (1.3ms)
+Completed 200 OK in 4618ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cmb/get_profile?fbToken=EAAE998BGKHABAFyaUvgLvw7Wc0CW5K51ZBNZAixjuqBmrB7ZCYz3C7xDuPZANfYnhIT59ZAvJQQMPf3vAm0DxqpYeBbMeQDXeSAhRhoFol6NSKRGg5svezXfh4LdZADMQMQrtocH16FxQ40wkxyRWjfOmsmng0wlYSWZCSH7vwJYgZB4SXBZCJdFl&format=json&sessionid=d3hq195r257ypickqut9ln9fiozh0tnn" for 127.0.0.1 at 2017-01-03 23:03:55 +0800
+Processing by CmbController#get_profile as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABAFyaUvgLvw7Wc0CW5K51ZBNZAixjuqBmrB7ZCYz3C7xDuPZANfYnhIT59ZAvJQQMPf3vAm0DxqpYeBbMeQDXeSAhRhoFol6NSKRGg5svezXfh4LdZADMQMQrtocH16FxQ40wkxyRWjfOmsmng0wlYSWZCSH7vwJYgZB4SXBZCJdFl", "sessionid"=>"d3hq195r257ypickqut9ln9fiozh0tnn"}
+  Rendering cmb/get_profile.json.jbuilder
+  Rendered cmb/_cmbInfoElement.json.jbuilder (0.3ms)
+  Rendered cmb/get_profile.json.jbuilder (2.6ms)
+Completed 200 OK in 3118ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cmb?fbToken=EAAE998BGKHABAJjhDm6sVFHnKkhS2XhGnB5F30Y9PcznkKDJjiCcFkop74ZCMkrEyyP2lzPfZCjhnBiiz0ondosRy5MreakZCe9WQsfpHKmaHpW87AHz6ix87p6P9yvZBmfBRQ5r41yjQazO9Wn50kO6RvRGqOgdZCHsAYg4dwWmHKA8WAnZCW&format=json" for 127.0.0.1 at 2017-01-03 23:32:39 +0800
+Processing by CmbController#index as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABAJjhDm6sVFHnKkhS2XhGnB5F30Y9PcznkKDJjiCcFkop74ZCMkrEyyP2lzPfZCjhnBiiz0ondosRy5MreakZCe9WQsfpHKmaHpW87AHz6ix87p6P9yvZBmfBRQ5r41yjQazO9Wn50kO6RvRGqOgdZCHsAYg4dwWmHKA8WAnZCW"}
+  Rendering cmb/index.json.jbuilder
+  Rendered cmb/_cmbInfoElement.json.jbuilder (0.3ms)
+  Rendered cmb/index.json.jbuilder (1.7ms)
+Completed 200 OK in 4685ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-03 23:56:48 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 607ms (Views: 606.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-03 23:57:15 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 45ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cmb?fbToken=EAAE998BGKHABADJkfYzC2OqHX9pCtKypTaIZBBwpsTFiDzwFxsDAwQHRmlekNoIcxH7WVaMV4KHVxLlJbfriUyXpXRz0ZAL4qJ97Yk2GIJAHBEF5FQyXFsONnJREX1EPN0ZCZCHrD62FxPZCU3Iig9txUSQ6Xp5O3eQIM9d3OwJHyAili2tjZB&format=json" for 127.0.0.1 at 2017-01-03 23:57:22 +0800
+Processing by CmbController#index as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABADJkfYzC2OqHX9pCtKypTaIZBBwpsTFiDzwFxsDAwQHRmlekNoIcxH7WVaMV4KHVxLlJbfriUyXpXRz0ZAL4qJ97Yk2GIJAHBEF5FQyXFsONnJREX1EPN0ZCZCHrD62FxPZCU3Iig9txUSQ6Xp5O3eQIM9d3OwJHyAili2tjZB"}
+  Rendering cmb/index.json.jbuilder
+  Rendered cmb/_cmbInfoElement.json.jbuilder (0.2ms)
+  Rendered cmb/index.json.jbuilder (1.0ms)
+Completed 200 OK in 4331ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tinder?fbToken=EAAE998BGKHABADJkfYzC2OqHX9pCtKypTaIZBBwpsTFiDzwFxsDAwQHRmlekNoIcxH7WVaMV4KHVxLlJbfriUyXpXRz0ZAL4qJ97Yk2GIJAHBEF5FQyXFsONnJREX1EPN0ZCZCHrD62FxPZCU3Iig9txUSQ6Xp5O3eQIM9d3OwJHyAili2tjZB&fbUserID=189552508182575&format=json" for 127.0.0.1 at 2017-01-03 23:57:31 +0800
+Processing by TinderController#index as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABADJkfYzC2OqHX9pCtKypTaIZBBwpsTFiDzwFxsDAwQHRmlekNoIcxH7WVaMV4KHVxLlJbfriUyXpXRz0ZAL4qJ97Yk2GIJAHBEF5FQyXFsONnJREX1EPN0ZCZCHrD62FxPZCU3Iig9txUSQ6Xp5O3eQIM9d3OwJHyAili2tjZB", "fbUserID"=>"189552508182575"}
+  Rendering tinder/index.json.jbuilder
+  Rendered tinder/_tinderInfoElement.json.jbuilder (0.2ms)
+  Rendered tinder/index.json.jbuilder (1.2ms)
+Completed 200 OK in 4024ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-03 23:58:31 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tinder?format=json" for 127.0.0.1 at 2017-01-03 23:58:39 +0800
+Processing by TinderController#index as JSON
+  Rendering tinder/index.json.jbuilder
+  Rendered tinder/_tinderInfoElement.json.jbuilder (0.3ms)
+  Rendered tinder/index.json.jbuilder (1.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-03 23:59:19 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 569ms (Views: 568.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tinder?format=json" for 127.0.0.1 at 2017-01-03 23:59:28 +0800
+Processing by TinderController#index as JSON
+  Rendering tinder/index.json.jbuilder
+  Rendered tinder/_tinderInfoElement.json.jbuilder (0.2ms)
+  Rendered tinder/index.json.jbuilder (0.9ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tinder?fbToken=EAAE998BGKHABAPzFrLofptSJy45jf81sXZBZAbF2jhvfZA3i7YAG3BYI2Ts7rfCwOXfFK68PDbYeH9f5XBjKlNYn7t51YN4rBkCttz5TAplUCADZCRn1rokBGdE0v8oGDfJKf2GcsFXEsFVFYY90EOoyLa7ZC0U7BmvZBXs8e37TVZBBcZAvB4vf&fbUserID=189552508182575&format=json" for 127.0.0.1 at 2017-01-03 23:59:29 +0800
+Processing by TinderController#index as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABAPzFrLofptSJy45jf81sXZBZAbF2jhvfZA3i7YAG3BYI2Ts7rfCwOXfFK68PDbYeH9f5XBjKlNYn7t51YN4rBkCttz5TAplUCADZCRn1rokBGdE0v8oGDfJKf2GcsFXEsFVFYY90EOoyLa7ZC0U7BmvZBXs8e37TVZBBcZAvB4vf", "fbUserID"=>"189552508182575"}
+  Rendering tinder/index.json.jbuilder
+  Rendered tinder/_tinderInfoElement.json.jbuilder (0.2ms)
+  Rendered tinder/index.json.jbuilder (1.2ms)
+Completed 200 OK in 2487ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-04 00:00:23 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 673ms (Views: 671.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tinder?fbToken=EAAE998BGKHABAGnEgX3DzYcHFm8v0XT0SvPS6yaZBVY2Wzh7Xl3gZBeNQfiwgeMF30wXSVfEazZAsN5K1XTFvkZCwXfQ6hL10CdoBdJbTq3dfvJuoFGKQdTYe2wsSRxzNcnRcVW6mjVNlKT8ZCIgEtvkh7HGQSxT1WJNye1arbQcYpvZCMzcyZC&fbUserID=189552508182575&format=json" for 127.0.0.1 at 2017-01-04 00:00:30 +0800
+Processing by TinderController#index as JSON
+  Parameters: {"fbToken"=>"EAAE998BGKHABAGnEgX3DzYcHFm8v0XT0SvPS6yaZBVY2Wzh7Xl3gZBeNQfiwgeMF30wXSVfEazZAsN5K1XTFvkZCwXfQ6hL10CdoBdJbTq3dfvJuoFGKQdTYe2wsSRxzNcnRcVW6mjVNlKT8ZCIgEtvkh7HGQSxT1WJNye1arbQcYpvZCMzcyZC", "fbUserID"=>"189552508182575"}
+  Rendering tinder/index.json.jbuilder
+  Rendered tinder/_tinderInfoElement.json.jbuilder (0.4ms)
+  Rendered tinder/index.json.jbuilder (2.2ms)
+Completed 200 OK in 2382ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-04 09:51:43 +0800
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 3204ms (Views: 3202.3ms | ActiveRecord: 0.0ms)
+
+

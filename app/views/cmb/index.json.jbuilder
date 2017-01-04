@@ -1,0 +1,1 @@
+json.array! @cmbInfo, partial: 'cmbInfoElement', as: :cmbInfoElement

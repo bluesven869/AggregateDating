@@ -1,0 +1,1 @@
+json.array! @tinderInfo, partial: 'tinderInfoElement', as: :tinderInfoElement

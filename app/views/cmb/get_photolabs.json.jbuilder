@@ -1,0 +1,1 @@
+json.array! @PhotoLabs, partial: 'bagelsInfoElement', as: :bagelsInfoElement

@@ -1,0 +1,32 @@
+{
+  "name": "ngFacebook",
+  "version": "0.0.7",
+  "description": "Facebook SDK wrapper for AngularJS Apps",
+  "homepage": "https://github.com/ninjatronic/ngFacebook",
+  "authors": [
+    "Pete Martin <pete@ninjatronic.com>",
+    "Tom Brunoli <tom@tombrunoli.com",
+    "Colin Stuart",
+    "N B Payne",
+    "Mateus Jamiolkowski",
+    "Tim O'Sulg <timgluz@gmail.com>"
+  ],
+  "keywords": [
+    "facebook",
+    "angularjs",
+    "sdk",
+    "auth"
+  ],
+  "license": "MIT",
+  "main": "dev/src/unmin/ngFacebook.js",
+  "dependencies": {
+    "angular": "~1.2.x"
+  },
+  "devDependencies": {
+    "angular": "~1.2.x",
+    "angular-mocks": "~1.2.x",
+    "sinon": "~1.12.1",
+    "chai": "~1.10.0",
+    "sinon-chai": "~2.6.0"
+  }
+}

@@ -1,0 +1,1 @@
+json.array! @BaglesList, partial: 'bagelsInfoElement', as: :bagelsInfoElement

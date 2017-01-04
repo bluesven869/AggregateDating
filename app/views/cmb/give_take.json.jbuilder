@@ -1,0 +1,1 @@
+json.array! @GiveTakeResult, partial: 'giveTakeElement', as: :giveTakeElement

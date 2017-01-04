@@ -1,0 +1,1 @@
+json.(cmbInfoElement, :loginResult, :sessionid, :jsonObj)

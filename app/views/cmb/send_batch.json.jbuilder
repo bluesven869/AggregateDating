@@ -1,0 +1,1 @@
+json.array! @BatchInfo, partial: 'bagelsInfoElement', as: :bagelsInfoElement

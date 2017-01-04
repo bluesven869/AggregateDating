@@ -1,0 +1,1 @@
+json.array! @ReportResult, partial: 'bagelsInfoElement', as: :bagelsInfoElement
