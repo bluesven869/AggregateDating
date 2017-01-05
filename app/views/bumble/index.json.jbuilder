@@ -1,0 +1,1 @@
+json.array! @bumbleInfo, partial: 'bumbleInfoElement', as: :bumbleInfoElement

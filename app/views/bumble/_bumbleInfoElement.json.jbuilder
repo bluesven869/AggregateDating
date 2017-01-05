@@ -1,0 +1,1 @@
+json.(bumbleInfoElement, :Result, :jsonObj)

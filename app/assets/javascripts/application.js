@@ -19,4 +19,5 @@
 //= require ng-file-upload-shim
 //= require ng-file-upload
 //= require ngFacebook/dev/src/unmin/ngFacebook
+//= require slider
 //= require_tree .

@@ -2,19 +2,52 @@
 <header class="row">
   <h1 class="text-center col-md-6 col-md-offset-3">Login Form</h1>
 </header>
-<div class="general_div completed">
+<div class="main_div text-center" ng-controller="LoginController">
 <section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="loginFacebook()">CMB Login with Facebook</button>
+  <img id="imageLogo" class="login_button" src="http://www.freeiconspng.com/uploads/facebook-sign-in-button-png-26.png" alt="Facebook Sign In Button Png"  data-ng-click="loginFacebook()">
+
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <span class='loading-bar' ng-if="login_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  
+  <label class='loading-bar' ng-if="fb_login_flag"></label>  
 </section>
-<section ng-if="!login_flag && cmbInfo">  
-  <div class="cmb_info">
-    <label>FaceBook Token</label> <span class='my_info'>{{fbToken}}</span><br />
-    <label>Session ID</label><span class='my_info'>{{sessionid}}</span> <br />
-    <label>User ID</label> <span class='my_info'>{{cmbInfo[0].jsonObj.profile_id}}</span> <br />
-    <label>Upgrade Available</label>  <span class='my_info'>{{cmbInfo[0].jsonObj.upgrade_available}}</span><br />
-    <label>Success </label>  <span class='my_info'>{{cmbInfo[0].jsonObj.success}}</span><br />
-    <label>Received From CMB</label> <span class='my_info'>{{cmbInfo[0]}}</span><br />
+<section>
+  <label>FB Token&nbsp;&nbsp;&nbsp;&nbsp;</label> : <input type=text  value ="{{fbToken}}" /><br />    
+  <label>FB UserID&nbsp;&nbsp;&nbsp;&nbsp;</label> : <input type=text  value ="{{fbUserID}}" /><br />
 </section>
+<div class="clear"></div>
+<div class="text-center margin-top-10">    
+<label  class="dating-site">    
+    <label id="tinder" class="tinder">
+      <label class="Checked">&nbsp;</label> 
+      <label class="UnChecked">&nbsp;</label> 
+    </label> 
+    <div  class="pro-bar-container color-green-sea width-200">
+      <div ng-if="tinder_login_flag" class="pro-bar bar-100 color-turquoise" data-pro-bar-percent="100" data-pro-bar-delay="100">
+        <div class="pro-bar-candy candy-ltr"></div>
+      </div>
+    </div>    
+</label>
+<label  class="dating-site">    
+    <label id="cmb" class="cmb"> 
+      <label class="Checked">&nbsp;</label> 
+      <label class="UnChecked">&nbsp;</label> 
+    </label> 
+    <div class="pro-bar-container ccolor-peter-river width-200">
+      <div ng-if="cmb_login_flag"  class="pro-bar bar-100 color-peter-river" data-pro-bar-percent="100" data-pro-bar-delay="100">
+        <div class="pro-bar-candy candy-ltr"></div>
+      </div>
+    </div>    
+</label>
+<label  class="dating-site">    
+    <label id="bumble" class="bumble"> 
+      <label class="Checked">&nbsp;</label> 
+      <label class="UnChecked">&nbsp;</label> 
+    </label> 
+    <div  class="pro-bar-container color-pomegranate width-200">
+      <div ng-if="bumble_login_flag" class="pro-bar bar-100 color-pomegranate" data-pro-bar-percent="100" data-pro-bar-delay="100">
+        <div class="pro-bar-candy candy-ltr"></div>
+      </div>
+    </div>    
+</label>
+</div>
 </div>

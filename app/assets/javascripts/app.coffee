@@ -6,13 +6,17 @@ aggregate_dating = angular.module('aggregate_dating',[
   	'facebook',
     'ngFileUpload'
 ])
-
+MyAuthInfo = []
 aggregate_dating.config([ '$routeProvider',
   	($routeProvider)->
     	$routeProvider
-      	.when('/',
-          templateUrl: "index.html"
-          controller: 'CMBController'
+        .when('/main',
+          templateUrl: "main.html"
+          controller: 'AggController'
+        )
+        .when('/login',
+          templateUrl: "login.html"
+          controller: 'LoginController'
         )
 ])
 
@@ -20,7 +24,7 @@ aggregate_dating.config([ '$facebookProvider',
  	($facebookProvider)->
       	$facebookProvider
         .init({
-            appId: '349609268750448'
+            appId: '1609654029341787'
         })
 ])
 
@@ -30,15 +34,99 @@ aggregate_dating.config(['$qProvider',
 ])
 
 
-cmbInfo = []
-
 controllers = angular.module('controllers',[])
-controllers.controller("CMBController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource', 'Upload'
+
+controllers.controller("LoginController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource', '$timeout'
+  ($scope,$routeParams,$location,$facebook,$http, $resource, $timeout)->
+    $scope.fb_login_flag = false 
+    $scope.loginFacebook = ->
+      $scope.fb_login_flag = true
+      $facebook.login(scope: 'email').then ((response) ->        
+        MyAuthInfo.fbToken = response.authResponse.accessToken
+        MyAuthInfo.fbUserID = response.authResponse.userID
+        $scope.fbToken = response.authResponse.accessToken
+        $scope.fbUserID = response.authResponse.userID        
+        $scope.fb_login_flag = false
+        $scope.loginTinder()
+    ), (response) ->
+        console.log 'FB Login Error', response
+
+    $scope.loginTinder = ->
+      $scope.tinderInfo = [] 
+      $scope.tinder_login_flag = true
+      Tinder = $resource('/tinder', { format: 'json' })
+      Tinder.query(fbToken: $scope.fbToken, fbUserID: $scope.fbUserID , (results) -> 
+        $scope.tinderInfo = results        
+        if( results[0].Result == "success" )        
+          console.log "Tinder Login Success"
+          $("#tinder .Checked").show();
+          $("#tinder .UnChecked").hide();
+        else
+          console.log "Tinder Login Failed"
+          $("#tinder .UnChecked").show();
+          $("#tinder .Checked").hide();
+        $scope.tinder_login_flag = false
+        $scope.loginCMB()
+      )
+    $scope.loginCMB = ->
+      #login with CMB
+      #CURL commands:
+      # 1. curl https://api.coffeemeetsbagel.com/profile/me -H "App-version: 779" -H
+      $scope.cmb_login_flag = true
+      MyAuthInfo.cmbInfo = [] 
+      Cmb = $resource('/cmb', { format: 'json' })
+      Cmb.query(fbToken: MyAuthInfo.fbToken , (results) ->         
+        console.log results[0]
+        if( results[0].loginResult == "success" )        
+          console.log "CMB Login Success"
+          MyAuthInfo.cmbInfo.profile_id = results[0].jsonObj.profile_id
+          MyAuthInfo.cmbInfo.sessionid = results[0].sessionid        
+          $("#cmb .Checked").show();
+          $("#cmb .UnChecked").hide();
+        else
+          console.log "CMB Login Failed"
+          $("#cmb .UnChecked").show();
+          $("#cmb .Checked").hide();
+        $scope.cmb_login_flag = false
+        $scope.loginBumble()        
+      )
+    $scope.loginBumble = ->
+      #login with CMB
+      #CURL commands:
+      # 1. curl https://api.coffeemeetsbagel.com/profile/me -H "App-version: 779" -H
+      $scope.bumble_login_flag = true
+      MyAuthInfo.bumbleInfo = [] 
+      Bumble = $resource('/bumble', { format: 'json' })
+      Bumble.query(fbToken: MyAuthInfo.fbToken , (results) ->         
+        if( results[0].loginResult == "success" )        
+          console.log "Bumble Login Success"
+          MyAuthInfo.bumbleInfo.profile_id = results[0].jsonObj.profile_id
+          MyAuthInfo.bumbleInfo.sessionid = results[0].sessionid        
+          $("#bumble .Checked").show();
+          $("#bumble .UnChecked").hide();          
+        else
+          console.log "Bumble Login Failed"
+          $("#bumble .UnChecked").show();
+          $("#bumble .Checked").hide();
+        $scope.bumble_login_flag = false                
+        $timeout ->
+          $location.path('/main');
+        , 2000;
+        
+      )        
+])
+
+
+
+controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource', 'Upload'
   ($scope,$routeParams,$location,$facebook,$http,$resource, Upload)->
     
     $scope.login_flag = false
-    #if(not $scope.fbToken?)
-    console.log $routeParams
+    console.log MyAuthInfo.fbToken
+    #if(not MyAuthInfo.fbToken?)
+    #  $location.path('/login')
+
+    
     $scope.loginFacebook = ->
       #   Login with FaceBook           
       $scope.login_flag = true

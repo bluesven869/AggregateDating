@@ -1,25 +1,0 @@
-{:uriI"àfile://app/assets/javascripts/templates/login.html?type=text/ng-html&id=dbee7e8f450c36fc3953cdbe9c4f6cfe70392d243a23be0db156dae9d181e41a:ET:load_pathI"app/assets/javascripts;T:filenameI"0app/assets/javascripts/templates/login.html;T:	nameI"templates/login;T:logical_pathI"templates/login.html;T:content_typeI"text/ng-html;T:sourceI"6
-<header class="row">
-  <h1 class="text-center col-md-6 col-md-offset-3">Login Form</h1>
-</header>
-<div class="general_div completed">
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="loginFacebook()">CMB Login with Facebook</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <span class='loading-bar' ng-if="login_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!login_flag && cmbInfo">  
-  <div class="cmb_info">
-    <label>FaceBook Token</label> <span class='my_info'>{{fbToken}}</span><br />
-    <label>Session ID</label><span class='my_info'>{{sessionid}}</span> <br />
-    <label>User ID</label> <span class='my_info'>{{cmbInfo[0].jsonObj.profile_id}}</span> <br />
-    <label>Upgrade Available</label>  <span class='my_info'>{{cmbInfo[0].jsonObj.upgrade_available}}</span><br />
-    <label>Success </label>  <span class='my_info'>{{cmbInfo[0].jsonObj.success}}</span><br />
-    <label>Received From CMB</label> <span class='my_info'>{{cmbInfo[0]}}</span><br />
-</section>
-</div>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI">file-digest://app/assets/javascripts/templates/login.html;TTF:charsetI"
-utf-8;F:digest"%¡ë‚Ω˘‰ˆnJ›ÏÜ]¢^≈µ∫â F¶Ä€b:lengthi6:dependencies_digest"%öSh¸Î≤D≠&ç≈	ñ`áW'0…°v€‰jJ<Yë¢:idI"Edbee7e8f450c36fc3953cdbe9c4f6cfe70392d243a23be0db156dae9d181e41a;F:
-mtimel+jTlX
