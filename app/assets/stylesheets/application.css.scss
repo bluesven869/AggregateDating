@@ -396,3 +396,98 @@ h1{
 	-o-animation: progressStripeRTL .6s linear infinite;
 	animation: progressStripeRTL .6s linear infinite;
 }
+
+
+.bagel_profile{
+	width:485px;
+	margin:0 auto;
+	.toolbox{
+		height:260px;
+		position: relative;
+		.pass{
+			width:123px;
+			height:123px;
+			position: absolute;
+			cursor: pointer;
+			left:45px;
+			top:30px;
+			background: url(../Images/close.png);
+		}
+		.pass:hover{
+			background: url(../Images/close-h.png);
+		}	
+		.like{
+			width:123px;
+			height:123px;
+			position: absolute;
+			cursor: pointer;
+			left:310px;
+			top:30px;
+			background: url(../Images/like.png);
+		}
+		.like:hover{
+			background: url(../Images/like-h.png);
+		}	
+
+		.woo-like{
+			width:72px;
+			height:72px;
+			position: absolute;
+			cursor: pointer;
+			left:150px;
+			top:150px;
+			background: url(../Images/woo-like.png);
+		}
+		.woo-like:hover{
+			background: url(../Images/woo-like-h.png);
+		}		
+
+		.super-like{
+			width:72px;
+			height:72px;
+			position: absolute;
+			cursor: pointer;
+			left:260px;
+			top:150px;
+			background: url(../Images/super-like.png);
+		}
+		.super-like:hover{
+			background: url(../Images/super-like-h.png);
+		}		
+	}
+}
+
+.aboutme{
+	.profile{
+		margin-top:30px;margin-bottom:30px;
+		height: 115px;
+		overflow: auto;
+	}
+}
+.nick-name{
+	height:85px;
+	border-top:1px solid #ebebeb;
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #595d68;
+		position: absolute;
+		left:30px;
+		top:25px;
+	}
+	.name{
+		font-size:20px;
+		position: absolute;
+		left:80px;
+		top:28px;
+	}
+}

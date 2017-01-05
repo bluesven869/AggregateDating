@@ -148,6 +148,7 @@ SKY.Timer.prototype = {
     }
 };
 SKY.CarouselItem = function(a, b) {
+
     this.element = a;
     this.carousel = b;
     this.actualWidth = b.settings.itemWidth;
@@ -366,7 +367,7 @@ SKY.Carousel = function(a, b) {
         gradientStartPoint: 0.15,
         gradientEndPoint: 1,
         gradientOverlayVisible: !0,
-        gradientOverlayColor: "#000",
+        gradientOverlayColor: "#fff",
         gradientOverlaySize: 215,
         reflectionVisible: !1,
         reflectionDistance: 4,
@@ -566,8 +567,10 @@ SKY.Carousel.prototype = {
             this.contentContainer.find("p").html(a.content.children("p").html())) : (this.contentContainer.find("h2").empty(), this.contentContainer.find("p").empty())
     },
     getStartItem: function() {
+
         var a = this.settings.startIndex;
         "auto" === a && (a = Math.round(this.carouselItems.length / 2) - 1);
+
         return this.carouselItems[a]
     },
     zSort: function(a) {
@@ -581,6 +584,7 @@ SKY.Carousel.prototype = {
         a = null
     },
     select: function(a, b) {
+    	// Add Select Code
         var c = this.settings;
         if ("number" === typeof a) var d = this.carouselItems[a];
         else "object" === typeof a && (d = a);
@@ -611,6 +615,7 @@ SKY.Carousel.prototype = {
         this.extraDistanceUnit = a.selectedItemDistance / a.motionStartDistance
     },
     update: function() {
+
         for (var a = this, b = this.settings, c = this.container,
                 d = c.getLeft(), g = [], e = 0; e < this.carouselItems.length; e++) {
             var f = this.carouselItems[e],
@@ -669,6 +674,7 @@ SKY.Carousel.prototype = {
         return Math.ceil((this.settings.motionStartDistance - a) * this.extraDistanceUnit)
     },
     onStart: function(a) {
+
         function b(a) {
             var b = a.originalEvent,
                 c = SKY.Utils.hasTouchSupport() ? b.touches[0].clientX : a.clientX,
@@ -769,12 +775,15 @@ SKY.Carousel.prototype = {
             var e = $('<canvas class="sc-overlay" width="' + g + '" height="1"></canvas'),
                 f = e.get(0).getContext("2d");
             d = SKY.Utils.hexToRGB(d);
+            d.r = 255;
+            d.g = 255;
+            d.b = 255;
             var h = null;
             e.css("width", g + "px");
             e.addClass("sc-overlay-" + a);
             "left" == a ? h = f.createLinearGradient(0, 0, g, 0) : "right" == a && (h = f.createLinearGradient(g, 0, 0, 0));
             h.addColorStop(b, "rgba(" + d.r + ", " + d.g + ", " + d.b + ", 1.0)");
-            h.addColorStop(c, "rgba(" + d.r + ", " + d.g + ", " + d.b + ", 0)");
+            h.addColorStop(c, "rgba(" + d.r + ", " + d.g + ", " + d.b + ", 0)");            
             f.fillStyle = h;
             f.fillRect(0, 0, g, 1);
             return e
@@ -788,6 +797,7 @@ SKY.Carousel.prototype = {
             var d = a(this);
             d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
             c.push(d.data("sky-carousel"))
+
         });
         return 1 < c.length ? c : c[0]
     }
