@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="CSS/tooltip_skin_variation.css" type="text/css" rel="stylesheet">
 <script src="JS/jquery_002.js"></script>
 <script type="text/javascript" src="JS/jquery.js"></script>
@@ -44,7 +45,7 @@
         <div style="visibility: visible; opacity: 1;" class="sky-carousel-wrapper">
           <ul style="margin-top: 115px; left: -1556px; transition: left 0.45s ease-out 0s;" class="sky-carousel-container">
             <li class="general_li" ng-repeat="bagel in BagelsList">
-              <img class="sc-image" src="{{bagel.image}}" alt="">
+              <img class="sc-image" src='{{bagel.image}}' alt="BAGELS">
               <div class="my-content">
                 <span class="bagel-name">{{bagel.name}}, {{bagel.age}},</span> <span class="bagel-nearby">{{bagel.nearby}} miles from you</span> <br />
                 <span class="bagel-school">{{bagel.school}}</span> 
@@ -63,10 +64,10 @@
 </div>
 <div class="bagel_profile">
   <section class="toolbox"> 
-    <div class="pass"></div>
-    <div class="like"></div>
-    <div class="woo-like"></div>
-    <div class="super-like"></div>
+    <div class="pass"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
+    <div class="like"><i class="fa fa-check fa-3x" aria-hidden="true"></i></div>
+    <div class="woo-like">Woo<br />Like</div>
+    <div class="super-like">Super<br />Like</div>
   </section>
   <section class="aboutme">
     <label>Profile Title</label>
@@ -77,20 +78,31 @@
     </p>
   </section>
   <section class="nick-name">
-    <p class="img-div">SC</p><p class=name>Jessicaarc  </p>
+    <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
   </section>
-  <section>
-      DIE FOR YOU LOREM ISPUM CONTENT MUSIC
-      (IMG) Paul VAN DYK
-      <div>MUSIC LIST</div>
-      <div>Share your spotify <button>Link Spotify</button></div>
+  <section class="music-spotify">
+      DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
+      <label class="img-div">SF</label><label class=name>PAUL BAN DYK  </label>
+      <div>MUSIC LIST</div><br />
+      <div>
+      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+      </div>
+      <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
   </section>
-  <section>
-    209 Photos Instagram
-    <div>
-      Images....
-    </div>
-    <div>Share your Instagram <button>Link Instagram</button></div>
+  <section class="photos">
+      <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br /><br />
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+      <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
   </section>
 </div>
 
@@ -101,6 +113,8 @@
       itemHeight: 485,
       distance: 0,
       selectedItemDistance: 0,
+      enableMouseWheel:0,
+      loop:0,
       selectedItemZoomFactor: 1,
       unselectedItemZoomFactor: 0.85,
       unselectedItemAlpha: 0.6,

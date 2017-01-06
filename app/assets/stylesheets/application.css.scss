@@ -16,6 +16,8 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+
 body{
   padding-top: $navbar-height;
   font-family: "Times New Roman", Times, serif;
@@ -399,7 +401,7 @@ h1{
 
 
 .bagel_profile{
-	width:485px;
+	width:475px;
 	margin:0 auto;
 	.toolbox{
 		height:260px;
@@ -407,14 +409,18 @@ h1{
 		.pass{
 			width:123px;
 			height:123px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #595d68;
 			position: absolute;
 			cursor: pointer;
 			left:45px;
 			top:30px;
-			background: url(../Images/close.png);
+			padding: 40px;
 		}
 		.pass:hover{
-			background: url(../Images/close-h.png);
+			background-color: #5d9fff;
 		}	
 		.like{
 			width:123px;
@@ -423,10 +429,14 @@ h1{
 			cursor: pointer;
 			left:310px;
 			top:30px;
-			background: url(../Images/like.png);
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #595d68;
+			padding: 40px;
 		}
 		.like:hover{
-			background: url(../Images/like-h.png);
+			background-color: #5d9fff;
 		}	
 
 		.woo-like{
@@ -436,10 +446,15 @@ h1{
 			cursor: pointer;
 			left:150px;
 			top:150px;
-			background: url(../Images/woo-like.png);
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #595d68;
+			text-align: center;
+			padding-top:20px;
 		}
 		.woo-like:hover{
-			background: url(../Images/woo-like-h.png);
+			background-color: #5d9fff;
 		}		
 
 		.super-like{
@@ -449,10 +464,15 @@ h1{
 			cursor: pointer;
 			left:260px;
 			top:150px;
-			background: url(../Images/super-like.png);
+			text-align: center;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			padding-top:20px;
+			background-color: #595d68;
 		}
 		.super-like:hover{
-			background: url(../Images/super-like-h.png);
+			background-color: #5d9fff;
 		}		
 	}
 }
@@ -480,14 +500,120 @@ h1{
 		-moz-border-radius: 50%;
 		border-radius: 50%;
 		background-color: #595d68;
-		position: absolute;
-		left:30px;
-		top:25px;
+		position: relative;
+		margin-left:5px;
+		margin-top:25px;
 	}
 	.name{
 		font-size:20px;
-		position: absolute;
-		left:80px;
-		top:28px;
+		position: relative;
+		margin-left:20px;
+		margin-top:25px;
 	}
+}
+.music-spotify{	
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	padding-top:30px;
+	padding-bottom: 30px;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #555c66;
+		margin-left:5px;
+	}
+	.name{
+		margin-left:20px;
+		font-size:20px;		
+	}	
+	.music{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-right:15px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
+		
+	}
+	.music:last{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-right:0px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
+		
+	}
+	.music:hover{
+		color:blue;
+	}
+	
+}
+.general_button{
+	background-color: #fff;
+	border:2px solid #ebebeb;
+	padding:5px;
+}
+.photos{	
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	padding-top:30px;
+	padding-bottom: 30px;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #555c66;
+		margin-left:5px;
+		text-align: center;
+	}
+	.name{
+		margin-left:20px;
+		font-size:20px;		
+	}	
+	.picture{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-right:15px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
+	}
+	.picture:hover{
+		color:blue;
+	}
+}
+.button-box{
+	margin-top:20px;
 }

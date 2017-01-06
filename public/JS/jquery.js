@@ -496,11 +496,12 @@ SKY.Carousel.prototype = {
                 c = $('<a href="#" class="sc-nav-button sc-next sc-no-select"></a>');
             this.dom.carousel.append(b);
             this.dom.carousel.append(c);
-            b.on("click", function(b) {
+            b.on("click", function(b) {                
                 b.preventDefault();
                 a.selectPrevious(a.settings.slideSpeed)
             });
             c.on("click", function(b) {
+                
                 b.preventDefault();
                 a.selectNext(a.settings.slideSpeed)
             })
@@ -525,7 +526,7 @@ SKY.Carousel.prototype = {
             }
         })
     },
-    initMouseWheelSupport: function() {
+    initMouseWheelSupport: function() {        
         var a = this,
             b = this.settings,
             c = this.dom.carousel.get(0);
@@ -564,6 +565,7 @@ SKY.Carousel.prototype = {
         })
     },
     setCurrentContent: function(a) {
+        //  Add Select Code
         0 < a.content.length ? (this.contentContainer.find("h2").html(a.content.children("h2").html()),
             this.contentContainer.find("p").html(a.content.children("p").html())) : (this.contentContainer.find("h2").empty(), this.contentContainer.find("p").empty())
     },
@@ -585,7 +587,7 @@ SKY.Carousel.prototype = {
         a = null
     },
     select: function(a, b) {
-    	// Add Select Code
+    	
         var c = this.settings;
         if ("number" === typeof a) var d = this.carouselItems[a];
         else "object" === typeof a && (d = a);
@@ -600,13 +602,16 @@ SKY.Carousel.prototype = {
         })
     },
     selectNext: function(a) {
-        var b = this.selectedItem.index();
-        b == this.carouselItems.length - 1 && (b = -1);
+
+        var b = this.selectedItem.index();        
+        if(b == this.carouselItems.length - 1) return;
+        //b == this.carouselItems.length - 1 && (b = -1);
         this.select(b + 1, a)
     },
     selectPrevious: function(a) {
         var b = this.selectedItem.index();
-        0 == b && (b = this.carouselItems.length);
+        if(b == 0) return;
+        //0 == b && (b = this.carouselItems.length);
         this.select(b - 1, a)
     },
     calculateUnits: function() {
@@ -712,6 +717,7 @@ SKY.Carousel.prototype = {
             d.dom.document.off(d.events.endEvent,
                 c);
             d.events.touchCancel && d.dom.document.off(d.events.touchCancel, c);
+            
             0 == Math.abs(startX - e) ? (e = $(document.elementFromPoint(e, a)), e.hasClass("sc-image") ? (e.parent().is("a") && (e = e.parent()), e = d.carouselItems[e.parent().index()], g.selectByClick && e !== d.selectedItem ? d.select(e, g.slideSpeed) : g.selectByClick && e === d.selectedItem && d.selectNext(g.slideSpeed)) : g.selectByClick && d.selectNext(g.slideSpeed)) : (0 == f && (0 < Math.abs(m) && d.closestItem.index() == d.selectedItem.index()) && (f = 0 < m ? 1 : 0 > m ? -1 : 0), h += f, h = 0 > h ? 0 : h > k -
                 1 ? k - 1 : h, !u && !q && d.select(h, g.slideSpeed));
             d.dragging = !1;

@@ -45,9 +45,15 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
         MyAuthInfo.fbToken = response.authResponse.accessToken
         MyAuthInfo.fbUserID = response.authResponse.userID
         $scope.fbToken = response.authResponse.accessToken
-        $scope.fbUserID = response.authResponse.userID        
-        $scope.fb_login_flag = false
-        $scope.loginTinder()
+        $scope.fbUserID = response.authResponse.userID 
+        $facebook.api('/me').then((response) ->
+            MyAuthInfo.fbName = response.name;
+            MyAuthInfo.fbPhoto = "http://graph.facebook.com/"+response.id+"/picture"
+            console.log MyAuthInfo.fbPhoto
+            $scope.fb_login_flag = false
+            $scope.loginTinder()
+        )       
+        
     ), (response) ->
         console.log 'FB Login Error', response
 
