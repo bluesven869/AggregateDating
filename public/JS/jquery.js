@@ -40,13 +40,14 @@ SKY.Utils = {
         return this.prefixedProps[a]
     },
     setCursor: function(a) {
+
         switch (a) {
             case "openhand":
                 $("body").css("cursor",
-                    "url(images/sc-graphics/openhand.cur), auto");
+                    "url(../Images/openhand.cur), auto");
                 break;
             case "closedhand":
-                $("body").css("cursor", "url(images/sc-graphics/closedhand.cur), auto");
+                $("body").css("cursor", "url(../Images/closedhand.cur), auto");
                 break;
             default:
                 $("body").css("cursor", a)
