@@ -148,8 +148,7 @@ SKY.Timer.prototype = {
         this.currentCount == this.repeatCount && (this.reset(), this.stop(), this.publish("timercomplete"))
     }
 };
-SKY.CarouselItem = function(a, b) {
-
+SKY.CarouselItem = function(a, b) {    
     this.element = a;
     this.carousel = b;
     this.actualWidth = b.settings.itemWidth;
@@ -390,6 +389,7 @@ SKY.Carousel = function(a, b) {
 };
 SKY.Carousel.prototype = {
     init: function() {
+        this.prev_object = -1;
         this.initDOM();
         this.initConfigParams();
         this.initEvents();
@@ -566,6 +566,7 @@ SKY.Carousel.prototype = {
     },
     setCurrentContent: function(a) {
         //  Add Select Code
+        
         0 < a.content.length ? (this.contentContainer.find("h2").html(a.content.children("h2").html()),
             this.contentContainer.find("p").html(a.content.children("p").html())) : (this.contentContainer.find("h2").empty(), this.contentContainer.find("p").empty())
     },
@@ -586,8 +587,7 @@ SKY.Carousel.prototype = {
             this.onClosestChanged(this.closestItem));
         a = null
     },
-    select: function(a, b) {
-    	
+    select: function(a, b) {        
         var c = this.settings;
         if ("number" === typeof a) var d = this.carouselItems[a];
         else "object" === typeof a && (d = a);
@@ -601,8 +601,11 @@ SKY.Carousel.prototype = {
             item: this.selectedItem
         })
     },
+    selectNext1: function(a) {
+        
+    },
     selectNext: function(a) {
-
+        
         var b = this.selectedItem.index();        
         if(b == this.carouselItems.length - 1) return;
         //b == this.carouselItems.length - 1 && (b = -1);
@@ -707,6 +710,7 @@ SKY.Carousel.prototype = {
         }
 
         function c(a) {
+
             var f = a.originalEvent,
                 e = SKY.Utils.hasTouchSupport() ? f.changedTouches[0].clientX : a.clientX;
             a = SKY.Utils.hasTouchSupport() ? f.changedTouches[0].clientY : a.clientY;
@@ -718,7 +722,7 @@ SKY.Carousel.prototype = {
                 c);
             d.events.touchCancel && d.dom.document.off(d.events.touchCancel, c);
             
-            0 == Math.abs(startX - e) ? (e = $(document.elementFromPoint(e, a)), e.hasClass("sc-image") ? (e.parent().is("a") && (e = e.parent()), e = d.carouselItems[e.parent().index()], g.selectByClick && e !== d.selectedItem ? d.select(e, g.slideSpeed) : g.selectByClick && e === d.selectedItem && d.selectNext(g.slideSpeed)) : g.selectByClick && d.selectNext(g.slideSpeed)) : (0 == f && (0 < Math.abs(m) && d.closestItem.index() == d.selectedItem.index()) && (f = 0 < m ? 1 : 0 > m ? -1 : 0), h += f, h = 0 > h ? 0 : h > k -
+            0 == Math.abs(startX - e) ? (e = $(document.elementFromPoint(e, a)), e.hasClass("sc-image") ? (e.parent().is("a") && (e = e.parent()), e = d.carouselItems[e.parent().index()], g.selectByClick && e !== d.selectedItem ? d.select(e, g.slideSpeed) : g.selectByClick && e === d.selectedItem && d.selectNext1(g.slideSpeed)) : g.selectByClick && d.selectNext1(g.slideSpeed)) : (0 == f && (0 < Math.abs(m) && d.closestItem.index() == d.selectedItem.index()) && (f = 0 < m ? 1 : 0 > m ? -1 : 0), h += f, h = 0 > h ? 0 : h > k -
                 1 ? k - 1 : h, !u && !q && d.select(h, g.slideSpeed));
             d.dragging = !1;
             d.updateCursor()
