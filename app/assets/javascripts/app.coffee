@@ -18,6 +18,14 @@ aggregate_dating.config([ '$routeProvider',
           templateUrl: "login.html"
           controller: 'LoginController'
         )
+        .when('/list',
+          templateUrl: "list.html"
+          controller: 'AggController'
+        )
+        .when('/',
+          templateUrl: "list.html"
+          controller: 'AggController'
+        )
 ])
 
 aggregate_dating.config([ '$facebookProvider',

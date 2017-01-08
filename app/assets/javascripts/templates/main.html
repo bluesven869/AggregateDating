@@ -45,11 +45,27 @@
         <div style="visibility: visible; opacity: 1;" class="sky-carousel-wrapper">
           <ul style="margin-top: 115px; left: -1556px; transition: left 0.45s ease-out 0s;" class="sky-carousel-container">
             <li class="general_li" ng-repeat="bagel in BagelsList">
-              <img class="sc-image" src='{{bagel.image}}' alt="BAGELS">
-              <div class="my-content">
+              <img class="sc-image" ng-src='{{bagel.image}}' alt="BAGELS">              
+              <div class="my-content">                
                 <span class="bagel-name">{{bagel.name}}, {{bagel.age}},</span> <span class="bagel-nearby">{{bagel.nearby}} miles from you</span> <br />
                 <span class="bagel-school">{{bagel.school}}</span> 
                 <button class="read-more">View More</button>
+              </div>
+              <div class="share-friends">
+                <span class="share-text">share friends</span>
+                <div>
+                  <span style="float: left">
+                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                  </span>
+                  <span style="float: right">
+                  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+                  </span>
+                </div>
+
               </div>
             </li>
           </ul>

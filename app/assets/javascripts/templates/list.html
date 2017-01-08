@@ -1,5 +1,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+  .bagles .bagel{
+    height:135px;
+    border-bottom: 1px solid #eeeeee;
+    padding-top:15px;
+    padding-bottom:15px;  
+  }
+  .user-image{
+    width:66px;
+    height:66px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
 
+  .pie{
+    width:92px;
+    height:92px;
+    padding:6px;
+    border:8px solid #dcdcdc; 
+    background: none;
+    border-radius: 50px 50px 50px 50px;
+  }
+
+</style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
@@ -10,9 +34,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">LOGO</a>
+      <a class="navbar-brand" href="#">LOGO</a>   
     </div>
-
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
       <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
 
@@ -31,10 +54,38 @@
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
-<div class="container">
+<div class="container1">
   <div class="row">
-    <div>LEFT SIDE</div>
-    <div>CONTENTS</div>
-    <div>RIGHT SIDE</div>
+    <div class="col-sm-3 ">
+      <section id="search">
+        <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search icons</span></label>
+        <input id="search-input" class="form-control input-lg" placeholder="Search icons" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+        <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+      </section>
+      <section>Filter</section>
+        
+      </section>
+      <section>
+      <div class="bagles">        
+        <div class="bagle">
+          <img class="user-image pie" ng-src='Images/1.jpg' />
+        </div>
+        <div>
+          bbb
+        </div>
+      </div>
+      </section>
+    </div>
+    <div class="col-sm-6">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor..</p>
+      <p>Ut enim ad..</p>
+    </div>
   </div>
 </div>
+<section>
