@@ -18,11 +18,23 @@
     width:92px;
     height:92px;
     padding:6px;
-    border:8px solid #dcdcdc; 
-    background: none;
-    border-radius: 50px 50px 50px 50px;
+    border:8px solid rgba(0,0,0,0.4);      
+    background-image:
+        /* 10% = 126deg = 90 + ( 360 * .1 ) */
+        linear-gradient(126deg, transparent 50%, white 50%),
+        linear-gradient(90deg, white 50%, transparent 50%);
   }
+.my_pie {
+    border-radius: 50%;
+    background-color: green;
+}
 
+.ten {
+    background-image:
+        /* 10% = 126deg = 90 + ( 360 * .1 ) */
+        linear-gradient(126deg, transparent 50%, white 50%),
+        linear-gradient(90deg, white 50%, transparent 50%);
+}
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
@@ -70,7 +82,7 @@
         <div class="bagle">
           <img class="user-image pie" ng-src='Images/1.jpg' />
         </div>
-        <div>
+        <div class="my_pie">
           bbb
         </div>
       </div>
