@@ -3,6 +3,7 @@
   .bagels{
     height:500px;
     overflow: auto;
+    min-width: 340px;
   }
   .bagels .bagel{
     height:135px;
@@ -85,6 +86,19 @@
     color: #000;
     font-size:1em;
   }
+  .chat-mine{
+    border:1px solid #d3d3d3;
+    padding: 10px;
+    position: relative;
+    width:80%;
+    float:left;
+  }
+  .chat-bagel{
+    border:1px solid #d3d3d3;
+    padding: 10px;
+    width:80%;
+    float: right;
+  }
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
@@ -142,9 +156,11 @@
       </section>
     </div>
     <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor..</p>
-      <p>Ut enim ad..</p>
+
+      <p class="chat-mine">Lorem ipsum dolor..</p>
+      <p class="chat-bagel">Lorem ipsum dolor..</p>
+      <p class="chat-mine">Lorem ipsum dolor..</p>
+      <p class="chat-bagel">Lorem ipsum dolor..</p>
     </div>
     <div class="col-sm-4">
       <div class="bagel_profile">
