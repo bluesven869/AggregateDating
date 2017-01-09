@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
   .bagels{
-    height:500px;
-    overflow: auto;
+    
     min-width: 340px;
   }
   .bagels .bagel{
@@ -99,6 +98,25 @@
     width:80%;
     float: right;
   }
+  .send-message{
+    width:100%;
+    height:55px;
+  }
+  .send-message button{
+    width:155px;
+    height:55px;
+    background-color: #616872;    
+    border: none;
+    color: white;
+    float:right;
+    font-size:1.5em;
+  }
+  .send-message input{
+    height:55px;
+    float:left;
+    width:@width-155;
+    border:1px solid #d3d3d3;
+  }
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
@@ -149,18 +167,21 @@
           <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
           <label class="name">{{bagel.name}}, {{bagel.age}}</label>
           <label class="short-description">{{bagel.aboutme}}</label>
-          <p class="expire-days-label">T</p>
-          <p class="expire-days-span">3 days expires</p>
+          <p class="expire-days-label">{{bagel.CAP}}</p>
+          <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
         </div>
       </div>
       </section>
     </div>
     <div class="col-sm-4">
-
       <p class="chat-mine">Lorem ipsum dolor..</p>
       <p class="chat-bagel">Lorem ipsum dolor..</p>
       <p class="chat-mine">Lorem ipsum dolor..</p>
       <p class="chat-bagel">Lorem ipsum dolor..</p>
+      <div class="send-message">
+        <input ng-model='msg_input'>
+        <button>Send</button>
+      </div>
     </div>
     <div class="col-sm-4">
       <div class="bagel_profile">
