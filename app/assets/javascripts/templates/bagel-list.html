@@ -1,31 +1,38 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-  .bagels{
-    
-    min-width: 340px;
+  .bagels{    
+    padding-left: 20px;
+      
+  }
+  .bagels .bagel-header{
+    height:50px;
+    padding-top:20px;
+    font-size:2em;
+    color:#999;
+    text-align: center;
   }
   .bagels .bagel{
-    height:135px;
+    height:320px;
+    width:260px;
     border-bottom: 1px solid #eeeeee;
     padding-top:15px;
     padding-bottom:15px;  
     position: relative;
   }
   .bagels .bagel .user-image{
-    width:66px;
-    height:66px;
+    width:180px;
+    height:180px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     position:absolute;
-    left:23px;
-    top:33px;
+    left:32px;
+    top:42px;
   }
-
   .bagels .bagel .pie-border{
-    width:92px;
-    height:92px;
-    padding:6px;
+    width:224px;
+    height:224px;
+    padding:16px;
     border:8px solid rgba(0,0,0,0.4);      
     border-top-color: transparent;    
     -ms-transform: rotate(30deg); /* IE 9 */
@@ -40,19 +47,21 @@
   }
   .bagels .bagel .star{
     position: absolute;
-    left:70px;
-    top:22px;
-    color: #999;
-    font-size:1.4em;
+    left:160px;
+    top:32px;
+    color: #616870;
+    font-size:2em;
     text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
   }
 
   .bagels .bagel .name{
     position: absolute;
-    left:110px;
-    top:22px;
+    left:20px;
+    top:240px;
+    width:220px;
     color: #000;
     font-size:1.4em;
+    text-align: center;
   }
 
   .bagels .bagel .short-description{
@@ -66,8 +75,8 @@
   .expire-days-label{
     position: absolute;    
     background-color: #ebebeb;
-    left:142px;
-    top:80px;
+    left:120px;
+    top:285px;
     width:20px;
     height:20px;
     -webkit-border-radius: 50%;
@@ -80,42 +89,12 @@
   .expire-days-span{
     position: absolute;
     font-weight: normal;
-    left:170px;
-    top:80px;
+    left:20px;
+    top:265px;
+    text-align: center;
+    width:220px;
     color: #000;
     font-size:1em;
-  }
-  .chat-mine{
-    border:1px solid #d3d3d3;
-    padding: 10px;
-    position: relative;
-    width:80%;
-    float:left;
-  }
-  .chat-bagel{
-    border:1px solid #d3d3d3;
-    padding: 10px;
-    width:80%;
-    float: right;
-  }
-  .send-message{
-    width:100%;
-    height:55px;
-  }
-  .send-message button{
-    width:155px;
-    height:55px;
-    background-color: #616872;    
-    border: none;
-    color: white;
-    float:right;
-    font-size:1.5em;
-  }
-  .send-message input{
-    height:55px;
-    float:left;
-    width:@width-155;
-    border:1px solid #d3d3d3;
   }
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -132,7 +111,6 @@
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
       <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
-
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img /> Meacheal Jackson <span class="caret"></span></a>
@@ -145,22 +123,32 @@
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
   </div>
 </nav>
 <div class="container1">
   <div class="row">
     <div class="bagels"> 
-      <div>Top Mathces</div>        
-      <div class="bagel" ng-repeat="bagel in BagelsList|bagel.match:2">
+      <div class="bagel-header"> Top Matches </div>              
+      <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
         <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
         <img class="user-image" ng-src='{{bagel.image}}' />
         <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-        <label class="name">{{bagel.name}}, {{bagel.age}}</label>
-        <label class="short-description">{{bagel.aboutme}}</label>
-        <p class="expire-days-label">T</p>
-        <p class="expire-days-span">3 days expires</p>
-      </div>        
+        <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
+        <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+        <p class="expire-days-label">{{bagel.CAP}}</p>
+      </label>        
+    </div>
+    <div class="bagels"> 
+      <div class="bagel-header"> Matches </div>              
+      <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel0 ">
+        <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
+        <img class="user-image" ng-src='{{bagel.image}}' />
+        <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+        <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
+        <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+        <p class="expire-days-label">{{bagel.CAP}}</p>
+      </label>      
     </div>
   </div>
 </div>
