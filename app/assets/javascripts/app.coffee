@@ -135,7 +135,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
   ($scope,$routeParams,$location,$facebook,$http,$resource, Upload)->
     
     $scope.login_flag = false
-    console.log MyAuthInfo.fbToken
+    $scope.show_filter_flag = false
+    $scope.prev_bagel = null
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
 
@@ -205,7 +206,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           value1 = value1 + ", "+net
         else
           value1 = net
-      else
+      else        
         arr = value1.split(", ")
         value2 = "";
         for d, i in arr
@@ -217,6 +218,15 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
             value2 = d
         value1 = value2
       document.getElementById("filter-sort").value = value1;
+    $scope.onFilterDlg = ->
+      $scope.show_filter_flag = not $scope.show_filter_flag       
+
+    $scope.clickBagel = (bagel) ->
+      if($scope.prev_bagel?)
+        $scope.prev_bagel.selected = false
+      bagel.selected = true
+      $scope.show_filter_flag = false
+      $scope.prev_bagel = bagel      
 
     $scope.loginCMB = (authtoken) ->
       #login with CMB
