@@ -166,6 +166,14 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':3,'matches':0}
       
     ]
+
+    $scope.networks = [
+      {'name': 'Tinder', 'CAP':'T'},
+      {'name': 'OKCupid', 'CAP':'O'},
+      {'name': 'POF', 'CAP':'P'},
+      {'name': 'Bumble', 'CAP':'B'},
+      {'name': 'CMB', 'CAP':'C'}
+    ]
     $scope.filterBagel1 = (bagel) ->
       if(bagel.matches == 1)
         return bagel
@@ -188,7 +196,28 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         $scope.loginCMB(authtoken)
     ), (response) ->
         console.log 'FB Login Error', response
-	
+	   
+    $scope.onNetwork = (net, chk) ->
+      value = document.getElementById("check-"+chk+"-input").checked;
+      value1 = document.getElementById("filter-sort").value;
+      if(value== "true"?)
+        if(value1.length > 0?)
+          value1 = value1 + ", "+net
+        else
+          value1 = net
+      else
+        arr = value1.split(", ")
+        value2 = "";
+        for d, i in arr
+          if(d == net)
+            continue
+          if(value2.length > 0?)
+            value2= value2 + ", "+d
+          else
+            value2 = d
+        value1 = value2
+      document.getElementById("filter-sort").value = value1;
+
     $scope.loginCMB = (authtoken) ->
       #login with CMB
       #CURL commands:

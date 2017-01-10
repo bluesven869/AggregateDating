@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-  .bagels{    
+  .bagels-list{    
     padding-left: 20px;
       
   }
-  .bagels .bagel-header{
+  .bagels-list .bagel-header{
     height:50px;
     padding-top:20px;
     font-size:2em;
     color:#999;
     text-align: center;
   }
-  .bagels .bagel{
+  .bagels-list .bagel{
     height:320px;
     width:260px;
     border-bottom: 1px solid #eeeeee;
@@ -19,7 +19,7 @@
     padding-bottom:15px;  
     position: relative;
   }
-  .bagels .bagel .user-image{
+  .bagels-list .bagel .user-image{
     width:180px;
     height:180px;
     -webkit-border-radius: 50%;
@@ -29,7 +29,7 @@
     left:32px;
     top:42px;
   }
-  .bagels .bagel .pie-border{
+  .bagels-list .bagel .pie-border{
     width:224px;
     height:224px;
     padding:16px;
@@ -45,7 +45,7 @@
     left:10px;
     top:20px;
   }
-  .bagels .bagel .star{
+  .bagels-list .bagel .star{
     position: absolute;
     left:160px;
     top:32px;
@@ -54,7 +54,7 @@
     text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
   }
 
-  .bagels .bagel .name{
+  .bagels-list .bagel .name{
     position: absolute;
     left:20px;
     top:240px;
@@ -64,7 +64,7 @@
     text-align: center;
   }
 
-  .bagels .bagel .short-description{
+  .bagels-list .bagel .short-description{
     position: absolute;
     font-weight: normal;
     left:112px;
@@ -72,7 +72,7 @@
     color: #000;
     font-size:1em;
   }
-  .expire-days-label{
+  .bagels-list .bagel .expire-days-label{
     position: absolute;    
     background-color: #ebebeb;
     left:120px;
@@ -86,7 +86,7 @@
     font-size:1em;
     padding-left: 6px;
   }
-  .expire-days-span{
+  .bagels-list .bagel .expire-days-span{
     position: absolute;
     font-weight: normal;
     left:20px;
@@ -128,7 +128,7 @@
 </nav>
 <div class="container1">
   <div class="row">
-    <div class="bagels"> 
+    <div class="bagels-list"> 
       <div class="bagel-header"> Top Matches </div>              
       <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
         <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
@@ -139,7 +139,7 @@
         <p class="expire-days-label">{{bagel.CAP}}</p>
       </label>        
     </div>
-    <div class="bagels"> 
+    <div class="bagels-list"> 
       <div class="bagel-header"> Matches </div>              
       <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel0 ">
         <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
