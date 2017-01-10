@@ -1,53 +1,25 @@
 
 <header class="row">
-  <h1 class="text-center col-md-6 col-md-offset-3">Login Form</h1>
+  <h2 class="text-center col-md-6 col-md-offset-3">Login Form</h2>
 </header>
-<div class="main_div text-center" ng-controller="LoginController">
-<section>
-  <img id="imageLogo" class="login_button" src="http://www.freeiconspng.com/uploads/facebook-sign-in-button-png-26.png" alt="Facebook Sign In Button Png"  data-ng-click="loginFacebook()">
 
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <label class='loading-bar' ng-if="fb_login_flag"></label>  
-</section>
-<section>
-  <label>FB Token&nbsp;&nbsp;&nbsp;&nbsp;</label> : <input type=text  value ="{{fbToken}}" /><br />    
-  <label>FB UserID&nbsp;&nbsp;&nbsp;&nbsp;</label> : <input type=text  value ="{{fbUserID}}" /><br />
-</section>
-<div class="clear"></div>
-<div class="text-center margin-top-10">    
-<label  class="dating-site">    
-    <label id="tinder" class="tinder">
-      <label class="Checked">&nbsp;</label> 
-      <label class="UnChecked">&nbsp;</label> 
-    </label> 
-    <div  class="pro-bar-container color-green-sea width-200">
-      <div ng-if="tinder_login_flag" class="pro-bar bar-100 color-turquoise" data-pro-bar-percent="100" data-pro-bar-delay="100">
-        <div class="pro-bar-candy candy-ltr"></div>
-      </div>
-    </div>    
-</label>
-<label  class="dating-site">    
-    <label id="cmb" class="cmb"> 
-      <label class="Checked">&nbsp;</label> 
-      <label class="UnChecked">&nbsp;</label> 
-    </label> 
-    <div class="pro-bar-container ccolor-peter-river width-200">
-      <div ng-if="cmb_login_flag"  class="pro-bar bar-100 color-peter-river" data-pro-bar-percent="100" data-pro-bar-delay="100">
-        <div class="pro-bar-candy candy-ltr"></div>
-      </div>
-    </div>    
-</label>
-<label  class="dating-site">    
-    <label id="bumble" class="bumble"> 
-      <label class="Checked">&nbsp;</label> 
-      <label class="UnChecked">&nbsp;</label> 
-    </label> 
-    <div  class="pro-bar-container color-pomegranate width-200">
-      <div ng-if="bumble_login_flag" class="pro-bar bar-100 color-pomegranate" data-pro-bar-percent="100" data-pro-bar-delay="100">
-        <div class="pro-bar-candy candy-ltr"></div>
-      </div>
-    </div>    
-</label>
-</div>
+<div class="main_div text-center" id="login-form" ng-controller="LoginController">
+  <section>
+    <button class="facebook-button" data-ng-click="loginFacebook()">Facebook</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;    
+    <label class='loading-bar' ng-if="fb_login_flag"></label>  
+  </section>
+  <div class="seperate">
+    <hr width="130" size="8" align="center"><span class="middle-text">&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;</span><hr width="130" size="8" align="center">
+    <div class="clear"></div>
+  </div>
+  <section>
+
+    <input type="text" placeholder="User"/>
+    <input type="password" placeholder="Password"/>
+    <p class="message right"><a href="#">Forgot passowrd?</a></p>
+    <div class="clear"></div>
+    <button class="login-button">login</button>
+    <p class="message">New to IRL? <a href="#">Sign up</a></p>
+  </section>
 </div>
