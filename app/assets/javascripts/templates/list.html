@@ -11,18 +11,10 @@
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
-      <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img /> Meacheal Jackson <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
+          <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>          
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -47,7 +39,7 @@
           <div class="network" ng-repeat="net in networks">
             <label class="network-label" for="check-{{net.CAP}}-input">{{net.CAP}}</label><label for="check-{{net.CAP}}-input" class="network-span">{{net.name}}</label> <input id='check-{{net.CAP}}-input' type=checkbox ng-click="onNetwork(net.name, net.CAP)" />
           </div>
-          <hr width="100%" size="8" align="center">bagel
+          <hr width="100%" size="8" align="center">
           <div class="favorite">
             <input type="checkbox" id='check-favorite' /><label for="check-favorite" class="network-span"> Favorites only</label>
           </div>
