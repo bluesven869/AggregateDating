@@ -176,7 +176,6 @@ h1{
 		background-color: #eeeeee;
 	}
 	.bagels{    
-	    min-width: 340px;
 	    
 	    .bagel{
 		    height:135px;
@@ -298,7 +297,139 @@ h1{
 
 }
   
+.bagels-grid{    
+	padding-left: 20px;
+  	.bagel-header{
+	    height:50px;
+	    padding-top:20px;
+	    font-size:2em;
+	    color:#999;
+	    text-align: center;
+	}
+	.bagel{
+	    height:320px;
+	    width:260px;
+	    border-bottom: 1px solid #eeeeee;
+	    padding-top:15px;
+	    padding-bottom:15px;  
+	    position: relative;
+	    .user-image{
+		    width:180px;
+		    height:180px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    position:absolute;
+		    left:32px;
+		    top:42px;
+		}
+		.pie-border3{
+		    width:224px;
+		    height:224px;
+		    padding:16px;
+		    border:8px solid rgba(0,0,0,0.4);      
+		    border-top-color: transparent;    
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    position: absolute;
+		    left:10px;
+		    top:20px;
+		}
 
+		.pie-border2{
+		    width:224px;
+		    height:224px;
+		    padding:16px;
+		    border:8px solid rgba(0,0,0,0.4);      
+		    border-top-color: transparent;    
+		    border-right-color: transparent;    
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    position: absolute;
+		    left:10px;
+		    top:20px;
+		}
+		.pie-border1{
+		    width:224px;
+		    height:224px;
+		    padding:16px;
+		    border:8px solid rgba(0,0,0,0.4);      
+		    border-top-color: transparent;    
+		    border-right-color: transparent;    
+		    border-bottom-color: transparent;    
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    position: absolute;
+		    left:10px;
+		    top:20px;
+		}
+		.star{
+		    position: absolute;
+		    left:160px;
+		    top:32px;
+		    color: #616870;
+		    font-size:2em;
+		    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
+		}
+		.name{
+		    position: absolute;
+		    left:20px;
+		    top:240px;
+		    width:220px;
+		    color: #000;
+		    font-size:1.4em;
+		    text-align: center;
+		}
+
+		.short-description{
+		    position: absolute;
+		    font-weight: normal;
+		    left:112px;
+		    top:50px;
+		    color: #000;
+		    font-size:1em;
+		}
+		.expire-days-label{
+		    position: absolute;    
+		    background-color: #ebebeb;
+		    left:120px;
+		    top:285px;
+		    width:20px;
+		    height:20px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    color: #000;
+		    font-size:1em;
+		    padding-left: 6px;
+		}
+		.expire-days-span{
+		    position: absolute;
+		    font-weight: normal;
+		    left:20px;
+		    top:265px;
+		    text-align: center;
+		    width:220px;
+		    color: #000;
+		    font-size:1em;
+		}
+	}
+}
+  
+  
+  
 .margin-center{
 	margin:0 auto;
 }
