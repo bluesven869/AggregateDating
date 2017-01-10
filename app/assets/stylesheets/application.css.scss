@@ -130,12 +130,14 @@ h1{
 			position: absolute;
 			right:15px;
 			top:15px;
+			cursor: pointer;
 		}
 		.filter-sort-dlg{
 			width:80%;
 			border:1px solid #d4d4d4;
 			position: absolute;
-			left:33px;
+			right:10px;
+			top:52px;
 			background-color:#fff;
 			z-index: 100;
 			padding-left:30px;
@@ -162,87 +164,94 @@ h1{
 			}
 		}
 	}
-
+	.selected{
+		background-color: #eeeeee;
+	}
 	.bagels{    
 	    min-width: 340px;
+	    
 	    .bagel{
 		    height:135px;
 		    border-bottom: 1px solid #eeeeee;
-		    padding-top:15px;
-		    padding-bottom:15px;  
 		    position: relative;
-		    .user-image{
-			    width:66px;
-			    height:66px;
-			    -webkit-border-radius: 50%;
-			    -moz-border-radius: 50%;
-			    border-radius: 50%;
-			    position:absolute;
-			    left:23px;
-			    top:33px;
-			}
-			.pie-border{
-			    width:92px;
-			    height:92px;
-			    padding:6px;
-			    border:8px solid rgba(0,0,0,0.4);      
-			    border-top-color: transparent;    
-			    -ms-transform: rotate(30deg); /* IE 9 */
-			    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-			    transform: rotate(30deg);
-			    -webkit-border-radius: 50%;
-			    -moz-border-radius: 50%;
-			    border-radius: 50%;
-			    position: absolute;
-			    left:10px;
-			    top:20px;
-			}
-			.star{
-			    position: absolute;
-			    left:70px;
-			    top:22px;
-			    color: #999;
-			    font-size:1.4em;
-			    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
-			}
-			.name{
-			    position: absolute;
-			    left:110px;
-			    top:22px;
-			    color: #000;
-			    font-size:1.4em;
-			}
-			.short-description{
-			    position: absolute;
-			    font-weight: normal;
-			    left:112px;
-			    top:50px;
-			    color: #000;
-			    font-size:1em;
-			}
+		    .normal-bagel{
+		    	height:135px;
+			    position: relative;		    
+			    padding-top:15px;			    		    
+		    	padding-bottom:15px;  
+			    .user-image{
+				    width:66px;
+				    height:66px;
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position:absolute;
+				    left:23px;
+				    top:33px;
+				}
+				.pie-border{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				.star{
+				    position: absolute;
+				    left:70px;
+				    top:22px;
+				    color: #999;
+				    font-size:1.4em;
+				    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
+				}
+				.name{
+				    position: absolute;
+				    left:110px;
+				    top:22px;
+				    color: #000;
+				    font-size:1.4em;
+				}
+				.short-description{
+				    position: absolute;
+				    font-weight: normal;
+				    left:112px;
+				    top:50px;
+				    color: #000;
+				    font-size:1em;
+				}
 
-			.expire-days-label{
-				position: absolute;    
-				background-color: #ebebeb;
-				left:142px;
-				top:80px;
-				width:20px;
-				height:20px;
-				-webkit-border-radius: 50%;
-				-moz-border-radius: 50%;
-				border-radius: 50%;
-				color: #000;
-				font-size:1em;
-				padding-left: 6px;
-			}
-			.expire-days-span{
-				position: absolute;
-				font-weight: normal;
-				left:170px;
-				top:80px;
-				color: #000;
-				font-size:1em;
-			}
+				.expire-days-label{
+					position: absolute;    
+					background-color: #ebebeb;
+					left:142px;
+					top:80px;
+					width:20px;
+					height:20px;
+					-webkit-border-radius: 50%;
+					-moz-border-radius: 50%;
+					border-radius: 50%;
+					color: #000;
+					font-size:1em;
+					padding-left: 6px;
+				}
+				.expire-days-span{
+					position: absolute;
+					font-weight: normal;
+					left:170px;
+					top:80px;
+					color: #000;
+					font-size:1em;
+				}
+		    }		    
 		}
 
 	}

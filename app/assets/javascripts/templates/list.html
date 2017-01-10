@@ -38,18 +38,18 @@
       </section>
       <section id="filter" class="border-right">
         <label for="filter-sort" class="align-left"><i class="fa fa-filter" aria-hidden="true"></i><span class="sr-only">Filter & Sort</span></label>
-        <input id='filter-sort'  placeholder="Filter & Sort" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="2" readonly="readonly">
-        <label for="filter-sort" class="align-right"><i class="fa fa-sort-desc" aria-hidden="true"></i></label>
+        <input id='filter-sort'  placeholder="Filter & Sort" autocomplete="off" spellcheck="false" autocorrect="off"  readonly="readonly" tabindex="2" >
+        <label for="filter-sort" class="align-right"><i class="fa fa-check-circle" aria-hidden="true" ng-click="onFilterDlg()"></i></label>
 
         <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-        <div class="filter-sort-dlg">
+        <div class="filter-sort-dlg" ng-if="show_filter_flag">
           <h3>Networks</h3>
           <div class="network" ng-repeat="net in networks">
             <label class="network-label" for="check-{{net.CAP}}-input">{{net.CAP}}</label><label for="check-{{net.CAP}}-input" class="network-span">{{net.name}}</label> <input id='check-{{net.CAP}}-input' type=checkbox ng-click="onNetwork(net.name, net.CAP)" />
           </div>
-          <hr width="100%" size="8" align="center">
+          <hr width="100%" size="8" align="center">bagel
           <div class="favorite">
-            <input type="checkbox" /> Favorites only
+            <input type="checkbox" id='check-favorite' /><label for="check-favorite" class="network-span"> Favorites only</label>
           </div>
           <hr width="100%" size="8" align="center">
           <div class="order-by">
@@ -62,14 +62,16 @@
       </section>
       <section class="border-right">
       <div class="bagels">        
-        <div class="bagel" ng-repeat="bagel in BagelsList">
-          <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
-          <img class="user-image" ng-src='{{bagel.image}}' />
-          <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-          <label class="name">{{bagel.name}}, {{bagel.age}}</label>
-          <label class="short-description">{{bagel.aboutme}}</label>
-          <p class="expire-days-label">{{bagel.CAP}}</p>
-          <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+        <div class="bagel"  ng-repeat="bagel in BagelsList">
+          <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
+            <div class="pie-border" ng-if="bagel.border">&nbsp;</div>
+            <img class="user-image" ng-src='{{bagel.image}}' />
+            <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+            <label class="name">{{bagel.name}}, {{bagel.age}}</label>
+            <label class="short-description">{{bagel.aboutme}}</label>
+            <p class="expire-days-label">{{bagel.CAP}}</p>
+            <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+          </div>
         </div>
       </div>
       </section>
