@@ -105,7 +105,14 @@ h1{
 	cursor: pointer;
 }
 
-
+.avatar-24{
+	width:24px;
+	height:24px;
+	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right:10px;
+}
 #bagel_list{
 	#search, #filter {
 	    font-size: 18px;    
