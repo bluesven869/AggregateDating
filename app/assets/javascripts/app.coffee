@@ -143,12 +143,17 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.prev_bagel = null
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
+    $scope.flag_t = true
+    $scope.flag_o = true
+    $scope.flag_p = true
+    $scope.flag_b = true
+    $scope.flag_c = true
 
     $scope.BagelsList = [
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':1,'CAP':'T', 'expire_days':3,'matches':0}, 
       {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':1,'matches':0}, 
       {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':3,'matches':1}, 
-      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':0,'star':1,'CAP':'0', 'expire_days':2,'matches':1}, 
+      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':0,'star':1,'CAP':'O', 'expire_days':2,'matches':1}, 
       {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':1,'CAP':'T', 'expire_days':3,'matches':1}, 
       {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'P', 'expire_days':1,'matches':0}, 
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':1,'CAP':'T', 'expire_days':3,'matches':1}, 
@@ -156,7 +161,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':3,'matches':0}, 
       {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':2,'matches':0}, 
       {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'P', 'expire_days':3,'matches':1}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':0,'star':1,'CAP':'T', 'expire_days':1,'matches':1}, 
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':0,'star':1,'CAP':'O', 'expire_days':1,'matches':1}, 
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':1,'CAP':'C', 'expire_days':3,'matches':0}, 
       {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':0,'CAP':'T', 'expire_days':3,'matches':1}, 
       {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','border':1,'star':1,'CAP':'T', 'expire_days':1,'matches':1}, 
@@ -179,16 +184,43 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {'name': 'Bumble', 'CAP':'B'},
       {'name': 'CMB', 'CAP':'C'}
     ]
+    $scope.selected_networks = [] 
     $scope.filterBagel1 = (bagel) ->
-      if(bagel.matches == 1)
-        return bagel
-      else
-        return false;
+      if(bagel.matches == 1)        
+        if($scope.flag_t)
+          if(bagel.CAP == "T")
+            return bagel
+        if($scope.flag_o)
+          if(bagel.CAP == "O")
+            return bagel
+        if($scope.flag_p)
+          if(bagel.CAP == "P")
+            return bagel
+        if($scope.flag_b)
+          if(bagel.CAP == "B")
+            return bagel
+        if($scope.flag_c)
+          if(bagel.CAP == "C")
+            return bagel
+        return false
     $scope.filterBagel0 = (bagel) ->
-      if(bagel.matches == 0)
-        return bagel
-      else
-        return false;
+      if(bagel.matches == 0)        
+        if($scope.flag_t)
+          if(bagel.CAP == "T")
+            return bagel
+        if($scope.flag_o)
+          if(bagel.CAP == "O")
+            return bagel
+        if($scope.flag_p)
+          if(bagel.CAP == "P")
+            return bagel
+        if($scope.flag_b)
+          if(bagel.CAP == "B")
+            return bagel
+        if($scope.flag_c)
+          if(bagel.CAP == "C")
+            return bagel
+        return false
     $scope.loginFacebook = ->
       #   Login with FaceBook           
       $scope.login_flag = true
@@ -201,27 +233,22 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         $scope.loginCMB(authtoken)
     ), (response) ->
         console.log 'FB Login Error', response
-	   
+	  
     $scope.onNetwork = (net, chk) ->
-      value = document.getElementById("check-"+chk+"-input").checked;
-      value1 = document.getElementById("filter-sort").value;
-      if(value== "true"?)
-        if(value1.length > 0?)
-          value1 = value1 + ", "+net
-        else
-          value1 = net
-      else        
-        arr = value1.split(", ")
-        value2 = "";
-        for d, i in arr
-          if(d == net)
-            continue
-          if(value2.length > 0?)
-            value2= value2 + ", "+d
-          else
-            value2 = d
-        value1 = value2
-      document.getElementById("filter-sort").value = value1;
+      value = document.getElementById(""+chk+"-check").checked;
+      switch chk
+        when "T" then $scope.flag_t = value
+        when "O" then $scope.flag_o = value
+        when "P" then $scope.flag_p = value
+        when "B" then $scope.flag_b = value
+        when "C" then $scope.flag_c = value
+        
+      #if(value== "true"?)
+      #  $scope.selected_networks.push net
+      #else
+      #  ind = $scope.selected_networks.indexOf(net)
+      #  $scope.selected_networks.splice(ind,1)
+
     $scope.onFilterDlg = ->
       $scope.show_filter_flag = not $scope.show_filter_flag       
 

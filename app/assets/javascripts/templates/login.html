@@ -1,25 +1,25 @@
-
-<header class="row">
-  <h2 class="text-center col-md-6 col-md-offset-3">Login Form</h2>
-</header>
-
-<div class="main_div text-center" id="login-form" ng-controller="LoginController">
-  <section>
-    <button class="facebook-button" data-ng-click="loginFacebook()">Facebook</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;    
-    <label class='loading-bar' ng-if="fb_login_flag"></label>  
-  </section>
-  <div class="seperate">
-    <hr width="130" size="8" align="center"><span class="middle-text">&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;</span><hr width="130" size="8" align="center">
-    <div class="clear"></div>
+<div class="container">
+  <h2 class="text-center">Login Form</h2>
+  <br />
+  <div class="main_div text-center" id="login-form" ng-controller="LoginController">
+    <section>
+      <button class="facebook-button" data-ng-click="loginFacebook()">Facebook</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;    
+      <label class='loading-bar' ng-if="fb_login_flag"></label>  
+    </section>
+    <div class="seperate">
+      <hr width="130" size="8" align="center"><span class="middle-text">&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;</span><hr width="130" size="8" align="center">
+      <div class="clear"></div>
+    </div>
+    <section>
+      <p class="user-name"><input type="text" ng-model='user_name' placeholder="User Name"/></p>
+      
+      
+      <input type="password" placeholder="Password"/>
+      <p class="message right"><a href="#">Forgot passowrd?</a></p>
+      <div class="clear"></div>
+      <button class="login-button">login</button>
+      <p class="message">New to IRL? <a href="#">Sign up</a></p>
+    </section>
   </div>
-  <section>
-
-    <input type="text" placeholder="User"/>
-    <input type="password" placeholder="Password"/>
-    <p class="message right"><a href="#">Forgot passowrd?</a></p>
-    <div class="clear"></div>
-    <button class="login-button">login</button>
-    <p class="message">New to IRL? <a href="#">Sign up</a></p>
-  </section>
 </div>
