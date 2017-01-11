@@ -23,7 +23,10 @@
 <div class="container1">
   <div class="row">
     <div class="bagels-grid"> 
-      <div class="bagel-header"> Top Matches </div>              
+      <div class="bagel-header"> 
+        <hr width="100" size="8" align="center"> <span class="middle-text">Top Matches</span> <hr width="100" size="8" align="center"> 
+      </div>              
+      <div class="clear"></div>
       <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
 
         <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days == 3}">&nbsp;</div>
@@ -35,7 +38,10 @@
       </label>        
     </div>
     <div class="bagels-grid"> 
-      <div class="bagel-header"> Matches </div>              
+      <div class="bagel-header"> 
+        <hr width="100" size="8" align="center"> <span class="middle-text">Matches</span> <hr width="100" size="8" align="center"> 
+      </div>              
+      <div class="clear"></div>
       <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel0 ">
         <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days == 3}">&nbsp;</div>
         <img class="user-image" ng-src='{{bagel.image}}' />

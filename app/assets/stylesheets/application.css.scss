@@ -82,7 +82,27 @@ h1{
 .border-right{
 	border-right:1px solid #d4d4d4;
 }
-
+.min-width-400{
+	min-width: 400px;
+}
+.max-width-600{
+	max-width: 600px;
+}
+.width-100-pro{
+	width:100%;
+}
+.width-50-pro{
+	width:49%;
+}
+.padding-20{
+	padding:20px;
+}
+.padding-top-20{
+	padding-top:20px;
+}
+.padding-bottom-20{
+	padding-bottom:20px;
+}
 .network-label
 {
 	width:20px;
@@ -96,6 +116,7 @@ h1{
     padding-top:-20px;
     margin-right:15px;
     cursor: pointer;
+	color:#737373;
 }
 
 .network-span{
@@ -103,6 +124,7 @@ h1{
 	text-align: left;
 	font-weight: normal;
 	cursor: pointer;
+	color:#737373;
 }
 
 .avatar-24{
@@ -212,6 +234,7 @@ h1{
 				    left:10px;
 				    top:20px;
 				}
+
 				.star{
 				    position: absolute;
 				    left:70px;
@@ -305,6 +328,18 @@ h1{
 	    font-size:2em;
 	    color:#999;
 	    text-align: center;
+	    margin-left:auto;
+	    margin-right:auto;
+	    width:350px;
+	    hr{
+	    	float:left;
+	    	margin-top:20px;
+			color: #b0b0b0;
+	    }
+	    .middle-text{
+			float:left;
+			color: #999;
+		}
 	}
 	.bagel{
 	    height:320px;
@@ -323,6 +358,7 @@ h1{
 		    left:32px;
 		    top:42px;
 		}
+		
 		.pie-border3{
 		    width:224px;
 		    height:224px;
@@ -338,8 +374,15 @@ h1{
 		    position: absolute;
 		    left:10px;
 		    top:20px;
+		    z-index: 150;
+		    cursor: pointer
 		}
-
+		
+		.pie-border3:hover{
+		    border:8px solid rgba(0,255,0,0.4);   
+		    border-top-color: transparent;     
+		}
+		
 		.pie-border2{
 		    width:224px;
 		    height:224px;
@@ -356,6 +399,13 @@ h1{
 		    position: absolute;
 		    left:10px;
 		    top:20px;
+		    z-index: 140;
+		    cursor: pointer
+		}
+		.pie-border2:hover{
+		    border:8px solid rgba(0,255,0,0.4);   
+		    border-top-color: transparent;       
+		    border-right-color: transparent;		    
 		}
 		.pie-border1{
 		    width:224px;
@@ -374,6 +424,14 @@ h1{
 		    position: absolute;
 		    left:10px;
 		    top:20px;
+		    z-index: 130;
+		    cursor: pointer
+		}
+		.pie-border1:hover{
+		    border:8px solid rgba(0,255,0,0.4);   
+		    border-top-color: transparent; 
+		    border-right-color: transparent;
+		    border-bottom-color: transparent;      		    
 		}
 		.star{
 		    position: absolute;
@@ -432,6 +490,9 @@ h1{
   
 .margin-center{
 	margin:0 auto;
+}
+.border{
+	border: 1px solid #ebebeb;
 }
 .bottom_border{
 	border-bottom: 1px solid #ebebeb;
@@ -999,23 +1060,24 @@ h1{
 		margin-left:20px;
 		font-size:20px;		
 	}	
-	.picture{
-		width:100px;
-		height: 100px;
-		background: #cdcdcd;
-		position: relative;
-		color:black;
-		cursor: pointer;
-		margin-right:15px;
-		i{
-			position: absolute;
-			left:45px;
-			top:45px;			
-		}
+}
+
+.picture{
+	width:100px;
+	height: 100px;
+	background: #cdcdcd;
+	position: relative;
+	color:black;
+	cursor: pointer;
+	margin-right:15px;
+	i{
+		position: absolute;
+		left:45px;
+		top:45px;			
 	}
-	.picture:hover{
-		color:blue;
-	}
+}
+.picture:hover{
+	color:blue;
 }
 .button-box{
 	margin-top:20px;
