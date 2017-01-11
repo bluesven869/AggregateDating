@@ -29,7 +29,7 @@
       <div class="clear"></div>
       <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
 
-        <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days == 3}">&nbsp;</div>
+        <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</div>
         <img class="user-image" ng-src='{{bagel.image}}' />
         <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
         <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
