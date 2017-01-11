@@ -231,6 +231,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       bagel.selected = true
       $scope.show_filter_flag = false
       $scope.prev_bagel = bagel      
+      $scope.my_profile = bagel.aboutme
 
     $scope.loginCMB = (authtoken) ->
       #login with CMB

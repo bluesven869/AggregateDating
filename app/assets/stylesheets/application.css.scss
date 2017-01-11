@@ -196,6 +196,7 @@ h1{
 	}
 	.selected{
 		background-color: #eeeeee;
+		
 	}
 	.bagels{    
 	    
@@ -218,12 +219,48 @@ h1{
 				    left:23px;
 				    top:33px;
 				}
-				.pie-border{
+				.pie-border3{
 				    width:92px;
 				    height:92px;
 				    padding:6px;
 				    border:8px solid rgba(0,0,0,0.4);      
 				    border-top-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				
+				.pie-border2{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				.pie-border1{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    border-bottom-color: transparent;    
 				    -ms-transform: rotate(30deg); /* IE 9 */
 				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
 				    transform: rotate(30deg);
@@ -319,7 +356,57 @@ h1{
 	}
 
 }
-  
+@keyframes animateBorder {
+    0% {
+      
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(30deg);
+	    
+	}
+	50% {
+	    
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(340deg);
+	    
+	}
+
+	100% {
+	    
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(30deg);
+	}
+}  
+
+@keyframes animateBorder3 {
+    0% {
+      
+	    border:8px solid rgba(120,120,120,0.8);   
+	    border-top-color: transparent;  
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(30deg);
+	}
+	50% {
+	    
+	    border:8px solid rgba(0,255,0,0.8);   
+	     border-top-color: transparent;  
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(30deg);
+	}
+
+	100% {
+	    
+	    border:8px solid rgba(120,120,120,0.8);   
+	     border-top-color: transparent;  
+	    -ms-transform: rotate(30deg); /* IE 9 */
+	    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+	    transform: rotate(30deg);
+	}
+}  
 .bagels-grid{    
 	padding-left: 20px;
   	.bagel-header{
@@ -358,7 +445,9 @@ h1{
 		    left:32px;
 		    top:42px;
 		}
-		
+		.user-image:hover{
+		    opacity: 1;
+		}
 		.pie-border3{
 		    width:224px;
 		    height:224px;
@@ -379,8 +468,14 @@ h1{
 		}
 		
 		.pie-border3:hover{
-		    border:8px solid rgba(0,255,0,0.4);   
-		    border-top-color: transparent;     
+		    border:8px solid rgba(112,129,255,0.8);   
+		    border-top-color: transparent;  
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    animation: 1s animateBorder ;
+
+		    animation: 1s animateBorder3 infinite;   
 		}
 		
 		.pie-border2{
@@ -403,9 +498,13 @@ h1{
 		    cursor: pointer
 		}
 		.pie-border2:hover{
-		    border:8px solid rgba(0,255,0,0.4);   
+		    border:8px solid rgba(112,129,255,0.8);   
 		    border-top-color: transparent;       
-		    border-right-color: transparent;		    
+		    border-right-color: transparent;	
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    animation: 1s animateBorder ;  	    
 		}
 		.pie-border1{
 		    width:224px;
@@ -428,10 +527,14 @@ h1{
 		    cursor: pointer
 		}
 		.pie-border1:hover{
-		    border:8px solid rgba(0,255,0,0.4);   
-		    border-top-color: transparent; 
+		    border:8px solid rgba(112,129,255,0.8);   
+		    border-top-color: transparent;       
 		    border-right-color: transparent;
-		    border-bottom-color: transparent;      		    
+		    border-bottom-color: transparent;   	
+		    -ms-transform: rotate(30deg); /* IE 9 */
+		    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+		    transform: rotate(30deg);
+		    animation: 1s animateBorder ;     		    
 		}
 		.star{
 		    position: absolute;
