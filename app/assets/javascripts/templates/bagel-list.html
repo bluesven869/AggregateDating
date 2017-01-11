@@ -1,12 +1,4 @@
-<style>
-  .filter-sort{
-    cursor: pointer;    
-    margin-top:15px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: 0px;
-  }
-</style>
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
@@ -20,14 +12,41 @@
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav navbar-center">
-        <li class="dropdown">
-        <label class="filter-sort">Filter & Sort &nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></label>
-          
-        </li>
-      </ul>
-      
-      
+      <div class="nav navbar-nav dropdown">
+        <div class=" margin-center">
+          <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#filter_dlg">
+            <label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span>
+            
+          </label> 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="network-label-1" ng-if="flag_t">T</label>
+            <label class="network-label-1" ng-if="flag_o">O</label>
+            <label class="network-label-1" ng-if="flag_p">P</label>
+            <label class="network-label-1" ng-if="flag_b">B</label>
+            <label class="network-label-1" ng-if="flag_c">C</label>
+          <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
+            <h3>Networks</h3>
+            <div class="relative" ng-repeat="net in networks">
+              <label class="network-label"  for="{{net.CAP}}-check" >{{net.CAP}}</label><label  for="{{net.CAP}}-check" class="network-span">{{net.name}}</label> 
+              <label class="switch margin-custom-check">
+                <input type="checkbox" id="{{net.CAP}}-check" checked="checked"  ng-click="onNetwork(net.name, net.CAP)"/>
+                <div class="slider round">&nbsp;</div>
+              </label>
+            </div>
+            <hr width="100%" size="8" align="center">
+            <div class="favorite">
+              <input type="checkbox" id='check-favorite' />&nbsp;&nbsp;<label for="check-favorite" class="network-span"> Favorites only</label>
+            </div>
+            <hr width="100%" size="8" align="center">
+            <div class="order-by">
+             <h3>Order By</h3>
+             <label><input id='check-recent-input' type=checkbox />&nbsp;&nbsp;<label for="check-recent-input" >Recent</label> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <label>
+             <input id='check-expiring-input' type=checkbox />&nbsp;&nbsp;<label for="check-expiring-input" >Expiring</label> </label>
+             </div>
+          </div>          
+        </div>
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>
@@ -36,36 +55,38 @@
     </div>
   </div>
 </nav>
-<div class="container1">
-  <div class="row">
-    <div class="bagels-grid"> 
-      <div class="bagel-header"> 
-        <hr width="100" size="8" align="center"> <span class="middle-text">Top Matches</span> <hr width="100" size="8" align="center"> 
-      </div>              
-      <div class="clear"></div>
-      <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
-
-        <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</div>
-        <img class="user-image" ng-src='{{bagel.image}}' />
-        <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-        <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
-        <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-        <p class="expire-days-label">{{bagel.CAP}}</p>
-      </label>        
-    </div>
-    <div class="bagels-grid"> 
-      <div class="bagel-header"> 
-        <hr width="100" size="8" align="center"> <span class="middle-text">Matches</span> <hr width="100" size="8" align="center"> 
-      </div>              
-      <div class="clear"></div>
-      <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel0 ">
-        <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days == 3}">&nbsp;</div>
-        <img class="user-image" ng-src='{{bagel.image}}' />
-        <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-        <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
-        <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-        <p class="expire-days-label">{{bagel.CAP}}</p>
-      </label>      
-    </div>
+<div class="row">
+  
+</div>
+<div class="row">
+  <div class="bagels-grid"> 
+    <div class="bagel-header"> 
+      <hr width="100" size="8" align="center"> <span class="middle-text">Top Matches</span> <hr width="100" size="8" align="center"> 
+    </div>              
+    <div class="clear"></div>
+    <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
+      <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
+      <img class="user-image" ng-src='{{bagel.image}}' />
+      <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+      <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
+      <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+      <p class="expire-days-label">{{bagel.CAP}}</p>
+    </label>        
+  </div>
+</div>
+<div class="row">
+  <div class="bagels-grid"> 
+    <div class="bagel-header"> 
+      <hr width="100" size="8" align="center"> <span class="middle-text">Matches</span> <hr width="100" size="8" align="center"> 
+    </div>              
+    <div class="clear"></div>
+    <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel0 ">
+      <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days == 3}">&nbsp;</div>
+      <img class="user-image" ng-src='{{bagel.image}}' />
+      <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+      <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
+      <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+      <p class="expire-days-label">{{bagel.CAP}}</p>
+    </label>      
   </div>
 </div>
