@@ -1,4 +1,12 @@
-
+<style>
+  .filter-sort{
+    cursor: pointer;    
+    margin-top:15px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 0px;
+  }
+</style>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
@@ -12,6 +20,14 @@
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav navbar-center">
+        <li class="dropdown">
+        <label class="filter-sort">Filter & Sort &nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></label>
+          
+        </li>
+      </ul>
+      
+      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>
