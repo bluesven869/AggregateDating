@@ -148,9 +148,9 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_p = true   #POF_flag 
     $scope.flag_b = true   #Bumble_flag 
     $scope.flag_c = true   #CMB_flag
-    $scope.flag_f_r = true #Favorite flag
-    $scope.flag_r_r = true #Recent flag
-    $scope.flag_e_r = true #Expiring flag
+    $scope.flag_f_r = false #Favorite flag
+    $scope.flag_r_r = false #Recent flag
+    $scope.flag_e_r = false #Expiring flag
 
     $scope.BagelsList = [
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}, 
