@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
@@ -19,11 +18,14 @@
             
           </label> 
           &nbsp;&nbsp;&nbsp;&nbsp;
-            <label class="network-label-1" ng-if="flag_t">T</label>
-            <label class="network-label-1" ng-if="flag_o">O</label>
-            <label class="network-label-1" ng-if="flag_p">P</label>
-            <label class="network-label-1" ng-if="flag_b">B</label>
-            <label class="network-label-1" ng-if="flag_c">C</label>
+            <label title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
+            <label title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" ng-click="onNetworkF('O')">O</label>
+            <label title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" ng-click="onNetworkF('P')">P</label>
+            <label title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" ng-click="onNetworkF('B')">B</label>
+            <label title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" ng-click="onNetworkF('C')">C</label>
+            <label title="Favorites" ng-class="{'network-label-3': flag_f_r == true, 'network-label-4':flag_f_r == false}" ng-click="onNetworkF('FR')">F</label>
+            <label title="Recent" ng-class="{'network-label-3': flag_r_r == true, 'network-label-4':flag_r_r == false}" ng-click="onNetworkF('RR')">R</label>
+            <label title="Expiring" ng-class="{'network-label-3': flag_e_r == true, 'network-label-4':flag_e_r == false}" ng-click="onNetworkF('ER')">E</label>
           <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
             <h3>Networks</h3>
             <div class="relative" ng-repeat="net in networks">
@@ -34,15 +36,27 @@
               </label>
             </div>
             <hr width="100%" size="8" align="center">
-            <div class="favorite">
-              <input type="checkbox" id='check-favorite' />&nbsp;&nbsp;<label for="check-favorite" class="network-span"> Favorites only</label>
+
+            <div class="control-group">
+              <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14"> Favorites only</label>
+                <input type="checkbox" id="F-S-check" checked="checked" ng-click="onSort('F')" />
+                <div class="control__indicator"></div>
+              </label>
             </div>
+
             <hr width="100%" size="8" align="center">
             <div class="order-by">
              <h3>Order By</h3>
-             <label><input id='check-recent-input' type=checkbox />&nbsp;&nbsp;<label for="check-recent-input" >Recent</label> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <label>
-             <input id='check-expiring-input' type=checkbox />&nbsp;&nbsp;<label for="check-expiring-input" >Expiring</label> </label>
+               <div class="control-group">
+                <label class="control control--checkbox width-50-pro left"><label for="R-S-check" class="network-span font-14"> Recent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <input type="checkbox" id="R-S-check" checked="checked" ng-click="onSort('R')" />
+                  <div class="control__indicator"></div>
+                </label>
+                <label class="control control--checkbox width-50-pro left"><label for="E-S-check" class="network-span font-14"> Expiring</label>
+                  <input type="checkbox" id="E-S-check" checked="checked" ng-click="onSort('E')" />
+                  <div class="control__indicator"></div>
+                </label>
+              </div>
              </div>
           </div>          
         </div>
