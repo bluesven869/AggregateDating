@@ -151,32 +151,38 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_f_r = false #Favorite flag
     $scope.flag_r_r = false #Recent flag
     $scope.flag_e_r = false #Expiring flag
+    $scope.flag_1_r = false
+    $scope.flag_2_r = false
+    $scope.flag_5_r = false
+    $scope.flag_b_r = false
+    $scope.flag_l_r = false   
+    $scope.flag_a_r = false   
 
     $scope.BagelsList = [
-      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}, 
-      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1}, 
-      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':1,'recent':1}, 
-      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'O', 'expire_days':2,'matches':1,'recent':1}, 
-      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':1,'recent':0}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'P', 'expire_days':1,'matches':0,'recent':0}, 
-      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':1,'recent':1}, 
-      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'B', 'expire_days':2,'matches':0,'recent':1}, 
-      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':1}, 
-      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':2,'matches':0,'recent':0}, 
-      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'P', 'expire_days':3,'matches':1,'recent':1}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'O', 'expire_days':1,'matches':1,'recent':0}, 
-      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'C', 'expire_days':3,'matches':0,'recent':0}, 
-      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':1,'recent':1}, 
-      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':1,'matches':1,'recent':0}, 
-      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'C', 'expire_days':3,'matches':1,'recent':0}, 
-      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':2,'matches':0,'recent':0}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}, 
-      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':1,'matches':0,'recent':1}, 
-      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'B', 'expire_days':3,'matches':1,'recent':0}, 
-      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1}, 
-      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'C', 'expire_days':3,'matches':1,'recent':0}, 
-      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':2,'matches':1,'recent':1}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}      
+      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1, 'selected':false}, 
+      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'O', 'expire_days':2,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'P', 'expire_days':1,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'B', 'expire_days':2,'matches':0,'recent':1, 'selected':false}, 
+      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':1, 'selected':false}, 
+      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':2,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'P', 'expire_days':3,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'O', 'expire_days':1,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'C', 'expire_days':3,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':1,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'C', 'expire_days':3,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':2,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0, 'selected':false}, 
+      {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':1,'matches':0,'recent':1, 'selected':false}, 
+      {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'B', 'expire_days':3,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1, 'selected':false}, 
+      {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'C', 'expire_days':3,'matches':1,'recent':0, 'selected':false}, 
+      {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':2,'matches':1,'recent':1, 'selected':false}, 
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0, 'selected':false}      
     ]
 
     $scope.networks = [
@@ -188,6 +194,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     ]
     $scope.selected_networks = []
 
+    # top matches fileter in Bagels Page  
     $scope.filterBagel1 = (bagel) ->  
       if(bagel.matches == 1)      
         if($scope.flag_f_r)
@@ -215,6 +222,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           if(bagel.CAP == "C")
             return bagel
         return false
+    # matches fileter in Bagels Page  
     $scope.filterBagel0 = (bagel) ->
       if(bagel.matches == 0)        
         if($scope.flag_f_r)
@@ -242,19 +250,34 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           if(bagel.CAP == "C")
             return bagel
         return false
-    $scope.loginFacebook = ->
-      #   Login with FaceBook           
-      $scope.login_flag = true
-      $facebook.login(scope: 'email').then ((response) ->
-        authtoken = response.authResponse.accessToken
-        console.log 'FB Login Success', authtoken
-        console.log response.authResponse
-        $scope.fbToken = authtoken
-        $scope.fbUserID = response.authResponse.userID
-        $scope.loginCMB(authtoken)
-    ), (response) ->
-        console.log 'FB Login Error', response
-	  
+    # matches fileter in Main Page  
+    $scope.filterBagel2 = (bagel) ->
+      if($scope.flag_f_r)
+        if(bagel.star == 0)
+          return false
+      if($scope.flag_r_r)
+        if(bagel.recent == 0)
+          return false
+      if(!$scope.flag_e_r)
+        if(bagel.expire_days == 0)
+          return false  
+      if($scope.flag_t)
+        if(bagel.CAP == "T")
+            return bagel            
+      if($scope.flag_o)
+        if(bagel.CAP == "O")
+          return bagel
+      if($scope.flag_p)
+        if(bagel.CAP == "P")
+          return bagel
+      if($scope.flag_b)
+        if(bagel.CAP == "B")
+          return bagel
+      if($scope.flag_c)
+        if(bagel.CAP == "C")
+          return bagel
+      return false
+
     $scope.onNetwork = (net, chk) ->
       value = document.getElementById(""+chk+"-check").checked;
       switch chk
@@ -269,6 +292,13 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "F" then $scope.flag_f_r = value
         when "R" then $scope.flag_r_r = value
         when "E" then $scope.flag_e_r = value   
+        when "1" then $scope.flag_1_r = value   
+        when "2" then $scope.flag_2_r = value   
+        when "5" then $scope.flag_5_r = value   
+        when "B" then $scope.flag_b_r = value   
+        when "L" then $scope.flag_l_r = value   
+        when "A" then $scope.flag_a_r = value   
+        
     $scope.onNetworkF = (cate) ->
       switch cate
         when "T" then $scope.flag_t = !$scope.flag_t
@@ -279,6 +309,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "FR" then $scope.flag_f_r = !$scope.flag_f_r     
         when "RR" then $scope.flag_r_r = !$scope.flag_r_r     
         when "ER" then $scope.flag_e_r = !$scope.flag_e_r     
+        when "1R" then $scope.flag_1_r = !$scope.flag_1_r      
+        when "2R" then $scope.flag_2_r = !$scope.flag_2_r      
+        when "5R" then $scope.flag_5_r = !$scope.flag_5_r    
+        when "BR" then $scope.flag_b_r = !$scope.flag_b_r     
+        when "LR" then $scope.flag_l_r = !$scope.flag_l_r      
+        when "AR" then $scope.flag_a_r = !$scope.flag_a_r        
       #if(value== "true"?)
       #  $scope.selected_networks.push net
       #else
@@ -288,6 +324,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.onFilterDlg = ->
       $scope.show_filter_flag = not $scope.show_filter_flag       
 
+    # Click Event in List page
     $scope.clickBagel = (bagel) ->
       if($scope.prev_bagel?)
         $scope.prev_bagel.selected = false
@@ -296,282 +333,34 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.prev_bagel = bagel      
       $scope.my_profile = bagel.aboutme
 
-    $scope.loginCMB = (authtoken) ->
-      #login with CMB
-      #CURL commands:
-      # 1. curl https://api.coffeemeetsbagel.com/profile/me -H "App-version: 779" -H
-      $scope.cmbInfo = [] 
-      Cmb = $resource('/cmb', { format: 'json' })
-      Cmb.query(fbToken: authtoken , (results) -> 
-        $scope.cmbInfo = results
-        $scope.sessionid = results[0].sessionid
-        $scope.login_flag = false
-      )
-    $scope.getMyProfile = ->
-      # Set my profile
-      # Check Input values
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      # Set values and Send to Server
-      $scope.get_profile_flag = true
-
-      Cmb = $resource('/cmb/get_profile', { format: 'json' })
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.profileInfo = results        
-        $scope.userid = results[0].jsonObj.id
-        $scope.user_gender = results[0].jsonObj.gender
-        $scope.user_name = results[0].jsonObj.full_name
-        $scope.user_email = results[0].jsonObj.user__email        
-        $scope.user_criteria_gender = results[0].jsonObj.criteria__gender        
-        $scope.user_birthday = new Date(results[0].jsonObj.birthday)
-        $scope.firebaseToken = results[0].jsonObj.firebase_token
-        $scope.get_profile_flag = false         
-      )
-      
-    
-    $scope.setMyProfile = ->
-      # Set my profile
-      # Check Input values
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      if(not $scope.user_name?)
-        alert "Please Input 'User Name'."
-        return
-      if(not $scope.user_gender?)
-        alert "Please Input 'User Gender'."
-        return
-      if($scope.user_gender!= "f" && $scope.user_gender!= "m")
-        alert "'User Gender' must be 'm/f'."
-        return
-      if(not $scope.user_criteria_gender?)
-        alert "Please Input 'Criteria Gender'."
-        return
-      if($scope.user_criteria_gender!= "f" && $scope.user_criteria_gender!= "m")
-        alert "'Criteria Gender' must be 'm/f'."
-        return
-      if(not $scope.user_email?)
-        alert "Please Input 'User Email'."
-        return
-      # Set values and Send to Server
-      $scope.profile_flag = true
-      $scope.user = {}
-      $scope.user.name = $scope.user_name
-      $scope.user.id = $scope.userid
-      $scope.user.gender = $scope.user_gender
-      $scope.user.birthday = $scope.user_birthday
-      $scope.user.email = $scope.user_email
-      $scope.user.criteria_gender = $scope.user_criteria_gender 
-
-      Cmb = $resource('/cmb/set_profile', { format: 'json' })
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, user: $scope.user , (results) -> 
-        $scope.setProfileInfo = results
-        $scope.profile_flag = false
-        console.log 'data OK'   
-      )
-      
-    $scope.setBagels = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return     
-      $scope.bagels_flag = true
-      $scope.BagelsInfo = [] 
-      Cmb = $resource('/cmb/get_bagels', { format: 'json' })
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.BagelsInfo = results
-        $scope.BagelInfo = {}
-        $scope.BagelInfo.hex_id = results[0].jsonObj.current_token
-        $scope.BagelInfo.cursor_after = results[0].jsonObj.cursor_after
-        $scope.BagelInfo.cursor_before = results[0].jsonObj.cursor_before
-        $scope.BagelInfo.more_after = results[0].jsonObj.more_after
-        $scope.BagelInfo.more_before = results[0].jsonObj.more_before
-        $scope.bagels_flag = false
-        console.log 'Bagles OK'   
-      )
-    $scope.getBagelsHistory = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return    
-         
-      if(not $scope.BagelInfo?) || (not $scope.BagelInfo.hex_id?) 
-        alert "Please Click 'Set Bagels'."
-        return    
-      $scope.bagels_history_flag = true
-      $scope.BagelsList = [] 
-      Cmb = $resource('/cmb/get_bagels_history', { format: 'json' })
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, bagel: $scope.BagelInfo, (results) -> 
-        $scope.BagelsList = results    
-        $scope.bagels_history_flag = false   
-        console.log 'Bagles History OK'   
-      )
-    $scope.getResources = ->
-      $scope.get_resources_flag = true
-      Cmb = $resource('/cmb/get_resources', { format: 'json' })
-      $scope.ResourceInfo = [] 
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.ResourceInfo = results
-        $scope.get_resources_flag = false
-        console.log 'ResourceOk'
-      )
-
-    $scope.photolabs = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      $scope.photolabs_flag = true
-      $scope.PhotoLabs = []
-      Cmb = $resource('/cmb/get_photolabs', { format: 'json' })
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.PhotoLabs = results
-        $scope.photolabs_flag = false
-        console.log 'get_photoLabs'
-      )
-
-    $scope.giveTake = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      $scope.give_take_flag = true
-      $scope.girl_id = '2244848'
-      $scope.GiveTaskResult = []
-      Cmb = $resource('/cmb/give_take', { format: 'json' })      
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, customer_id: $scope.girl_id, (results) -> 
-        $scope.GiveTaskResult = results
-        $scope.give_take_flag = false
-        console.log 'giveTake'
-      )
-
-    $scope.purchase = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      $scope.girl_id = '2244848'
-      if(not $scope.item_count?)
-        alert "Please Input 'Item Count'."
-        return
-      if(not $scope.item_name?)
-        alert "Please Input 'Item Name'."
-        return
-      if(not $scope.expected_price?)
-        alert "Please Input 'expected_price'."
-        return
-      if(not $scope.give_ten_id?)
-        alert "Please Input 'Given ten id'."
-        return
-      $scope.purchase_flag = true
-      $scope.Purchase = {}
-      $scope.Purchase.item_name = $scope.item_name
-      $scope.Purchase.item_count = $scope.item_count
-      $scope.Purchase.expected_price = $scope.expected_price
-      $scope.Purchase.give_ten_id = $scope.give_ten_id
-      $scope.PurchaseResult = []
-      Cmb = $resource('/cmb/purchase', { format: 'json' })      
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, purchase: $scope.Purchase, (results) -> 
-        $scope.PurchaseResult = results
-        $scope.purchase_flag = false
-        console.log 'PurchaseOK'
-      )
-
-    $scope.report = ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      Cmb = $resource('/cmb/report', { format: 'json' })      
-      $scope.report_num = "4"
-      $scope.report_flag = true
-      $scope.ReportResult = []
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.ReportResult = results
-        $scope.report_flag = false
-        console.log 'Report'
-      )
-    $scope.get_bundary_id = ->
-      uniqueId = (length=8) ->
-        id = ""
-        id += Math.random().toString(36).substr(2) while id.length < length
-        id.substr 0, length
-      #var boundary_id = uniqueId(8) + "-" + uniqueId(4) + "-" + + uniqueId(4) + "-" + uniqueId(4) + "-" + uniqueId(12) 
-      b_1 = uniqueId(8)
-      b_2 = uniqueId(4)
-      b_3 = uniqueId(4)
-      b_4 = uniqueId(4)
-      b_5 = uniqueId(12)
-      #$scope.boundary_id = "#{b_1}-#{b_2}-#{b_3}-#{b_4}-#{b_5}"      
-      return "#{b_1}-#{b_2}-#{b_3}-#{b_4}-#{b_5}"
-
-    $scope.photo = ->           
-      boundary_id = $scope.get_bundary_id()
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      if(not $scope.photo_position?)
-        alert "Please Input Photo Position."
-        return
-      if(not $scope.photo_caption?)
-        alert "Please Input Photo Caption."
-        return
-      #$file_name      
-      #$file_photo_position
-      #$file_photo_caption
-    $scope.pickimg = (file) ->
-      if(not $scope.fbToken?)
-        alert "Please Click 'Login with Facebook'."
-        return
-      #$file_name 
-      Cmb = $resource('/cmb/msg_login', { format: 'json' })      
-      $scope.report_num = "4"
-      $scope.report_flag = true
-      $scope.ReportResult = []
-      Cmb.query(fbToken: $scope.fbToken, sessionid: $scope.sessionid, (results) -> 
-        $scope.ReportResult = results
-        $scope.report_flag = false
-        console.log 'Report'
-      )    
-
-      # upload on file select or drop
-      # this is angular file upload
-      # 
-    $scope.upload = (file) ->
-      console.log file
-      Upload.upload({
-          url: 'https://api.coffeemeetsbagel.com/photo',
-          data: {"file": file, 'position': $scope.file_photo_position, "caption": $scope.file_photo_caption},
-          headers: {
-            "AppStore-Version": "3.4.1.779",
-            "App-Version": "779",
-            "Client": "Android",
-            "Content-Type": "multipart/form-data",
-            "Access-Control-Allow-Origin": "*",
-            "Facebook-Auth-Token": $scope.fbToken,
-            "Cookie": "sessionid="+$scope.sessionid 
-          }
-      }).then((resp) ->
-          console.log 'Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data
-      , (resp) ->
-          console.log('Error status: ' + resp.status);
-      , (evt) ->
-          $scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-          console.log 'progress: ' + $scope.progressPercentage + '% ' + evt.config.data.file.name
-      )
-    $scope.loginFacebookForTinder = ->           
-      if(not $scope.fbToken?)
-        $scope.tinder_login_flag = true
-        $facebook.login(scope: 'email').then ((response) ->
-          authtoken = response.authResponse.accessToken
-          console.log response.authResponse
-          $scope.fbToken = authtoken
-          $scope.fbUserID = response.authResponse.userID  
-          $scope.loginTinder()               
-        ), (response) ->
-            console.log 'FB Login Error', response
-      else
-        $scope.loginTinder()
-    $scope.loginTinder = ->
-      $scope.tinderInfo = [] 
-      Tinder = $resource('/tinder', { format: 'json' })
-      Tinder.query(fbToken: $scope.fbToken, fbUserID: $scope.fbUserID , (results) -> 
-        $scope.tinderInfo = results        
-        $scope.tinder_login_flag = false
-      )
+    $scope.refreshCarousel = ->
+      $('.sky-carousel').carousel
+        itemWidth: 485
+        itemHeight: 485
+        distance: 0
+        selectedItemDistance: 0
+        enableMouseWheel: 0
+        loop: 0
+        selectedItemZoomFactor: 1
+        unselectedItemZoomFactor: 0.85
+        unselectedItemAlpha: 0.6
+        motionStartDistance: 210
+        topMargin: 85
+        gradientStartPoint: 0.35
+        gradientOverlayColor: '#e6e6e6'
+        gradientOverlaySize: 190
+        selectByClick: true      
   ])
+  .directive 'on-finish-render', ->
+  {
+    restrict: 'A'
+    link: (scope, element, attr) ->
+      if scope.$last == true
+        element.ready ->
+          #console.log 'calling:' + attr.onFinishRender
+          # CALL TEST HERE!
+          scope.refreshCarousel
+          return
+      return
+
+  }

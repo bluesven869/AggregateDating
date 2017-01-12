@@ -43,6 +43,12 @@ h1{
 .width-50-pro{
 	width:49%;
 }
+.width-50-step{
+	width:60px;
+}
+.width-80-step{
+	width:90px;
+}
 .padding-20{
 	padding:20px;
 }
@@ -283,6 +289,23 @@ input:checked + .slider:before {
 				    left:10px;
 				    top:20px;
 				}
+				.pie-border3-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;     
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder3 infinite ;   
+				}
 				
 				.pie-border2{
 				    width:92px;
@@ -301,6 +324,24 @@ input:checked + .slider:before {
 				    left:10px;
 				    top:20px;
 				}
+				.pie-border2-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder ;   
+				}
 				.pie-border1{
 				    width:92px;
 				    height:92px;
@@ -318,6 +359,25 @@ input:checked + .slider:before {
 				    position: absolute;
 				    left:10px;
 				    top:20px;
+				}
+				.pie-border1-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    border-bottom-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder ;   
 				}
 
 				.star{
@@ -1025,12 +1085,13 @@ input:checked + .slider:before {
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #595d68;
+			background-color: #a4a3a3;
 			position: absolute;
 			cursor: pointer;
 			left:45px;
 			top:30px;
-			padding: 40px;
+			padding-left: 45px;
+			padding-top: 40px;
 		}
 		.pass:hover{
 			background-color: #5d9fff;
@@ -1045,7 +1106,7 @@ input:checked + .slider:before {
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #595d68;
+			background-color: #a4a3a3;
 			padding: 40px;
 		}
 		.like:hover{
@@ -1062,7 +1123,7 @@ input:checked + .slider:before {
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #595d68;
+			background-color: #a4a3a3;
 			text-align: center;
 			padding-top:20px;
 		}
@@ -1082,7 +1143,7 @@ input:checked + .slider:before {
 			-moz-border-radius: 50%;
 			border-radius: 50%;
 			padding-top:20px;
-			background-color: #595d68;
+			background-color: #a4a3a3;
 		}
 		.super-like:hover{
 			background-color: #5d9fff;
@@ -1237,7 +1298,7 @@ input:checked + .slider:before {
 	position:absolute;
 	top:0px;
 	width:485px;
-	padding-top:10px;
+	padding-top:5px;
 	padding-left:20px;
 	padding-right:20px;
 	.share-text{

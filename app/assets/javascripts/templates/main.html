@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="CSS/tooltip_skin_variation.css" type="text/css" rel="stylesheet">
-
 <script src="JS/jquery_002.js"></script>
 <script type="text/javascript" src="JS/jquery.js"></script>
 <style type="text/css">
@@ -17,12 +15,78 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">LOGO</a>
+      <a class="navbar-brand" href="">LOGO</a>
     </div>
 
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
+      <span>Remaining : 42</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="nav navbar-nav dropdown">
+        <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#filter_dlg">
+          <label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span>
+          
+        </label> 
+        &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
+          <label for="O-check" title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" ng-click="onNetworkF('O')">O</label>
+          <label for="P-check" title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" ng-click="onNetworkF('P')">P</label>
+          <label for="B-check" title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" ng-click="onNetworkF('B')">B</label>
+          <label for="C-check" title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" ng-click="onNetworkF('C')">C</label>
+          <label for="1-S-check" title="1" ng-class="{'network-label-3': flag_1_r == true, 'network-label-4':flag_1_r == false}" ng-click="onNetworkF('1R')">1</label>
+          <label for="2-S-check" title="2 to 5" ng-class="{'network-label-3': flag_2_r == true, 'network-label-4':flag_2_r == false}" ng-click="onNetworkF('2R')">2</label>
+          <label for="5-S-check" title="5+" ng-class="{'network-label-3': flag_5_r == true, 'network-label-4':flag_5_r == false}" ng-click="onNetworkF('5R')">5</label>
+          <label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" ng-click="onNetworkF('BR')">BS</label>
+          <label for="L-S-check" title="Limited first" ng-class="{'network-label-3': flag_l_r == true, 'network-label-4':flag_l_r == false}" ng-click="onNetworkF('LR')">LS</label>
+          <label for="A-S-check" title="Alternate equally" ng-class="{'network-label-3': flag_a_r == true, 'network-label-4':flag_a_r == false}" ng-click="onNetworkF('AR')">AS</label>
 
+
+        <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
+          <h3>Networks</h3>
+          <div class="relative" ng-repeat="net in networks">
+            <label class="network-label"  for="{{net.CAP}}-check" >{{net.CAP}}</label><label  for="{{net.CAP}}-check" class="network-span">{{net.name}}</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="{{net.CAP}}-check" checked="checked"  ng-click="onNetwork(net.name, net.CAP)"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <hr width="100%" size="8" align="center">
+          <h3># of photos</h3>
+          <div class="control-group">
+            <label class="control control--checkbox width-50-step left"><label for="1-S-check" class="network-span font-14 " > 1</label>
+                <input type="checkbox" id="1-S-check"  ng-click="onSort('1')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-80-step left"><label for="2-S-check" class="network-span font-14 "> 2 to 5</label>
+                <input type="checkbox" id="2-S-check"  ng-click="onSort('2')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-50-step left"><label for="5-S-check" class="network-span font-14 "> 5+</label>
+                <input type="checkbox" id="5-S-check"  ng-click="onSort('5')" />
+                <div class="control__indicator"></div>
+              </label>
+          </div>
+
+          <hr width="100%" size="8" align="center">
+          <div class="order-by">
+           <h3>Order By</h3>
+             <div class="control-group">
+              <label class="control control--checkbox width-50-pro left"><label for="B-S-check" class="network-span font-14"> Best</label>
+                <input type="checkbox" id="B-S-check"  ng-click="onSort('B')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-50-pro left"><label for="L-S-check" class="network-span font-14"> Limited first</label>
+                <input type="checkbox" id="L-S-check"  ng-click="onSort('L')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox  left"><label for="A-S-check" class="network-span font-14"> Alternate equally</label>
+                <input type="checkbox" id="A-S-check"  ng-click="onSort('A')" />
+                <div class="control__indicator"></div>
+              </label>
+            </div>
+           </div>
+        </div>          
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>          
@@ -37,7 +101,7 @@
       <div style="visibility: visible;" class="sky-carousel sc-no-select">
         <div style="visibility: visible; opacity: 1;" class="sky-carousel-wrapper">
           <ul style="margin-top: 115px; left: -1556px; transition: left 0.45s ease-out 0s;" class="sky-carousel-container">
-            <li class="general_li" ng-repeat="bagel in BagelsList">
+            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagel2" on-finish-render="refreshCarousel">
               <img class="sc-image" ng-src='{{bagel.image}}' alt="BAGELS">              
               <div class="my-content">                
                 <span class="bagel-name">{{bagel.name}}, {{bagel.age}},</span> <span class="bagel-nearby">{{bagel.nearby}} miles from you</span> <br />
@@ -48,14 +112,14 @@
                 <span class="share-text">share friends</span>
                 <div> 
                   <span style="float: left">
-                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>  
-                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> 
-                  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> 
+                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>  
+                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i> 
+                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i> 
                   </span> 
                   <span style="float: right">
-                  <i class="fa fa-star-o fa-3x" aria-hidden="true"></i>
+                  <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
                   </span>
                 </div>
 
