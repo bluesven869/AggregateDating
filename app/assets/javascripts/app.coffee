@@ -148,9 +148,9 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_p = true   #POF_flag 
     $scope.flag_b = true   #Bumble_flag 
     $scope.flag_c = true   #CMB_flag
-    $scope.flag_f_r = true #Favorite flag
-    $scope.flag_r_r = true #Recent flag
-    $scope.flag_e_r = true #Expiring flag
+    $scope.flag_f_r = false #Favorite flag
+    $scope.flag_r_r = false #Recent flag
+    $scope.flag_e_r = false #Expiring flag
 
     $scope.BagelsList = [
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}, 
@@ -176,8 +176,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {'image':'Images/3.jpg', 'name': 'Dora Thomas',     'age':23, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1}, 
       {'image':'Images/4.jpg', 'name': 'Karen Olsen',     'age':22, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'C', 'expire_days':3,'matches':1,'recent':0}, 
       {'image':'Images/5.jpg', 'name': 'Mittie Phillips', 'age':20, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':2,'matches':1,'recent':1}, 
-      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}
-      
+      {'image':'Images/6.jpg', 'name': 'Dori Moss',       'age':25, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':3,'matches':0,'recent':0}      
     ]
 
     $scope.networks = [
@@ -190,24 +189,19 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.selected_networks = []
 
     $scope.filterBagel1 = (bagel) ->  
-      if(bagel.matches == 1)        
+      if(bagel.matches == 1)      
+        if($scope.flag_f_r)
+          if(bagel.star == 0)
+            return false
+        if($scope.flag_r_r)
+          if(bagel.recent == 0)
+            return false
+        if(!$scope.flag_e_r)
+          if(bagel.expire_days == 0)
+            return false  
         if($scope.flag_t)
           if(bagel.CAP == "T")
-            if($scope.flag_f_r)
-              if(bagel.star > 0)                
-                return bagel
-            else  
-              return bagel
-            if($scope.flag_r_r)
-              if(bagel.recent > 0)                
-                return bagel
-            else  
-              return bagel
-            if($scope.flag_e_r)
-              if(bagel.expire_days == 0)                
-                return bagel
-            else  
-              return bagel
+              return bagel            
         if($scope.flag_o)
           if(bagel.CAP == "O")
             return bagel
@@ -223,9 +217,18 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         return false
     $scope.filterBagel0 = (bagel) ->
       if(bagel.matches == 0)        
+        if($scope.flag_f_r)
+          if(bagel.star == 0)
+            return false
+        if($scope.flag_r_r)
+          if(bagel.recent == 0)
+            return false
+        if(!$scope.flag_e_r)
+          if(bagel.expire_days == 0)
+            return false  
         if($scope.flag_t)
           if(bagel.CAP == "T")
-            return bagel
+              return bagel            
         if($scope.flag_o)
           if(bagel.CAP == "O")
             return bagel
