@@ -74,13 +74,53 @@ h1{
 	-webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background-color: #ebebeb;
     border:1px solid #fff;
     text-align: center;
     padding-top:-17px;
     margin-right:0px;
     cursor: pointer;
 	color:#737373;
+	background-color: #a5a5a5;    
+}
+.network-label-2
+{
+	width:20px;
+	height:20px;
+	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:1px solid #fff;
+    text-align: center;
+    padding-top:-17px;
+    margin-right:0px;
+    cursor: pointer;
+	color:#d3d3d3;
+	background-color: #ebebeb;    
+}
+
+.network-label-3
+{
+	width:20px;
+	height:20px;
+	border:1px solid #fff;
+    text-align: center;
+    padding-top:-17px;
+    margin-right:0px;
+    cursor: pointer;
+	color:#737373;
+	background-color: #a5a5a5;    
+}
+.network-label-4
+{
+	width:20px;
+	height:20px;
+	border:1px solid #fff;
+    text-align: center;
+    padding-top:-17px;
+    margin-right:0px;
+    cursor: pointer;
+	color:#d3d3d3;
+	background-color: #ebebeb;    
 }
 
 .network-span{
