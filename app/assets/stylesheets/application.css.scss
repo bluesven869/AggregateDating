@@ -25,15 +25,14 @@ body{
 h1{
 	font-size:40px;
 }
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   	.margin-left-300{
-		margin-left:120px;
+		padding-left:120px;
 	}
 }
-@media (min-width: 800px){
+@media (min-width: 768px){
 	.margin-left-300{
-		margin-left:300px;	
+		padding-left: 300px;
 	}
 }
 
@@ -147,8 +146,8 @@ h1{
 }
 
 .avatar-24{
-	width:24px;
-	height:24px;
+	width:20px;
+	height:20px;
 	-webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;

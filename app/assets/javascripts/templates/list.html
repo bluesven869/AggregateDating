@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
         <span class="sr-only">Toggle navigation</span>
@@ -12,8 +11,8 @@
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
       <div class="nav navbar-nav dropdown">
         <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#filter_dlg">
-          <label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span>
-          
+          <label class="filter-sort-label">Filter & Sort </label>&nbsp;
+          <span class="caret"></span>          
         </label> 
         &nbsp;&nbsp;&nbsp;&nbsp;
           <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
@@ -81,21 +80,159 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
+    <div class=" navbar-collapse navbar-ex1-collapse">
+
+      <div class="nav navbar-nav nav-search">  
+        <div id="search" class="border-right">
+          <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search by names</span></label>
+          <input id="search-input" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+        </div>      
+      </div>
+      <div class="nav navbar-nav side-nav panel-body">
+        <div id='bagel_list'  >          
+          <div class="bagels">        
+              <div ng-class="{'bagel': bagel.selected == false,'bagel-seleceted': bagel.selected == true}" ng-repeat="bagel in BagelsList">
+                <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
+                  <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
+                  <img ng-class="{'user-image': bagel.selected == false,'user-image-selected': bagel.selected == true}" ng-src='{{bagel.image}}' />                  
+                  <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+                  <label class="name">{{bagel.name}}, {{bagel.age}}</label>
+                  <label class="short-description">{{bagel.aboutme}}</label>
+                  <p class="expire-days-label">{{bagel.CAP}}</p>
+                  <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+
+                </div>
+              </div>
+            </div>
+        </div> 
+      </div>
+  </div>
 </nav>
 <div class="row" >
   <div class="margin-left-300">  
-    <div class="col-sm-12 col-md-6 col-lg-6 ">
-      <p class="chat-mine">Lorem ipsum dolor..</p>
-      <p class="chat-bagel">Lorem ipsum dolor..</p>
-      <p class="chat-mine">Lorem ipsum dolor..</p>
-      <p class="chat-bagel">Lorem ipsum dolor..</p>
-      <div class="send-message">
-        <input ng-model='msg_input'>
-        <button>Send</button>
-      </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 ">              
+      <div class="chat-panel panel panel-default">
+        <div class="panel-heading" style="display: none">
+            <i class="fa fa-comments fa-fw"></i>
+            Chat
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <ul class="chat">
+              <li>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/7</div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
+              </li>
+              <li class="left clearfix">
+                  <div class="chat-body clearfix">     
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>  
+                  </div>
+                  <span class="caret rotate90R arrow-right"></span>
+              </li>
+              <li class="my-remove clearfix"></li>
+
+              <li class="right clearfix">
+                  <div class="chat-body clearfix">    
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>      
+                  </div>
+                  <span class="caret rotate90L arrow-left"></span>
+              </li>
+              <li class="left clearfix">
+                  <div class="chat-body clearfix">                      
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>
+                  </div>
+                  <span class="caret rotate90R arrow-right"></span>
+              </li>
+
+              <li>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/11</div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
+              </li>
+              <li class="left clearfix">
+                  <div class="chat-body clearfix">     
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>  
+                  </div>
+                  <span class="caret rotate90R arrow-right"></span>
+              </li>
+              <li class="my-remove clearfix"></li>
+
+              <li class="right clearfix">
+                  <div class="chat-body clearfix">    
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>      
+                  </div>
+                  <span class="caret rotate90L arrow-left"></span>
+              </li>
+              <li class="left clearfix">
+                  <div class="chat-body clearfix">                      
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      </p>
+                      <div class="header">                          
+                        <small class="pull-right text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> 06:43
+                        </small>
+                      </div>
+                  </div>
+                  <span class="caret rotate90R arrow-right"></span>
+              </li>
+          </ul>
+        </div>
+        <!-- /.panel-body -->
+        <div class="panel-footer ">
+            <div class="input-group row">
+                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                <span class="input-group-btn">
+                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                        Send
+                    </button>
+                </span>
+            </div>
+        </div>
+        <!-- /.panel-footer -->
     </div>
+  </div>
     <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
-    <div class="col-sm-12 col-md-6 col-lg-6">
+  <div class="col-sm-12 col-md-6 col-lg-6">
       <div class="bagel_profile">
         <section class="aboutme">
           <label>Profile Title</label>
@@ -118,7 +255,9 @@
             </div>
             <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
         </section>
-        <div class="ng-click"></div>
+        <div>
+          <button class="ng-click"</button>
+        </div>
         <section class="photos">
             <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br/><br/>
             <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
@@ -131,27 +270,9 @@
             <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
             <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
         </section>
-      </div>
     </div>
+  </div>
   </div>
 </div>
 
-<div id='bagel_list'>
-   <div id="search" class="border-right">
-    <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search by names</span></label>
-    <input id="search-input" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
-  </div>
-  <div class="bagels">        
-      <div class="bagel"  ng-repeat="bagel in BagelsList">
-        <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
-          <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
-          <img class="user-image" ng-src='{{bagel.image}}' />
-          <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-          <label class="name">{{bagel.name}}, {{bagel.age}}</label>
-          <label class="short-description">{{bagel.aboutme}}</label>
-          <p class="expire-days-label">{{bagel.CAP}}</p>
-          <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-        </div>
-      </div>
-    </div>
-</div>
+
