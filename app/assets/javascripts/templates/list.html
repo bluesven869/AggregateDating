@@ -11,7 +11,71 @@
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
+      <div class="nav navbar-nav dropdown">
+        <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#filter_dlg">
+          <label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span>
+          
+        </label> 
+        &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
+          <label for="O-check" title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" ng-click="onNetworkF('O')">O</label>
+          <label for="P-check" title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" ng-click="onNetworkF('P')">P</label>
+          <label for="B-check" title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" ng-click="onNetworkF('B')">B</label>
+          <label for="C-check" title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" ng-click="onNetworkF('C')">C</label>
+          <label for="1-S-check" title="1" ng-class="{'network-label-3': flag_1_r == true, 'network-label-4':flag_1_r == false}" ng-click="onNetworkF('1R')">1</label>
+          <label for="2-S-check" title="2 to 5" ng-class="{'network-label-3': flag_2_r == true, 'network-label-4':flag_2_r == false}" ng-click="onNetworkF('2R')">2</label>
+          <label for="5-S-check" title="5+" ng-class="{'network-label-3': flag_5_r == true, 'network-label-4':flag_5_r == false}" ng-click="onNetworkF('5R')">5</label>
+          <label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" ng-click="onNetworkF('BR')">BS</label>
+          <label for="L-S-check" title="Limited first" ng-class="{'network-label-3': flag_l_r == true, 'network-label-4':flag_l_r == false}" ng-click="onNetworkF('LR')">LS</label>
+          <label for="A-S-check" title="Alternate equally" ng-class="{'network-label-3': flag_a_r == true, 'network-label-4':flag_a_r == false}" ng-click="onNetworkF('AR')">AS</label>
 
+
+        <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
+          <h3>Networks</h3>
+          <div class="relative" ng-repeat="net in networks">
+            <label class="network-label"  for="{{net.CAP}}-check" >{{net.CAP}}</label><label  for="{{net.CAP}}-check" class="network-span">{{net.name}}</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="{{net.CAP}}-check" checked="checked"  ng-click="onNetwork(net.name, net.CAP)"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <hr width="100%" size="8" align="center">
+          <h3># of photos</h3>
+          <div class="control-group">
+            <label class="control control--checkbox width-50-step left"><label for="1-S-check" class="network-span font-14 " > 1</label>
+                <input type="checkbox" id="1-S-check"  ng-click="onSort('1')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-80-step left"><label for="2-S-check" class="network-span font-14 "> 2 to 5</label>
+                <input type="checkbox" id="2-S-check"  ng-click="onSort('2')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-50-step left"><label for="5-S-check" class="network-span font-14 "> 5+</label>
+                <input type="checkbox" id="5-S-check"  ng-click="onSort('5')" />
+                <div class="control__indicator"></div>
+              </label>
+          </div>
+
+          <hr width="100%" size="8" align="center">
+          <div class="order-by">
+           <h3>Order By</h3>
+             <div class="control-group">
+              <label class="control control--checkbox width-50-pro left"><label for="B-S-check" class="network-span font-14"> Best</label>
+                <input type="checkbox" id="B-S-check"  ng-click="onSort('B')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox width-50-pro left"><label for="L-S-check" class="network-span font-14"> Limited first</label>
+                <input type="checkbox" id="L-S-check"  ng-click="onSort('L')" />
+                <div class="control__indicator"></div>
+              </label>
+              <label class="control control--checkbox  left"><label for="A-S-check" class="network-span font-14"> Alternate equally</label>
+                <input type="checkbox" id="A-S-check"  ng-click="onSort('A')" />
+                <div class="control__indicator"></div>
+              </label>
+            </div>
+           </div>
+        </div>          
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>          
@@ -28,35 +92,12 @@
         <input id="search-input" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
         <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
       </section>
-      <section id="filter" class="border-right">
-        <label for="filter-sort" class="align-left"><i class="fa fa-filter" aria-hidden="true"></i><span class="sr-only">Filter & Sort</span></label>
-        <input id='filter-sort'  placeholder="Filter & Sort" autocomplete="off" spellcheck="false" autocorrect="off"  readonly="readonly" tabindex="2" >
-        <label for="filter-sort" class="align-right"><i class="fa fa-check-circle" aria-hidden="true" ng-click="onFilterDlg()"></i></label>
-
-        <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-        <div class="filter-sort-dlg" ng-if="show_filter_flag">
-          <h3>Networks</h3>
-          <div class="network" ng-repeat="net in networks">
-            <label class="network-label" for="check-{{net.CAP}}-input">{{net.CAP}}</label><label for="check-{{net.CAP}}-input" class="network-span">{{net.name}}</label> <input id='check-{{net.CAP}}-input' type=checkbox ng-click="onNetwork(net.name, net.CAP)" />
-          </div>
-          <hr width="100%" size="8" align="center">
-          <div class="favorite">
-            <input type="checkbox" id='check-favorite' /><label for="check-favorite" class="network-span"> Favorites only</label>
-          </div>
-          <hr width="100%" size="8" align="center">
-          <div class="order-by">
-           <h3>Order By</h3>
-           <label><input id='check-recent-input' type=checkbox /><label for="check-recent-input" >Recent</label> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <label>
-           <input id='check-expiring-input' type=checkbox /><label for="check-expiring-input" >Expiring</label> </label>
-           </div>
-        </div>
-      </section>
+     
       <section class="border-right">
       <div class="bagels">        
         <div class="bagel"  ng-repeat="bagel in BagelsList">
           <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
-            <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</div>
+            <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
             <img class="user-image" ng-src='{{bagel.image}}' />
             <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
             <label class="name">{{bagel.name}}, {{bagel.age}}</label>
