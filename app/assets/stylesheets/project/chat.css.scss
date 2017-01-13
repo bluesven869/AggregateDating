@@ -45,17 +45,54 @@
     }
     li.left{
       .chat-body {
-          margin-left: 60px;
-          border:1px solid #d3d3d3;
+          margin-left: 60px;  
           border-radius: 5px;
+          display: block;
+          background: #c7edfc;
+          vertical-align: top;          
+          padding: 5px 10px;
+          border-radius: 5px;
+          position: relative;
+      }
+      .chat-body:before {
+          content: "";
+          height: 0;
+          width: 0;
+          border-color: transparent;
+          border-style: solid;
+          border-width: 6px;
+          border-right-color: #c7edfc;
+          position: absolute;
+          right: -11px;
+          top: 12px;
+          transform:rotate(180deg);
       }
     }
     li.right{
       .chat-body {
         margin-right: 60px;
-        border:1px solid #d3d3d3;
+        
         border-radius: 5px;
+        display: block;
+          background: #f3f5f7;
+          vertical-align: top;          
+          padding: 5px 10px;
+          border-radius: 5px;
+          position: relative;
       }  
+
+      .chat-body:before {
+          content: "";
+          height: 0;
+          width: 0;
+          border-color: transparent;
+          border-style: solid;
+          border-width: 6px;
+          border-right-color: #f3f5f7;
+          position: absolute;
+          left: -12px;
+          top: 10px;
+      }
     } 
 }
 
@@ -106,4 +143,8 @@
   border-right:none !important;
   border-bottom: none !important;
   border-left:none !important;
+ 
+}
+.right-no-padding{
+  padding-right:0px !important;
 }

@@ -33,7 +33,7 @@
   		width:120px;
 	}
 	@media (min-width: 769px) {
-  		width:300px;
+  		width:318px;
 	}
 	left:0px;
 	position: absolute;
@@ -45,9 +45,17 @@
 	.bagels{  
 		.normal-bagel{
 	    	height:115px;
+	    	@media (max-width: 768px) {
+		  		width:117px;
+			}
+			@media (min-width: 769px) {
+		  		width:315px;
+			}
+	    	
 		    position: relative;		    
 		    padding-top:10px;			    		    
 	    	padding-bottom:10px;  
+	    	border:none;
 		    .user-image{
 			    width:56px;
 			    height:56px;
@@ -241,17 +249,37 @@
 				}
 			}
 	    }  
-	    .bagel{
-		    height:115px;
-		    border-bottom: 1px solid #eeeeee;
-		    position: relative;
-		    opacity: 0.5;
+	    @media (max-width: 768px) {
+		    .bagel{
+			    height:115px;
+			    width:117px;
+			    border-bottom: 1px solid #eeeeee;
+			    position: relative;
+			    opacity: 0.5;
+			}
+		    .bagel-selected{
+			    height:115px;
+			    width:117px;
+			    border-bottom: 1px solid #eeeeee;
+			    position: relative;
+			    opacity: 1;
+			}
 		}
-	    .bagel-selected{
-		    height:115px;
-		    border-bottom: 1px solid #eeeeee;
-		    position: relative;
-		    opacity: 1;
+		@media (min-width: 768px) {
+		    .bagel{
+			    height:115px;
+			    width:300px;
+			    border-bottom: 1px solid #eeeeee;
+			    position: relative;
+			    opacity: 0.5;
+			}
+		    .bagel-selected{
+			    height:115px;
+			    width:300px;
+			    border-bottom: 1px solid #eeeeee;
+			    position: relative;
+			    opacity: 1;
+			}
 		}
 	}
 }
