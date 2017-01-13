@@ -1,0 +1,240 @@
+#bagel_list{
+	@media (max-width: 800px) {
+  		width:120px;
+	}
+	@media (min-width: 800px) {
+  		width:300px;
+	}
+	
+	top:50px;
+	left:0px;
+	position: absolute;
+	border-right: 1px solid #d4d4d4;
+	#search, #filter {
+	    font-size: 18px;    
+		position:relative;
+	    #search-input, #filter-sort, .hint {
+		    padding-left: 33px;
+		    padding-right: 33px;
+		    height:60px;
+		    width:100%;
+		    border-top:none;
+		    border-left:none;
+		    border-right:none;
+		    border-bottom:1px solid #d4d4d4;
+		}
+		.algin-right{
+			position: absolute;
+			right:10px;
+			top:15px;
+		}
+		.align-left{
+			position: absolute;
+			left:10px;
+			top:15px;
+		}
+		.align-right{
+			position: absolute;
+			right:15px;
+			top:15px;
+			cursor: pointer;
+		}
+	}
+	.selected{
+		background-color: #eeeeee;
+	}
+	.bagels{    
+	    .bagel{
+		    height:135px;
+		    border-bottom: 1px solid #eeeeee;
+		    position: relative;
+		    .normal-bagel{
+		    	height:135px;
+			    position: relative;		    
+			    padding-top:15px;			    		    
+		    	padding-bottom:15px;  
+			    .user-image{
+				    width:66px;
+				    height:66px;
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position:absolute;
+				    left:23px;
+				    top:33px;
+				}
+				.pie-border3{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				.pie-border3-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;     
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder3 infinite ;   
+				}
+				
+				.pie-border2{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				.pie-border2-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder ;   
+				}
+				.pie-border1{
+				    width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(0,0,0,0.4);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    border-bottom-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				}
+				.pie-border1-selected{
+					width:92px;
+				    height:92px;
+				    padding:6px;
+				    border:8px solid rgba(112,129,255,0.8);      
+				    border-top-color: transparent;    
+				    border-right-color: transparent;    
+				    border-bottom-color: transparent;    
+				    -ms-transform: rotate(30deg); /* IE 9 */
+				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+				    transform: rotate(30deg);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				    border-radius: 50%;
+				    position: absolute;
+				    left:10px;
+				    top:20px;
+				    animation: 1s animateBorder ;   
+				}
+
+				.star{
+				    position: absolute;
+				    left:70px;
+				    top:22px;
+				    color: #999;
+				    font-size:1.4em;
+				    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
+				}
+				@media (max-width: 800px) {
+			  		.name{			  			
+					    display: none;
+					}
+					.short-description{
+					    display: none;
+					}
+
+					.expire-days-label{
+						display: none;
+					}
+					.expire-days-span{
+						display: none;
+					}
+				}
+				@media (min-width: 800px) {
+			  		.name{
+					    position: absolute;
+					    left:110px;
+					    top:22px;
+					    color: #000;
+					    font-size:1.4em;
+					}
+					.short-description{
+					    position: absolute;
+					    font-weight: normal;
+					    left:112px;
+					    top:50px;
+					    color: #000;
+					    font-size:1em;
+					}
+
+					.expire-days-label{
+						position: absolute;    
+						background-color: #999;
+						left:142px;
+						top:80px;
+						width:24px;
+						height:24px;
+						-webkit-border-radius: 50%;
+						-moz-border-radius: 50%;
+						border-radius: 50%;
+						border:2px solid #fff;
+						color: #000;
+						font-size:1em;
+						padding-left: 6px;
+					}
+					.expire-days-span{
+						position: absolute;
+						font-weight: normal;
+						left:170px;
+						top:80px;
+						color: #000;
+						font-size:1em;
+					}
+				}
+		    }		    
+		}
+	}
+}

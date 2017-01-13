@@ -26,7 +26,16 @@ h1{
 	font-size:40px;
 }
 
-
+@media (max-width: 800px) {
+  	.margin-left-300{
+		margin-left:120px;
+	}
+}
+@media (min-width: 800px){
+	.margin-left-300{
+		margin-left:300px;	
+	}
+}
 
 .border-right{
 	border-right:1px solid #d4d4d4;
@@ -219,250 +228,6 @@ input:checked + .slider:before {
 }
 .hand-cursor{
 	cursor: pointer;
-}
-#bagel_list{
-	#search, #filter {
-	    font-size: 18px;    
-		position:relative;
-
-	    #search-input, #filter-sort, .hint {
-		    padding-left: 33px;
-		    padding-right: 33px;
-		    height:60px;
-		    width:100%;
-		    border-top:none;
-		    border-left:none;
-		    border-right:none;
-		    border-bottom:1px solid #d4d4d4;
-		}
-
-		.align-left{
-			position: absolute;
-			left:10px;
-			top:15px;
-		}
-		.align-right{
-			position: absolute;
-			right:15px;
-			top:15px;
-			cursor: pointer;
-		}
-	}
-	.selected{
-		background-color: #eeeeee;
-		
-	}
-	.bagels{    
-	    
-	    .bagel{
-		    height:135px;
-		    border-bottom: 1px solid #eeeeee;
-		    position: relative;
-		    .normal-bagel{
-		    	height:135px;
-			    position: relative;		    
-			    padding-top:15px;			    		    
-		    	padding-bottom:15px;  
-			    .user-image{
-				    width:66px;
-				    height:66px;
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position:absolute;
-				    left:23px;
-				    top:33px;
-				}
-				.pie-border3{
-				    width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(0,0,0,0.4);      
-				    border-top-color: transparent;    
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				}
-				.pie-border3-selected{
-					width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(112,129,255,0.8);      
-				    border-top-color: transparent;     
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				    animation: 1s animateBorder3 infinite ;   
-				}
-				
-				.pie-border2{
-				    width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(0,0,0,0.4);      
-				    border-top-color: transparent;    
-				    border-right-color: transparent;    
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				}
-				.pie-border2-selected{
-					width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(112,129,255,0.8);      
-				    border-top-color: transparent;    
-				    border-right-color: transparent;    
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				    animation: 1s animateBorder ;   
-				}
-				.pie-border1{
-				    width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(0,0,0,0.4);      
-				    border-top-color: transparent;    
-				    border-right-color: transparent;    
-				    border-bottom-color: transparent;    
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				}
-				.pie-border1-selected{
-					width:92px;
-				    height:92px;
-				    padding:6px;
-				    border:8px solid rgba(112,129,255,0.8);      
-				    border-top-color: transparent;    
-				    border-right-color: transparent;    
-				    border-bottom-color: transparent;    
-				    -ms-transform: rotate(30deg); /* IE 9 */
-				    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-				    transform: rotate(30deg);
-				    -webkit-border-radius: 50%;
-				    -moz-border-radius: 50%;
-				    border-radius: 50%;
-				    position: absolute;
-				    left:10px;
-				    top:20px;
-				    animation: 1s animateBorder ;   
-				}
-
-				.star{
-				    position: absolute;
-				    left:70px;
-				    top:22px;
-				    color: #999;
-				    font-size:1.4em;
-				    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
-				}
-				.name{
-				    position: absolute;
-				    left:110px;
-				    top:22px;
-				    color: #000;
-				    font-size:1.4em;
-				}
-				.short-description{
-				    position: absolute;
-				    font-weight: normal;
-				    left:112px;
-				    top:50px;
-				    color: #000;
-				    font-size:1em;
-				}
-
-				.expire-days-label{
-					position: absolute;    
-					background-color: #999;
-					left:142px;
-					top:80px;
-					width:24px;
-					height:24px;
-					-webkit-border-radius: 50%;
-					-moz-border-radius: 50%;
-					border-radius: 50%;
-					border:2px solid #fff;
-					color: #000;
-					font-size:1em;
-					padding-left: 6px;
-				}
-				.expire-days-span{
-					position: absolute;
-					font-weight: normal;
-					left:170px;
-					top:80px;
-					color: #000;
-					font-size:1em;
-				}
-		    }		    
-		}
-
-	}
-	.chat-mine{
-		border:1px solid #d3d3d3;
-		padding: 10px;
-		position: relative;
-		width:80%;
-		float:left;
-	}
-	.chat-bagel{
-		border:1px solid #d3d3d3;
-		padding: 10px;
-		width:80%;
-		float: right;
-	}
-	.send-message{
-		width:100%;
-		height:55px;
-	}
-	.send-message button{
-		width:155px;
-		height:55px;
-		background-color: #616872;    
-		border: none;
-		color: white;
-		float:right;
-		font-size:1.5em;
-	}
-	.send-message input{
-		height:55px;
-		float:left;
-		border:1px solid #d3d3d3;
-	}
-
 }
 @keyframes animateBorder {
     0% {
@@ -1074,7 +839,6 @@ input:checked + .slider:before {
 }
 
 .bagel_profile{
-	width:475px;
 	margin:0 auto;
 	.toolbox{
 		height:260px;

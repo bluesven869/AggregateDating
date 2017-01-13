@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
-  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
         <span class="sr-only">Toggle navigation</span>
@@ -82,34 +81,10 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div>
 </nav>
-<div class="container1">
-  <div class="row" id='bagel_list'>
-    <div class="col-sm-4">
-      <section id="search" class="border-right">
-        <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search by names</span></label>
-        <input id="search-input" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
-        <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-      </section>
-     
-      <section class="border-right">
-      <div class="bagels">        
-        <div class="bagel"  ng-repeat="bagel in BagelsList">
-          <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
-            <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
-            <img class="user-image" ng-src='{{bagel.image}}' />
-            <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-            <label class="name">{{bagel.name}}, {{bagel.age}}</label>
-            <label class="short-description">{{bagel.aboutme}}</label>
-            <p class="expire-days-label">{{bagel.CAP}}</p>
-            <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-          </div>
-        </div>
-      </div>
-      </section>
-    </div>
-    <div class="col-sm-4">
+<div class="row" >
+  <div class="margin-left-300">  
+    <div class="col-sm-12 col-md-6 col-lg-6 ">
       <p class="chat-mine">Lorem ipsum dolor..</p>
       <p class="chat-bagel">Lorem ipsum dolor..</p>
       <p class="chat-mine">Lorem ipsum dolor..</p>
@@ -119,19 +94,17 @@
         <button>Send</button>
       </div>
     </div>
-    <div class="col-sm-4">
+    <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
+    <div class="col-sm-12 col-md-6 col-lg-6">
       <div class="bagel_profile">
-        
         <section class="aboutme">
           <label>Profile Title</label>
           <p class="profile" ng-model="my_profile">
             Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-            Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
-            Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
           </p>
         </section>
         <section class="nick-name">
-          <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
+          <label class="img-div">SC</label><label class=name>Jessicaarc</label>
         </section>
         <section class="music-spotify">
             DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
@@ -145,8 +118,9 @@
             </div>
             <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
         </section>
+        <div class="ng-click"></div>
         <section class="photos">
-            <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br /><br />
+            <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br/><br/>
             <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
             <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
             <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
@@ -161,4 +135,23 @@
     </div>
   </div>
 </div>
-<section>
+
+<div id='bagel_list'>
+   <div id="search" class="border-right">
+    <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search by names</span></label>
+    <input id="search-input" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+  </div>
+  <div class="bagels">        
+      <div class="bagel"  ng-repeat="bagel in BagelsList">
+        <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
+          <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
+          <img class="user-image" ng-src='{{bagel.image}}' />
+          <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+          <label class="name">{{bagel.name}}, {{bagel.age}}</label>
+          <label class="short-description">{{bagel.aboutme}}</label>
+          <p class="expire-days-label">{{bagel.CAP}}</p>
+          <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
+        </div>
+      </div>
+    </div>
+</div>
