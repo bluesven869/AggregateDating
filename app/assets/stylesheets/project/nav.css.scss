@@ -25,7 +25,14 @@
     display: inline-block;
     float: none;
 }
+.navbar-nav li{
+    float:none;
 
+}
+.navbar-nav li ul{
+    list-style: none;
+
+}
 .navbar .navbar-collapse {
     text-align: center;
 }
@@ -89,4 +96,54 @@
         overflow-x: hidden;
         overflow-y: hidden;
     }
+}
+.fixed-menu-nav{
+
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 225px;
+        height:100%;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #ebebeb;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        text-align: left;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #fff !important;
+        color:000 !important;
+        text-align: left;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    text-align: left;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #000;
+}
 }
