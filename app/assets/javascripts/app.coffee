@@ -4,7 +4,8 @@ aggregate_dating = angular.module('aggregate_dating',[
     'ngResource',
   	'controllers',
   	'facebook',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ngCookies'
 ])
 MyAuthInfo = []
 aggregate_dating.config([ '$routeProvider',
@@ -135,14 +136,18 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
 ])
 
 
-controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource', 'Upload'
-  ($scope,$routeParams,$location,$facebook,$http,$resource, Upload)->
+controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource','$cookies', 'Upload'
+  ($scope,$routeParams,$location,$facebook,$http,$resource,$cookies, Upload)->
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
     $scope.prev_bagel = null
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
+    favoriteCookie = $cookies.get('myFavorite');
+    # Setting a cookie
+    console.log favoriteCookie
+    $cookies.put('myFavorite', 'oatmeal');
     $scope.flag_t = true   #tinder_flag
     $scope.flag_o = true   #Okpid_flag 
     $scope.flag_p = true   #POF_flag 
@@ -151,6 +156,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_f_r = false #Favorite flag
     $scope.flag_r_r = false #Recent flag
     $scope.flag_e_r = false #Expiring flag
+    
     $scope.flag_1_r = false
     $scope.flag_2_r = false
     $scope.flag_5_r = false
