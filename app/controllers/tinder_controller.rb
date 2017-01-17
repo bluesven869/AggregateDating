@@ -2,8 +2,7 @@ require 'httparty'
 require 'json'
 class TinderController < ApplicationController
 	include HTTParty
-	debug_output $stdout
-	
+	debug_output $stdout	
 
 	def index
 		# Login to CoffeeMeetBagel		
