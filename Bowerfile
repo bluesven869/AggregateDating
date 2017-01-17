@@ -1,4 +1,5 @@
 asset 'angular'
+asset 'angular-cookies'
 asset 'angular-route'
 asset 'angular-resource'
 asset 'angular-mocks'

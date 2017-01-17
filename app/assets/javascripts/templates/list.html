@@ -30,10 +30,38 @@
 
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
-          <div class="relative" ng-repeat="net in networks">
-            <label class="network-label"  for="{{net.CAP}}-check" >{{net.CAP}}</label><label  for="{{net.CAP}}-check" class="network-span">{{net.name}}</label> 
+          <div class="relative">
+            <label class="network-label"  for="T-check" >T</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="{{net.CAP}}-check" checked="checked"  ng-click="onNetwork(net.name, net.CAP)"/>
+              <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="onNetwork('Tinder', 'T')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="O-check" >O</label><label  for="O-check" class="network-span">OKCupid</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="onNetwork('OKCupid', 'O')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="P-check" >P</label><label  for="P-check" class="network-span">POF</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="P-check" ng-model="flag_p"  ng-click="onNetwork('OKCupid', 'P')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="B-check" >B</label><label  for="B-check" class="network-span">Bumble</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="B-check" ng-model="flag_b"  ng-click="onNetwork('Bumble', 'B')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="C-check" >C</label><label  for="C-check" class="network-span">CMB</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="C-check" ng-model="flag_c"  ng-click="onNetwork('CMB', 'C')"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
@@ -41,15 +69,15 @@
           <h3># of photos</h3>
           <div class="control-group">
             <label class="control control--checkbox width-50-step left"><label for="1-S-check" class="network-span font-14 " > 1</label>
-                <input type="checkbox" id="1-S-check"  ng-click="onSort('1')" />
+                <input type="checkbox" id="1-S-check" ng-model="flag_1_r"  ng-click="onSort('1')" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox width-80-step left"><label for="2-S-check" class="network-span font-14 "> 2 to 5</label>
-                <input type="checkbox" id="2-S-check"  ng-click="onSort('2')" />
+                <input type="checkbox" id="2-S-check"  ng-model="flag_2_r"  ng-click="onSort('2')" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox width-50-step left"><label for="5-S-check" class="network-span font-14 "> 5+</label>
-                <input type="checkbox" id="5-S-check"  ng-click="onSort('5')" />
+                <input type="checkbox" id="5-S-check"  ng-model="flag_5_r"  ng-click="onSort('5')" />
                 <div class="control__indicator"></div>
               </label>
           </div>
@@ -59,15 +87,15 @@
            <h3>Order By</h3>
              <div class="control-group">
               <label class="control control--checkbox width-50-pro left"><label for="B-S-check" class="network-span font-14"> Best</label>
-                <input type="checkbox" id="B-S-check"  ng-click="onSort('B')" />
+                <input type="checkbox" id="B-S-check"  ng-model="flag_b_r"  ng-click="onSort('B')" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox width-50-pro left"><label for="L-S-check" class="network-span font-14"> Limited first</label>
-                <input type="checkbox" id="L-S-check"  ng-click="onSort('L')" />
+                <input type="checkbox" id="L-S-check"   ng-model="flag_l_r" ng-click="onSort('L')" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox  left"><label for="A-S-check" class="network-span font-14"> Alternate equally</label>
-                <input type="checkbox" id="A-S-check"  ng-click="onSort('A')" />
+                <input type="checkbox" id="A-S-check"  ng-model="flag_a_r" ng-click="onSort('A')" />
                 <div class="control__indicator"></div>
               </label>
             </div>
@@ -80,6 +108,7 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
+
     <div class=" navbar-collapse navbar-ex1-collapse">
 
       <div class="nav navbar-nav nav-search">  
@@ -107,6 +136,7 @@
         </div> 
       </div>
   </div>
+  
 </nav>
 <div class="row" >
   <div class="margin-left-300">  
@@ -212,7 +242,7 @@
           </ul>
         </div>
         <!-- /.panel-body -->
-        <div class="panel-footer ">
+        <div class="panel-footer col-sm-12 col-md-6 col-lg-6 ">
             <div class="input-group right-no-padding">
                 <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                 <span class="input-group-btn">
