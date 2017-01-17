@@ -2,21 +2,18 @@
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
-
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#fixed-menu">
+      <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
           <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
-          
       </label> 
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-6">
-      
       <div class="nav navbar-nav dropdown">      
         <label class="dropdown-toggle hand-cursor" data-toggle="collapse" data-target="#filter_dlg">
           <label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span>
@@ -36,35 +33,35 @@
           <div class="relative">
             <label class="network-label"  for="T-check" >T</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="onNetwork('Tinder', 'T')"/>
+              <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag()"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
             <label class="network-label"  for="O-check" >O</label><label  for="O-check" class="network-span">OKCupid</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="onNetwork('OKCupid', 'O')"/>
+              <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="set_cookie_from_flag()""/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
             <label class="network-label"  for="P-check" >P</label><label  for="P-check" class="network-span">POF</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="P-check" ng-model="flag_p"  ng-click="onNetwork('OKCupid', 'P')"/>
+              <input type="checkbox" id="P-check" ng-model="flag_p"  ng-click="set_cookie_from_flag()"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
             <label class="network-label"  for="B-check" >B</label><label  for="B-check" class="network-span">Bumble</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="B-check" ng-model="flag_b"  ng-click="onNetwork('Bumble', 'B')"/>
+              <input type="checkbox" id="B-check" ng-model="flag_b"  ng-click="set_cookie_from_flag()"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
             <label class="network-label"  for="C-check" >C</label><label  for="C-check" class="network-span">CMB</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="C-check" ng-model="flag_c"  ng-click="onNetwork('CMB', 'C')"/>
+              <input type="checkbox" id="C-check" ng-model="flag_c"  ng-click="set_cookie_from_flag()" />
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
@@ -72,7 +69,7 @@
 
           <div class="control-group">
             <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14"> Favorites only</label>
-              <input type="checkbox" ng-model="flag_f_r" id="F-S-check" ng-click="onSort('F')" />
+              <input type="radio" ng-model="flag_f_r" id="F-S-check" ng-click="set_cookie_from_flag()" />
               <div class="control__indicator"></div>
             </label>
           </div>
@@ -82,11 +79,11 @@
            <h3>Order By</h3>
              <div class="control-group">
               <label class="control control--checkbox width-50-pro left"><label for="R-S-check" class="network-span font-14"> Recent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="checkbox"  ng-model="flag_r_r" id="R-S-check" ng-click="onSort('R')" />
+                <input type="radio"  ng-model="flag_r_r" id="R-S-check" ng-click="set_cookie_from_flag()" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox width-50-pro left"><label for="E-S-check" class="network-span font-14"> Expiring</label>
-                <input type="checkbox" id="E-S-check"  ng-model="flag_e_r" ng-click="onSort('E')" />
+                <input type="radio" id="E-S-check"  ng-model="flag_e_r" ng-click="set_cookie_from_flag()" />
                 <div class="control__indicator"></div>
               </label>
             </div>
@@ -101,7 +98,8 @@
       </ul>
     </div>
   </div>
-  <div  id="fixed-menu" class="dropdown-menu fixed-menu-nav">
+  <div  id="fixed-menu" class="fixed-menu-nav">
+  <div class="dropdown-menu">
     <ul class="nav navbar-nav side-nav " >
       <li class="active">
           <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
@@ -150,6 +148,7 @@
           <a href=""><i class="fa fa-fw fa-dashboard"></i> LOGOUT</a>
       </li>
     </ul>
+  </div>
   </div>
 </nav>
 <div class="row" >

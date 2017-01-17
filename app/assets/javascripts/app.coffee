@@ -197,24 +197,20 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     ]
     $scope.selected_networks = []
     $scope.convert_to_bool = (flag, f_d) ->
-      new_flag = false
-      console.log  flag
-
-        
+      new_flag = false        
       if (flag == undefined)
         new_flag = f_d
       else 
         new_flag = flag
       return new_flag
+
     $scope.init = ->      
 
       $scope.flag_t = $scope.convert_to_bool($cookieStore.get('flag_t'), true)
       $scope.flag_o = $scope.convert_to_bool($cookieStore.get('flag_o'), true)
       $scope.flag_p = $scope.convert_to_bool($cookieStore.get('flag_p'), true)
       $scope.flag_b = $scope.convert_to_bool($cookieStore.get('flag_b'), true)
-      $scope.flag_c = $scope.convert_to_bool($cookieStore.get('flag_c'), true)
-      console.log $scope.flag_o
-      console.log $cookieStore.get('flag_o')
+      $scope.flag_c = $scope.convert_to_bool($cookieStore.get('flag_c'), true)      
       $scope.flag_1_r = $scope.convert_to_bool($cookieStore.get('flag_1_r'), true)
       $scope.flag_2_r = $scope.convert_to_bool($cookieStore.get('flag_2_r'), true)
       $scope.flag_5_r = $scope.convert_to_bool($cookieStore.get('flag_5_r'), true)
@@ -227,8 +223,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
       $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
       
-    $scope.set_cookie_from_flag = -> 
-      console.log "set_cookie"
+    $scope.set_cookie_from_flag = ->  
+           
       $cookieStore.put('flag_t', $scope.flag_t)
       $cookieStore.put('flag_o', $scope.flag_o)
       $cookieStore.put('flag_p', $scope.flag_p)
@@ -332,50 +328,6 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       return false
 
 
-    $scope.onNetwork = (net, chk) ->
-      value = document.getElementById(""+chk+"-check").checked;
-
-      switch chk
-        when "T" then $scope.flag_t = value
-        when "O" then $scope.flag_o = value
-        when "P" then $scope.flag_p = value
-        when "B" then $scope.flag_b = value
-        when "C" then $scope.flag_c = value
-     
-      $scope.set_cookie_from_flag()
-      console.log value
-    $scope.onSort = (sort) ->
-      value = document.getElementById(""+sort+"-S-check").checked;
-      switch sort
-        when "F" then $scope.flag_f_r = value
-        when "R" then $scope.flag_r_r = value
-        when "E" then $scope.flag_e_r = value   
-        when "1" then $scope.flag_1_r = value   
-        when "2" then $scope.flag_2_r = value   
-        when "5" then $scope.flag_5_r = value   
-        when "B" then $scope.flag_b_r = value   
-        when "L" then $scope.flag_l_r = value   
-        when "A" then $scope.flag_a_r = value 
-      $scope.set_cookie_from_flag()  
-        
-    $scope.onNetworkF = (cate) ->
-      switch cate
-        when "T" then $scope.flag_t = !$scope.flag_t
-        when "O" then $scope.flag_o = !$scope.flag_o
-        when "P" then $scope.flag_p = !$scope.flag_p
-        when "B" then $scope.flag_b = !$scope.flag_b
-        when "C" then $scope.flag_c = !$scope.flag_c     
-        when "FR" then $scope.flag_f_r = !$scope.flag_f_r     
-        when "RR" then $scope.flag_r_r = !$scope.flag_r_r     
-        when "ER" then $scope.flag_e_r = !$scope.flag_e_r     
-        when "1R" then $scope.flag_1_r = !$scope.flag_1_r      
-        when "2R" then $scope.flag_2_r = !$scope.flag_2_r      
-        when "5R" then $scope.flag_5_r = !$scope.flag_5_r    
-        when "BR" then $scope.flag_b_r = !$scope.flag_b_r     
-        when "LR" then $scope.flag_l_r = !$scope.flag_l_r      
-        when "AR" then $scope.flag_a_r = !$scope.flag_a_r
-      $scope.set_cookie_from_flag()        
-      
 
     $scope.onFilterDlg = ->
       $scope.show_filter_flag = not $scope.show_filter_flag       
