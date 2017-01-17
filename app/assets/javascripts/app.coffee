@@ -198,20 +198,23 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.selected_networks = []
     $scope.convert_to_bool = (flag, f_d) ->
       new_flag = false
+      console.log  flag
+
+        
       if (flag == undefined)
         new_flag = f_d
-      else if(flag == "true")
-        new_flag = true
-      else
-        new_flag = false
+      else 
+        new_flag = flag
       return new_flag
     $scope.init = ->      
+
       $scope.flag_t = $scope.convert_to_bool($cookieStore.get('flag_t'), true)
       $scope.flag_o = $scope.convert_to_bool($cookieStore.get('flag_o'), true)
       $scope.flag_p = $scope.convert_to_bool($cookieStore.get('flag_p'), true)
       $scope.flag_b = $scope.convert_to_bool($cookieStore.get('flag_b'), true)
       $scope.flag_c = $scope.convert_to_bool($cookieStore.get('flag_c'), true)
-      
+      console.log $scope.flag_o
+      console.log $cookieStore.get('flag_o')
       $scope.flag_1_r = $scope.convert_to_bool($cookieStore.get('flag_1_r'), true)
       $scope.flag_2_r = $scope.convert_to_bool($cookieStore.get('flag_2_r'), true)
       $scope.flag_5_r = $scope.convert_to_bool($cookieStore.get('flag_5_r'), true)
@@ -331,6 +334,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
 
     $scope.onNetwork = (net, chk) ->
       value = document.getElementById(""+chk+"-check").checked;
+
       switch chk
         when "T" then $scope.flag_t = value
         when "O" then $scope.flag_o = value
@@ -338,8 +342,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "B" then $scope.flag_b = value
         when "C" then $scope.flag_c = value
      
-      $scope.set_cookie_from_flag
-      
+      $scope.set_cookie_from_flag()
+      console.log value
     $scope.onSort = (sort) ->
       value = document.getElementById(""+sort+"-S-check").checked;
       switch sort
@@ -352,7 +356,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "B" then $scope.flag_b_r = value   
         when "L" then $scope.flag_l_r = value   
         when "A" then $scope.flag_a_r = value 
-      $scope.set_cookie_from_flag  
+      $scope.set_cookie_from_flag()  
         
     $scope.onNetworkF = (cate) ->
       switch cate
@@ -370,7 +374,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "BR" then $scope.flag_b_r = !$scope.flag_b_r     
         when "LR" then $scope.flag_l_r = !$scope.flag_l_r      
         when "AR" then $scope.flag_a_r = !$scope.flag_a_r
-      $scope.set_cookie_from_flag        
+      $scope.set_cookie_from_flag()        
       
 
     $scope.onFilterDlg = ->
