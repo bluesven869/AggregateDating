@@ -136,18 +136,15 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
 ])
 
 
-controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource','$cookies', 'Upload'
-  ($scope,$routeParams,$location,$facebook,$http,$resource,$cookies, Upload)->
+controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource','$cookies','$cookieStore', 'Upload'
+  ($scope,$routeParams,$location,$facebook,$http,$resource,$cookies,$cookieStore, Upload)->
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
     $scope.prev_bagel = null
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
-    favoriteCookie = $cookies.get('myFavorite');
-    # Setting a cookie
-    console.log favoriteCookie
-    $cookies.put('myFavorite', 'oatmeal');
+    
     $scope.flag_t = true   #tinder_flag
     $scope.flag_o = true   #Okpid_flag 
     $scope.flag_p = true   #POF_flag 
@@ -160,10 +157,10 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_1_r = false
     $scope.flag_2_r = false
     $scope.flag_5_r = false
+
     $scope.flag_b_r = false
     $scope.flag_l_r = false   
     $scope.flag_a_r = false   
-
     $scope.BagelsList = [
       {'image':'Images/1.jpg', 'name': 'Maria Vann',      'age':21, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':1,'CAP':'T', 'expire_days':3,'matches':0,'recent':0, 'selected':false}, 
       {'image':'Images/2.jpg', 'name': 'Leslie Lawson',   'age':26, 'nearby':2,'school':'Havard Raw School','aboutme':'Now that I’ve given you the pep talk','star':0,'CAP':'T', 'expire_days':1,'matches':0,'recent':1, 'selected':false}, 
@@ -192,13 +189,60 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     ]
 
     $scope.networks = [
-      {'name': 'Tinder', 'CAP':'T'},
-      {'name': 'OKCupid', 'CAP':'O'},
-      {'name': 'POF', 'CAP':'P'},
-      {'name': 'Bumble', 'CAP':'B'},
-      {'name': 'CMB', 'CAP':'C'}
+      {'name': 'Tinder', 'CAP':'T', 'flag':'flag_t'},
+      {'name': 'OKCupid', 'CAP':'O', 'flag':'flag_o'},
+      {'name': 'POF', 'CAP':'P', 'flag':'flag_p'},
+      {'name': 'Bumble', 'CAP':'B', 'flag':'flag_b'},
+      {'name': 'CMB', 'CAP':'C', 'flag':'flag_c'}
     ]
     $scope.selected_networks = []
+    $scope.convert_to_bool = (flag, f_d) ->
+      new_flag = false
+      if (flag == undefined)
+        new_flag = f_d
+      else if(flag == "true")
+        new_flag = true
+      else
+        new_flag = false
+      return new_flag
+    $scope.init = ->      
+      $scope.flag_t = $scope.convert_to_bool($cookieStore.get('flag_t'), true)
+      $scope.flag_o = $scope.convert_to_bool($cookieStore.get('flag_o'), true)
+      $scope.flag_p = $scope.convert_to_bool($cookieStore.get('flag_p'), true)
+      $scope.flag_b = $scope.convert_to_bool($cookieStore.get('flag_b'), true)
+      $scope.flag_c = $scope.convert_to_bool($cookieStore.get('flag_c'), true)
+      
+      $scope.flag_1_r = $scope.convert_to_bool($cookieStore.get('flag_1_r'), true)
+      $scope.flag_2_r = $scope.convert_to_bool($cookieStore.get('flag_2_r'), true)
+      $scope.flag_5_r = $scope.convert_to_bool($cookieStore.get('flag_5_r'), true)
+      
+      $scope.flag_f_r = $scope.convert_to_bool($cookieStore.get('flag_f_r'), false)
+      $scope.flag_r_r = $scope.convert_to_bool($cookieStore.get('flag_r_r'), true)
+      $scope.flag_e_r = $scope.convert_to_bool($cookieStore.get('flag_e_r'), false)
+      
+      $scope.flag_b_r = $scope.convert_to_bool($cookieStore.get('flag_b_r'), false)
+      $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
+      $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
+      
+    $scope.set_cookie_from_flag = -> 
+      console.log "set_cookie"
+      $cookieStore.put('flag_t', $scope.flag_t)
+      $cookieStore.put('flag_o', $scope.flag_o)
+      $cookieStore.put('flag_p', $scope.flag_p)
+      $cookieStore.put('flag_b', $scope.flag_b)
+      $cookieStore.put('flag_c', $scope.flag_c)
+      
+      $cookieStore.put('flag_1_r', $scope.flag_1_r)
+      $cookieStore.put('flag_2_r', $scope.flag_2_r)
+      $cookieStore.put('flag_5_r', $scope.flag_5_r)
+
+      $cookieStore.put('flag_f_r', $scope.flag_f_r)
+      $cookieStore.put('flag_r_r', $scope.flag_r_r)
+      $cookieStore.put('flag_e_r', $scope.flag_e_r)
+
+      $cookieStore.put('flag_b_r', $scope.flag_b_r)
+      $cookieStore.put('flag_l_r', $scope.flag_l_r)
+      $cookieStore.put('flag_a_r', $scope.flag_a_r)
 
     # top matches fileter in Bagels Page  
     $scope.filterBagel1 = (bagel) ->  
@@ -269,7 +313,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           return false  
       if($scope.flag_t)
         if(bagel.CAP == "T")
-            return bagel            
+          return bagel            
       if($scope.flag_o)
         if(bagel.CAP == "O")
           return bagel
@@ -284,6 +328,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           return bagel
       return false
 
+
     $scope.onNetwork = (net, chk) ->
       value = document.getElementById(""+chk+"-check").checked;
       switch chk
@@ -292,6 +337,9 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "P" then $scope.flag_p = value
         when "B" then $scope.flag_b = value
         when "C" then $scope.flag_c = value
+     
+      $scope.set_cookie_from_flag
+      
     $scope.onSort = (sort) ->
       value = document.getElementById(""+sort+"-S-check").checked;
       switch sort
@@ -303,7 +351,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "5" then $scope.flag_5_r = value   
         when "B" then $scope.flag_b_r = value   
         when "L" then $scope.flag_l_r = value   
-        when "A" then $scope.flag_a_r = value   
+        when "A" then $scope.flag_a_r = value 
+      $scope.set_cookie_from_flag  
         
     $scope.onNetworkF = (cate) ->
       switch cate
@@ -320,12 +369,9 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         when "5R" then $scope.flag_5_r = !$scope.flag_5_r    
         when "BR" then $scope.flag_b_r = !$scope.flag_b_r     
         when "LR" then $scope.flag_l_r = !$scope.flag_l_r      
-        when "AR" then $scope.flag_a_r = !$scope.flag_a_r        
-      #if(value== "true"?)
-      #  $scope.selected_networks.push net
-      #else
-      #  ind = $scope.selected_networks.indexOf(net)
-      #  $scope.selected_networks.splice(ind,1)
+        when "AR" then $scope.flag_a_r = !$scope.flag_a_r
+      $scope.set_cookie_from_flag        
+      
 
     $scope.onFilterDlg = ->
       $scope.show_filter_flag = not $scope.show_filter_flag       

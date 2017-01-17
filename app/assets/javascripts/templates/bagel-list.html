@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
@@ -19,20 +19,48 @@
           
         </label> 
         &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
-          <label for="O-check" title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" ng-click="onNetworkF('O')">O</label>
-          <label for="P-check" title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" ng-click="onNetworkF('P')">P</label>
-          <label for="B-check" title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" ng-click="onNetworkF('B')">B</label>
-          <label for="C-check" title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" ng-click="onNetworkF('C')">C</label>
-          <label for="F-S-check" title="Favorites" ng-class="{'network-label-3': flag_f_r == true, 'network-label-4':flag_f_r == false}" ng-click="onNetworkF('FR')">F</label>
-          <label for="R-S-check" title="Recent" ng-class="{'network-label-3': flag_r_r == true, 'network-label-4':flag_r_r == false}" ng-click="onNetworkF('RR')">R</label>
-          <label for="E-S-check" title="Expiring" ng-class="{'network-label-3': flag_e_r == true, 'network-label-4':flag_e_r == false}" ng-click="onNetworkF('ER')">E</label>
+          <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" >T</label>
+          <label for="O-check" title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" >O</label>
+          <label for="P-check" title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" >P</label>
+          <label for="B-check" title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" >B</label>
+          <label for="C-check" title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" >C</label>
+          <label for="F-S-check" title="Favorites" ng-class="{'network-label-3': flag_f_r == true, 'network-label-4':flag_f_r == false}" >F</label>
+          <label for="R-S-check" title="Recent" ng-class="{'network-label-3': flag_r_r == true, 'network-label-4':flag_r_r == false}" >R</label>
+          <label for="E-S-check" title="Expiring" ng-class="{'network-label-3': flag_e_r == true, 'network-label-4':flag_e_r == false}" >E</label>
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
-          <div class="relative" ng-repeat="net in networks">
-            <label class="network-label"  for="{{net.CAP}}-check" >{{net.CAP}}</label><label  for="{{net.CAP}}-check" class="network-span">{{net.name}}</label> 
+          <div class="relative">
+            <label class="network-label"  for="T-check" >T</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
-              <input type="checkbox" id="{{net.CAP}}-check" checked="checked"  ng-click="onNetwork(net.name, net.CAP)"/>
+              <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="onNetwork('Tinder', 'T')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="O-check" >O</label><label  for="O-check" class="network-span">OKCupid</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="onNetwork('OKCupid', 'O')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="P-check" >P</label><label  for="P-check" class="network-span">POF</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="P-check" ng-model="flag_p"  ng-click="onNetwork('OKCupid', 'P')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="B-check" >B</label><label  for="B-check" class="network-span">Bumble</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="B-check" ng-model="flag_b"  ng-click="onNetwork('Bumble', 'B')"/>
+              <div class="slider round">&nbsp;</div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="network-label"  for="C-check" >C</label><label  for="C-check" class="network-span">CMB</label> 
+            <label class="switch margin-custom-check">
+              <input type="checkbox" id="C-check" ng-model="flag_c"  ng-click="onNetwork('CMB', 'C')"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
@@ -40,7 +68,7 @@
 
           <div class="control-group">
             <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14"> Favorites only</label>
-              <input type="checkbox" id="F-S-check" ng-click="onSort('F')" />
+              <input type="checkbox" ng-model="flag_f_r" id="F-S-check" ng-click="onSort('F')" />
               <div class="control__indicator"></div>
             </label>
           </div>
@@ -50,11 +78,11 @@
            <h3>Order By</h3>
              <div class="control-group">
               <label class="control control--checkbox width-50-pro left"><label for="R-S-check" class="network-span font-14"> Recent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="checkbox" id="R-S-check" ng-click="onSort('R')" />
+                <input type="checkbox"  ng-model="flag_r_r" id="R-S-check" ng-click="onSort('R')" />
                 <div class="control__indicator"></div>
               </label>
               <label class="control control--checkbox width-50-pro left"><label for="E-S-check" class="network-span font-14"> Expiring</label>
-                <input type="checkbox" id="E-S-check" ng-click="onSort('E')" />
+                <input type="checkbox" id="E-S-check"  ng-model="flag_e_r" ng-click="onSort('E')" />
                 <div class="control__indicator"></div>
               </label>
             </div>
@@ -121,16 +149,13 @@
     </ul>
   </div>
 </nav>
-<div class="row">
-  
-</div>
-<div class="row">
+<div class="row" >
   <div class="bagels-grid"> 
     <div class="bagel-header"> 
       <hr width="100" size="8" align="center"> <span class="middle-text">Top Matches</span> <hr width="100" size="8" align="center"> 
     </div>              
     <div class="clear"></div>
-    <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 ">
+    <label class="bagel" ng-repeat="bagel in BagelsList | filter: filterBagel1 " >
       <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
       <img class="user-image" ng-src='{{bagel.image}}' />
       <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
