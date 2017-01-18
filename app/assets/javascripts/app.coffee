@@ -222,7 +222,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.flag_b_r = $scope.convert_to_bool($cookieStore.get('flag_b_r'), false)
       $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
       $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
-      
+
       today = new Date
       for bagel, i in $scope.BagelsList
         d1 = new Date(bagel.assigned_date)
@@ -337,6 +337,17 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       return false
 
 
+    $scope.getNetworkTitle = (net) ->
+      if(net == "T") 
+        return "Tinder"  
+      if(net == "O") 
+        return "OKCupid"  
+      if(net == "P") 
+        return "POF"  
+      if(net == "B") 
+        return "Bumble"  
+      if(net == "C") 
+        return "CMB"  
 
     $scope.onFilterDlg = ->
       $scope.show_filter_flag = not $scope.show_filter_flag       

@@ -18,7 +18,7 @@
       <a class="navbar-brand" href="">LOGO</a>
     </div>
 
-    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
+    <div class="collapse navbar-collapse text-center">
       <span>Remaining : 42</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
@@ -28,11 +28,13 @@
           
         </label> 
         &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for="T-check" title="Tinder" ng-class="{'network-label-1': flag_t == true, 'network-label-2':flag_t == false}" ng-click="onNetworkF('T')">T</label>
-          <label for="O-check" title="OKCupid" ng-class="{'network-label-1': flag_o == true, 'network-label-2':flag_o == false}" ng-click="onNetworkF('O')">O</label>
-          <label for="P-check" title="POF" ng-class="{'network-label-1': flag_p == true, 'network-label-2':flag_p == false}" ng-click="onNetworkF('P')">P</label>
-          <label for="B-check" title="Bumble" ng-class="{'network-label-1': flag_b == true, 'network-label-2':flag_b == false}" ng-click="onNetworkF('B')">B</label>
-          <label for="C-check" title="CMB" ng-class="{'network-label-1': flag_c == true, 'network-label-2':flag_c == false}" ng-click="onNetworkF('C')">C</label>
+          <span id="small-mark">
+            <label for="T-check" title="Tinder" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label>
+            <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
+            <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
+            <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
+            <label for="C-check" title="CMB" ng-class="{'network-cmb-1': flag_c == true, 'network-cmb-2':flag_c == false}" >&nbsp;</label>
+          </span>
           <label for="1-S-check" title="1" ng-class="{'network-label-3': flag_1_r == true, 'network-label-4':flag_1_r == false}" ng-click="onNetworkF('1R')">1</label>
           <label for="2-S-check" title="2 to 5" ng-class="{'network-label-3': flag_2_r == true, 'network-label-4':flag_2_r == false}" ng-click="onNetworkF('2R')">2</label>
           <label for="5-S-check" title="5+" ng-class="{'network-label-3': flag_5_r == true, 'network-label-4':flag_5_r == false}" ng-click="onNetworkF('5R')">5</label>
