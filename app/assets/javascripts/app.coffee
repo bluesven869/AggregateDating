@@ -23,8 +23,8 @@ aggregate_dating.config([ '$routeProvider',
           templateUrl: "list.html"
           controller: 'AggController'
         )
-        .when('/bagels',
-          templateUrl: "bagel-list.html"
+        .when('/matches',
+          templateUrl: "matches.html"
           controller: 'AggController'
         )        
         .when('/account',
