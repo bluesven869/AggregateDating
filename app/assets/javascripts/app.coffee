@@ -164,19 +164,19 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.BagelsList = [
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
-        name: 'Maria Vann',      age:21, nearby:12, school:'Havard Raw School',
+        name: 'Maria Vanna',      age:21, nearby:12, school:'Havard Raw School',
         aboutme:'Now that I’ve given you the pep talk',
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-5',  selected:false}, 
       {
         images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
-        name: 'Leslie Lawson',   age:26, nearby:31, school:'Havard Raw School',
+        name: 'Leslie Lawsonb',   age:26, nearby:31, school:'Havard Raw School',
         aboutme:'Now that I’ve given you the pep talk',
         star:0,CAP:'T', expire_days:1,assigned_date:'2017-1-5',  selected:false}, 
       {
         images:['Images/3.jpg'], selected_image:0, 
-        name: 'Dora Thomas',     age:23, nearby:45, school:'Havard Raw School',
+        name: 'Dora Thomas3',     age:23, nearby:45, school:'Havard Raw School',
         aboutme:'Now that I’ve given you the pep talk',
-        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-5',  selected:false}, 
+        star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-11',  selected:false}, 
       {
         images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:3, 
         name: 'Karen Olsen',     age:22, nearby:62, school:'Havard Raw School',
@@ -195,7 +195,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
         name: 'Maria Vann',      age:21, nearby:7,  school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-7',  selected:false}, 
+        star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-3',  selected:false}, 
       {
         images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
         name: 'Leslie Lawson',   age:26, nearby:43, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -215,7 +215,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/6.jpg'],selected_image:0,  
         name: 'Dori Moss',       age:25, nearby:21, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:1,CAP:'O', expire_days:1,assigned_date:'2017-1-8',  selected:false}, 
+        star:1,CAP:'O', expire_days:1,assigned_date:'2017-1-16',  selected:false}, 
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
         name: 'Maria Vann',      age:21, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -223,7 +223,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
         name: 'Leslie Lawson',   age:26, nearby:68, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-9',  selected:false}, 
+        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-12',  selected:false}, 
       {
         images:['Images/3.jpg'], selected_image:0, 
         name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -231,7 +231,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
         name: 'Karen Olsen',     age:22, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:1,CAP:'C', expire_days:3,assigned_date:'2017-1-10', selected:false}, 
+        star:1,CAP:'C', expire_days:3,assigned_date:'2017-1-16', selected:false}, 
       {
         images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
         name: 'Mittie Phillips', age:20, nearby:28, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -239,7 +239,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/6.jpg'], selected_image:0, 
         name: 'Dori Moss',       age:25, nearby:92, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-10', selected:false}, 
+        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-3', selected:false}, 
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
         name: 'Maria Vann',      age:21, nearby:22, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -247,7 +247,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
         name: 'Leslie Lawson',   age:26, nearby:122,school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:1,CAP:'B', expire_days:3,assigned_date:'2017-1-11', selected:false}, 
+        star:1,CAP:'B', expire_days:3,assigned_date:'2017-1-9', selected:false}, 
       {
         images:['Images/3.jpg'], selected_image:0, 
         name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -255,7 +255,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       {
         images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
         name: 'Karen Olsen',     age:22, nearby:52, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
-        star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-12', selected:false}, 
+        star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false}, 
       {
         images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
         name: 'Mittie Phillips', age:20, nearby:72, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',
@@ -357,47 +357,31 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
 
     # favorite filter in Matches Page  
-    $scope.filterBagel1 = (bagel) ->  
-      if(bagel.star == 1)   
-        
-        if($scope.flag_t)
-          if(bagel.CAP == "T")
-              return bagel            
-        if($scope.flag_o)
-          if(bagel.CAP == "O")
-            return bagel
-        if($scope.flag_p)
-          if(bagel.CAP == "P")
-            return bagel
-        if($scope.flag_b)
-          if(bagel.CAP == "B")
-            return bagel
-        if($scope.flag_c)
-          if(bagel.CAP == "C")
-            return bagel
-        return false
-
-    # Bagel filter in Matches Page  
-    $scope.filterBagel0 = (bagel) ->
-      if(bagel.star == 0)     
-        
-        if($scope.flag_t)
-          if(bagel.CAP == "T")
-              return bagel            
-        if($scope.flag_o)
-          if(bagel.CAP == "O")
-            return bagel
-        if($scope.flag_p)
-          if(bagel.CAP == "P")
-            return bagel
-        if($scope.flag_b)
-          if(bagel.CAP == "B")
-            return bagel
-        if($scope.flag_c)
-          if(bagel.CAP == "C")
-            return bagel
-        return false
-
+    $scope.filterBagelonMatchPage = (bagel) ->  
+      if($scope.flag_t)
+        if(bagel.CAP == "T")
+            return bagel            
+      if($scope.flag_o)
+        if(bagel.CAP == "O")
+          return bagel
+      if($scope.flag_p)
+        if(bagel.CAP == "P")
+          return bagel
+      if($scope.flag_b)
+        if(bagel.CAP == "B")
+          return bagel
+      if($scope.flag_c)
+        if(bagel.CAP == "C")
+          return bagel
+      return false
+    $scope.SortMatches = (bagel) ->
+      
+      if($scope.flag_f_r)
+        return 1-bagel.star
+      if($scope.flag_r_r)
+        return bagel.expire_days
+      if($scope.flag_e_r)
+        return Date.parse(bagel.assigned_date)
     # bagels filter in Discover Page
     $scope.filterBagel2 = (bagel) ->
       b_flag = false
