@@ -310,18 +310,20 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1)   # Matches Page click event
-        if(i == 0)
-          if($scope.flag_r_r)     
-            $scope.flag_e_r = false
-          else
-            $scope.flag_r_r = true
+        if(i == 0)          
+          $scope.flag_f_r = false
+          $scope.flag_r_r = true
+          $scope.flag_e_r = false          
           $scope.reserve = true
-        if(i == 1)
-          if($scope.flag_e_r)     
-            $scope.flag_r_r = false
-          else
-            $scope.flag_e_r = true
+        if(i == 1)          
+          $scope.flag_f_r = false
+          $scope.flag_r_r = false
+          $scope.flag_e_r = true          
           $scope.reserve = false
+        if(i == 2)                    
+          $scope.flag_f_r = true
+          $scope.flag_r_r = false
+          $scope.flag_e_r = false
       if(f == 2) # Discover Page click event
         if(i == 0)
           $scope.flag_b_r = true     
@@ -356,10 +358,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
 
     # favorite filter in Matches Page  
     $scope.filterBagel1 = (bagel) ->  
-      if(bagel.star == 1)      
-        if($scope.flag_f_r)
-          if(bagel.star == 0)
-            return false
+      if(bagel.star == 1)   
         
         if($scope.flag_t)
           if(bagel.CAP == "T")
@@ -380,10 +379,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
 
     # Bagel filter in Matches Page  
     $scope.filterBagel0 = (bagel) ->
-      if(bagel.star == 0)        
-        if($scope.flag_f_r)
-          if(bagel.star == 0)
-            return false
+      if(bagel.star == 0)     
         
         if($scope.flag_t)
           if(bagel.CAP == "T")
