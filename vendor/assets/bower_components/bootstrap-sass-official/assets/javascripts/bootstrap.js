@@ -563,7 +563,6 @@ if (typeof jQuery === 'undefined') {
     } else {
       this.addAriaAndCollapsedClass(this.$element, this.$trigger)
     }
-
     if (this.options.toggle) this.toggle()
   }
 
