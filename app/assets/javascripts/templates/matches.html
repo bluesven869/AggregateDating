@@ -166,7 +166,7 @@
       <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
       <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-      <p class="expire-days-label">{{bagel.CAP}}</p>
+      <p class="expire-days-label" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'network-tinder-1': bagel.CAP == 'T', 'network-okcupid-1': bagel.CAP == 'O', 'network-pof-1': bagel.CAP == 'P', 'network-bumble-1': bagel.CAP == 'B', 'network-cmb-1': bagel.CAP == 'C'}">&nbsp;</p>
     </label>        
   </div>
 </div>
@@ -182,7 +182,7 @@
       <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
       <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-      <p class="expire-days-label">{{bagel.CAP}}</p>
+      <p class="expire-days-label" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'network-tinder-1': bagel.CAP == 'T', 'network-okcupid-1': bagel.CAP == 'O', 'network-pof-1': bagel.CAP == 'P', 'network-bumble-1': bagel.CAP == 'B', 'network-cmb-1': bagel.CAP == 'C'}">&nbsp;</p>
     </label>      
   </div>
 </div>

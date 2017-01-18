@@ -447,15 +447,9 @@ input:checked + .slider:before {
 		    font-size:1em;
 		}
 		.expire-days-label{
-		    position: absolute;    
-		    background-color: #ebebeb;
+		    position: absolute;  
 		    left:120px;
 		    top:285px;
-		    width:20px;
-		    height:20px;
-		    -webkit-border-radius: 50%;
-		    -moz-border-radius: 50%;
-		    border-radius: 50%;
 		    color: #000;
 		    font-size:1em;
 		    padding-left: 6px;
