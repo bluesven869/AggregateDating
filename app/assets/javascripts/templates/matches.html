@@ -158,36 +158,14 @@
 </nav>
 <div class="row" >
   <div class="bagels-grid"> 
-    <div class="bagel-header"> 
-      <hr width="100" size="8" align="center"> <span class="middle-text">Favorites</span> <hr width="100" size="8" align="center"> 
-    </div>              
-    <div class="clear"></div>
-    <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:assigned_date:reserve | filter: filterBagel1" >
+    <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:SortMatches | filter: filterBagelonMatchPage" >
       <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
       <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
-      <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==true}" aria-hidden="true"></i></p>
+      <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
       <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
       <p class="expire-days-label" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'network-tinder-1': bagel.CAP == 'T', 'network-okcupid-1': bagel.CAP == 'O', 'network-pof-1': bagel.CAP == 'P', 'network-bumble-1': bagel.CAP == 'B', 'network-cmb-1': bagel.CAP == 'C'}">&nbsp;</p>
     </label>        
-  </div>
-</div>
-<div class="row" ng-if="!flag_f_r">
-  <div class="bagels-grid"> 
-    <div class="bagel-header"> 
-      <hr width="100" size="8" align="center"> <span class="middle-text">Matches</span> <hr width="100" size="8" align="center"> 
-    </div>              
-    <div class="clear"></div>
-    <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:assigned_date:reserve | filter: filterBagel0" >
-      <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</div>
-      <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
-      <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==true}" aria-hidden="true"></i></p>
-      <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-
-      <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
-      <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-      <p class="expire-days-label" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'network-tinder-1': bagel.CAP == 'T', 'network-okcupid-1': bagel.CAP == 'O', 'network-pof-1': bagel.CAP == 'P', 'network-bumble-1': bagel.CAP == 'B', 'network-cmb-1': bagel.CAP == 'C'}">&nbsp;</p>
-    </label>      
   </div>
 </div>
