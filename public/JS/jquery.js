@@ -179,6 +179,7 @@ SKY.CarouselItem.prototype = {
                 b = 2 * parseInt(this.imageElement.css("border-left-width")),
                 c = 2 * parseInt(this.element.css("padding-left")),
                 d = 2 * parseInt(this.element.css("border-left-width"));
+
             this.extraImageSize = a + b;
             this.extraItemSize = c + d
         }
@@ -257,6 +258,7 @@ SKY.CarouselItem.prototype = {
                 c = this.actualHeight * this.scale;
             this.scaledX = this.x + (this.actualWidth - b) / 2;
             this.scaledY = this.y + (this.actualHeight - c) / 2;
+
             this.width = b;
             this.height = c;
             b = {
@@ -346,7 +348,7 @@ SKY.Container.prototype = {
 SKY.Carousel = function(a, b) {
     this.settings = {
         itemWidth: 300,
-        itemHeight: 450,
+        itemHeight: 300,
         distance: 15,
         startIndex: "auto",
         enableKeyboard: !0,
