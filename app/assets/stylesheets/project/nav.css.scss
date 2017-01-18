@@ -151,24 +151,36 @@
     background-size: 20px 20px;
     width:20px;
     height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     opacity: 1;
     cursor: pointer;
+    margin-left:10px;
 }
 .network-tinder-2{
     background:url("../../Images/TN.png") no-repeat;
     background-size: 20px 20px;
     width:20px;
     height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     opacity: 0.1;
     cursor: pointer;
+    margin-left:10px;
 }
 .network-okcupid-1{
     background:url("../../Images/OKC.png") no-repeat;
     background-size: 20px 20px;
     width:20px;
     height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     opacity: 1;
     cursor: pointer;
+    margin-left:10px;
 }
 .network-okcupid-2{
     background:url("../../Images/OKC.png") no-repeat;
@@ -176,7 +188,11 @@
     width:20px;
     height:20px;
     opacity: 0.1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     cursor: pointer;
+    margin-left:10px;
 }
 
 .network-pof-1{
@@ -185,7 +201,11 @@
     width:20px;
     height:20px;
     opacity: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     cursor: pointer;
+    margin-left:10px;
 }
 .network-pof-2{
     background:url("../../Images/HNGE.png") no-repeat;
@@ -193,7 +213,11 @@
     width:20px;
     height:20px;
     opacity: 0.1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     cursor: pointer;
+    margin-left:10px;
 }
 
 .network-bumble-1{
@@ -203,6 +227,7 @@
     height:20px;
     opacity: 1;
     cursor: pointer;
+    margin-left:10px;
 }
 .network-bumble-2{
     background:url("../../Images/BMB.png") no-repeat;
@@ -211,6 +236,7 @@
     height:20px;
     opacity: 0.1;
     cursor: pointer;
+    margin-left:10px;
 }
 
 .network-cmb-1{
@@ -219,7 +245,12 @@
     width:20px;
     height:20px;
     cursor: pointer;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     opacity: 1;
+    margin-left:10px;
+    margin-right:10px;
 }
 .network-cmb-2{
     background:url("../../Images/CMB.png") no-repeat;
@@ -227,5 +258,10 @@
     width:20px;
     height:20px;
     opacity: 0.1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
     cursor: pointer;
+    margin-left:10px;
+    margin-right:10px;
 }

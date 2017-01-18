@@ -11,8 +11,8 @@ MyAuthInfo = []
 aggregate_dating.config([ '$routeProvider',
   	($routeProvider)->
     	$routeProvider
-        .when('/main',
-          templateUrl: "main.html"
+        .when('/discover',
+          templateUrl: "discover.html"
           controller: 'AggController'
         )
         .when('/login',
@@ -162,30 +162,90 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_l_r = false   
     $scope.flag_a_r = false   
     $scope.BagelsList = [
-      {image:'Images/1.jpg', name: 'Maria Vann',      age:21, nearby:12, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-5',  selected:false}, 
-      {image:'Images/2.jpg', name: 'Leslie Lawson',   age:26, nearby:31, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-5',  selected:false}, 
-      {image:'Images/3.jpg', name: 'Dora Thomas',     age:23, nearby:45, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-5',  selected:false}, 
-      {image:'Images/4.jpg', name: 'Karen Olsen',     age:22, nearby:62, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'O', expire_days:2,favorite:1,assigned_date:'2017-1-6',  selected:false}, 
-      {image:'Images/5.jpg', name: 'Mittie Phillips', age:20, nearby:1,  school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-6',  selected:false}, 
-      {image:'Images/6.jpg', name: 'Dori Moss',       age:25, nearby:2,  school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'P', expire_days:1,favorite:0,assigned_date:'2017-1-6',  selected:false}, 
-      {image:'Images/1.jpg', name: 'Maria Vann',      age:21, nearby:7,  school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-7',  selected:false}, 
-      {image:'Images/2.jpg', name: 'Leslie Lawson',   age:26, nearby:43, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'B', expire_days:2,favorite:0,assigned_date:'2017-1-7',  selected:false}, 
-      {image:'Images/3.jpg', name: 'Dora Thomas',     age:23, nearby:67, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-7',  selected:false}, 
-      {image:'Images/4.jpg', name: 'Karen Olsen',     age:22, nearby:28, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:2,favorite:0,assigned_date:'2017-1-8',  selected:false}, 
-      {image:'Images/5.jpg', name: 'Mittie Phillips', age:20, nearby:64, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'P', expire_days:3,favorite:1,assigned_date:'2017-1-8',  selected:false}, 
-      {image:'Images/6.jpg', name: 'Dori Moss',       age:25, nearby:21, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'O', expire_days:1,favorite:1,assigned_date:'2017-1-8',  selected:false}, 
-      {image:'Images/1.jpg', name: 'Maria Vann',      age:21, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'C', expire_days:3,favorite:0,assigned_date:'2017-1-9',  selected:false}, 
-      {image:'Images/2.jpg', name: 'Leslie Lawson',   age:26, nearby:68, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-9',  selected:false}, 
-      {image:'Images/3.jpg', name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:1,favorite:1,assigned_date:'2017-1-9',  selected:false}, 
-      {image:'Images/4.jpg', name: 'Karen Olsen',     age:22, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'C', expire_days:3,favorite:1,assigned_date:'2017-1-10', selected:false}, 
-      {image:'Images/5.jpg', name: 'Mittie Phillips', age:20, nearby:28, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:2,favorite:0,assigned_date:'2017-1-10', selected:false}, 
-      {image:'Images/6.jpg', name: 'Dori Moss',       age:25, nearby:92, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-10', selected:false}, 
-      {image:'Images/1.jpg', name: 'Maria Vann',      age:21, nearby:22, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-11', selected:false}, 
-      {image:'Images/2.jpg', name: 'Leslie Lawson',   age:26, nearby:122,school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'B', expire_days:3,favorite:1,assigned_date:'2017-1-11', selected:false}, 
-      {image:'Images/3.jpg', name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-11', selected:false}, 
-      {image:'Images/4.jpg', name: 'Karen Olsen',     age:22, nearby:52, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'C', expire_days:3,favorite:1,assigned_date:'2017-1-12', selected:false}, 
-      {image:'Images/5.jpg', name: 'Mittie Phillips', age:20, nearby:72, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:2,favorite:1,assigned_date:'2017-1-12', selected:false}, 
-      {image:'Images/6.jpg', name: 'Dori Moss',       age:25, nearby:82, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-12', selected:false}      
+      {
+        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
+        name: 'Maria Vann',      age:21, nearby:12, school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:1,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-5',  selected:false}, 
+      {
+        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
+        name: 'Leslie Lawson',   age:26, nearby:31, school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:0,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-5',  selected:false}, 
+      {
+        images:['Images/3.jpg'], selected_image:0, 
+        name: 'Dora Thomas',     age:23, nearby:45, school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:0,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-5',  selected:false}, 
+      {
+        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:3, 
+        name: 'Karen Olsen',     age:22, nearby:62, school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:1,CAP:'O', expire_days:2,favorite:1,assigned_date:'2017-1-6',  selected:false}, 
+      {
+        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
+        name: 'Mittie Phillips', age:20, nearby:1,  school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:1,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-6',  selected:false}, 
+      {
+        images:['Images/6.jpg'], selected_image:0, 
+        name: 'Dori Moss',       age:25, nearby:2,  school:'Havard Raw School',
+        aboutme:'Now that I’ve given you the pep talk',
+        star:0,CAP:'P', expire_days:1,favorite:0,assigned_date:'2017-1-6',  selected:false}, 
+      {
+        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
+        name: 'Maria Vann',      age:21, nearby:7,  school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-7',  selected:false}, 
+      {
+        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
+        name: 'Leslie Lawson',   age:26, nearby:43, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'B', expire_days:2,favorite:0,assigned_date:'2017-1-7',  selected:false}, 
+      {
+        images:['Images/3.jpg'], selected_image:0, 
+        name: 'Dora Thomas',     age:23, nearby:67, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-7',  selected:false}, 
+      {
+        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
+        name: 'Karen Olsen',     age:22, nearby:28, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:2,favorite:0,assigned_date:'2017-1-8',  selected:false}, 
+      {
+        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
+        name: 'Mittie Phillips', age:20, nearby:64, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'P', expire_days:3,favorite:1,assigned_date:'2017-1-8',  selected:false}, 
+      {
+        images:['Images/6.jpg'],selected_image:0,  
+        name: 'Dori Moss',       age:25, nearby:21, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'O', expire_days:1,favorite:1,assigned_date:'2017-1-8',  selected:false}, 
+      {
+        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
+        name: 'Maria Vann',      age:21, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'C', expire_days:3,favorite:0,assigned_date:'2017-1-9',  selected:false}, 
+      {
+        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
+        name: 'Leslie Lawson',   age:26, nearby:68, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:1,assigned_date:'2017-1-9',  selected:false}, 
+      {
+        images:['Images/3.jpg'], selected_image:0, 
+        name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:1,favorite:1,assigned_date:'2017-1-9',  selected:false}, 
+      {
+        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
+        name: 'Karen Olsen',     age:22, nearby:53, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'C', expire_days:3,favorite:1,assigned_date:'2017-1-10', selected:false}, 
+      {
+        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
+        name: 'Mittie Phillips', age:20, nearby:28, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:2,favorite:0,assigned_date:'2017-1-10', selected:false}, 
+      {
+        images:['Images/6.jpg'], selected_image:0, 
+        name: 'Dori Moss',       age:25, nearby:92, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-10', selected:false}, 
+      {
+        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
+        name: 'Maria Vann',      age:21, nearby:22, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-11', selected:false}, 
+      {
+        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
+        name: 'Leslie Lawson',   age:26, nearby:122,school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'B', expire_days:3,favorite:1,assigned_date:'2017-1-11', selected:false}, 
+      {
+        images:['Images/3.jpg'], selected_image:0, 
+        name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:1,favorite:0,assigned_date:'2017-1-11', selected:false}, 
+      {
+        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
+        name: 'Karen Olsen',     age:22, nearby:52, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'C', expire_days:3,favorite:1,assigned_date:'2017-1-12', selected:false}, 
+      {
+        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
+        name: 'Mittie Phillips', age:20, nearby:72, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:1,CAP:'T', expire_days:2,favorite:1,assigned_date:'2017-1-12', selected:false}, 
+      {
+        images:['Images/6.jpg'], selected_image:0, 
+        name: 'Dori Moss',       age:25, nearby:82, school:'Havard Raw School',aboutme:'Now that I’ve given you the pep talk',star:0,CAP:'T', expire_days:3,favorite:0,assigned_date:'2017-1-12', selected:false}      
     ]
 
     $scope.networks = [
@@ -206,12 +266,13 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       return new_flag
 
     $scope.init = ->      
-      $scope.flag_t   = $scope.convert_to_bool($cookieStore.get('flag_t'), true)
-      $scope.flag_o   = $scope.convert_to_bool($cookieStore.get('flag_o'), true)
-      $scope.flag_p   = $scope.convert_to_bool($cookieStore.get('flag_p'), true)
-      $scope.flag_b   = $scope.convert_to_bool($cookieStore.get('flag_b'), true)
-      $scope.flag_c   = $scope.convert_to_bool($cookieStore.get('flag_c'), true)      
-      $scope.flag_1_r = $scope.convert_to_bool($cookieStore.get('flag_1_r'), true)
+      $scope.flag_t   = $scope.convert_to_bool($cookieStore.get('flag_t'),   true)
+      $scope.flag_o   = $scope.convert_to_bool($cookieStore.get('flag_o'),   true)
+      $scope.flag_p   = $scope.convert_to_bool($cookieStore.get('flag_p'),   true)
+      $scope.flag_b   = $scope.convert_to_bool($cookieStore.get('flag_b'),   true)
+      $scope.flag_c   = $scope.convert_to_bool($cookieStore.get('flag_c'),   true)
+
+      $scope.flag_1_r = $scope.convert_to_bool($cookieStore.get('flag_1_r'), true)      
       $scope.flag_2_r = $scope.convert_to_bool($cookieStore.get('flag_2_r'), true)
       $scope.flag_5_r = $scope.convert_to_bool($cookieStore.get('flag_5_r'), true)
       
@@ -222,7 +283,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.flag_b_r = $scope.convert_to_bool($cookieStore.get('flag_b_r'), false)
       $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
       $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
-
+      
       today = new Date
       for bagel, i in $scope.BagelsList
         d1 = new Date(bagel.assigned_date)
@@ -230,7 +291,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
       
     $scope.set_cookie_from_flag = (f, i)->  
-      if(f == 1)
+      if(f == 1)   # Matches Page click event
         if(i == 0)
           if($scope.flag_r_r)     
             $scope.flag_e_r = false
@@ -243,6 +304,20 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           else
             $scope.flag_e_r = true
           $scope.reserve = false
+      if(f == 2) # Discover Page click event
+        if(i == 0)
+          $scope.flag_b_r = true     
+          $scope.flag_l_r = false     
+          $scope.flag_a_r = false
+        if(i == 1)
+          $scope.flag_b_r = false     
+          $scope.flag_l_r = true     
+          $scope.flag_a_r = false
+        if(i == 2)
+          $scope.flag_b_r = false     
+          $scope.flag_l_r = false     
+          $scope.flag_a_r = true
+
       $cookieStore.put('flag_t', $scope.flag_t)
       $cookieStore.put('flag_o', $scope.flag_o)
       $cookieStore.put('flag_p', $scope.flag_p)
@@ -261,7 +336,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $cookieStore.put('flag_l_r', $scope.flag_l_r)
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
 
-    # top matches fileter in Bagels Page  
+    # favorite filter in Matches Page  
     $scope.filterBagel1 = (bagel) ->  
       if(bagel.favorite == 1)      
         if($scope.flag_f_r)
@@ -284,7 +359,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           if(bagel.CAP == "C")
             return bagel
         return false
-    # matches fileter in Bagels Page  
+
+    # Bagel filter in Matches Page  
     $scope.filterBagel0 = (bagel) ->
       if(bagel.favorite == 0)        
         if($scope.flag_f_r)
@@ -308,17 +384,21 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
             return bagel
         return false
 
-    # matches fileter in Main Page  
+    # bagels filter in Discover Page
     $scope.filterBagel2 = (bagel) ->
-      if($scope.flag_f_r)
-        if(bagel.star == 0)
-          return false
-      if($scope.flag_r_r)
-        if(bagel.recent == 0)
-          return false
-      if(!$scope.flag_e_r)
-        if(bagel.expire_days == 0)
-          return false  
+      b_flag = false
+      if($scope.flag_1_r)
+        if(bagel.images.length == 1)
+          b_flag = true
+      if($scope.flag_2_r)
+        if bagel.images.length > 1 && bagel.images.length <=5
+          b_flag = true
+      if($scope.flag_5_r)
+        if(bagel.images.length > 5)
+          b_flag = true
+      if (!b_flag)
+        return false
+
       if($scope.flag_t)
         if(bagel.CAP == "T")
           return bagel            

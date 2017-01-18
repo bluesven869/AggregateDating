@@ -18,7 +18,7 @@
         <label class="dropdown-toggle hand-cursor" data-toggle="dropdown"><label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span></label> 
         &nbsp;
         <span id="small-mark">
-          <label for="T-check" title="Tinder" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label>
+          <label for="T-check" title="Tinder"  ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label>
           <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
           <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
           <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
@@ -162,7 +162,7 @@
     <div class="clear"></div>
     <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:assigned_date:reserve | filter: filterBagel1" >
       <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
-      <img class="user-image" ng-src='{{bagel.image}}' />
+      <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
       <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
       <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
@@ -178,7 +178,7 @@
     <div class="clear"></div>
     <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:assigned_date:reserve | filter: filterBagel0" >
       <div ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</div>
-      <img class="user-image" ng-src='{{bagel.image}}' />
+      <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
       <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
       <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
