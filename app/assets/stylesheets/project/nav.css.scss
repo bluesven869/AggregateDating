@@ -148,8 +148,8 @@
 }
 .network-tinder-1{
     background:url("../../Images/TN.png")  no-repeat;
-    background-size: 20px 20px;
-    width:20px;
+    background-size: 15px 20px;
+    width:15px;
     height:20px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -160,13 +160,13 @@
 }
 .network-tinder-2{
     background:url("../../Images/TN.png") no-repeat;
-    background-size: 20px 20px;
-    width:20px;
+    background-size: 15px 20px;
+    width:15px;
     height:20px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    opacity: 0.1;
+    opacity: 0.2;
     cursor: pointer;
     margin-left:10px;
 }
@@ -187,7 +187,7 @@
     background-size: 20px 20px;
     width:20px;
     height:20px;
-    opacity: 0.1;
+    opacity: 0.2;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -212,7 +212,7 @@
     background-size: 20px 20px;
     width:20px;
     height:20px;
-    opacity: 0.1;
+    opacity: 0.2;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -234,7 +234,7 @@
     background-size: 23px 20px;
     width:23px;
     height:20px;
-    opacity: 0.1;
+    opacity: 0.2;
     cursor: pointer;
     margin-left:10px;
 }
@@ -257,11 +257,77 @@
     background-size: 20px 20px;
     width:20px;
     height:20px;
-    opacity: 0.1;
+    opacity: 0.2;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     cursor: pointer;
     margin-left:10px;
     margin-right:10px;
+}
+
+
+.network-recent-1{
+    background:url("../../Images/recent.png") no-repeat;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+    cursor: pointer;
+    opacity: 1;
+    margin-left:5px;
+}
+.network-recent-2{
+    background:url("../../Images/recent.png") no-repeat;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+    opacity: 0.2;
+    cursor: pointer;
+    margin-left:5px;
+}
+
+.network-expiring-1{
+    background:url("../../Images/expire.png") no-repeat;
+    background-size: 15px 20px;
+    width:15px;
+    height:20px;
+    cursor: pointer;
+    opacity: 1;
+    margin-left:5px;
+}
+.network-expiring-2{
+    background:url("../../Images/expire.png") no-repeat;
+    background-size: 15px 20px;
+    width:15px;
+    height:20px;
+    opacity: 0.2;
+    cursor: pointer;
+    margin-left:5px;
+}
+
+.network-favorite-1{
+    position: absolute;
+    left:0px;
+    top:6px;
+    width:30px;
+    height:20px;
+    cursor: pointer;
+    opacity: 1;
+    margin-left:5px;
+    font-size:1.6em;
+}
+.network-favorite-2{
+    position: absolute;
+    left:0px;
+    top:6px;
+    width:30px;
+    height:20px;opacity: 0.2;
+    cursor: pointer;
+    margin-left:5px;
+    font-size:1.6em;
+}
+.favorite{
+    position: relative;
+    width:30px;
+    height:20px;
 }

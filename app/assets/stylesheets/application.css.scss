@@ -38,6 +38,9 @@ h1{
 .right-margin-15{
 	margin-right:15px;
 }
+.right-margin-20{
+	margin-right:20px;
+}
 
 .right-margin-13{
 	margin-right:13px;
@@ -45,7 +48,11 @@ h1{
 .right-margin-12{
 	margin-right:12px;
 }
-.left-margin--4{
+.left-margin-9{
+	margin-left:9px;
+
+}
+.left-margin--2{
 	margin-left:-2px;
 }
 .border-right{
@@ -293,6 +300,29 @@ input:checked + .slider:before {
 	    transform: rotate(30deg);
 	}
 }  
+@keyframes animateOpacity {
+    0% {
+      
+	    opacity: 1;
+	}
+	25% {
+	    
+	    opacity: 0.5;
+	}
+	50% {
+	    
+	    opacity: 1;
+	}
+	75% {
+	    
+	    opacity: 0.5;
+	}
+	100% {
+	    
+	    opacity: 1;
+	}
+}  
+
 .bagels-grid{    
 	padding-left: 20px;
 	text-align: center;
@@ -422,11 +452,14 @@ input:checked + .slider:before {
 		}
 		.star{
 		    position: absolute;
-		    left:160px;
-		    top:32px;
-		    color: #616870;
+		    left:165px;
+		    top:25px;
+		    color: #ffce3a;
 		    font-size:2em;
-		    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
+		    z-index: 500;cursor: pointer;
+		}
+		.anim{
+			animation: 1s animateOpacity ;
 		}
 		.name{
 		    position: absolute;
