@@ -35,7 +35,19 @@ h1{
 		padding-left: 300px;
 	}
 }
+.right-margin-15{
+	margin-right:15px;
+}
 
+.right-margin-13{
+	margin-right:13px;
+}
+.right-margin-12{
+	margin-right:12px;
+}
+.left-margin--4{
+	margin-left:-2px;
+}
 .border-right{
 	border-right:1px solid #d4d4d4;
 }
@@ -118,10 +130,11 @@ h1{
 	height:20px;
 	border:1px solid #fff;
     text-align: center;
-    padding-top:-17px;
+    padding-top:-15px;
     margin-right:0px;
     cursor: pointer;
 	color:#737373;
+	margin-top:4px;
 	background-color: #a5a5a5;    
 }
 .network-label-4
@@ -130,9 +143,10 @@ h1{
 	height:20px;
 	border:1px solid #fff;
     text-align: center;
-    padding-top:-17px;
+    padding-top:-15px;
     margin-right:0px;
     cursor: pointer;
+	margin-top:4px;
 	color:#d3d3d3;
 	background-color: #ebebeb;    
 }
