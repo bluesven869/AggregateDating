@@ -144,7 +144,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.prev_bagel = null
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
-    
+    vm = this
     $scope.flag_t = true   #tinder_flag
     $scope.flag_o = true   #Okpid_flag 
     $scope.flag_p = true   #POF_flag 
@@ -161,6 +161,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_b_r = false
     $scope.flag_l_r = false   
     $scope.flag_a_r = false   
+    $scope.selected_bagel_index = 0
     $scope.BagelsList = [
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
@@ -308,6 +309,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         diff = today-d1
         bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
       
+      
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1)   # Matches Page click event
         if(i == 0)          
@@ -383,7 +385,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       if($scope.flag_e_r)
         return Date.parse(bagel.assigned_date)
     # bagels filter in Discover Page
-    $scope.filterBagel2 = (bagel) ->
+    $scope.filterBagelonDiscoverPage = (bagel) ->
+
       b_flag = false
       if($scope.flag_1_r)
         if(bagel.images.length == 1)
@@ -446,34 +449,10 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.prev_bagel = bagel      
       $scope.my_profile = bagel.aboutme
 
-    $scope.refreshCarousel = ->
-      $('.sky-carousel').carousel
-        itemWidth: 485
-        itemHeight: 485
-        distance: 0
-        selectedItemDistance: 0
-        enableMouseWheel: 0
-        loop: 0
-        selectedItemZoomFactor: 1
-        unselectedItemZoomFactor: 0.85
-        unselectedItemAlpha: 0.6
-        motionStartDistance: 210
-        topMargin: 85
-        gradientStartPoint: 0.35
-        gradientOverlayColor: '#e6e6e6'
-        gradientOverlaySize: 190
-        selectByClick: true      
+    $scope.finished = ->
+      jQuery(".sc-preloader").hide()
+      console.log "finished"
+      $('.general_li').each (index, element) ->
+        console.log index
+        return                 
   ])
-  .directive 'on-finish-render', ->
-  {
-    restrict: 'A'
-    link: (scope, element, attr) ->
-      if scope.$last == true
-        element.ready ->
-          #console.log 'calling:' + attr.onFinishRender
-          # CALL TEST HERE!
-          scope.refreshCarousel
-          return
-      return
-
-  }

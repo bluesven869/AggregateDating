@@ -41,6 +41,9 @@ h1{
 .right-margin-20{
 	margin-right:20px;
 }
+.right-margin-17{
+	margin-right:17px;
+}
 
 .right-margin-13{
 	margin-right:13px;
@@ -57,6 +60,9 @@ h1{
 }
 .border-right{
 	border-right:1px solid #d4d4d4;
+}
+.padding-top-200{
+	padding-top:230px;
 }
 .min-width-400{
 	min-width: 400px;
@@ -464,7 +470,7 @@ input:checked + .slider:before {
 		.name{
 		    position: absolute;
 		    left:20px;
-		    top:240px;
+		    top:250px;
 		    width:220px;
 		    color: #000;
 		    font-size:1.4em;
@@ -491,11 +497,15 @@ input:checked + .slider:before {
 		    position: absolute;
 		    font-weight: normal;
 		    left:20px;
-		    top:265px;
+		    top:270px;
 		    text-align: center;
 		    width:220px;
-		    color: #000;
+		    color: #aaa;
 		    font-size:1em;
+		}
+		.days{
+			color:#aaa;
+			font-weight: bold;
 		}
 	}
 }
