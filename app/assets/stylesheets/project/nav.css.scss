@@ -146,29 +146,62 @@
         color: #000;
     }
 }
-.network-tinder-1{
+.tinder{
+    position: relative;
+    width:18px;
+    height:25px;
+    margin-left: 10px;
+}
+.network-t-1{
     background:url("../../Images/TN.png")  no-repeat;
-    background-size: 15px 20px;
-    width:15px;
-    height:20px;
+    background-size: 18px 25px;
+    width:18px;
+    height:25px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     opacity: 1;
     cursor: pointer;
-    margin-left:10px;
 }
-.network-tinder-2{
+.network-t-2{
     background:url("../../Images/TN.png") no-repeat;
-    background-size: 15px 20px;
-    width:15px;
-    height:20px;
+    background-size: 18px 25px;
+    width:18px;
+    height:25px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     opacity: 0.2;
     cursor: pointer;
-    margin-left:10px;
+}
+
+.network-tinder-1{
+    position: absolute;
+    left:0px;
+    top:12px;
+    background:url("../../Images/TN.png")  no-repeat;
+    background-size: 18px 25px;
+    width:18px;
+    height:25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 1;
+    cursor: pointer;
+}
+.network-tinder-2{
+    position: absolute;
+    left:0px;
+    top:12px;
+    background:url("../../Images/TN.png") no-repeat;
+    background-size: 18px 25px;
+    width:18px;
+    height:25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 0.2;
+    cursor: pointer;
 }
 .network-okcupid-1{
     background:url("../../Images/OKC.png") no-repeat;
@@ -332,4 +365,52 @@
     position: relative;
     width:30px;
     height:20px;
+}
+
+.icon-t{
+    background:url("../../Images/TN.png")  no-repeat;
+    background-size: 18px 25px;
+    width:18px;
+    height:25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.icon-o{
+    background:url("../../Images/OKC.png") no-repeat;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.icon-b{
+    background:url("../../Images/BMB.png") no-repeat;
+    background-size: 23px 20px;
+    width:23px;
+    height:20px;
+    opacity: 1;
+    cursor: pointer;
+    margin-left:10px;
+}
+.icon-c{
+    background:url("../../Images/CMB.png") no-repeat;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 1;    
+}
+.icon-p{
+    background:url("../../Images/HNGE.png") no-repeat;
+    background-size: 20px 20px;
+    width:20px;
+    height:20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;    
 }

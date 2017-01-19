@@ -28,7 +28,7 @@
         </label> 
         &nbsp;&nbsp;&nbsp;&nbsp;
           <span id="small-mark">
-            <label for="T-check" title="Tinder" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label>
+            <label class='tinder'><label for="T-check" title="Tinder" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label></label>
             <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
             <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
             <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
@@ -45,7 +45,7 @@
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
           <div class="relative">
-            <label for="T-check" title="Tinder" class="right-margin-15" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
+            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-9"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag(0,0)"/>
               <div class="slider round">&nbsp;</div>
@@ -131,36 +131,15 @@
 <div class="container-bagels">     
   <div class="sixteen columns"> 
     <div class="project">   
-      <div style="visibility: visible;" class="sky-carousel sc-no-select">
-        <div style="visibility: visible; opacity: 1;" class="sky-carousel-wrapper">
-          <ul style="margin-top: 115px; left: -1556px; transition: left 0.45s ease-out 0s;" class="sky-carousel-container">
-            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagel2">
-              <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">              
-              <div class="my-content">                
-                <span class="bagel-name">{{bagel.name}}, {{bagel.age}},</span> <span class="bagel-nearby">{{bagel.nearby}} miles from you</span> <br />
-                <span class="bagel-school">{{bagel.school}}</span> 
-                <button class="read-more">View More</button>  
-              </div>
-              <div class="share-friends">  
-                <span class="share-text">share friends</span>
-                <div> 
-                  <span style="float: left">
-                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>  
-                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i> 
-                  <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i> 
-                  </span> 
-                  <span style="float: right">
-                  <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-                  </span>
-                </div>
-
-              </div>
+      <div class="sky-carousel sc-no-select">
+        <div class="sky-carousel-wrapper">
+          <ul class="sky-carousel-container">
+            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" ng-init="alert('aa')">
+              <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">
             </li>
           </ul>
         </div>
-      <div style="display: none;" class="sc-preloader"></div>      
+      <div class="sc-preloader"></div>      
     </div>
     <canvas style="width: 190px;" class="sc-overlay sc-overlay-left" width="190" height="1"></canvas>
     <canvas style="width: 190px;" class="sc-overlay sc-overlay-right" width="190" height="1"></canvas><a href="#" class="sc-nav-button sc-prev sc-no-select"></a><a href="#" class="sc-nav-button sc-next sc-no-select"></a></div>

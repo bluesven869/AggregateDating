@@ -18,7 +18,7 @@
         <label class="dropdown-toggle hand-cursor" data-toggle="dropdown"><label class="filter-sort-label">Filter & Sort </label>&nbsp;<span class="caret"></span></label> 
         &nbsp;
         <span id="small-mark">
-          <label for="T-check" title="Tinder"  ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label>
+          <label class='tinder'><label for="T-check" title="Tinder"  ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label></label>
           <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
           <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
           <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
@@ -32,8 +32,8 @@
         </span>
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
-          <div class="relative">
-            <label for="T-check" title="Tinder" class="right-margin-20" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
+          <div class="relative">            
+            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-9"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag(0,0)"/>
               <div class="slider round">&nbsp;</div>
@@ -163,9 +163,12 @@
       <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
       <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
-      <label class="name">{{bagel.name}}, {{bagel.age}}</label>                
-      <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
-      <p class="expire-days-label" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'network-tinder-1': bagel.CAP == 'T', 'network-okcupid-1': bagel.CAP == 'O', 'network-pof-1': bagel.CAP == 'P', 'network-bumble-1': bagel.CAP == 'B', 'network-cmb-1': bagel.CAP == 'C'}">&nbsp;</p>
+      <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+      <label class="name">
+      <label title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'icon-t': bagel.CAP == 'T', 'icon-o': bagel.CAP == 'O', 'icon-p': bagel.CAP == 'P', 'icon-b': bagel.CAP == 'B', 'icon-c': bagel.CAP == 'C'}">&nbsp;</label>
+      {{bagel.name}}, {{bagel.age}}</label>
+      <p class="expire-days-span">&nbsp;&nbsp;&nbsp;<span class="days">{{bagel.expire_days}}</span> days expires</p>
+      
     </label>        
   </div>
 </div>

@@ -346,6 +346,7 @@ SKY.Container.prototype = {
     }
 };
 SKY.Carousel = function(a, b) {
+
     this.settings = {
         itemWidth: 300,
         itemHeight: 300,
@@ -805,6 +806,7 @@ SKY.Carousel.prototype = {
 };
 (function(a) {
     a.fn.carousel = function(b) {
+        
         var c = [];
         this.each(function() {
             var d = a(this);
