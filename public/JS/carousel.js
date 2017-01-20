@@ -173,6 +173,7 @@ SKY.CarouselItem = function(a, b) {
     this.init()
 };
 SKY.CarouselItem.prototype = {
+    
     init: function() {
         if (!1 == $.support.leadingWhitespace) {
             var a = 2 * parseInt(this.imageElement.css("padding-left")),
@@ -195,8 +196,7 @@ SKY.CarouselItem.prototype = {
             b.load()
         }
     },
-    subscribe: function(a,
-        b) {
+    subscribe: function(a, b) {
         this.subscribers[a].push(b)
     },
     unsubscribe: function(a, b) {
@@ -598,11 +598,15 @@ SKY.Carousel.prototype = {
             this.onClosestChanged(this.closestItem));
         a = null
     },
-    select: function(a, b) {        
+    select: function(a, b) {                
+
         var c = this.settings;
+        if(a<0)
+            a = this.selectedItem
         if ("number" === typeof a) var d = this.carouselItems[a];
         else "object" === typeof a && (d = a);
         this.selectedItem && this.selectedItem.removeClass("sc-selected");
+
         d.addClass("sc-selected");
         this.selectedItem = d;
         c = this.selectedItem.getBaseOffset() + c.itemWidth / 2 + c.selectedItemDistance;
@@ -619,7 +623,7 @@ SKY.Carousel.prototype = {
         
         var b = this.selectedItem.index();        
         if(b == this.carouselItems.length - 1) return;
-        //b == this.carouselItems.length - 1 && (b = -1);
+        //b == this.carouselItems.length - 1 && (b = -1);        
         this.select(b + 1, a)
     },
     selectPrevious: function(a) {
@@ -676,7 +680,7 @@ SKY.Carousel.prototype = {
 
             d.updateBaseOffset();
             c == b ? g = a.selectedItemDistance : c > b && (g = 2 * a.selectedItemDistance);
-            console.log ("index="+c+", offset="+d.getBaseOffset())
+            
             d.setX(d.getBaseOffset() + g);
             d.setScale(a.unselectedItemZoomFactor)
         }
@@ -818,6 +822,7 @@ SKY.Carousel.prototype = {
         }
     }
 };
+
 (function(a) {
     a.fn.carousel = function(b) {
         
@@ -825,7 +830,17 @@ SKY.Carousel.prototype = {
         this.each(function() {
             var d = a(this);
             //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+            var obj = d.data("sky-carousel");
 
+            if(obj)
+            {
+                for (var i = obj.carouselItems.length; i > 0; i--) {
+             
+                     obj.carouselItems.pop();
+                     
+                }                
+
+            }
             d.data("sky-carousel", new SKY.Carousel(d, b))    
             //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
             //d.data("sky-carousel", console.log ("CREATE"))
