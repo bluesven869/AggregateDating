@@ -92,4 +92,238 @@
 	}
 }
 
+
+.bagel_profile{
+	margin:0 auto;
+	min-width:400px;
+	width:40%;
+	.toolbox{
+		height:260px;
+		position: relative;
+		.pass{
+			width:123px;
+			height:123px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #a4a3a3;
+			position: absolute;
+			cursor: pointer;
+			left:45px;
+			top:30px;
+			padding-left: 45px;
+			padding-top: 40px;
+		}
+		.pass:hover{
+			background-color: #5d9fff;
+		}	
+		.like{
+			width:123px;
+			height:123px;
+			position: absolute;
+			cursor: pointer;
+			left:310px;
+			top:30px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #a4a3a3;
+			padding: 40px;
+		}
+		.like:hover{
+			background-color: #5d9fff;
+		}	
+
+		.woo-like{
+			width:72px;
+			height:72px;
+			position: absolute;
+			cursor: pointer;
+			left:150px;
+			top:150px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background-color: #a4a3a3;
+			text-align: center;
+			padding-top:20px;
+		}
+		.woo-like:hover{
+			background-color: #5d9fff;
+		}		
+
+		.super-like{
+			width:72px;
+			height:72px;
+			position: absolute;
+			cursor: pointer;
+			left:260px;
+			top:150px;
+			text-align: center;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			padding-top:20px;
+			background-color: #a4a3a3;
+		}
+		.super-like:hover{
+			background-color: #5d9fff;
+		}		
+	}
+}
+
+.aboutme{
+	.profile{
+		margin-top:30px;margin-bottom:30px;
+		height: 115px;
+		overflow: auto;
+	}
+}
+.nick-name{
+	height:85px;
+	border-top:1px solid #ebebeb;
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #595d68;
+		position: relative;
+		margin-left:5px;
+		margin-top:25px;
+	}
+	.name{
+		font-size:20px;
+		position: relative;
+		margin-left:20px;
+		margin-top:25px;
+	}
+}
+.music-spotify{	
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	padding-top:30px;
+	padding-bottom: 30px;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #555c66;
+		margin-left:5px;
+	}
+	.name{
+		margin-left:20px;
+		font-size:20px;		
+	}	
+	.music{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-right:15px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
 		
+	}
+	.music:last{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-right:0px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
+		
+	}
+	.music:hover{
+		color:blue;
+	}
+	
+}
+.general_button{
+	background-color: #fff;
+	border:2px solid #ebebeb;
+	padding:5px;
+}
+.photos{	
+	border-bottom:1px solid #ebebeb;
+	position: relative;
+	padding-top:30px;
+	padding-bottom: 30px;
+	.img-div{
+		width:32px;
+		height:32px;
+		color:white;
+		font-size:20px;
+		font-weight:bold;
+		padding: 3px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #555c66;
+		margin-left:5px;
+		text-align: center;
+	}
+	.name{
+		margin-left:20px;
+		font-size:20px;		
+	}	
+}
+
+.picture{
+	width:100px;
+	height: 100px;
+	background: #cdcdcd;
+	position: relative;
+	color:black;
+	cursor: pointer;
+	margin-right:15px;
+	i{
+		position: absolute;
+		left:45px;
+		top:45px;			
+	}
+}
+.picture:hover{
+	color:blue;
+}
+.button-box{
+	margin-top:20px;
+}
+
+.share-friends{
+	height: 90px;
+	position:absolute;
+	top:0px;
+	width:485px;
+	padding-top:5px;
+	padding-left:20px;
+	padding-right:20px;
+	.share-text{
+		font-size: 20px;
+		color:#888;		
+	}
+}
