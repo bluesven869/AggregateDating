@@ -829,22 +829,27 @@ SKY.Carousel.prototype = {
         var c = [];
         this.each(function() {
             var d = a(this);
-            //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
-            var obj = d.data("sky-carousel");
+            d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+            /*var obj = d.data("sky-carousel");
 
             if(obj)
             {
-                for (var i = obj.carouselItems.length; i > 0; i--) {
-             
-                     obj.carouselItems.pop();
-                     
+                /*
+                for (var i = obj.carouselItems.length; i > 0; i--) {             
+                     obj.carouselItems.pop();                     
                 }                
-
+                obj.selectedItem = null;
+                obj.closestItem = null;
+                obj =null;
+                console.log (obj)
+                d.data("sky-carousel", null);
             }
-            d.data("sky-carousel", new SKY.Carousel(d, b))    
+
+            d.data("sky-carousel", new SKY.Carousel(d, b))        
+            c.push(d.data("sky-carousel"))*/
             //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
             //d.data("sky-carousel", console.log ("CREATE"))
-            c.push(d.data("sky-carousel"))
+            
 
         });
         return 1 < c.length ? c : c[0]
