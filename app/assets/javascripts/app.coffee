@@ -401,7 +401,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       , 100;
     # favorite filter in Matches Page  
     $scope.filterBagelonMatchPage = (bagel) ->  
-      if(bagel.action != 1 || bagel.action!=3 || bagel.action != 4)
+      console.log bagel.action
+      if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
         return false
       if($scope.flag_t)
         if(bagel.CAP == "T")
