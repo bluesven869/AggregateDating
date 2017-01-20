@@ -381,7 +381,7 @@ SKY.Carousel = function(a, b) {
         reflectionDistance: 4,
         reflectionSize: 100,
         reflectionAlpha: 0.38,
-        slideSpeed: 0.45,
+        slideSpeed: 0.3,
         selectByClick: !1
     };
     b && $.extend(this.settings, b);
@@ -703,7 +703,7 @@ SKY.Carousel.prototype = {
     onStart: function(a) {
 
         function b(a) {            
-            return;
+            //return; 
             var b = a.originalEvent,
                 c = SKY.Utils.hasTouchSupport() ? b.touches[0].clientX : a.clientX,
                 g = SKY.Utils.hasTouchSupport() ? b.touches[0].clientY : a.clientY,
