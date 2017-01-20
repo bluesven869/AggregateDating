@@ -483,12 +483,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       jQuery('.sky-carousel').carousel
         itemWidth: 260
         itemHeight: 260
-        distance: 22
-        selectedItemDistance: 0
+        distance: 12
+        selectedItemDistance: 75
         enableMouseWheel: 0
         loop: 0
         selectedItemZoomFactor: 1
-        unselectedItemZoomFactor: 0.7
+        unselectedItemZoomFactor: 0.5
         unselectedItemAlpha: 0.6
         motionStartDistance: 210
         topMargin: 0
