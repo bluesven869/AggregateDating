@@ -1,6 +1,6 @@
 <link href="CSS/tooltip_skin_variation.css" type="text/css" rel="stylesheet">
 <script src="JS/jquery_002.js"></script>
-<script type="text/javascript" src="JS/jquery.js"></script>
+<script type="text/javascript" src="JS/carousel.js"></script>
 <style type="text/css">
   @media only screen and (min-width: 960px) {#portfolio-wrapper img {min-height: 147px;}} 
   @media only screen and (min-width: 768px) and (max-width: 959px) {#portfolio-wrapper img {min-height: 115px;}}
@@ -19,7 +19,7 @@
     </div>
 
     <div class="collapse navbar-collapse text-center">
-      <span>Remaining : 42</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>Remaining : {{BagelsList.length}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button type="button" class="btn btn-default navbar-btn">Auto Like ?</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <div class="nav navbar-nav dropdown">
@@ -28,15 +28,12 @@
         </label> 
         &nbsp;&nbsp;&nbsp;&nbsp;
           <span id="small-mark">
-            <label class='tinder'><label for="T-check" title="Tinder" ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label></label>
-            <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
-            <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
-            <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
-            <label for="C-check" title="CMB" ng-class="{'network-cmb-1': flag_c == true, 'network-cmb-2':flag_c == false}" >&nbsp;</label>
-            <label for="1-S-check" title="1" ng-class="{'network-label-3': flag_1_r == true, 'network-label-4':flag_1_r == false}">1</label>
-            <label for="2-S-check" title="2 to 5" ng-class="{'network-label-3': flag_2_r == true, 'network-label-4':flag_2_r == false}">2</label>
-            <label for="5-S-check" title="5+" ng-class="{'network-label-3': flag_5_r == true, 'network-label-4':flag_5_r == false}" >5</label>
-            <label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" >BS</label>
+            <label class='tinder'><label for="T-check" title="Tinder"  ng-class="{'network-tinder-1': flag_t == true, 'network-tinder-2':flag_t == false}" >&nbsp;</label></label>
+          <label for="O-check" title="OKCupid" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
+          <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
+          <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
+          <label for="C-check" title="CMB" ng-class="{'network-cmb-1': flag_c == true, 'network-cmb-2':flag_c == false}" >&nbsp;</label>
+          <label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" >BS</label>
             <label for="L-S-check" title="Limited first" ng-class="{'network-label-3': flag_l_r == true, 'network-label-4':flag_l_r == false}">LS</label>
             <label for="A-S-check" title="Alternate equally" ng-class="{'network-label-3': flag_a_r == true, 'network-label-4':flag_a_r == false}" >AS</label>
 
@@ -44,7 +41,7 @@
 
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
-          <div class="relative">
+          <div class="relative">            
             <label for="T-check" title="Tinder" class="right-margin-17 left-margin-9"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag(0,0)"/>
@@ -68,8 +65,8 @@
             </label>
           </div>
           <div class="relative">
-            <label for="B-check" title="Bumble" class="right-margin-12 left-margin--4" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
-            <label  for="B-check" class="network-span">Bumble</label> 
+            <label for="B-check" title="Bumble" class="right-margin-12 left-margin-9" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
+            <label  for="B-check" class="network-span left-margin--2">Bumble</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="B-check" ng-model="flag_b"  ng-click="set_cookie_from_flag(0,0)"/>
               <div class="slider round">&nbsp;</div>
@@ -83,23 +80,6 @@
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
-          <hr width="100%" size="8" align="center">
-          <h3># of photos</h3>
-          <div class="control-group">
-            <label class="control control--checkbox width-50-step left"><label for="1-S-check" class="network-span font-14 " > 1</label>
-                <input type="checkbox" id="1-S-check" ng-model="flag_1_r"  ng-click="set_cookie_from_flag(0,0)" />
-                <div class="control__indicator"></div>
-              </label>
-              <label class="control control--checkbox width-80-step left"><label for="2-S-check" class="network-span font-14 "> 2 to 5</label>
-                <input type="checkbox" id="2-S-check" ng-model="flag_2_r"  ng-click="set_cookie_from_flag(0,0)" />
-                <div class="control__indicator"></div>
-              </label>
-              <label class="control control--checkbox width-50-step left"><label for="5-S-check" class="network-span font-14 "> 5+</label>
-                <input type="checkbox" id="5-S-check" ng-model="flag_5_r" ng-click="set_cookie_from_flag(0,0)" />
-                <div class="control__indicator"></div>
-              </label>
-          </div>
-
           <hr width="100%" size="8" align="center">
           <div class="order-by">
            <h3>Order By</h3>
@@ -134,81 +114,54 @@
       <div class="sky-carousel sc-no-select">
         <div class="sky-carousel-wrapper">
           <ul class="sky-carousel-container">
-            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" ng-init="alert('aa')">
+            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" >
               <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">
+              <label class="stamp" ng-class="{'stamp-like': bagel.action == 1, 'stamp-pass': bagel.action == 2, 'stamp-super-like': bagel.action == 3, 'stamp-woo-like': bagel.action == 4}"">&nbsp; </label>
+              <div class="my-content">  
+                <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
+                <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
+                <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+                <label class="name">
+                <label class="icon" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'icon-t': bagel.CAP == 'T', 'icon-o': bagel.CAP == 'O', 'icon-p': bagel.CAP == 'P', 'icon-b': bagel.CAP == 'B', 'icon-c': bagel.CAP == 'C'}">&nbsp;</label>
+                {{bagel.name}}, {{bagel.age}}</label>
+                <p class="expire-days-span">&nbsp;&nbsp;&nbsp;<span class="days">{{bagel.expire_days}}</span> days expires,  <span class="bagel-nearby">{{bagel.nearby}} miles from you</span></p>
+              </div>
             </li>
           </ul>
         </div>
-      <div class="sc-preloader"></div>      
-    </div>
-    <canvas style="width: 190px;" class="sc-overlay sc-overlay-left" width="190" height="1"></canvas>
-    <canvas style="width: 190px;" class="sc-overlay sc-overlay-right" width="190" height="1"></canvas><a href="#" class="sc-nav-button sc-prev sc-no-select"></a><a href="#" class="sc-nav-button sc-next sc-no-select"></a></div>
+        <div class="sc-preloader"></div>      
+      </div>
+      <canvas style="width: 190px;" class="sc-overlay sc-overlay-left" width="190" height="1"></canvas>
+      <canvas style="width: 190px;" class="sc-overlay sc-overlay-right" width="190" height="1"></canvas>
+      <div class="nav-select-button-div">&nbsp;
+        <a href="#" class="sc-nav-button sc-prev sc-no-select"></a><a href="#" class="sc-nav-button sc-next sc-no-select"></a>
+      </div>
     </div>
   </div>
-
-</div>
-<div class="bagel_profile">
-  <section class="toolbox">  
-    <div class="pass"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
-    <div class="like"><i class="fa fa-check fa-3x" aria-hidden="true"></i></div>
-    <div class="woo-like">Woo<br />Like</div>
-    <div class="super-like">Super<br />Like</div>
-  </section>
-  <section class="aboutme">
-    <label>Profile Title</label>
-    <p class="profile">
-      Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-      Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
-      Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
-    </p>
-  </section>
-  <section class="nick-name">
-    <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
-  </section>
-  <section class="music-spotify">
-      DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
-      <label class="img-div">SF</label><label class=name>PAUL BAN DYK  </label>
-      <div>MUSIC LIST</div><br />
-      <div>
-      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-      <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-      </div>
-      <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
-  </section>
-  <section class="photos">
-      <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br /><br />
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
-  </section>
 </div>
 
 <script type="text/javascript">
-  $(function() {
-    /*$('.sky-carousel').carousel({
-      itemWidth: 300,
-      itemHeight: 300,
-      distance: 125,
+  function rebuildCarousel()
+  {
+    $('.sky-carousel').carousel({
+      itemWidth: 260,
+      itemHeight: 260,
+      distance: 22,
       selectedItemDistance: 0,
       enableMouseWheel:0,
       loop:0,
       selectedItemZoomFactor: 1,
       unselectedItemZoomFactor: 0.7,
-      unselectedItemAlpha: 1,
+      unselectedItemAlpha: 0.6,
       motionStartDistance: 210,
-      topMargin: 100,
+      topMargin: 0,
       gradientStartPoint: 0.35,
       gradientOverlayColor: "#e6e6e6",
       gradientOverlaySize: 190,
       selectByClick: false
-    });*/
+    });    
+  } 
+  $(function() {
+    rebuildCarousel();
   }); 
 </script>

@@ -1,0 +1,95 @@
+.stamp{
+	width:201px;
+	height:103px;
+	position: absolute;
+	top:10px;
+	left:10px;
+}
+.stamp-pass{
+	background:url("../../Images/stamp-passed.png")  no-repeat;
+}
+.stamp-like{	
+	background:url("../../Images/stamp-like.png")  no-repeat;
+}
+.stamp-super-like{
+	background:url("../../Images/stamp-super-like.png")  no-repeat;
+}
+.stamp-woo-like{
+	background:url("../../Images/stamp-woo-like.png")  no-repeat;
+}
+
+.general_li{
+	position: absolute;
+	margin-top:50px;
+	display: block;
+	float:left;
+	.my-content{
+		margin-top:-70px;
+		height:70px !important;
+		background-color: rgba(97, 104, 114, 0.7);
+		position: relative;
+		padding-top:5px;
+		padding-left:0px;
+		padding-bottom: 15px;
+		padding-right: 0px;
+		text-shadow: 0px 1px 1px #333;
+		text-align: center;
+		.star{
+
+		    position: absolute;
+		    left:260px;
+		    top:-230px;
+		    color: #ffce3a;
+		    font-size:2em;
+		    z-index: 500;cursor: pointer;
+		}
+		.anim{
+			animation: 1s animateOpacity ;
+		}
+		.bagel-name{
+			font-size:28px;
+			color:white;
+		}
+		.name{
+			position: relative;
+			color:white;
+			font-size:30px;
+			padding-left:30px;
+			.icon{
+				position: absolute;
+				top:10px;
+				left:0px;
+			}
+		}
+		.bagel-nearby{
+			font-size:18px;
+			color:white;
+		}
+		.bagel-school{
+			font-size:20px;
+			color:white;
+		}
+		.read-more{
+			position: fixed;
+			right: 10px;
+			bottom: 80px;
+			background:none;
+			border: none;color:white;
+			font-size:14px;
+			
+		}
+		.read-more:hover{
+			background:#f00;			
+		}
+		.expire-days-span{
+			color:white;
+			margin-top:-10px;
+		}
+		.days{
+			background: #939393;
+			border-radius: 50%;
+		}
+	}
+}
+
+		
