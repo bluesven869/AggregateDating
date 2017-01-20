@@ -248,11 +248,16 @@ SKY.CarouselItem.prototype = {
     updateBaseOffset: function() {
         var a = this.carousel.settings;
         this.baseOffset = this.index() * (a.itemWidth * a.unselectedItemZoomFactor + a.distance)
+
+        
     },
     update: function() {
         var a = this.carousel.settings;
-        if (SKY.Utils.has2dTransformationSupport()) a =
-            "translate(" + this.x + "px, " + this.y + "px) scale(" + this.scale + ")", SKY.Utils.has3dTransformationSupport() && (a += " translateZ(0)"), this.element.css(SKY.Utils.getPrefixedProperty("transform"), a), this.element.css("opacity", this.alpha);
+        if (SKY.Utils.has2dTransformationSupport()) 
+        {
+            a = "translate(" + this.x + "px, " + this.y + "px) scale(" + this.scale + ")", SKY.Utils.has3dTransformationSupport() && (a += " translateZ(0)"), this.element.css(SKY.Utils.getPrefixedProperty("transform"), a), this.element.css("opacity", this.alpha);
+            
+        }
         else {
             var b = this.actualWidth * this.scale,
                 c = this.actualHeight * this.scale;
@@ -345,8 +350,8 @@ SKY.Container.prototype = {
         }))
     }
 };
-SKY.Carousel = function(a, b) {
-
+SKY.Carousel = function(a, b) {    
+    
     this.settings = {
         itemWidth: 300,
         itemHeight: 300,
@@ -380,9 +385,11 @@ SKY.Carousel = function(a, b) {
         selectByClick: !1
     };
     b && $.extend(this.settings, b);
+
     this.targetLeft = 0;
     this.dragging = this.mouseOver = !1;
     this.extraDistanceUnit = this.scaleUnit = this.alphaUnit = this.centerY = this.centerX = this.timer = this.preloader = this.contentContainer = this.container = this.closestItem = this.selectedItem = null;
+
     this.carouselItems = [];
     this.dom = {
         carousel: a
@@ -424,6 +431,7 @@ SKY.Carousel.prototype = {
         this.dom.images.each(function() {
             $(this).addClass("sc-image");
             this.ondragstart = function() {
+
                 return !1
             }
         })
@@ -630,6 +638,7 @@ SKY.Carousel.prototype = {
 
         for (var a = this, b = this.settings, c = this.container,
                 d = c.getLeft(), g = [], e = 0; e < this.carouselItems.length; e++) {
+
             var f = this.carouselItems[e],
                 h = d + f.x + b.itemWidth / 2 - this.centerX,
                 k = Math.abs(h);
@@ -639,7 +648,7 @@ SKY.Carousel.prototype = {
             else p = b.unselectedItemAlpha, l = b.unselectedItemZoomFactor, n = 0;
             k <= this.centerX && (f.setDistance(k), g.push(f));
             f.setAlpha(p);
-            f.setScale(l);
+            f.setScale(l);            
             0 < h ? f.setX(f.getBaseOffset() + 2 * b.selectedItemDistance - n) : f.setX(f.getBaseOffset() + n);
             h = k = p = l = n = null
         }
@@ -664,8 +673,10 @@ SKY.Carousel.prototype = {
         for (var c = 0; c < this.carouselItems.length; c++) {
             var d = this.carouselItems[c],
                 g = 0;
+
             d.updateBaseOffset();
             c == b ? g = a.selectedItemDistance : c > b && (g = 2 * a.selectedItemDistance);
+            console.log ("index="+c+", offset="+d.getBaseOffset())
             d.setX(d.getBaseOffset() + g);
             d.setScale(a.unselectedItemZoomFactor)
         }
@@ -687,13 +698,16 @@ SKY.Carousel.prototype = {
     },
     onStart: function(a) {
 
-        function b(a) {
+        function b(a) {            
+            return;
             var b = a.originalEvent,
                 c = SKY.Utils.hasTouchSupport() ? b.touches[0].clientX : a.clientX,
                 g = SKY.Utils.hasTouchSupport() ? b.touches[0].clientY : a.clientY,
                 r = (c - startX) / 2 + n;
+
             m = f - c;
             f = c;
+            
             if (SKY.Utils.hasTouchSupport()) {
                 if (1 < b.touches.length) {
                     q = !0;
@@ -810,7 +824,11 @@ SKY.Carousel.prototype = {
         var c = [];
         this.each(function() {
             var d = a(this);
-            d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+            //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+
+            d.data("sky-carousel", new SKY.Carousel(d, b))    
+            //d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+            //d.data("sky-carousel", console.log ("CREATE"))
             c.push(d.data("sky-carousel"))
 
         });
