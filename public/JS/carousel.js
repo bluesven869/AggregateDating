@@ -398,6 +398,24 @@ SKY.Carousel = function(a, b) {
     this.init()
 };
 SKY.Carousel.prototype = {
+    reset_all: function(){
+        this.prev_object = -1;
+        this.carouselItems = [];
+        this.initDOM();
+        //this.initConfigParams();
+        this.initEvents();
+        this.initContentWrapper();
+        this.initContainer();
+        //this.initGradientOverlays();
+        //this.initNavigationButtons();
+        //this.initResizeListener();
+        //this.initKeyboardNavigation();
+        //this.initMouseWheelSupport();
+        //this.initAutoSlideshow();
+        //this.calculateUnits();
+        //this.update();
+        this.dom.carousel.css("visibility", "visible")
+    },
     init: function() {
         this.prev_object = -1;
         this.initDOM();
@@ -830,6 +848,7 @@ SKY.Carousel.prototype = {
         this.each(function() {
             var d = a(this);
             d.data("sky-carousel") || d.data("sky-carousel", new SKY.Carousel(d, b));
+            c.push(d.data("sky-carousel"))
             /*var obj = d.data("sky-carousel");
 
             if(obj)
