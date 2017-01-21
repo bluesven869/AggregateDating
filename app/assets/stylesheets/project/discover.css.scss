@@ -91,94 +91,124 @@
 		}
 	}
 }
-
-
-.bagel_profile{
+.toolbox{
+	height:160px;
+	width:350px;
 	margin:0 auto;
-	min-width:400px;
-	width:40%;
-	.toolbox{
-		height:260px;
+	margin-top:-30px;
+	padding-left:34px;
+	.inner_div{
+		height:160px;
+
 		position: relative;
 		.pass{
-			width:123px;
-			height:123px;
+			width:100px;
+			height:100px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #a4a3a3;
+			background:url("../../Images/btn-pass.png") #a4a3a3 no-repeat 30px 33px ;		
+			background-size:41px 36px;	
 			position: absolute;
 			cursor: pointer;
-			left:45px;
-			top:30px;
-			padding-left: 45px;
-			padding-top: 40px;
+			left:0px;
+			top:0px;
 		}
 		.pass:hover{
 			background-color: #5d9fff;
 		}	
 		.like{
-			width:123px;
-			height:123px;
+			width:100px;
+			height:100px;
 			position: absolute;
 			cursor: pointer;
-			left:310px;
-			top:30px;
+			right:0px;
+			top:0px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #a4a3a3;
-			padding: 40px;
+			background:url("../../Images/btn-like.png") #a4a3a3 no-repeat 30px 33px ;		
+			background-size:41px 36px;			
 		}
 		.like:hover{
 			background-color: #5d9fff;
 		}	
-
 		.woo-like{
 			width:72px;
 			height:72px;
 			position: absolute;
 			cursor: pointer;
-			left:150px;
-			top:150px;
+			left:123px;
+			top:90px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			background-color: #a4a3a3;
-			text-align: center;
-			padding-top:20px;
+			background:url("../../Images/btn-woo-like.png") #a4a3a3 no-repeat 16px 18px ;		
+			background-size:41px 36px;		
+
 		}
 		.woo-like:hover{
 			background-color: #5d9fff;
-		}		
-
+		}	
 		.super-like{
 			width:72px;
 			height:72px;
 			position: absolute;
 			cursor: pointer;
-			left:260px;
-			top:150px;
-			text-align: center;
+			left:123px;
+			top:90px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
 			border-radius: 50%;
-			padding-top:20px;
-			background-color: #a4a3a3;
+			background:url("../../Images/btn-super-like.png") #a4a3a3 no-repeat 16px 18px ;		
+			background-size:41px 36px;	
 		}
 		.super-like:hover{
 			background-color: #5d9fff;
 		}		
 	}
+	
 }
 
-.aboutme{
-	.profile{
-		margin-top:30px;margin-bottom:30px;
-		height: 115px;
-		overflow: auto;
+.profile{
+	margin:0 auto;
+	width:484px;	
+	padding-left:30px;
+	margin-top: 30px;
+	.inner_div
+	{
+
+		border-top:1px solid #ebebeb;
+		p{
+			margin-top:10px;
+			margin-bottom:30px;
+			height: 115px;
+			overflow: auto;
+
+		}
+		p::-webkit-scrollbar-track
+		{
+		    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		    background-color: #F5F5F5;
+		    width: 3px;
+		}
+
+		p::-webkit-scrollbar
+		{
+		    width: 3px;
+		    background-color: #F5F5F5;
+		}
+
+		p::-webkit-scrollbar-thumb
+		{
+		    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		    background-color: #555;
+		    width: 3px;
+		}
 	}
+	
 }
+
 .nick-name{
 	height:85px;
 	border-top:1px solid #ebebeb;
@@ -222,7 +252,6 @@
 		-moz-border-radius: 50%;
 		border-radius: 50%;
 		background-color: #555c66;
-		margin-left:5px;
 	}
 	.name{
 		margin-left:20px;
@@ -235,7 +264,7 @@
 		position: relative;
 		color:black;
 		cursor: pointer;
-		margin-right:15px;
+		margin-left:10px;
 		i{
 			position: absolute;
 			left:45px;
@@ -291,25 +320,26 @@
 		margin-left:20px;
 		font-size:20px;		
 	}	
-}
 
-.picture{
-	width:100px;
-	height: 100px;
-	background: #cdcdcd;
-	position: relative;
-	color:black;
-	cursor: pointer;
-	margin-right:15px;
-	i{
-		position: absolute;
-		left:45px;
-		top:45px;			
+	.picture{
+		width:100px;
+		height: 100px;
+		background: #cdcdcd;
+		position: relative;
+		color:black;
+		cursor: pointer;
+		margin-left:10px;
+		i{
+			position: absolute;
+			left:45px;
+			top:45px;			
+		}
+	}
+	.picture:hover{
+		color:blue;
 	}
 }
-.picture:hover{
-	color:blue;
-}
+
 .button-box{
 	margin-top:20px;
 }

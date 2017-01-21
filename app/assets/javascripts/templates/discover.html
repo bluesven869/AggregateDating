@@ -139,26 +139,27 @@
     </div>
   </div>
 </div>
-<div class="bagel_profile">
-<div>
-  <section class="toolbox">  
-    <div class="pass"><i class="fa fa-close fa-3x" aria-hidden="true"></i></div>
-    <div class="like"><i class="fa fa-check fa-3x" aria-hidden="true"></i></div>
-    <div class="woo-like">Woo<br />Like</div>
-    <div class="super-like">Super<br />Like</div>
-  </section>
-  <section class="aboutme">
-    <label>Profile Title</label>
-    <p class="profile">
-      Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-      Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
-      Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
-    </p>
-  </section>
-  <section class="nick-name">
-    <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
-  </section>
-  <section class="music-spotify">
+<section class="toolbox">  
+  <div class="inner_div">
+    <div class="pass" title="Pass">&nbsp;</div>
+    <div class="like" title="Like">&nbsp;</div>
+    <div class="woo-like" title="Woo Like">&nbsp;</div>
+    <div class="super-like" title="Super Like">&nbsp;</div>
+  </div>
+</section>
+<div class="profile">
+  <div class="inner_div">
+    <h1>Profile Title</h1>
+    <p>
+        Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
+        Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
+        Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
+      </p>
+    </div>
+    <div class="nick-name">
+      <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
+    </div>
+    <div class="music-spotify">
       DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
       <label class="img-div">SF</label><label class=name>PAUL BAN DYK  </label>
       <div>MUSIC LIST</div><br />
@@ -168,9 +169,9 @@
       <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
       <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
       </div>
-      <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
-  </section>
-  <section class="photos">
+      <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button>&nbsp;&nbsp;&nbsp;</div>
+  </div>
+  <div class="photos">
       <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br /><br />
       <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
       <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
@@ -181,13 +182,18 @@
       <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
       <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
       <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
-  </section>
+  </div>
+</div>
+  
+ 
+  
+  
   </div>
 </div>
 <script type="text/javascript">
-  function rebuildCarousel()
-  {
-    $('.sky-carousel').carousel({
+  var my_carousel;
+  $(function() {
+    my_carousel= $('.sky-carousel').carousel({
       itemWidth: 260,
       itemHeight: 260,
       distance: 15,
@@ -204,8 +210,5 @@
       gradientOverlaySize: 190,
       selectByClick: true
     });    
-  } 
-  $(function() {
-    rebuildCarousel();
   }); 
 </script>

@@ -479,23 +479,10 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.prev_bagel = bagel      
       $scope.my_profile = bagel.aboutme
     
-    $scope.rebuildCarousel = ->         
-      console.log "rebuildCarousel"   
-      jQuery('.sky-carousel').carousel
-        itemWidth: 260
-        itemHeight: 260
-        distance: 12
-        selectedItemDistance: 75
-        enableMouseWheel: 0
-        loop: 0
-        selectedItemZoomFactor: 1
-        unselectedItemZoomFactor: 0.5
-        unselectedItemAlpha: 0.6
-        motionStartDistance: 210
-        topMargin: 0
-        gradientStartPoint: 0.35
-        gradientOverlayColor: '#e6e6e6'
-        gradientOverlaySize: 190
-        selectByClick: false
-      console.log "rebuildCarouselEnd"   
+    $scope.rebuildCarousel = ->               
+      console.log my_carousel
+      console.log my_carousel.settings.itemWidth
+      my_carousel.reset_all()
+      console.log my_carousel.settings.itemWidth
+      
   ])
