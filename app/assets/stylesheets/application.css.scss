@@ -310,25 +310,34 @@ input:checked + .slider:before {
     0% {
       
 	    opacity: 1;
+	    color:#ffce3a;
 	}
 	25% {
-	    
-	    opacity: 0.5;
+	    color:black;
+	 	opacity: 0.5;
 	}
 	50% {
 	    
+	    color:#ffce3a;
 	    opacity: 1;
 	}
 	75% {
 	    
+	    color:black;
 	    opacity: 0.5;
 	}
 	100% {
 	    
+	    color:#ffce3a;
 	    opacity: 1;
 	}
 }  
-
+.black-color{
+	color:black !important;
+}
+.yellow-color{
+	color:#ffce3a !important;
+}
 .bagels-grid{    
 	padding-left: 20px;
 	text-align: center;
@@ -460,7 +469,6 @@ input:checked + .slider:before {
 		    position: absolute;
 		    left:165px;
 		    top:25px;
-		    color: #ffce3a;
 		    font-size:2em;
 		    z-index: 500;cursor: pointer;
 		}
