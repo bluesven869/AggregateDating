@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
         <span class="sr-only">Toggle navigation</span>
@@ -149,6 +149,7 @@
               <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/7</div>
               <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
             </li>
+            <li class="my-remove clearfix"></li>
             <li class="left-m clearfix">
                 <div class="chat-body clearfix">     
                     <p>
@@ -192,6 +193,7 @@
               <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/11</div>
               <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
             </li>
+            <li class="my-remove clearfix"></li>
             <li class="left-m clearfix">
                 <div class="chat-body clearfix">     
                     <p>
@@ -244,8 +246,8 @@
   </div>
     <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
   <div class="message-profile">
-    <div class="bagels-grid"> 
-      <label class="bagel">
+    <div class="bagels-grid " style="height:320px;"> 
+      <label class="bagel" ng-if="prev_bagel">      
         <label ng-class="{'pie-border1': prev_bagel.expire_days == 1, 'pie-border2': prev_bagel.expire_days ==2, 'pie-border3': prev_bagel.expire_days >= 3}">&nbsp;</label>
         <img class="user-image" ng-src='{{prev_bagel.images[0]}}' />
         <p class="star" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
@@ -261,9 +263,11 @@
       <div class="bagel_profile">
         <section class="aboutme">
           <label>Profile Title</label>
-          <p class="profile" ng-model="my_profile">
+
+          <p  ng-model="my_profile">
             Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
           </p>
+          
         </section>
         <section class="nick-name">
           <label class="img-div">SC</label> <label class=name>Jessicaarc</label>

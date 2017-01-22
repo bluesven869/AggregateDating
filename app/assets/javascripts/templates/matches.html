@@ -161,7 +161,7 @@
     <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:SortMatches | filter: filterBagelonMatchPage" >
       <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
       <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
-      <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
+      <p class="star" ng-class="{'black-color': bagel.star==false,'yellow-color': bagel.star==1}" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">
