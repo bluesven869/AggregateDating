@@ -19,8 +19,8 @@ aggregate_dating.config([ '$routeProvider',
           templateUrl: "login.html"
           controller: 'LoginController'
         )
-        .when('/list',
-          templateUrl: "list.html"
+        .when('/messages',
+          templateUrl: "messages.html"
           controller: 'AggController'
         )
         .when('/matches',
@@ -158,6 +158,9 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_l_r = false   
     $scope.flag_a_r = false   
     $scope.selected_bagel_index = 0
+    $scope.flag_woo_like = false
+    $scope.flag_super_like= false
+    $scope.search_name = ""
     $scope.BagelsList = [
       {
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
@@ -399,11 +402,33 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         
         $scope.rebuildCarousel()
       , 100;
-    # favorite filter in Matches Page  
-    $scope.filterBagelonMatchPage = (bagel) ->  
-      console.log bagel.action
+    # favorite filter in Matches Page      
+    $scope.filterBagelonMatchPage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
         return false
+      if($scope.flag_t)
+        if(bagel.CAP == "T")
+            return bagel            
+      if($scope.flag_o)
+        if(bagel.CAP == "O")
+          return bagel
+      if($scope.flag_p)
+        if(bagel.CAP == "P")
+          return bagel
+      if($scope.flag_b)
+        if(bagel.CAP == "B")
+          return bagel
+      if($scope.flag_c)
+        if(bagel.CAP == "C")
+          return bagel
+      return false
+    # favorite filter in Matches Page      
+    $scope.filterBagelonMessagePage = (bagel) ->        
+      if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
+        return false      
+      if($scope.search_name.length > 0)
+        if(bagel.name.indexOf($scope.search_name) < 0 )
+          return false
       if($scope.flag_t)
         if(bagel.CAP == "T")
             return bagel            
@@ -480,9 +505,15 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.my_profile = bagel.aboutme
     
     $scope.rebuildCarousel = ->               
-      console.log my_carousel
-      console.log my_carousel.settings.itemWidth
-      my_carousel.reset_all()
-      console.log my_carousel.settings.itemWidth
-      
+      my_carousel.reset_all()      
+    $scope.onClickBagel = (bagel) ->      
+      if(bagel.CAP == "T")
+        $scope.flag_woo_like = true
+      else
+        $scope.flag_woo_like = false
+      if(bagel.CAP == "C")
+        $scope.flag_super_like = true
+      else
+        $scope.flag_super_like = false
+
   ])
