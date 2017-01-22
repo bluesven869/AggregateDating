@@ -112,7 +112,7 @@
                 <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
                   <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
                   <img ng-class="{'user-image': bagel.selected == false,'user-image-selected': bagel.selected == true}" ng-src='{{bagel.images[bagel.selected_image]}}' />                  
-                  <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+                  <p class="star"  ng-class="{'black-color': bagel.star==false,'yellow-color': bagel.star==1}" ><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
                   
                   <label class="short-description">{{bagel.aboutme}}</label>
                   <label class="name">
@@ -250,7 +250,7 @@
       <label class="bagel" ng-if="prev_bagel">      
         <label ng-class="{'pie-border1': prev_bagel.expire_days == 1, 'pie-border2': prev_bagel.expire_days ==2, 'pie-border3': prev_bagel.expire_days >= 3}">&nbsp;</label>
         <img class="user-image" ng-src='{{prev_bagel.images[0]}}' />
-        <p class="star" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
+        <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}"  ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
         <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
         <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
         <label class="name">
@@ -267,7 +267,7 @@
           <p  ng-model="my_profile">
             Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
           </p>
-          
+
         </section>
         <section class="nick-name">
           <label class="img-div">SC</label> <label class=name>Jessicaarc</label>
