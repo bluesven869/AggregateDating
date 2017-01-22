@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
@@ -105,7 +106,7 @@
           <input id="search-input" ng-model="search_name" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
         </div>      
       </div>
-      <div class="nav navbar-nav side-nav bagel-nav">
+      <div class="nav navbar-nav side-nav ">
         <div id='bagel_list'  >          
           <div class="bagels">        
               <div ng-class="{'bagel': bagel.selected == false,'bagel-seleceted': bagel.selected == true}" ng-repeat="bagel in BagelsList | orderBy:SortMatches | filter: filterBagelonMessagePage">
@@ -260,46 +261,49 @@
         
       </label>        
     </div>
-      <div class="bagel_profile">
-        <section class="aboutme">
-          <label>Profile Title</label>
-
-          <p  ng-model="my_profile">
-            Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-          </p>
-
-        </section>
-        <section class="nick-name">
-          <label class="img-div">SC</label> <label class=name>Jessicaarc</label>
-        </section>
-        <section class="music-spotify">
-            DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
-            <label class="img-div">SF</label><label class=name>PAUL BAN DYK  </label>
-            <div>MUSIC LIST</div><br />
-            <div>
-            <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-            <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-            <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-            <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
-            </div>
-            <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
-        </section>
-        <div>
-          <button class="ng-click"</button>
-        </div>
-        <section class="photos">
-            <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br/><br/>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-            <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
-        </section>
+    <div class="image-slider">
+      <ul rn-carousel class="image">
+        <li ng-repeat="image in prev_bagel.images">        
+          <img ng-src='{{image}}' />
+        </li>
+      </ul>  
     </div>
+    <div class="aboutme">
+      <label>Profile Title</label>
+
+      <p>{{prev_bagel.aboutme}}</p>
+
+    </div>
+    <section class="nick-name">
+      <label class="img-div">SC</label> <label class=name>Jessicaarc</label>
+    </section>
+    <section class="music-spotify">
+        DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
+        <label class="img-div">SF</label><label class=name>PAUL BAN DYK  </label>
+        <div>MUSIC LIST</div><br />
+        <div>
+        <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+        <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+        <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+        <label class="music"><i class="fa fa-play" aria-hidden="true"></i></label>
+        </div>
+        <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button></div>
+    </section>
+    <div>
+      <button class="ng-click"</button>
+    </div>
+    <section class="photos">
+        <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br/><br/>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
+        <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
+    </section>
   </div>
 </div>
 
