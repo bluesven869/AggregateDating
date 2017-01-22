@@ -142,7 +142,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
-    $scope.prev_bagel = null
+    $scope.prev_bagel = null;
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
     vm = this

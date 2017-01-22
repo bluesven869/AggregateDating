@@ -485,3 +485,21 @@
     width: 3px;
 }
 
+ul[rn-carousel] {
+    width: 300px !important;
+    height: 300px !important;
+    margin: 0 auto;
+}
+.carouselIndicator{
+	margin-top: -20px;
+	border: 1px solid #000;
+	text-align: center;
+}
+.rn-carousel-indicator{
+	font-size: 3em;
+	text-align: center;
+	margin-top:-20px;
+	.active{
+		color:#ffce3a !important;
+	}
+}
