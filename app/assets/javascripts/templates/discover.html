@@ -108,13 +108,13 @@
     </div><!-- /.navbar-collapse -->
   </div> 
 </nav>      
-<div class="container-bagels">     
+<div class="container-bagels"  id="my-app-scope" >     
   <div class="sixteen columns"> 
     <div class="project">   
       <div class="sky-carousel sc-no-select">
         <div class="sky-carousel-wrapper">
           <ul class="sky-carousel-container">
-            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" >
+            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" id="{{bagel.bagel_id}}" >
               <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">
               <label class="stamp" ng-class="{'stamp-like': bagel.action == 1, 'stamp-pass': bagel.action == 2, 'stamp-super-like': bagel.action == 3, 'stamp-woo-like': bagel.action == 4}"">&nbsp; </label>
               <div class="my-content">  
@@ -150,11 +150,7 @@
 <div class="profile">
   <div class="inner_div">
     <h1>Profile Title</h1>
-    <p>
-        Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-        Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
-        Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
-      </p>
+    <p>{{prev_bagel.aboutme}}</p>
     </div>
     <div class="nick-name">
       <label class="img-div">SC</label><label class=name>Jessicaarc  </label>
@@ -197,9 +193,17 @@
       gradientOverlayColor: "#e6e6e6",
       gradientOverlaySize: 190,
       selectByClick: false
-    }); 
-    my_carousel.on('itemSelected.sc', function(evt) {
-      
     });
+    var scope = angular.element(document.getElementById("my-app-scope")).scope();
+    scope.$apply(function () {
+      scope.onItemSelected(my_carousel.selectedItem.element[0].id);
+    });   
+    my_carousel.on('itemSelected.sc', function(evt) {
+      var scope = angular.element(document.getElementById("my-app-scope")).scope();
+      scope.$apply(function () {
+        scope.onItemSelected(evt.item.element[0].id);
+      });  
+    });
+    
   }); 
 </script>

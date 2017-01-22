@@ -212,7 +212,7 @@
 			@media (min-width: 768px) {
 		  		.name{
 				    position: absolute;
-				    left:110px;
+				    left:130px;
 				    top:14px;
 				    color: #000;
 				    font-size:1.4em;
@@ -220,7 +220,7 @@
 				.short-description{
 				    position: absolute;
 				    font-weight: normal;
-				    left:112px;
+				    left:132px;
 				    top:42px;
 				    color: #000;
 				    font-size:1em;
@@ -422,6 +422,15 @@
 	bottom:0px;
 	top:55px;
 	overflow: auto;
+	padding:20px;
+	.aboutme{
+		
+	}
+	p{
+		height:120px;
+		overflow-y:auto;
+		overflow-x:hidden;
+	}
 }
 
 
@@ -475,3 +484,4 @@
     background-color: #555;
     width: 3px;
 }
+

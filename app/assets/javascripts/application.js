@@ -20,6 +20,8 @@
 //= require angular-rails-templates
 //= require ng-file-upload-shim
 //= require ng-file-upload
+//= require angular-touch
+//= require angular-carousel
 //= require ngFacebook/dev/src/unmin/ngFacebook
 //= require slider
 //= require_tree .

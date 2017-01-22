@@ -479,6 +479,7 @@ SKY.Carousel.prototype = {
                 if (b == a.dom.items.length) a.onAllLoaded()
             });
             c.load();
+            
             a.carouselItems.push(c)
         });
         this.dom.carousel.on(this.events.startEvent, function(b) {
