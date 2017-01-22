@@ -262,11 +262,14 @@
       </label>        
     </div>
     <div class="image-slider">
-      <ul rn-carousel class="image">
+      <ul rn-carousel rn-carousel-index="carouselIndex" class="image">
         <li ng-repeat="image in prev_bagel.images">        
-          <img ng-src='{{image}}' />
+          <div ng-style="{'background-image': 'url(' + image + ')'} " class="bgimage ng-binding" style="height:300px;background-size:300px 300px; background-repeat: no-repeat;">
+                                &nbsp;
+          </div>
         </li>
-      </ul>  
+      </ul> 
+      <div rn-carousel-indicators ng-if="prev_bagel.images" slides="prev_bagel.images" rn-carousel-index="carouselIndex">&nbsp;</div> 
     </div>
     <div class="aboutme">
       <label>Profile Title</label>
