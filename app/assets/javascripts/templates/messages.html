@@ -105,7 +105,7 @@
           <input id="search-input" ng-model="search_name" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
         </div>      
       </div>
-      <div class="nav navbar-nav side-nav panel-body">
+      <div class="nav navbar-nav side-nav bagel-nav">
         <div id='bagel_list'  >          
           <div class="bagels">        
               <div ng-class="{'bagel': bagel.selected == false,'bagel-seleceted': bagel.selected == true}" ng-repeat="bagel in BagelsList | orderBy:SortMatches | filter: filterBagelonMessagePage">
@@ -113,9 +113,12 @@
                   <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
                   <img ng-class="{'user-image': bagel.selected == false,'user-image-selected': bagel.selected == true}" ng-src='{{bagel.images[bagel.selected_image]}}' />                  
                   <p class="star" ng-if="bagel.star"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-                  <label class="name">{{bagel.name}}, {{bagel.age}}</label>
+                  
                   <label class="short-description">{{bagel.aboutme}}</label>
-                  <p class="expire-days-label">{{bagel.CAP}}</p>
+                  <label class="name">
+                    <label title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'icon-t': bagel.CAP == 'T', 'icon-o': bagel.CAP == 'O', 'icon-p': bagel.CAP == 'P', 'icon-b': bagel.CAP == 'B', 'icon-c': bagel.CAP == 'C'}">&nbsp;</label>
+                    {{bagel.name}}, {{bagel.age}}</label>
+                  <!--<p class="expire-days-label">{{bagel.CAP}}</p> -->
                   <p class="expire-days-span">{{bagel.expire_days}} days expires</p>
 
                 </div>
@@ -127,123 +130,134 @@
   
 </nav>
 <div class="row" >
-  <div class="margin-left-300">  
-    <div class="col-sm-12 col-md-6 col-lg-6 ">              
-      <div class="chat-panel panel panel-default">
-        <div class="panel-heading" style="display: none">
-            <i class="fa fa-comments fa-fw"></i>
-            Chat
-            <div class="btn-group pull-right">
-                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-chevron-down"></i>
+  <div class="margin-left-420 middle-panel margin-right-430">  
+    <div class="chat-panel panel panel-default">
+      <div class="panel-heading" style="display: none">
+          <i class="fa fa-comments fa-fw"></i>
+          Chat
+          <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-chevron-down"></i>
+              </button>
+          </div>
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <ul class="chat">
+            <li>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/7</div>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
+            </li>
+            <li class="left-m clearfix">
+                <div class="chat-body clearfix">     
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>  
+                </div>
+            </li>
+            <li class="my-remove clearfix"></li>
+
+            <li class="right-m clearfix">
+                <div class="chat-body clearfix">    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>      
+                </div>
+            </li>
+            <li class="left-m clearfix">
+                <div class="chat-body clearfix">                      
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/11</div>
+              <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
+            </li>
+            <li class="left-m clearfix">
+                <div class="chat-body clearfix">     
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>  
+                </div>
+            </li>
+            <li class="my-remove clearfix"></li>
+
+            <li class="right-m clearfix">
+                <div class="chat-body clearfix">    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>      
+                </div>
+            </li>
+            <li class="left-m clearfix">
+                <div class="chat-body clearfix">                      
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                    <div class="header">                          
+                      <small class="pull-right text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 06:43
+                      </small>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="clearfix"> &nbsp </div>
+        <div class="input-group right-no-padding">
+            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+            <span class="input-group-btn">
+                <button class="btn btn-warning btn-sm" id="btn-chat">
+                    Send
                 </button>
-            </div>
+            </span>
         </div>
-        <!-- /.panel-heading -->
-        <div class="panel-body">
-          <ul class="chat">
-              <li>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/7</div>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
-              </li>
-              <li class="left clearfix">
-                  <div class="chat-body clearfix">     
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>  
-                  </div>
-              </li>
-              <li class="my-remove clearfix"></li>
-
-              <li class="right clearfix">
-                  <div class="chat-body clearfix">    
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>      
-                  </div>
-              </li>
-              <li class="left clearfix">
-                  <div class="chat-body clearfix">                      
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>
-                  </div>
-              </li>
-
-              <li>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-left"><hr></div>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-center">2017/1/11</div>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-right"><hr></div>
-              </li>
-              <li class="left clearfix">
-                  <div class="chat-body clearfix">     
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>  
-                  </div>
-              </li>
-              <li class="my-remove clearfix"></li>
-
-              <li class="right clearfix">
-                  <div class="chat-body clearfix">    
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>      
-                  </div>
-              </li>
-              <li class="left clearfix">
-                  <div class="chat-body clearfix">                      
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                      </p>
-                      <div class="header">                          
-                        <small class="pull-right text-muted">
-                          <i class="fa fa-clock-o fa-fw"></i> 06:43
-                        </small>
-                      </div>
-                  </div>
-              </li>
-          </ul>
-          <div class="input-group right-no-padding">
-                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                <span class="input-group-btn">
-                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                        Send
-                    </button>
-                </span>
-            </div>
-        </div>
-        <!-- /.panel-body -->
-        
-        <!-- /.panel-footer -->
+      </div>
     </div>
   </div>
     <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
-  <div class="col-sm-12 col-md-6 col-lg-6">
+  <div class="message-profile">
+    <div class="bagels-grid"> 
+      <label class="bagel">
+        <label ng-class="{'pie-border1': prev_bagel.expire_days == 1, 'pie-border2': prev_bagel.expire_days ==2, 'pie-border3': prev_bagel.expire_days >= 3}">&nbsp;</label>
+        <img class="user-image" ng-src='{{prev_bagel.images[0]}}' />
+        <p class="star" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
+        <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
+        <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
+        <label class="name">
+        <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t': prev_bagel.CAP == 'T', 'icon-o': prev_bagel.CAP == 'O', 'icon-p': prev_bagel.CAP == 'P', 'icon-b': prev_bagel.CAP == 'B', 'icon-c': prev_bagel.CAP == 'C'}">&nbsp;</label>
+        {{prev_bagel.name}}, {{prev_bagel.age}}</label>
+        <p class="expire-days-span">&nbsp;&nbsp;&nbsp;<span class="days">{{prev_bagel.expire_days}}</span> days expires</p>
+        
+      </label>        
+    </div>
       <div class="bagel_profile">
         <section class="aboutme">
           <label>Profile Title</label>
@@ -252,7 +266,7 @@
           </p>
         </section>
         <section class="nick-name">
-          <label class="img-div">SC</label><label class=name>Jessicaarc</label>
+          <label class="img-div">SC</label> <label class=name>Jessicaarc</label>
         </section>
         <section class="music-spotify">
             DIE FOR YOU LOREM ISPUM CONTENT MUSIC <br />
@@ -282,7 +296,6 @@
             <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
         </section>
     </div>
-  </div>
   </div>
 </div>
 
