@@ -37,10 +37,10 @@
 		.star{
 
 		    position: absolute;
-		    left:260px;
-		    top:-230px;
+		    left:300px;
+		    top:-280px;
 		    color: #ffce3a;
-		    font-size:2em;
+		    font-size:3em;
 		    z-index: 500;cursor: pointer;
 		}
 		.anim{
@@ -111,7 +111,7 @@
 			background-size:41px 36px;	
 			position: absolute;
 			cursor: pointer;
-			left:0px;
+			left:-20px;
 			top:0px;
 		}
 		.pass:hover{
@@ -138,7 +138,7 @@
 			height:72px;
 			position: absolute;
 			cursor: pointer;
-			left:123px;
+			left:113px;
 			top:90px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
@@ -155,7 +155,7 @@
 			height:72px;
 			position: absolute;
 			cursor: pointer;
-			left:123px;
+			left:113px;
 			top:90px;
 			-webkit-border-radius: 50%;
 			-moz-border-radius: 50%;
@@ -356,4 +356,9 @@
 		font-size: 20px;
 		color:#888;		
 	}
+}
+
+.sc-image{
+	width:360px;
+	height:360px;
 }

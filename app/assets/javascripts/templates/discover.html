@@ -33,10 +33,10 @@
           <label for="P-check" title="POF" ng-class="{'network-pof-1': flag_p == true, 'network-pof-2':flag_p == false}" >&nbsp;</label>
           <label for="B-check" title="Bumble" ng-class="{'network-bumble-1': flag_b == true, 'network-bumble-2':flag_b == false}" >&nbsp;</label>
           <label for="C-check" title="CMB" ng-class="{'network-cmb-1': flag_c == true, 'network-cmb-2':flag_c == false}" >&nbsp;</label>
-          <label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" >BS</label>
+          <!--<label for="B-S-check" title="Best" ng-class="{'network-label-3': flag_b_r == true, 'network-label-4':flag_b_r == false}" >BS</label>
             <label for="L-S-check" title="Limited first" ng-class="{'network-label-3': flag_l_r == true, 'network-label-4':flag_l_r == false}">LS</label>
             <label for="A-S-check" title="Alternate equally" ng-class="{'network-label-3': flag_a_r == true, 'network-label-4':flag_a_r == false}" >AS</label>
-
+          -->
           </span>
 
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
@@ -143,8 +143,8 @@
   <div class="inner_div">
     <div class="pass" title="Pass">&nbsp;</div>
     <div class="like" title="Like">&nbsp;</div>
-    <div class="woo-like" title="Woo Like">&nbsp;</div>
-    <div class="super-like" title="Super Like">&nbsp;</div>
+    <div class="woo-like" title="Woo Like" ng-if="flag_woo_like">&nbsp;</div>
+    <div class="super-like" title="Super Like" ng-if="flag_super_like">&nbsp;</div>
   </div>
 </section>
 <div class="profile">
@@ -171,18 +171,6 @@
       </div>
       <div align="right" class="button-box">Share your spotify <button class="general_button">Link Spotify</button>&nbsp;&nbsp;&nbsp;</div>
   </div>
-  <div class="photos">
-      <label class="img-div">I</label><label class=name>209 photos to instogram  </label><br /><br />
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-      <div align="right" class="button-box">Share your Instagram <button class="general_button">Link Instagram</button></div>
-  </div>
 </div>
   
  
@@ -194,21 +182,24 @@
   var my_carousel;
   $(function() {
     my_carousel= $('.sky-carousel').carousel({
-      itemWidth: 260,
-      itemHeight: 260,
-      distance: 15,
-      selectedItemDistance: 75,
+      itemWidth: 360,
+      itemHeight: 360,
+      distance: -5,
+      selectedItemDistance: 25,
       enableMouseWheel:0,
       loop:0,
       selectedItemZoomFactor: 1,
-      unselectedItemZoomFactor: 0.5,
+      unselectedItemZoomFactor: 0.7,
       unselectedItemAlpha: 0.6,
       motionStartDistance: 210,
       topMargin: 0,
       gradientStartPoint: 0.35,
       gradientOverlayColor: "#e6e6e6",
       gradientOverlaySize: 190,
-      selectByClick: true
-    });    
+      selectByClick: false
+    }); 
+    my_carousel.on('itemSelected.sc', function(evt) {
+      
+    });
   }); 
 </script>

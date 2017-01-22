@@ -403,7 +403,7 @@ SKY.Carousel.prototype = {
         this.carouselItems = [];
         this.initDOM();
         //this.initConfigParams();
-        this.initEvents();
+        //this.initEvents();
         this.initContentWrapper();
         this.initContainer();
         //this.initGradientOverlays();
@@ -616,8 +616,7 @@ SKY.Carousel.prototype = {
             this.onClosestChanged(this.closestItem));
         a = null
     },
-    select: function(a, b) {                
-
+    select: function(a, b) {   
         var c = this.settings;
         if(a<0)
             a = this.selectedItem
@@ -720,7 +719,8 @@ SKY.Carousel.prototype = {
     },
     onStart: function(a) {
 
-        function b(a) {            
+        function b(a) {     
+
             //return; 
             var b = a.originalEvent,
                 c = SKY.Utils.hasTouchSupport() ? b.touches[0].clientX : a.clientX,
@@ -736,6 +736,7 @@ SKY.Carousel.prototype = {
                     return
                 }
                 t || (t = !0, Math.abs(g - h) > Math.abs(c - startX) + 5 ? d.isScrolling = !0 : d.isScrolling = !1);
+
                 if (d.isScrolling) {
                     q = !0;
                     return
