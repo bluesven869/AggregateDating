@@ -6,7 +6,8 @@ aggregate_dating = angular.module('aggregate_dating',[
   	'facebook',
     'ngFileUpload',
     'ngCookies',
-    'angular-carousel'
+    'angular-carousel',
+    'luegg.directives'
 ])
 MyAuthInfo = []
 aggregate_dating.config([ '$routeProvider',
@@ -586,9 +587,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       if($scope.prev_bagel?)
         $scope.prev_bagel.selected = false
       bagel.selected = true
-      $scope.show_filter_flag = false
-      $scope.prev_bagel = bagel      
-      $scope.my_profile = bagel.aboutme
+      $scope.prev_bagel = bagel
+      $scope.carouselIndex=  0
     
     $scope.rebuildCarousel = ->               
       my_carousel.reset_all()      

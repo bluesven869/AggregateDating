@@ -7,6 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+       <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
+          <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
+      </label> 
       <a class="navbar-brand" href="#">LOGO</a>   
     </div>
     <div class="collapse navbar-collapse">
@@ -102,8 +105,8 @@
 
       <div class="nav navbar-nav nav-search">  
         <div id="search" class="border-right">
-          <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search by names</span></label>
-          <input id="search-input" ng-model="search_name" placeholder="Search by names" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+          <label for="search-input"  class="align-left"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search</span></label>
+          <input id="search-input" ng-model="search_name" placeholder="Search" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
         </div>      
       </div>
       <div class="nav navbar-nav side-nav ">
@@ -128,11 +131,63 @@
         </div> 
       </div>
   </div>
+  <div  id="fixed-menu" class="fixed-menu-nav">
+    <div class="dropdown-menu">
+      <ul class="nav navbar-nav side-nav " >
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER(42)</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MATCHES(12)</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> COMMUNITY</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> OPEN COMMENT SECTION</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> POSITIVE LEADERBOARD</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> IRL BLOG</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> TELL A FRIEND</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   
 </nav>
 <div class="row" >
   <div class="margin-left-420 middle-panel margin-right-430">  
-    <div class="chat-panel panel panel-default">
+    <div class="chat-panel panel panel-default" scroll-glue>
       <div class="panel-heading" style="display: none">
           <i class="fa fa-comments fa-fw"></i>
           Chat
@@ -247,20 +302,7 @@
   </div>
     <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
   <div class="message-profile">
-    <div class="bagels-grid " style="height:320px;"> 
-      <label class="bagel" ng-if="prev_bagel">      
-        <label ng-class="{'pie-border1': prev_bagel.expire_days == 1, 'pie-border2': prev_bagel.expire_days ==2, 'pie-border3': prev_bagel.expire_days >= 3}">&nbsp;</label>
-        <img class="user-image" ng-src='{{prev_bagel.images[0]}}' />
-        <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}"  ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
-        <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
-        <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
-        <label class="name">
-        <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t': prev_bagel.CAP == 'T', 'icon-o': prev_bagel.CAP == 'O', 'icon-p': prev_bagel.CAP == 'P', 'icon-b': prev_bagel.CAP == 'B', 'icon-c': prev_bagel.CAP == 'C'}">&nbsp;</label>
-        {{prev_bagel.name}}, {{prev_bagel.age}}</label>
-        <p class="expire-days-span">&nbsp;&nbsp;&nbsp;<span class="days">{{prev_bagel.expire_days}}</span> days expires</p>
-        
-      </label>        
-    </div>
+    
     <div class="image-slider">
       <ul rn-carousel rn-carousel-index="carouselIndex" class="image">
         <li ng-repeat="image in prev_bagel.images">        
