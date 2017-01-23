@@ -163,196 +163,197 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_woo_like = false
     $scope.flag_super_like= false
     $scope.search_name = ""
+
     $scope.BagelsList = [
       {
         bagel_id:"T0000001",
         images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
-        name: 'Maria Vanna',      age:21, nearby:12, school:'Havard Raw School',
-        aboutme:'This is the Maria Vanna\'s Profile.',
+        name: 'Kylee Alger',      age:21, nearby:12, school:'Havard Raw School',
+        aboutme:'This is the Kylee Alger\'s Profile.',
         action:1,
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-5',  selected:false
       }, 
       {
         bagel_id:"T0000002",
         images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
-        name: 'Leslie Lawsonb',   age:26, nearby:31, school:'Havard Raw School',
-        aboutme:'This is the Leslie Lawsonb\'s Profile.',
+        name: 'Jaylah Berg',   age:26, nearby:31, school:'Havard Raw School',
+        aboutme:'This is the Jaylah Berg\'s Profile.',
         action:2,
         star:0,CAP:'T', expire_days:1,assigned_date:'2017-1-5',  selected:false
       }, 
       {
         bagel_id:"T0000003",
         images:['Images/3.jpg'], selected_image:0, 
-        name: 'Dora Thomas3',     age:23, nearby:45, school:'Havard Raw School',
-        aboutme:'This is the Dora Thomas3\'s Profile.',
+        name: 'Hayden Chavis',     age:23, nearby:45, school:'Havard Raw School',
+        aboutme:'This is the Hayden Chavis\'s Profile.',
         action:3,
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-11',  selected:false
       }, 
       {
         bagel_id:"O0000004",
         images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:3, 
-        name: 'Karen Olsen',     age:22, nearby:62, school:'Havard Raw School',
-        aboutme:'This is the Karen Olsen\'s Profile.',
+        name: 'Tara Derr',     age:22, nearby:62, school:'Havard Raw School',
+        aboutme:'This is the Tara Derr\'s Profile.',
         action:2,
         star:1,CAP:'O', expire_days:2,assigned_date:'2017-1-6',  selected:false
       }, 
       {
         bagel_id:"T0000005",
         images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
-        name: 'Mittie Phillips', age:20, nearby:1,  school:'Havard Raw School',
-        aboutme:'This is the Mittie Phillips\'s Profile.',
+        name: 'Annie Eller', age:20, nearby:1,  school:'Havard Raw School',
+        aboutme:'This is the Annie Eller\'s Profile.',
         action:1,
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-6',  selected:false
       }, 
       {
         bagel_id:"T0000006",
         images:['Images/6.jpg'], selected_image:0, 
-        name: 'Dori Moss',       age:25, nearby:2,  school:'Havard Raw School',
-        aboutme:'This is the Dori Moss\'s Profile.',
+        name: 'Lillianna Fiore',       age:25, nearby:2,  school:'Havard Raw School',
+        aboutme:'This is the Lillianna Fiore\'s Profile.',
         action:4,
         star:0,CAP:'T', expire_days:1,assigned_date:'2017-1-6',  selected:false
       }, 
       {
         bagel_id:"T0000007",
-        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
-        name: 'Maria Vann',      age:21, nearby:7,  school:'Havard Raw School',
-        aboutme:'This is the Maria Vann\'s Profile.',
+        images:['Images/7.jpg'], selected_image:0, 
+        name: 'Selina Giles',      age:21, nearby:7,  school:'Havard Raw School',
+        aboutme:'This is the Selina Giles\'s Profile.',
         action:1,
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-3',  selected:false
       }, 
       {
         bagel_id:"C0000008",
-        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
-        name: 'Leslie Lawson',   age:26, nearby:43, school:'Havard Raw School',
-        aboutme:'This is the Leslie Lawsonb\'s Profile.',
+        images:['Images/8.jpg'], selected_image:0, 
+        name: 'Bella Hays',   age:26, nearby:43, school:'Havard Raw School',
+        aboutme:'This is the Bella Hays\'s Profile.',
         action:3,
         star:1,CAP:'C', expire_days:2,assigned_date:'2017-1-7',  selected:false
       }, 
       {
         bagel_id:"T0000009",
-        images:['Images/3.jpg'], selected_image:0, 
-        name: 'Dora Thomas',     age:23, nearby:67, school:'Havard Raw School',
-        aboutme:'This is the Dora Thomas\'s Profile.',
+        images:['Images/9.jpg'], selected_image:0, 
+        name: 'Selah Isaac',     age:23, nearby:67, school:'Havard Raw School',
+        aboutme:'This is the Selah Isaac\'s Profile.',
         action:1,
         star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-7',  selected:false
       }, 
       {
         bagel_id:"T0000010",
-        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
-        name: 'Karen Olsen',     age:22, nearby:28, school:'Havard Raw School',\
-        aboutme:'This is the Karen Olsen\'s Profile.',
+        images:['Images/10.jpg'], selected_image:0, 
+        name: 'Matilda Jacob',     age:22, nearby:28, school:'Havard Raw School',\
+        aboutme:'This is the Matilda Jacob\'s Profile.',
         action:1,
         star:0,CAP:'T', expire_days:2,assigned_date:'2017-1-8',  selected:false
       }, 
       {
         bagel_id:"P0000011",
-        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
-        name: 'Mittie Phillips', age:20, nearby:64, school:'Havard Raw School',
-        aboutme:'This is the Mittie Phillips\'s Profile.',
+        images:['Images/11.jpg'], selected_image:0, 
+        name: 'Kiersten Kenney', age:20, nearby:64, school:'Havard Raw School',
+        aboutme:'This is the Kiersten Kenney\'s Profile.',
         action:1,
         star:0,CAP:'P', expire_days:3,assigned_date:'2017-1-8',  selected:false
       }, 
       {
         bagel_id:"O0000012",
-        images:['Images/6.jpg'],selected_image:0,  
-        name: 'Dori Moss',       age:25, nearby:21, school:'Havard Raw School',
-        aboutme:'This is the Dori Moss\'s Profile.',
+        images:['Images/12.jpg'], selected_image:0, 
+        name: 'Alison Loftis',       age:25, nearby:21, school:'Havard Raw School',
+        aboutme:'This is the Alison Loftis\'s Profile.',
         action:0,
         star:1,CAP:'O', expire_days:1,assigned_date:'2017-1-16',  selected:false
       }, 
       {
         bagel_id:"C0000013",
-        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
-        name: 'Maria Vann',      age:21, nearby:53, school:'Havard Raw School',
-        aboutme:'This is the Maria Vann\'s Profile.',
+        images:['Images/13.jpg'], selected_image:0, 
+        name: 'Frida Mccauley',      age:21, nearby:53, school:'Havard Raw School',
+        aboutme:'This is the Frida Mccauley\'s Profile.',
         action:1,
         star:1,CAP:'C', expire_days:3,assigned_date:'2017-1-9',  selected:false
       }, 
       {
         bagel_id:"T0000014",
-        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
-        name: 'Leslie Lawson',   age:26, nearby:68, school:'Havard Raw School',
-        aboutme:'This is the Leslie Lawsonb\'s Profile.',
+        images:['Images/14.jpg'], selected_image:0, 
+        name: 'Sophia Neville',   age:26, nearby:68, school:'Havard Raw School',
+        aboutme:'This is the Sophia Neville\'s Profile.',
         action:1,
         star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-12',  selected:false
       }, 
       {
         bagel_id:"T0000015",
-        images:['Images/3.jpg'], selected_image:0, 
-        name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',
-        aboutme:'This is the Dora Thomas\'s Profile.',
+        images:['Images/15.jpg'], selected_image:0, 
+        name: 'Paris Osorio',     age:23, nearby:32, school:'Havard Raw School',
+        aboutme:'This is the Paris Osorio\'s Profile.',
         action:2,
         star:1,CAP:'T', expire_days:1,assigned_date:'2017-1-9',  selected:false
       }, 
       {
         bagel_id:"C0000016",
-        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
-        name: 'Karen Olsen',     age:22, nearby:53, school:'Havard Raw School',
-        aboutme:'This is the Karen Olsen\'s Profile.',
+        images:['Images/16.jpg'], selected_image:0, 
+        name: 'Emelia Penn',     age:22, nearby:53, school:'Havard Raw School',
+        aboutme:'This is the Emelia Penn\'s Profile.',
         action:2,
         star:1,CAP:'C', expire_days:3,assigned_date:'2017-1-16', selected:false
       }, 
       {
         bagel_id:"T0000017",
-        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
-        name: 'Mittie Phillips', age:20, nearby:28, school:'Havard Raw School',
-        aboutme:'This is the Mittie Phillips\'s Profile.',
+        images:['Images/17.jpg'], selected_image:0, 
+        name: 'Mittie Quintanilla', age:20, nearby:28, school:'Havard Raw School',
+        aboutme:'This is the Mittie Quintanilla\'s Profile.',
         action:1,
         star:1,CAP:'T', expire_days:2,assigned_date:'2017-1-10', selected:false
       }, 
       {
         bagel_id:"T0000018",
-        images:['Images/6.jpg'], selected_image:0, 
-        name: 'Dori Moss',       age:25, nearby:92, school:'Havard Raw School',
-        aboutme:'This is the Dori Moss\'s Profile.',
+        images:['Images/18.jpg'], selected_image:0, 
+        name: 'Ashlynn Renteria',       age:25, nearby:92, school:'Havard Raw School',
+        aboutme:'This is the Ashlynn Renteria\'s Profile.',
         action:0,
         star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-3', selected:false
       }, 
       {
         bagel_id:"T0000019",
-        images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:0, 
-        name: 'Maria Vann',      age:21, nearby:22, school:'Havard Raw School',
-        aboutme:'This is the Maria Vann\'s Profile.',
+        images:['Images/19.jpg'], selected_image:0, 
+        name: 'Logan Shelley',      age:21, nearby:22, school:'Havard Raw School',
+        aboutme:'This is the Logan Shelley\'s Profile.',
         action:0,
         star:1,CAP:'T', expire_days:1,assigned_date:'2017-1-11', selected:false
       }, 
       {
         bagel_id:"B0000020",
-        images:['Images/2.jpg','Images/2_1.jpg','Images/2_2.jpg','Images/2_3.jpg'], selected_image:0, 
-        name: 'Leslie Lawson',   age:26, nearby:122,school:'Havard Raw School',
-        aboutme:'This is the Leslie Lawsonb\'s Profile.',
+        images:['Images/20.jpg'], selected_image:0, 
+        name: 'Paisley Tracy',   age:26, nearby:122,school:'Havard Raw School',
+        aboutme:'This is the Paisley Tracy\'s Profile.',
         action:0,
         star:1,CAP:'B', expire_days:3,assigned_date:'2017-1-9', selected:false
       }, 
       {
         bagel_id:"T0000021",
-        images:['Images/3.jpg'], selected_image:0, 
-        name: 'Dora Thomas',     age:23, nearby:32, school:'Havard Raw School',
-        aboutme:'This is the Dora Thomas\'s Profile.',
+        images:['Images/21.jpg'], selected_image:0, 
+        name: 'Kiana Utley',     age:23, nearby:32, school:'Havard Raw School',
+        aboutme:'This is the Kiana Utley\'s Profile.',
         action:0,
         star:0,CAP:'T', expire_days:1,assigned_date:'2017-1-11', selected:false
       }, 
       {
         bagel_id:"C0000022",
-        images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:0, 
-        name: 'Karen Olsen',     age:22, nearby:52, school:'Havard Raw School',
-        aboutme:'This is the Karen Olsen\'s Profile.',
+        images:['Images/22.jpg'], selected_image:0, 
+        name: 'Alexus Vargas',     age:22, nearby:52, school:'Havard Raw School',
+        aboutme:'This is the Alexus Vargas\'s Profile.',
         action:0,
         star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false
       }, 
       {
         bagel_id:"T0000023",
-        images:['Images/5.jpg','Images/5_1.jpg','Images/5_2.jpg','Images/5_3.jpg','Images/5_4.jpg', 'Images/5_5.jpg'], selected_image:0, 
-        name: 'Mittie Phillips', age:20, nearby:72, school:'Havard Raw School',
-        aboutme:'This is the Mittie Phillips\'s Profile.',
+        images:['Images/23.jpg'], selected_image:0, 
+        name: 'Cristina Wesley', age:20, nearby:72, school:'Havard Raw School',
+        aboutme:'This is the Cristina Wesley\'s Profile.',
         action:0,
         star:1,CAP:'T', expire_days:2,assigned_date:'2017-1-12', selected:false
       }, 
       {
         bagel_id:"C0000024",
-        images:['Images/6.jpg'], selected_image:0, 
-        name: 'Dori Moss',       age:25, nearby:82, school:'Havard Raw School',
-        aboutme:'This is the Dori Moss\'s Profile.',
+        images:['Images/24.jpg'], selected_image:0, 
+        name: 'Jordin Yeager',       age:25, nearby:82, school:'Havard Raw School',
+        aboutme:'This is the Jordin Yeager\'s Profile.',
         action:0,
         star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-12', selected:false
       }      

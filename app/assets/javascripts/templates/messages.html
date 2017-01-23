@@ -186,8 +186,8 @@
   
 </nav>
 <div class="row" >
-  <div class="margin-left-420 middle-panel margin-right-430">  
-    <div class="chat-panel panel panel-default" scroll-glue>
+  <div class="middle-panel">  
+    <div id="chat-panel" class="chat-panel panel panel-default" scroll-glue>
       <div class="panel-heading" style="display: none">
           <i class="fa fa-comments fa-fw"></i>
           Chat
@@ -305,17 +305,20 @@
     
     <div class="image-slider">
       <ul rn-carousel rn-carousel-index="carouselIndex" class="image">
-        <li ng-repeat="image in prev_bagel.images">        
-          <div ng-style="{'background-image': 'url(' + image + ')'} " class="bgimage ng-binding" style="height:300px;background-size:300px 300px; background-repeat: no-repeat;">
-                                &nbsp;
-          </div>
+        <li ng-repeat="image in prev_bagel.images">    
+          <div ng-style="{'background-image': 'url(' + image + ')'} " class="bgimage ng-binding" class="carousel-div" >&nbsp;</div>
         </li>
       </ul> 
       <div rn-carousel-indicators ng-if="prev_bagel.images" slides="prev_bagel.images" rn-carousel-index="carouselIndex">&nbsp;</div> 
     </div>
     <div class="aboutme">
       <label>Profile Title</label>
-
+      <label class="name">
+          <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t': prev_bagel.CAP == 'T', 'icon-o': prev_bagel.CAP == 'O', 'icon-p': prev_bagel.CAP == 'P', 'icon-b': prev_bagel.CAP == 'B', 'icon-c': prev_bagel.CAP == 'C'}">&nbsp;</label>
+          {{prev_bagel.name}}, {{prev_bagel.age}}
+      </label>
+        <!--<p class="expire-days-label">{{bagel.CAP}}</p> -->
+      <p class="expire-days-span">{{prev_bagel.expire_days}} days expires</p>
       <p>{{prev_bagel.aboutme}}</p>
 
     </div>
@@ -353,3 +356,11 @@
 </div>
 
 
+<script type="text/javascript">
+ 
+  $(function() {
+    
+    $("#chat-panel").scrollTop(300);
+    
+  }); 
+</script>
