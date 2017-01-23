@@ -37,14 +37,14 @@
 .navbar .navbar-collapse {
     text-align: center;
 }
-@media(min-width:768px) {
+@media(min-width:1221px) {
 
     .side-nav {
         position: fixed;
         top: 115px;
         left: 0px;
-        width: 418px;
-        margin-left: -418px;
+        width: 318px;
+        margin-left: -318px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
@@ -57,8 +57,8 @@
         top: 55px;
         left: 0px;
         height:60px;
-        width: 418px;
-        margin-left: -418px;
+        width: 318px;
+        margin-left: -318px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
@@ -67,7 +67,7 @@
         overflow-y: hidden;
     }
 }
-@media(max-width:768px) {
+@media(max-width:1220px) {
 	.navbar-nav{
 		margin:0 0 !important;
 	}
@@ -100,35 +100,34 @@
     }
 }
 .fixed-menu-nav{
-    @media(min-width:768px) {
-        .side-nav {
-            position: fixed;
-            top: 51px;
-            left: 225px;
-            width: 225px;
-            height:100%;
-            margin-left: -225px;
-            border: none;
-            border-radius: 0;
-            overflow-y: auto;
-            background-color: #ebebeb;
-            bottom: 0;
-            overflow-x: hidden;
-            padding-bottom: 40px;
-        }
+    
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 320px;
+        width: 320px;
+        height:100%;
+        margin-left: -320px !important;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #ebebeb;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
 
-        .side-nav>li>a {
-            width: 225px;
-            text-align: left;
-        }
+    .side-nav>li>a {
+        width: 320px;
+        text-align: left;
+    }
 
-        .side-nav li a:hover,
-        .side-nav li a:focus {
-            outline: none;
-            background-color: #fff !important;
-            color:000 !important;
-            text-align: left;
-        }
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #fff !important;
+        color:000 !important;
+        text-align: left;
     }
 
     .side-nav>li>ul {
