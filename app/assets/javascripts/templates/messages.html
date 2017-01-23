@@ -305,12 +305,13 @@
   <div class="message-profile">
     
     <div class="image-slider">
+      <div class="ng-carousel-wrapper" ng-if="prev_bagel && prev_bagel.images.length>1"><a href="" ng-click="onPrevImage()" ng-if="prev_bagel.images.length>1" class="btn-prev sc-no-select">&nbsp;</a><a href="" ng-click="onNextImage()" ng-if="prev_bagel.images.length>1" class=" btn-next sc-no-select"></a></div>
       <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
      
       <ul rn-carousel rn-carousel-index="carouselIndex" class="image">
-        <li ng-repeat="image in prev_bagel.images">    
+        <li ng-repeat="image in prev_bagel.images" ng-click="onNextImage()">    
           <div ng-style="{'background-image': 'url(' + image + ')'} " class="bgimage ng-binding" class="carousel-div" >&nbsp;</div>
         </li>
       </ul> 
