@@ -22,6 +22,7 @@
 //= require ng-file-upload
 //= require angular-touch
 //= require angular-carousel
+//= require angular-scroll-glue
 //= require ngFacebook/dev/src/unmin/ngFacebook
 //= require slider
 //= require_tree .
