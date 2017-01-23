@@ -435,7 +435,64 @@
 	overflow: auto;
 	padding:20px;
 	.aboutme{
-		
+		margin-top:-20px;
+		text-align:center;
+		.name{
+			font-size:3em;
+		}
+		.icon-t-m{
+		    background:url("../../Images/TN.png")  no-repeat;
+		    background-size: 36px 50px;
+		    width:36px;
+		    height:50px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    margin-right: 10px;
+		}
+		.icon-o-m{
+		    background:url("../../Images/OKC.png") no-repeat;
+		    background-size: 45px 45px;
+		    background-position: 0 0px;
+		    width:45px;
+		    height:45px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    margin-right:10px;
+		}
+		.icon-b-m{
+		    background:url("../../Images/BMB.png") no-repeat;
+		    background-size: 45px 40px;
+		    background-position: 0 10px;
+		    width:45px;
+		    height:50px;
+		    opacity: 1;
+		    margin-right:10px;
+		}
+		.icon-c-m{
+		    background:url("../../Images/CMB.png") no-repeat;
+		    background-size: 45px 45px;
+
+		    background-position: 0px 0px 10px 10px;
+		    width:45px;
+		    height:45px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;
+		    margin-right: 10px;
+		    opacity: 1;    
+		}
+		.icon-p-m{
+		    background:url("../../Images/HNGE.png") no-repeat;
+		    background-size: 45px 45px;
+		    width:45px;
+		    height:45px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    border-radius: 50%;    
+		    margin-right: 10px;
+		}
 	}
 	
 }
@@ -466,7 +523,7 @@
 .middle-panel{
 	position: fixed;
 	top:55px;
-	bottom: 0px;
+	bottom: 50px;
 	overflow-y: scroll;
 	@media (min-width: 1441px) {
 	    margin-left: 320px;
@@ -560,4 +617,40 @@ ul[rn-carousel] {
 		background-repeat: no-repeat;
 	}
 	
+}
+
+
+.fix-bottom-div{
+	position: fixed !important;
+	bottom: 0px;
+	height: 50px;
+
+	@media (min-width: 1441px) {
+	    margin-left: 320px;
+	    margin-right: 500px;
+	}
+	@media (min-width: 1221px) and (max-width: 1440px) {
+	    margin-left: 320px;
+	    margin-right: 420px;
+	}
+	@media (min-width: 901px) and (max-width: 1220px) {
+	    margin-left: 120px;
+	    margin-right: 420px;
+	}
+
+	@media (max-width: 900px){
+	    margin-left: 120px;
+	    margin-right: 320px;
+	}
+	.input-sm{
+		height:45px !important;
+		font-size:1em;
+	}
+}
+.btn-padding-15{
+	padding-top:12px !important;
+	padding-bottom:12px !important;
+	padding-left:30px !important;
+	padding-right:30px !important;
+	margin-top:-4px !important;
 }

@@ -44,11 +44,11 @@
 	}
 	
 	.sky-carousel .sc-nav-button.sc-next {
-		right: 5px !important;
+		right: 5px;
 	}
 	
 	.sky-carousel .sc-nav-button.sc-prev {
-		left: 5px !important;
+		left: 5px;
 	}
 }
 
@@ -212,6 +212,8 @@ s
 * 6. Navigation Styles
 *
 **********************************************/
+
+
 .sky-carousel .sc-nav-button {
 	position: absolute;
 	top: 50%;

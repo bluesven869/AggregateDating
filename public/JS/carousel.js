@@ -404,7 +404,8 @@ SKY.Carousel.prototype = {
         this.initDOM();
         //this.initConfigParams();
         //this.initEvents();
-        this.initContentWrapper();
+
+        //this.initContentWrapper();
         this.initContainer();
         //this.initGradientOverlays();
         //this.initNavigationButtons();
@@ -471,6 +472,7 @@ SKY.Carousel.prototype = {
     initContainer: function() {
         var a = this,
             b = 0;
+        this.container  = null;
         this.container = new SKY.Container(this.dom.container, this);
         this.dom.items.each(function(c) {
             c = new SKY.CarouselItem($(this), a);
@@ -517,15 +519,18 @@ SKY.Carousel.prototype = {
                 opacity: 0
             });
         a.hide();
-        this.dom.carousel.append(a)
+       // this.dom.carousel.append(a)
     },
     initNavigationButtons: function() {
         var a = this;
         if (this.settings.navigationButtonsVisible) {
+            var bb =$('<div class="sc-nav-wrapper"></div>'); 
             var b = $('<a href="#" class="sc-nav-button sc-prev sc-no-select"></a>'),
                 c = $('<a href="#" class="sc-nav-button sc-next sc-no-select"></a>');
-            this.dom.carousel.append(b);
-            this.dom.carousel.append(c);
+            bb.append(b);
+            bb.append(c);
+            this.dom.carousel.append(bb);
+            //this.dom.carousel.append(c);
             b.on("click", function(b) {                
                 b.preventDefault();
                 a.selectPrevious(a.settings.slideSpeed)

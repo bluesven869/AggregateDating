@@ -238,12 +238,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-7',  selected:false
       }, 
       {
-        bagel_id:"T0000010",
+        bagel_id:"B0000010",
         images:['Images/10.jpg'], selected_image:0, 
         name: 'Matilda Jacob',     age:22, nearby:28, school:'Havard Raw School',\
         aboutme:'This is the Matilda Jacob\'s Profile.',
         action:1,
-        star:0,CAP:'T', expire_days:2,assigned_date:'2017-1-8',  selected:false
+        star:0,CAP:'B', expire_days:2,assigned_date:'2017-1-8',  selected:false
       }, 
       {
         bagel_id:"P0000011",
@@ -258,7 +258,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         images:['Images/12.jpg'], selected_image:0, 
         name: 'Alison Loftis',       age:25, nearby:21, school:'Havard Raw School',
         aboutme:'This is the Alison Loftis\'s Profile.',
-        action:0,
+        action:1,
         star:1,CAP:'O', expire_days:1,assigned_date:'2017-1-16',  selected:false
       }, 
       {
@@ -270,12 +270,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         star:1,CAP:'C', expire_days:3,assigned_date:'2017-1-9',  selected:false
       }, 
       {
-        bagel_id:"T0000014",
+        bagel_id:"B0000014",
         images:['Images/14.jpg'], selected_image:0, 
         name: 'Sophia Neville',   age:26, nearby:68, school:'Havard Raw School',
         aboutme:'This is the Sophia Neville\'s Profile.',
         action:1,
-        star:0,CAP:'T', expire_days:3,assigned_date:'2017-1-12',  selected:false
+        star:0,CAP:'B', expire_days:3,assigned_date:'2017-1-12',  selected:false
       }, 
       {
         bagel_id:"T0000015",
@@ -616,5 +616,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
             $scope.flag_super_like = false
           $scope.prev_bagel = d
           break
+    $scope.addChatMsg = (str, date, time, sender) ->
+      return
+    $scope.SendChat = ->
+      date = new Date
+      date_d = date.Year()+"/"+date.Month() + "/" + date.Day()
+
+      #$scope.addChatMsg($scope.str_chat_msg, )
 
   ])
