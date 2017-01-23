@@ -583,14 +583,13 @@ ul[rn-carousel] {
     margin: 0 auto;
 }
 .carouselIndicator{
-	margin-top: -20px;
-	border: 1px solid #000;
+	margin-top: -10px;
 	text-align: center;
 }
 .rn-carousel-indicator{
 	font-size: 3em;
 	text-align: center;
-	margin-top:-20px;
+	margin-top:-10px;
 	.active{
 		color:#ffce3a !important;
 	}
@@ -615,6 +614,17 @@ ul[rn-carousel] {
 			background-size:260px 260px; 
 		}
 		background-repeat: no-repeat;
+	}
+
+	.star{
+	    position: absolute;
+	    right:35px;
+	    top:25px;
+	    font-size:3em;
+	    z-index: 500;cursor: pointer;
+	}
+	.anim{
+		animation: 1s animateOpacity ;
 	}
 	
 }
