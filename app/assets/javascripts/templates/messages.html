@@ -186,8 +186,8 @@
   
 </nav>
 <div class="row" >
-  <div class="middle-panel">  
-    <div id="chat-panel" class="chat-panel panel panel-default" scroll-glue>
+  <div id="chat-panel"  class="middle-panel">  
+    <div class="chat-panel panel panel-default" scroll-glue>
       <div class="panel-heading" style="display: none">
           <i class="fa fa-comments fa-fw"></i>
           Chat
@@ -288,18 +288,19 @@
                 </div>
             </li>
         </ul>
-        <div class="clearfix"> &nbsp </div>
-        <div class="input-group right-no-padding">
-            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-            <span class="input-group-btn">
-                <button class="btn btn-warning btn-sm" id="btn-chat">
-                    Send
-                </button>
-            </span>
-        </div>
+        <div class="clearfix"> &nbsp </div>        
       </div>
     </div>
   </div>
+  <div class="input-group fix-bottom-div">
+      <input id="btn-input" type="text" ng-model="str_chat_msg" class="form-control input-sm" placeholder="Type your message here..." />
+      <span class="input-group-btn">
+          <button class="btn btn-primary btn-padding-15" ng-click="SendChat()" id="btn-chat">
+              Send
+          </button>
+      </span>
+  </div>
+
     <!-- <div style="width: 500px; height: 500px; border:4px solid red;"></div> -->
   <div class="message-profile">
     
@@ -311,16 +312,17 @@
       </ul> 
       <div rn-carousel-indicators ng-if="prev_bagel.images" slides="prev_bagel.images" rn-carousel-index="carouselIndex">&nbsp;</div> 
     </div>
-    <div class="aboutme">
-      <label>Profile Title</label>
+    <div class="aboutme" ng-if="prev_bagel">
       <label class="name">
-          <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t': prev_bagel.CAP == 'T', 'icon-o': prev_bagel.CAP == 'O', 'icon-p': prev_bagel.CAP == 'P', 'icon-b': prev_bagel.CAP == 'B', 'icon-c': prev_bagel.CAP == 'C'}">&nbsp;</label>
+          <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t-m': prev_bagel.CAP == 'T', 'icon-o-m': prev_bagel.CAP == 'O', 'icon-p-m': prev_bagel.CAP == 'P', 'icon-b-m': prev_bagel.CAP == 'B', 'icon-c-m': prev_bagel.CAP == 'C'}">&nbsp;</label>
           {{prev_bagel.name}}, {{prev_bagel.age}}
       </label>
         <!--<p class="expire-days-label">{{bagel.CAP}}</p> -->
-      <p class="expire-days-span">{{prev_bagel.expire_days}} days expires</p>
+      <p class="expire-days-span">{{prev_bagel.expire_days}} days expires</p>  
+      <div align="left">    
+      <h1>Profile Title</h1>
       <p>{{prev_bagel.aboutme}}</p>
-
+      </div>
     </div>
     <section class="nick-name">
       <label class="img-div">SC</label> <label class=name>Jessicaarc</label>
@@ -359,8 +361,11 @@
 <script type="text/javascript">
  
   $(function() {
+    var top = $("#chat-panel").css("height");
+    var tmp_arr = top.split("px");
     
-    $("#chat-panel").scrollTop(300);
+      top = tmp_arr[0] * 1;
+    $("#chat-panel").scrollTop(top);
     
   }); 
 </script>
