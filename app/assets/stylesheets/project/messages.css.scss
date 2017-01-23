@@ -91,6 +91,7 @@
 			    -moz-border-radius: 50%;
 			    border-radius: 50%;
 			    position: absolute;
+			    text-shadow: 0px 1px 1px #333;	
 			    left:15px;
 			    top:17px;
 			}
@@ -107,6 +108,7 @@
 			    -moz-border-radius: 50%;
 			    border-radius: 50%;
 			    position: absolute;
+			    text-shadow: 0px 1px 1px #333;	
 			    left:10px;
 			    top:12px;
 			    animation: 1s animateBorder3 infinite ;   
@@ -126,6 +128,7 @@
 			    -moz-border-radius: 50%;
 			    border-radius: 50%;
 			    position: absolute;
+			    text-shadow: 0px 1px 1px #333;	
 			    left:15px;
 			    top:17px;
 			}
@@ -146,6 +149,7 @@
 			    position: absolute;
 			    left:10px;
 			    top:12px;
+			    text-shadow: 0px 1px 1px #333;	
 			    animation: 1s animateBorder ;   
 			}
 			.pie-border1{
@@ -164,6 +168,7 @@
 			    border-radius: 50%;
 			    position: absolute;
 			    left:15px;
+			    text-shadow: 0px 1px 1px #333;	
 			    top:17px;
 			}
 			.pie-border1-selected{
@@ -183,6 +188,7 @@
 			    position: absolute;
 			    left:10px;
 			    top:12px;
+			    text-shadow: 0px 1px 1px #333;	
 			    animation: 1s animateBorder ;   
 			}
 
@@ -192,7 +198,7 @@
 			    top:14px;
 			    color: #999;
 			    font-size:1.4em;
-			    text-shadow: -3px 3px 1px rgba(255, 255, 255, 1);
+			    text-shadow: 0px 1px 1px #333;			    
 			}
 			@media (max-width: 1220px) {
 		  		.name{			  			
@@ -419,14 +425,13 @@
 	@media (min-width: 1441px) {
 	    width:500px;
 	}
-	@media  (min-width: 901px) and (max-width: 1440px)
-	{
+	@media  (min-width: 901px) and (max-width: 1440px)	{
 	    width:420px;	
 	}
-	@media   (max-width: 900px)
-	{
+	@media   (max-width: 900px)	{
 	    width:300px;	
 	}
+
 	float:left;
 	position: fixed;
 	right:0px;
@@ -619,14 +624,46 @@ ul[rn-carousel] {
 	.star{
 	    position: absolute;
 	    right:35px;
-	    top:25px;
+	    top:70px;
 	    font-size:3em;
 	    z-index: 500;cursor: pointer;
+	    text-shadow: 0px 1px 1px #333;
 	}
 	.anim{
 		animation: 1s animateOpacity ;
 	}
-	
+	.ng-carousel-wrapper{
+		position: relative;
+		width:100%;
+		height: 45px;
+		.btn-prev {
+			position: absolute;
+			top: 0px;
+			z-index: 980;
+			width: 40px;
+			height: 40px;
+			background: url("../../Images/tooltip_skin_navigation.png") no-repeat 0px 0px;	
+			left: 15px;
+		}
+		.btn-prev:hover {
+			background: url("../../Images/tooltip_skin_navigation.png") no-repeat 0px -41px;
+		}
+		.btn-next {
+
+			position: absolute;
+			top: 0px;
+			z-index: 981;
+			width: 40px;
+			height: 40px;
+			background: url("../../Images/tooltip_skin_navigation.png") no-repeat -42px 0px;
+			right: 15px;
+		}
+
+		.btn-next:hover {
+			background: url("../../Images/tooltip_skin_navigation.png") no-repeat -42px -41px;
+		}
+
+	}
 }
 
 

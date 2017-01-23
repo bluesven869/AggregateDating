@@ -623,5 +623,11 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       date_d = date.Year()+"/"+date.Month() + "/" + date.Day()
 
       #$scope.addChatMsg($scope.str_chat_msg, )
+    $scope.onNextImage =->      
+      #$scope.parent.nextSlide()
+      $scope.$$childHead.nextSlide()
+    $scope.onPrevImage =->      
+      #$scope.parent.nextSlide()
+      $scope.$$childHead.prevSlide()
 
   ])
