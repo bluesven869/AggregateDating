@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_message_page()">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
         <span class="sr-only">Toggle navigation</span>
@@ -305,7 +305,14 @@
   <div class="message-profile">
     
     <div class="image-slider">
-      <div class="ng-carousel-wrapper" ng-if="prev_bagel && prev_bagel.images.length>1"><a href="" ng-click="onPrevImage()" ng-if="prev_bagel.images.length>1" class="btn-prev sc-no-select">&nbsp;</a><a href="" ng-click="onNextImage()" ng-if="prev_bagel.images.length>1" class=" btn-next sc-no-select"></a></div>
+      <div class="carousel-wrapper" ng-if="prev_bagel">
+          <label class="custom-indicator" rn-carousel-indicators ng-if="prev_bagel.images.length>1" slides="prev_bagel.images" rn-carousel-index="carouselIndex">&nbsp;</label> 
+      </div>
+
+      <div class="image-slider-nav">      
+          <a href="" ng-click="onPrevImage()" ng-if="prev_bagel.images.length>1" class="btn-prev sc-no-select">&nbsp;</a>
+          <a href="" ng-click="onNextImage()" ng-if="prev_bagel.images.length>1" class=" btn-next sc-no-select"></a>
+      </div>
       <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
@@ -315,7 +322,8 @@
           <div ng-style="{'background-image': 'url(' + image + ')'} " class="bgimage ng-binding" class="carousel-div" >&nbsp;</div>
         </li>
       </ul> 
-      <div rn-carousel-indicators ng-if="prev_bagel.images" slides="prev_bagel.images" rn-carousel-index="carouselIndex">&nbsp;</div> 
+      
+      
     </div>
     <div class="aboutme" ng-if="prev_bagel">
       <label class="name">

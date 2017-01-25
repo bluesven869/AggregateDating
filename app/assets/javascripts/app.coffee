@@ -446,7 +446,24 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
       
       
-      
+    $scope.init_message_page = ->
+      $scope.init()
+      max = 0
+      for d,i in $scope.BagelsList
+        if(d.star > 0)
+          max = max+1
+
+      p_ind = Math.round(Math.random() * (max - 1)) 
+      p = 0
+      for d,i in $scope.BagelsList
+        if(d.star > 0)
+          p++          
+          if(p == p_ind)
+            $scope.clickBagel(d)
+            break
+        if(p == p_ind)
+          break
+
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1 )   # Matches Page click event
         if(i == 0)          
@@ -489,7 +506,6 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $cookieStore.put('flag_l_r', $scope.flag_l_r)
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
       $timeout ->
-        
         $scope.rebuildCarousel()
       , 100;
     # favorite filter in Matches Page      
