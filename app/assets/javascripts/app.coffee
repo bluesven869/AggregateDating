@@ -146,6 +146,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.prev_bagel = null;
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
+    $scope.page_number = 0;     # 2:discover
+                                # 3:message
+                                # 4:matches
+    $scope.matches_count = 0;
+    $scope.discover_count = 0;
+                                
     vm = this
     $scope.flag_t = true   #tinder_flag
     $scope.flag_o = true   #Okpid_flag 
@@ -441,13 +447,24 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       
       today = new Date
       for bagel, i in $scope.BagelsList
+        if(bagel.action == 1 || bagel.action == 3 || bagel.action == 4 )
+          $scope.matches_count++
+        if(bagel.action == 0)
+          $scope.discover_count++
+
         d1 = new Date(bagel.assigned_date)
         diff = today-d1
         bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
       
-      
+    $scope.init_matches_page = ->
+      $scope.init() 
+      $scope.page_number = 4
+    $scope.init_discover_page = ->
+      $scope.init()
+      $scope.page_number = 2 
     $scope.init_message_page = ->
       $scope.init()
+      $scope.page_number = 3
       max = 0
       for d,i in $scope.BagelsList
         if(d.star > 0)
