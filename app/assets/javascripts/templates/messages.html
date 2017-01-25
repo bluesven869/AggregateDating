@@ -118,7 +118,7 @@
                   <img ng-class="{'user-image': bagel.selected == false,'user-image-selected': bagel.selected == true}" ng-src='{{bagel.images[bagel.selected_image]}}' />                  
                   <p class="star"  ng-class="{'black-color': bagel.star==false,'yellow-color': bagel.star==1}" ><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
                   
-                  <label class="short-description">{{bagel.aboutme}}</label>
+                  <!--  <label class="short-description">{{bagel.aboutme}}</label> -->
                   <label class="name">
                     <label title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'icon-t': bagel.CAP == 'T', 'icon-o': bagel.CAP == 'O', 'icon-p': bagel.CAP == 'P', 'icon-b': bagel.CAP == 'B', 'icon-c': bagel.CAP == 'C'}">&nbsp;</label>
                     {{bagel.name}}, {{bagel.age}}</label>
