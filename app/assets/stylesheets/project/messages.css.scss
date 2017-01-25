@@ -683,6 +683,28 @@ ul[rn-carousel] {
 		.btn-next:hover {
 			background: url("../../Images/tooltip_skin_navigation.png") no-repeat -42px -41px;
 		}
+
+
+		.three-dot{
+			position: absolute;
+			@media (min-width: 1441px) {
+				right:0px;
+			}
+			@media (min-width: 901px) and (max-width: 1440px) {
+				right:9px;
+			}
+			@media (max-width: 900px) {
+				right:-3px;
+			}
+			
+			bottom:0px;
+			z-index: 1052;
+			.three-dot-btn{				
+				
+				font-size:1em;
+			}
+		}
+
 	}
 }
 

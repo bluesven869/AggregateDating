@@ -312,6 +312,15 @@
       <div class="image-slider-nav">      
           <a href="" ng-click="onPrevImage()" ng-if="prev_bagel.images.length>1" class="btn-prev sc-no-select">&nbsp;</a>
           <a href="" ng-click="onNextImage()" ng-if="prev_bagel.images.length>1" class=" btn-next sc-no-select"></a>
+          <div class="dropdown three-dot">
+            <button class="btn btn-primary three-dot-btn dropdown-toggle" type="button" data-toggle="dropdown">
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="">Unmatch</a></li>
+              <li><a href="">Report</a></li>
+            </ul>
+          </div>
       </div>
       <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
@@ -323,13 +332,15 @@
         </li>
       </ul> 
       
-      
     </div>
     <div class="aboutme" ng-if="prev_bagel">
       <label class="name">
           <label title="{{ getNetworkTitle(prev_bagel.CAP)}}" ng-class="{'icon-t-m': prev_bagel.CAP == 'T', 'icon-o-m': prev_bagel.CAP == 'O', 'icon-p-m': prev_bagel.CAP == 'P', 'icon-b-m': prev_bagel.CAP == 'B', 'icon-c-m': prev_bagel.CAP == 'C'}">&nbsp;</label>
           {{prev_bagel.name}}, {{prev_bagel.age}}
+
       </label>
+      
+      
         <!--<p class="expire-days-label">{{bagel.CAP}}</p> -->
       <p class="expire-days-span">{{prev_bagel.expire_days}} days expires</p>  
       <div align="left">    
