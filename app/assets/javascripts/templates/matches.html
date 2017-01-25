@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_matches_page()">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
@@ -33,14 +33,14 @@
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
           <div class="relative">            
-            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-9"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
+            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-10"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag(0,0)"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
-            <label for="O-check" title="OKCupid" class="right-margin-13" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
+            <label for="O-check" title="OKCupid" class="right-margin-12" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
             <label  for="O-check" class="network-span">OKCupid</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="set_cookie_from_flag(0,0)""/>
@@ -109,14 +109,14 @@
         <li class="active">
             <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
             <ul>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER(42)</a>
+                <li ng-if="page_number!=2">
+                    <a href="#!/discover"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER({{discover_count}})</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MATCHES(12)</a>
+                <li ng-if="page_number!=4">
+                    <a href="#!/matches"><i class="fa fa-fw fa-commenting-o"></i> MATCHES({{matches_count}})</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                <li ng-if="page_number!=3">
+                    <a href="#!/messages"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
@@ -161,7 +161,7 @@
     <label class="bagel" ng-repeat="bagel in BagelsList | orderBy:SortMatches | filter: filterBagelonMatchPage" >
       <label ng-class="{'pie-border1': bagel.expire_days == 1, 'pie-border2': bagel.expire_days ==2, 'pie-border3': bagel.expire_days >= 3}">&nbsp;</label>
       <img class="user-image" ng-src='{{bagel.images[bagel.selected_image]}}' />
-      <p class="star" ng-class="{'black-color': bagel.star==false,'yellow-color': bagel.star==1}" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
+      <p class="star" ng-class="{'gray-color': bagel.star==false,'yellow-color': bagel.star==1}" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
       <label class="name">

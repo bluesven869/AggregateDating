@@ -32,14 +32,14 @@
         <div id="filter_dlg" class="filter-sort-dlg dropdown-menu">
           <h3>Networks</h3>
           <div class="relative">            
-            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-9"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
+            <label for="T-check" title="Tinder" class="right-margin-17 left-margin-10"  ng-class="{'network-t-1': flag_t == true, 'network-t-2':flag_t == false}" >&nbsp;</label><label  for="T-check" class="network-span">Tinder</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="T-check" ng-model="flag_t"  ng-click="set_cookie_from_flag(0,0)"/>
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
           <div class="relative">
-            <label for="O-check" title="OKCupid" class="right-margin-13" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
+            <label for="O-check" title="OKCupid" class="right-margin-12" ng-class="{'network-okcupid-1': flag_o == true, 'network-okcupid-2':flag_o == false}" >&nbsp;</label>
             <label  for="O-check" class="network-span">OKCupid</label> 
             <label class="switch margin-custom-check">
               <input type="checkbox" id="O-check" ng-model="flag_o"  ng-click="set_cookie_from_flag(0,0)""/>
@@ -75,7 +75,7 @@
           <div class="order-by">
            <h3>Order By</h3>
             <div class="control-group">
-              <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14"> Favorites</label>
+              <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14">  Favorites</label>
                 <input type="checkbox" ng-model="flag_f_r" id="F-S-check"  ng-click="set_cookie_from_flag(1,2)" />
                 <div class="control__indicator"></div>
               </label>
@@ -116,7 +116,7 @@
                 <div ng-class="{'selected': bagel.selected}" class="normal-bagel" ng-click="clickBagel(bagel)">
                   <div ng-class="{'pie-border1': bagel.expire_days == 1 && bagel.selected == false,'pie-border1-selected': bagel.expire_days == 1 && bagel.selected == true, 'pie-border2': bagel.expire_days ==2 && bagel.selected == false,'pie-border2-selected': bagel.expire_days == 2 && bagel.selected == true, 'pie-border3': bagel.expire_days >= 3 && bagel.selected == false,'pie-border3-selected': bagel.expire_days >= 3 && bagel.selected == true}">&nbsp;</div>
                   <img ng-class="{'user-image': bagel.selected == false,'user-image-selected': bagel.selected == true}" ng-src='{{bagel.images[bagel.selected_image]}}' />                  
-                  <p class="star"  ng-class="{'black-color': bagel.star==false,'yellow-color': bagel.star==1}" ><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
+                  <p class="star"  ng-class="{'gray-color': bagel.star==false,'yellow-color': bagel.star==1}" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
                   
                   <!--  <label class="short-description">{{bagel.aboutme}}</label> -->
                   <label class="name">
@@ -137,14 +137,14 @@
         <li class="active">
             <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
             <ul>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER(42)</a>
+                <li ng-if="page_number!=2">
+                    <a href="#!/discover"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER({{discover_count}})</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MATCHES(12)</a>
+                <li ng-if="page_number!=4">
+                    <a href="#!/matches"><i class="fa fa-fw fa-commenting-o"></i> MATCHES({{matches_count}})</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                <li ng-if="page_number!=3">
+                    <a href="#!/messages"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
@@ -322,7 +322,7 @@
             </ul>
           </div>
       </div>
-      <p class="star" ng-class="{'black-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
+      <p class="star" ng-class="{'gray-color': prev_bagel.star==false,'yellow-color': prev_bagel.star==1}" ng-if="!prev_bagel.anim_start" ng-click="onStar(prev_bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': prev_bagel.star==false,'fa-star': prev_bagel.star==1}" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="!prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
       <p class="star anim" ng-if="prev_bagel.selected_star && prev_bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
      
