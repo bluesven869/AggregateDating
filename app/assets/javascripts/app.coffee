@@ -158,6 +158,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.prev_bagel = null;
     #if(not MyAuthInfo.fbToken?)
     #  $location.path('/login')
+    $scope.page_number = 0;     # 2:discover
+                                # 3:message
+                                # 4:matches
+    $scope.matches_count = 0;
+    $scope.discover_count = 0;
+                                
     vm = this
     $scope.flag_t = true   #tinder_flag
     $scope.flag_o = true   #Okpid_flag 
@@ -456,9 +462,46 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       
       # today = new Date
       # for bagel, i in $scope.BagelsList
+      #   if(bagel.action == 1 || bagel.action == 3 || bagel.action == 4 )
+      #     $scope.matches_count++
+      #   if(bagel.action == 0)
+      #     $scope.discover_count++
       #   d1 = new Date(bagel.assigned_date)
       #   diff = today-d1
       #   bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
+      # $('#filter_dlg').click (event) ->
+      #   event.stopPropagation()
+      #   return
+      # $('#small-mark').click (event) ->
+      #   event.stopPropagation()
+      #   return
+      
+    $scope.init_matches_page = ->
+      $scope.init() 
+      $scope.page_number = 4
+    $scope.init_discover_page = ->
+      $scope.init()
+      $scope.page_number = 2 
+    $scope.init_message_page = ->
+      $scope.init()
+      $scope.page_number = 3
+      $scope.select_bagel_by_random()
+    $scope.select_bagel_by_random = ->      
+      max = 0
+      for d,i in $scope.BagelsList
+        if(d.star > 0)
+          max = max+1
+
+      p_ind = Math.round(Math.random() * (max - 1)) 
+      p = 0
+      for d,i in $scope.BagelsList
+        if(d.star > 0)
+          p++          
+          if(p == p_ind)
+            $scope.clickBagel(d)
+            break
+        if(p == p_ind)
+          break
       
     $scope.getBagels = ->
       if(not MyAuthInfo.fbToken?)
@@ -523,33 +566,6 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       )
       console.log "End of GetBagels"
 
-    # $scope.BagelsList = [
-    #   {
-    #     bagel_id:"T0000001",
-    #     images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
-    #     name: 'Kylee Alger',      age:21, nearby:12, school:'Havard Raw School',
-    #     aboutme:'This is the Kylee Alger\'s Profile.',
-    #     action:1,
-    #     star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-5',  selected:false
-    #   }, 
-      
-    $scope.init_message_page = ->
-      $scope.init()
-      # max = 0
-      # for d,i in $scope.BagelsList
-      #   if(d.star > 0)
-      #     max = max+1
-
-      # p_ind = Math.round(Math.random() * (max - 1)) 
-      # p = 0
-      # for d,i in $scope.BagelsList
-      #   if(d.star > 0)
-      #     p++          
-      #     if(p == p_ind)
-      #       $scope.clickBagel(d)
-      #       break
-      #   if(p == p_ind)
-      #     break
 
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1 )   # Matches Page click event
@@ -592,10 +608,13 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $cookieStore.put('flag_b_r', $scope.flag_b_r)
       $cookieStore.put('flag_l_r', $scope.flag_l_r)
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
-      $timeout ->
-        $scope.rebuildCarousel()
-      , 100;
 
+      if($scope.page_number == 2)
+        #Discover Page
+        $timeout ->
+          $scope.rebuildCarousel()
+        , 100;
+        
     # favorite filter in Matches Page      
     $scope.filterBagelonMatchPage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)

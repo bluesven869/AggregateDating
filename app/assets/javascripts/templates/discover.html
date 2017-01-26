@@ -5,7 +5,7 @@
   @media only screen and (min-width: 960px) {#portfolio-wrapper img {min-height: 147px;}} 
   @media only screen and (min-width: 768px) and (max-width: 959px) {#portfolio-wrapper img {min-height: 115px;}}
 </style>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init()">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_discover_page()">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
@@ -15,6 +15,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
+          <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
+      </label> 
       <a class="navbar-brand" href="">LOGO</a>
     </div>
 
@@ -80,24 +83,33 @@
               <div class="slider round">&nbsp;</div>
             </label>
           </div>
-          <hr width="100%" size="8" align="center">
+          <hr width="100%" size="8" align="center">          
           <div class="order-by">
            <h3>Order By</h3>
-             <div class="control-group">
-              <label class="control control--checkbox width-50-pro left"><label for="B-S-check" class="network-span font-14"> Best</label>
+            <div class="control-group">
+              <label class="control control--checkbox"><label class="favorite">
+              <label for="B-S-check" title="Favorites" ng-class="{'network-favorite-1': flag_b_r == true, 'network-favorite-2':flag_b_r == false}" >
+                <i class="fa fa-star fa-large" ng-if="flag_b_r"  aria-hidden="true"></i>
+                <i class="fa fa-star-o fa-large"  ng-if="!flag_b_r" aria-hidden="true"></i>
+                </label></label><label for="B-S-check" class="network-span left-margin-15 font-14" ng-class="{'under-line':flag_b_r==true}"> Best</label>
                 <input type="checkbox" id="B-S-check" ng-model="flag_b_r" ng-click="set_cookie_from_flag(2,0)" />
-                <div class="control__indicator"></div>
-              </label>
-              <label class="control control--checkbox width-50-pro left"><label for="L-S-check" class="network-span font-14"> Limited first</label>
-                <input type="checkbox" id="L-S-check"  ng-model="flag_l_r" ng-click="set_cookie_from_flag(2,1)" />
-                <div class="control__indicator"></div>
-              </label>
-              <label class="control control--checkbox  left"><label for="A-S-check" class="network-span font-14"> Alternate equally</label>
-                <input type="checkbox" id="A-S-check"  ng-model="flag_a_r" ng-click="set_cookie_from_flag(2,2)" />
-                <div class="control__indicator"></div>
               </label>
             </div>
-           </div>
+            <div class="clearfix"></div>
+
+            <div class="control-group">
+              <label class="control control--checkbox  ">
+                <label for="L-S-check" title="Recent" ng-class="{'network-recent-1': flag_l_r == true, 'network-recent-2':flag_l_r == false}" >&nbsp;</label>
+                <label for="L-S-check" class="network-span left-margin-30 font-14" ng-class="{'under-line':flag_l_r==true}"> Limited first</label>
+                <input type="checkbox" id="L-S-check"  ng-model="flag_l_r" ng-click="set_cookie_from_flag(2,1)" />
+              </label>
+              <label class="control control--checkbox ">
+                <label for="A-S-check" title="Expiring" ng-class="{'network-expiring-1': flag_a_r == true, 'network-expiring-2':flag_a_r == false}" >&nbsp;</label>
+                <label for="A-S-check" class="network-span left-margin-30 font-14" ng-class="{'under-line':flag_a_r==true}"> Alternate equally</label>
+                <input type="checkbox" id="A-S-check"  ng-model="flag_a_r" ng-click="set_cookie_from_flag(2,2)" />
+              </label>
+            </div>
+          </div>
         </div>          
       </div>
       <ul class="nav navbar-nav navbar-right">
@@ -106,6 +118,58 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
+  </div>
+  <div  id="fixed-menu" class="fixed-menu-nav">
+    <div class="dropdown-menu">
+      <ul class="nav navbar-nav side-nav " >
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
+            <ul>
+                <li ng-if="page_number!=2">
+                    <a href="#!/discover"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER({{discover_count}})</a>
+                </li>
+                <li ng-if="page_number!=4">
+                    <a href="#!/matches"><i class="fa fa-fw fa-commenting-o"></i> MATCHES({{matches_count}})</a>
+                </li>
+                <li ng-if="page_number!=3">
+                    <a href="#!/messages"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> COMMUNITY</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> OPEN COMMENT SECTION</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> POSITIVE LEADERBOARD</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> IRL BLOG</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> TELL A FRIEND</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> LOGOUT</a>
+        </li>
+      </ul>
+    </div>
   </div> 
 </nav>      
 <div class="container-bagels"  id="my-app-scope" >     
@@ -117,9 +181,10 @@
             <!-- <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" id="{{bagel.bagel_id}}" > -->
             <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" >
               <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">
+
               <!-- <label class="stamp" ng-class="{'stamp-like': bagel.action == 1, 'stamp-pass': bagel.action == 2, 'stamp-super-like': bagel.action == 3, 'stamp-woo-like': bagel.action == 4}"">&nbsp; </label> -->
               <!-- <div class="my-content">  
-                <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
+                <p class="star" ng-class="{'gray-color': bagel.star==false,'yellow-color': bagel.star==1}"  ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
                 <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
                 <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
                 <label class="name">
@@ -191,7 +256,7 @@
       gradientStartPoint: 0.35,
       gradientOverlayColor: "#e6e6e6",
       gradientOverlaySize: 190,
-      selectByClick: false
+      selectByClick: true
     });
     var scope = angular.element(document.getElementById("my-app-scope")).scope();
     scope.$apply(function () {

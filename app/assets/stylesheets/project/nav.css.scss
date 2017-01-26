@@ -307,7 +307,9 @@
     height:20px;
     cursor: pointer;
     opacity: 1;
-    margin-left:5px;
+    position: absolute;
+    left:11px;
+    top:5px;
 }
 .network-recent-2{
     background:url("../../Images/recent.png") no-repeat;
@@ -316,7 +318,9 @@
     height:20px;
     opacity: 0.2;
     cursor: pointer;
-    margin-left:5px;
+    position: absolute;
+    left:11px;
+    top:5px;
 }
 
 .network-expiring-1{
@@ -326,7 +330,9 @@
     height:20px;
     cursor: pointer;
     opacity: 1;
-    margin-left:5px;
+    position: absolute;
+    left:14px;
+    top:5px;
 }
 .network-expiring-2{
     background:url("../../Images/expire.png") no-repeat;
@@ -335,31 +341,32 @@
     height:20px;
     opacity: 0.2;
     cursor: pointer;
-    margin-left:5px;
+    position: absolute;
+    left:14px;
+    top:5px;
+
 }
 
 .network-favorite-1{
     position: absolute;
-    left:0px;
+    left:10px;
     top:6px;
     width:30px;
     height:20px;
     color:#ffce3a;
     cursor: pointer;
     opacity: 1;
-    margin-left:5px;
-    font-size:1.6em;
+    font-size:1.3em;
 }
 .network-favorite-2{
     position: absolute;
-    left:0px;
+    left:10px;
     top:6px;
-    color:#ffce3a;
+    color:gray;
     width:30px;
     height:20px;opacity: 1;
     cursor: pointer;
-    margin-left:5px;
-    font-size:1.6em;
+    font-size:1.3em;
 }
 .favorite{
     position: relative;
