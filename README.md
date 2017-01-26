@@ -1,2 +1,4 @@
-# ruby_backend
-Front-end : Angular, Back-end : Ruby on Rails.
+# AggregateDating App
+::Front-end : Angular, CoffeeScript
+
+::Back-end : Ruby on Rails.
