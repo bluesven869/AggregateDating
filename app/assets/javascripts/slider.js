@@ -16,12 +16,5 @@
 		}, function(){
 			$(this).find('.hover_link').show().stop(true).animate({'width' : 0, 'height' : 0, 'margin-top' : 0, 'margin-left' : 0, opacity : 0}, 150, function(){$(this).hide();});
 		});
-
-		$('#filter_dlg').click(function(event){
-		    event.stopPropagation();
-		});
-		$('#small-mark').click(function(event){
-		    event.stopPropagation();
-		});
 	});
 })(jQuery);

@@ -75,23 +75,27 @@
           <div class="order-by">
            <h3>Order By</h3>
             <div class="control-group">
-              <label class="control control--checkbox"><label for="F-S-check" class="network-span font-14">  Favorites</label>
+              <label class="control control--checkbox"><label class="favorite"><label for="F-S-check" title="Favorites" ng-class="{'network-favorite-1': flag_f_r == true, 'network-favorite-2':flag_f_r == false}" >
+                <i class="fa fa-star fa-large" ng-if="flag_f_r"  aria-hidden="true"></i>
+                <i class="fa fa-star-o fa-large"  ng-if="!flag_f_r" aria-hidden="true"></i>
+                </label></label><label for="F-S-check" class="network-span left-margin-15 font-14" ng-class="{'under-line':flag_f_r==true}"> Favorites</label>
                 <input type="checkbox" ng-model="flag_f_r" id="F-S-check"  ng-click="set_cookie_from_flag(1,2)" />
-                <div class="control__indicator"></div>
               </label>
             </div>
+            <div class="clearfix"></div>
 
-             <div class="control-group">
-              <label class="control control--checkbox width-50-pro left"><label for="R-S-check" class="network-span font-14"> Recent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <div class="control-group">
+              <label class="control control--checkbox left ">
+                <label for="R-S-check" title="Recent" ng-class="{'network-recent-1': flag_r_r == true, 'network-recent-2':flag_r_r == false}" >&nbsp;</label><label for="R-S-check" class="network-span left-margin-30 font-14" ng-class="{'under-line':flag_r_r==true}"> Recent</label>
                 <input type="checkbox"  ng-model="flag_r_r" id="R-S-check" ng-click="set_cookie_from_flag(1,0)" />
-                <div class="control__indicator"></div>
               </label>
-              <label class="control control--checkbox width-50-pro left"><label for="E-S-check" class="network-span font-14"> Expiring</label>
+              <label class="control control--checkbox left left-margin-30">
+                <label for="E-S-check" title="Expiring" ng-class="{'network-expiring-1': flag_e_r == true, 'network-expiring-2':flag_e_r == false}" >&nbsp;</label>
+                <label for="E-S-check" class="network-span left-margin-30 font-14" ng-class="{'under-line':flag_e_r==true}"> Expiring</label>
                 <input type="checkbox" id="E-S-check"  ng-model="flag_e_r" ng-click="set_cookie_from_flag(1,1)" />
-                <div class="control__indicator"></div>
               </label>
             </div>
-           </div>
+          </div>
         </div>          
       </div>
       
