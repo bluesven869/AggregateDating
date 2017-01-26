@@ -429,8 +429,12 @@
 	@media  (min-width: 901px) and (max-width: 1440px)	{
 	    width:420px;	
 	}
-	@media   (max-width: 900px)	{
+	@media  (min-width: 661px) and  (max-width: 900px)	{
 	    width:300px;	
+	}
+
+	@media  (max-width: 660px){
+	    display: none;
 	}
 
 	float:left;
@@ -544,9 +548,13 @@
 	    margin-right: 420px;
 	}
 
-	@media (max-width: 900px){
+	@media (min-width: 661px) and (max-width: 900px){
 	    margin-left: 120px;
 	    margin-right: 320px;
+	}
+	@media (max-width: 660px){
+	    margin-left: 120px;
+	    margin-right: 0px;
 	}
 
 }
@@ -729,10 +737,16 @@ ul[rn-carousel] {
 	    margin-right: 420px;
 	}
 
-	@media (max-width: 900px){
+	@media (min-width: 661px) and (max-width: 900px){
 	    margin-left: 120px;
 	    margin-right: 320px;
+	}	
+
+	@media (max-width: 660px){
+	    margin-left: 120px;
+	    margin-right: 0px;
 	}
+
 	.input-sm{
 		height:45px !important;
 		font-size:1em;
