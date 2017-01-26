@@ -451,10 +451,15 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
           $scope.matches_count++
         if(bagel.action == 0)
           $scope.discover_count++
-
         d1 = new Date(bagel.assigned_date)
         diff = today-d1
         bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
+      $('#filter_dlg').click (event) ->
+        event.stopPropagation()
+        return
+      $('#small-mark').click (event) ->
+        event.stopPropagation()
+        return
       
     $scope.init_matches_page = ->
       $scope.init() 
@@ -465,6 +470,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.init_message_page = ->
       $scope.init()
       $scope.page_number = 3
+      $scope.select_bagel_by_random()
+    $scope.select_bagel_by_random = ->      
       max = 0
       for d,i in $scope.BagelsList
         if(d.star > 0)
@@ -480,7 +487,6 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
             break
         if(p == p_ind)
           break
-
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1 )   # Matches Page click event
         if(i == 0)          
@@ -522,9 +528,11 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $cookieStore.put('flag_b_r', $scope.flag_b_r)
       $cookieStore.put('flag_l_r', $scope.flag_l_r)
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
-      $timeout ->
-        $scope.rebuildCarousel()
-      , 100;
+      if($scope.page_number == 2)
+        #Discover Page
+        $timeout ->
+          $scope.rebuildCarousel()
+        , 100;
     # favorite filter in Matches Page      
     $scope.filterBagelonMatchPage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
