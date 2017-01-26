@@ -3,7 +3,7 @@ aggregate_dating = angular.module('aggregate_dating',[
   	'ngRoute',
     'ngResource',
   	'controllers',
-  	'facebook',
+  	# 'facebook',
     'ngFileUpload',
     'ngCookies',
     'angular-carousel',
@@ -35,13 +35,13 @@ aggregate_dating.config([ '$routeProvider',
         )
 ])
 
-aggregate_dating.config([ '$facebookProvider',
- 	($facebookProvider)->
-      	$facebookProvider
-        .init({
-            appId: '1609654029341787'
-        })
-])
+# aggregate_dating.config([ '$facebookProvider',
+#  	($facebookProvider)->
+#       	$facebookProvider
+#         .init({
+#             appId: '1609654029341787'
+#         })
+# ])
 
 aggregate_dating.config(['$qProvider', 
   ($qProvider)->
@@ -51,44 +51,52 @@ aggregate_dating.config(['$qProvider',
 
 controllers = angular.module('controllers',[])
 
-controllers.controller("LoginController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource', '$timeout'
-  ($scope,$routeParams,$location,$facebook,$http, $resource, $timeout)->
-    $scope.fb_login_flag = false 
-    $scope.loginFacebook = ->
-      $scope.fb_login_flag = true
-      $facebook.login(scope: 'email').then ((response) ->        
-        MyAuthInfo.fbToken = response.authResponse.accessToken
-        MyAuthInfo.fbUserID = response.authResponse.userID
-        $scope.fbToken = response.authResponse.accessToken
-        $scope.fbUserID = response.authResponse.userID 
-        $facebook.api('/me').then((response) ->
-            MyAuthInfo.fbName = response.name;
-            MyAuthInfo.fbPhoto = "http://graph.facebook.com/"+response.id+"/picture"
-            console.log MyAuthInfo.fbPhoto
-            $scope.fb_login_flag = false
-            $scope.loginTinder()
-        )       
+controllers.controller("LoginController", [ '$scope', '$routeParams', '$location', '$http', '$resource', '$timeout'
+  ($scope,$routeParams,$location,$http, $resource, $timeout)->
+    # $scope.fb_login_flag = false 
+    # $scope.loginFacebook = ->
+    #   $scope.fb_login_flag = true
+    #   $facebook.login(scope: 'email').then ((response) ->        
+    #     MyAuthInfo.fbToken = response.authResponse.accessToken
+    #     MyAuthInfo.fbUserID = response.authResponse.userID
+    #     $scope.fbToken = response.authResponse.accessToken
+    #     $scope.fbUserID = response.authResponse.userID 
+    #     $facebook.api('/me').then((response) ->
+    #         MyAuthInfo.fbName = response.name;
+    #         MyAuthInfo.fbPhoto = "http://graph.facebook.com/"+response.id+"/picture"
+    #         console.log MyAuthInfo.fbPhoto
+    #         $scope.fb_login_flag = false
+    #         $scope.loginTinder()
+    #     )       
         
-    ), (response) ->
-        console.log 'FB Login Error', response
+    # ), (response) ->
+    #     console.log 'FB Login Error', response
 
-    $scope.loginTinder = ->
-      $scope.tinderInfo = [] 
-      $scope.tinder_login_flag = true
-      Tinder = $resource('/tinder', { format: 'json' })
-      Tinder.query(fbToken: $scope.fbToken, fbUserID: $scope.fbUserID , (results) -> 
-        $scope.tinderInfo = results        
-        if( results[0].Result == "success" )        
-          console.log "Tinder Login Success"
-          $("#tinder .Checked").show();
-          $("#tinder .UnChecked").hide();
-        else
-          console.log "Tinder Login Failed"
-          $("#tinder .UnChecked").show();
-          $("#tinder .Checked").hide();
-        $scope.tinder_login_flag = false
-        $scope.loginCMB()
-      )
+    $scope.setFBToken = ->
+      #show loading icon
+      $("#load").css("visibility":"visible")
+
+      MyAuthInfo.fbToken = $scope.user_fb_token
+      $scope.loginCMB()
+
+    # $scope.loginTinder = ->
+    #   $scope.tinderInfo = [] 
+    #   $scope.tinder_login_flag = true
+    #   Tinder = $resource('/tinder', { format: 'json' })
+    #   Tinder.query(fbToken: $scope.fbToken, fbUserID: $scope.fbUserID , (results) -> 
+    #     $scope.tinderInfo = results        
+    #     if( results[0].Result == "success" )        
+    #       console.log "Tinder Login Success"
+    #       $("#tinder .Checked").show();
+    #       $("#tinder .UnChecked").hide();
+    #     else
+    #       console.log "Tinder Login Failed"
+    #       $("#tinder .UnChecked").show();
+    #       $("#tinder .Checked").hide();
+    #     $scope.tinder_login_flag = false
+    #     $scope.loginCMB()
+    #   )
+
     $scope.loginCMB = ->
       #login with CMB
       #CURL commands:
@@ -104,42 +112,46 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
           MyAuthInfo.cmbInfo.sessionid = results[0].sessionid        
           $("#cmb .Checked").show();
           $("#cmb .UnChecked").hide();
+          $location.path('/discover')
         else
           console.log "CMB Login Failed"
           $("#cmb .UnChecked").show();
           $("#cmb .Checked").hide();
+          alert("CMB Login Failed")
+          $("#load").css("visibility":"hidden")
         $scope.cmb_login_flag = false
-        $scope.loginBumble()        
+        # $scope.loginBumble()        
       )
-    $scope.loginBumble = ->
-      #login with CMB
-      #CURL commands:
-      # 1. curl https://api.coffeemeetsbagel.com/profile/me -H "App-version: 779" -H
-      $scope.bumble_login_flag = true
-      MyAuthInfo.bumbleInfo = [] 
-      Bumble = $resource('/bumble', { format: 'json' })
-      Bumble.query(fbToken: MyAuthInfo.fbToken , (results) ->         
-        if( results[0].loginResult == "success" )        
-          console.log "Bumble Login Success"
-          MyAuthInfo.bumbleInfo.profile_id = results[0].jsonObj.profile_id
-          MyAuthInfo.bumbleInfo.sessionid = results[0].sessionid        
-          $("#bumble .Checked").show();
-          $("#bumble .UnChecked").hide();          
-        else
-          console.log "Bumble Login Failed"
-          $("#bumble .UnChecked").show();
-          $("#bumble .Checked").hide();
-        $scope.bumble_login_flag = false                
-        $timeout ->
-          $location.path('/main');
-        , 2000;
+
+    # $scope.loginBumble = ->
+    #   #login with CMB
+    #   #CURL commands:
+    #   # 1. curl https://api.coffeemeetsbagel.com/profile/me -H "App-version: 779" -H
+    #   $scope.bumble_login_flag = true
+    #   MyAuthInfo.bumbleInfo = [] 
+    #   Bumble = $resource('/bumble', { format: 'json' })
+    #   Bumble.query(fbToken: MyAuthInfo.fbToken , (results) ->         
+    #     if( results[0].loginResult == "success" )        
+    #       console.log "Bumble Login Success"
+    #       MyAuthInfo.bumbleInfo.profile_id = results[0].jsonObj.profile_id
+    #       MyAuthInfo.bumbleInfo.sessionid = results[0].sessionid        
+    #       $("#bumble .Checked").show();
+    #       $("#bumble .UnChecked").hide();          
+    #     else
+    #       console.log "Bumble Login Failed"
+    #       $("#bumble .UnChecked").show();
+    #       $("#bumble .Checked").hide();
+    #     $scope.bumble_login_flag = false                
+    #     $timeout ->
+    #       $location.path('/main');
+    #     , 2000;
         
-      )
+    #   )
 ])
 
 
-controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$facebook', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
-  ($scope,$routeParams,$location,$facebook,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
+controllers.controller("AggController", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
+  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
@@ -188,7 +200,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         aboutme:'This is the Hayden Chavis\'s Profile.',
         action:3,
         star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-11',  selected:false
-      }, 
+      },
       {
         bagel_id:"O0000004",
         images:['Images/4.jpg','Images/4_1.jpg','Images/4_2.jpg','Images/4_3.jpg','Images/4_4.jpg', 'Images/4_5.jpg','Images/4_6.jpg','Images/4_7.jpg'], selected_image:3, 
@@ -401,7 +413,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
             type:0
           },          
           {
-            msg:"Okay. I will tell you tomorrow, I may busy today. thanks.",
+            msg:"Okay. I will tell you tomorrow, I can be busy today. thanks.",
             sender:1,
             time:"2017-1-7 06:32:31",
             type:0
@@ -438,31 +450,106 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.flag_b_r = $scope.convert_to_bool($cookieStore.get('flag_b_r'), false)
       $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
       $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
+
+      # console.log $scope.BagelsList
+      $scope.getBagels()
       
-      today = new Date
-      for bagel, i in $scope.BagelsList
-        d1 = new Date(bagel.assigned_date)
-        diff = today-d1
-        bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
+      # today = new Date
+      # for bagel, i in $scope.BagelsList
+      #   d1 = new Date(bagel.assigned_date)
+      #   diff = today-d1
+      #   bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
       
+    $scope.getBagels = ->
+      if(not MyAuthInfo.fbToken?)
+        alert "You haven't logged into CMB yet."
+        return     
+      $scope.bagels_flag = true
+      $scope.BagelsInfo = [] 
+      Cmb = $resource('/cmb/get_bagels', { format: 'json' })
+      Cmb.query(fbToken: MyAuthInfo.fbToken, sessionid: MyAuthInfo.cmbInfo.sessionid, (results) -> 
+        console.log "INSIDE CMB LOGIN RESULT"
+
+        jsonResults = results[0].jsonObj.results
+        newList = []
+        for d,i in jsonResults
+            # newList.push {images:[d.profile.photos[0].iphone_fullscreen], selected_image:0, CAP:'T'}
+            newList.push {
+              bagel_id:"C0000022",
+              images:[d.profile.photos[0].iphone_fullscreen], selected_image:0, 
+              name: 'Alexus Vargas',     age:22, nearby:52, school:'Havard Raw School',
+              aboutme:'This is the Alexus Vargas\'s Profile.',
+              action:0,
+              star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false
+            }
+        # for d,i in jsonResults[0].profile.photos
+        #   newList.push {images:[d.iphone_fullscreen], selected_image:0, CAP:'T'}
+
+        console.log jsonResults
+        # newList = [
+        #   {
+        #     bagel_id:"C0000022",
+        #     images:['Images/22.jpg'], selected_image:0, 
+        #     name: 'Alexus Vargas',     age:22, nearby:52, school:'Havard Raw School',
+        #     aboutme:'This is the Alexus Vargas\'s Profile.',
+        #     action:0,
+        #     star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false
+        #   }, 
+        #   {
+        #     bagel_id:"T0000023",
+        #     images:['Images/23.jpg'], selected_image:0, 
+        #     name: 'Cristina Wesley', age:20, nearby:72, school:'Havard Raw School',
+        #     aboutme:'This is the Cristina Wesley\'s Profile.',
+        #     action:0,
+        #     star:1,CAP:'T', expire_days:2,assigned_date:'2017-1-12', selected:false
+        #   }, 
+        #   {
+        #     bagel_id:"C0000024",
+        #     images:['Images/24.jpg'], selected_image:0, 
+        #     name: 'Jordin Yeager',       age:25, nearby:82, school:'Havard Raw School',
+        #     aboutme:'This is the Jordin Yeager\'s Profile.',
+        #     action:0,
+        #     star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-12', selected:false
+        #   }      
+        # ]
+
+        $scope.BagelsList = newList
+        $timeout ->
+          $scope.rebuildCarousel()
+        , 500;
+
+        # console.log jsonResults 
+        console.log $scope.BagelsList
+      )
+      console.log "End of GetBagels"
+
+    # $scope.BagelsList = [
+    #   {
+    #     bagel_id:"T0000001",
+    #     images:['Images/1.jpg','Images/1_1.jpg','Images/1_2.jpg','Images/1_3.jpg','Images/1_4.jpg'], selected_image:1, 
+    #     name: 'Kylee Alger',      age:21, nearby:12, school:'Havard Raw School',
+    #     aboutme:'This is the Kylee Alger\'s Profile.',
+    #     action:1,
+    #     star:1,CAP:'T', expire_days:3,assigned_date:'2017-1-5',  selected:false
+    #   }, 
       
     $scope.init_message_page = ->
       $scope.init()
-      max = 0
-      for d,i in $scope.BagelsList
-        if(d.star > 0)
-          max = max+1
+      # max = 0
+      # for d,i in $scope.BagelsList
+      #   if(d.star > 0)
+      #     max = max+1
 
-      p_ind = Math.round(Math.random() * (max - 1)) 
-      p = 0
-      for d,i in $scope.BagelsList
-        if(d.star > 0)
-          p++          
-          if(p == p_ind)
-            $scope.clickBagel(d)
-            break
-        if(p == p_ind)
-          break
+      # p_ind = Math.round(Math.random() * (max - 1)) 
+      # p = 0
+      # for d,i in $scope.BagelsList
+      #   if(d.star > 0)
+      #     p++          
+      #     if(p == p_ind)
+      #       $scope.clickBagel(d)
+      #       break
+      #   if(p == p_ind)
+      #     break
 
     $scope.set_cookie_from_flag = (f, i)->  
       if(f == 1 )   # Matches Page click event
@@ -508,6 +595,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $timeout ->
         $scope.rebuildCarousel()
       , 100;
+
     # favorite filter in Matches Page      
     $scope.filterBagelonMatchPage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
@@ -528,6 +616,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         if(bagel.CAP == "C")
           return bagel
       return false
+
     # favorite filter in Matches Page      
     $scope.filterBagelonMessagePage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
@@ -608,7 +697,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.carouselIndex=  0
     
     $scope.rebuildCarousel = ->               
-      my_carousel.reset_all()      
+      my_carousel.reset_all()   
+
     $scope.onClickBagel = (bagel) ->      
       if(bagel.CAP == "T")
         $scope.flag_woo_like = true
@@ -620,18 +710,18 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         $scope.flag_super_like = false
     
     $scope.onItemSelected = (bagel_id) ->      
-      for d,i in $scope.BagelsList
-        if(d.bagel_id == bagel_id)
-          if(d.CAP == "T")
-            $scope.flag_woo_like = true
-          else
-            $scope.flag_woo_like = false
-          if(d.CAP == "C")
-            $scope.flag_super_like = true
-          else
-            $scope.flag_super_like = false
-          $scope.prev_bagel = d
-          break
+      # for d,i in $scope.BagelsList
+      #   if(d.bagel_id == bagel_id)
+      #     if(d.CAP == "T")
+      #       $scope.flag_woo_like = true
+      #     else
+      #       $scope.flag_woo_like = false
+      #     if(d.CAP == "C")
+      #       $scope.flag_super_like = true
+      #     else
+      #       $scope.flag_super_like = false
+      #     $scope.prev_bagel = d
+      #     break
     $scope.addChatMsg = (str, date, time, sender) ->
       return
     $scope.SendChat = ->

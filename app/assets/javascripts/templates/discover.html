@@ -114,10 +114,11 @@
       <div class="sky-carousel sc-no-select">
         <div class="sky-carousel-wrapper">
           <ul class="sky-carousel-container">
-            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" id="{{bagel.bagel_id}}" >
+            <!-- <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" id="{{bagel.bagel_id}}" > -->
+            <li class="general_li" ng-repeat="bagel in BagelsList | filter: filterBagelonDiscoverPage" >
               <img class="sc-image" ng-src='{{bagel.images[bagel.selected_image]}}' alt="BAGELS">
-              <label class="stamp" ng-class="{'stamp-like': bagel.action == 1, 'stamp-pass': bagel.action == 2, 'stamp-super-like': bagel.action == 3, 'stamp-woo-like': bagel.action == 4}"">&nbsp; </label>
-              <div class="my-content">  
+              <!-- <label class="stamp" ng-class="{'stamp-like': bagel.action == 1, 'stamp-pass': bagel.action == 2, 'stamp-super-like': bagel.action == 3, 'stamp-woo-like': bagel.action == 4}"">&nbsp; </label> -->
+              <!-- <div class="my-content">  
                 <p class="star" ng-if="!bagel.anim_start" ng-click="onStar(bagel)"><i class="fa fa-large" ng-class="{'fa-star-o': bagel.star==false,'fa-star': bagel.star==1}" aria-hidden="true"></i></p>
                 <p class="star anim" ng-if="!bagel.selected_star && bagel.anim_start"><i class="fa fa-star-o fa-large" aria-hidden="true"></i></p>
                 <p class="star anim" ng-if="bagel.selected_star && bagel.anim_start"><i class="fa fa-star fa-large" aria-hidden="true"></i></p>
@@ -125,7 +126,7 @@
                 <label class="icon" title="{{ getNetworkTitle(bagel.CAP)}}" ng-class="{'icon-t': bagel.CAP == 'T', 'icon-o': bagel.CAP == 'O', 'icon-p': bagel.CAP == 'P', 'icon-b': bagel.CAP == 'B', 'icon-c': bagel.CAP == 'C'}">&nbsp;</label>
                 {{bagel.name}}, {{bagel.age}}</label>
                 <p class="expire-days-span">&nbsp;&nbsp;&nbsp;<span class="days">{{bagel.expire_days}}</span> days expires,  <span class="bagel-nearby">{{bagel.nearby}} miles from you</span></p>
-              </div>
+              </div> -->
             </li>
           </ul>
         </div>
