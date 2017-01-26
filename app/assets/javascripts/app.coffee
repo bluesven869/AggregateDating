@@ -13,6 +13,10 @@ MyAuthInfo = []
 aggregate_dating.config([ '$routeProvider',
   	($routeProvider)->
     	$routeProvider
+        .when('/',
+          templateUrl: "login.html"
+          controller: 'LoginController'
+        )
         .when('/discover',
           templateUrl: "discover.html"
           controller: 'AggController'
@@ -614,7 +618,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         $timeout ->
           $scope.rebuildCarousel()
         , 100;
-        
+
     # favorite filter in Matches Page      
     $scope.filterBagelonMatchPage = (bagel) ->        
       if(bagel.action != 1 && bagel.action!=3 && bagel.action != 4)
