@@ -10,9 +10,9 @@ class HomeController < ApplicationController
 	  	}
 	}
 	headers = {
-		'AppStore-Version': '3.4.1.779',
-		'App-Version': '779',
-		'Client': 'Android'
+		'AppStore-Version' => '3.4.1.779',
+		'App-Version' => '779',
+		'Client' => 'Android'
 	}
 
 	def index

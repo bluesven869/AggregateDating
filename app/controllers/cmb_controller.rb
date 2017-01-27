@@ -22,10 +22,10 @@ class CmbController < ApplicationController
 			}
 			
 			headers = { 
-		        'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json'
+		        'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json'
 		    }
 			response = self.class.post(base_uri.to_str, 
 				:body=> options.to_json,
@@ -60,13 +60,13 @@ class CmbController < ApplicationController
 
           	}
 	      	headers = {
-	    	  'AppStore-Version': '3.4.1.779',
-			  'App-Version': '779',
-			  'Client': 'Android',
-			  'Device-Name': 'Genymotion Samsung Galaxy S4 - 4.4.4 - API 19 - 1080x1920',
-			  'Content-Type': 'application/json',
-			  'Facebook-Auth-Token': fbToken,
-			  'Cookie': my_cookie	
+	    	  'AppStore-Version' => '3.4.1.779',
+			  'App-Version' => '779',
+			  'Client' => 'Android',
+			  'Device-Name' => 'Genymotion Samsung Galaxy S4 - 4.4.4 - API 19 - 1080x1920',
+			  'Content-Type' => 'application/json',
+			  'Facebook-Auth-Token' => fbToken,
+			  'Cookie' => my_cookie	
 	      	}
 	      	response = self.class.get(base_uri.to_str,
 	      	  :body=> options.to_json,
@@ -96,12 +96,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/profile/me'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	'id': @user["id"],
@@ -137,12 +137,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/bagels?embed=profile&prefetch=true'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 		    response = self.class.get(base_uri.to_str,
 		    	# :body=> options.to_json,
@@ -174,12 +174,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/bagels'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	'embed': 'profile',
@@ -208,12 +208,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/batch'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	    
 	      	options = [	    	
@@ -271,12 +271,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/resource/locale/en_us.json'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	
@@ -306,12 +306,12 @@ class CmbController < ApplicationController
 			base_uri = 'https://api.coffeemeetsbagel.com/photolabs'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	
@@ -344,12 +344,12 @@ class CmbController < ApplicationController
 			base_uri 		= 'https://api.coffeemeetsbagel.com/givetake'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	"id":customer_id,
@@ -383,12 +383,12 @@ class CmbController < ApplicationController
 			base_uri 		= 'https://api.coffeemeetsbagel.com/purchase'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {	    	
 		    	"item_count":@purchase["item_count"],
@@ -421,12 +421,12 @@ class CmbController < ApplicationController
 			base_uri 		= 'https://api.coffeemeetsbagel.com/report/4'		
 			my_cookie = "sessionid="+sessionid
 	      	headers = {
-		    	'AppStore-Version': '3.4.1.779',
-				'App-Version': '779',
-				'Client': 'Android',
-				'Content-Type': 'application/json',
-				'Facebook-Auth-Token': fbToken,
-				'Cookie': my_cookie	
+		    	'AppStore-Version' => '3.4.1.779',
+				'App-Version' => '779',
+				'Client' => 'Android',
+				'Content-Type' => 'application/json',
+				'Facebook-Auth-Token' => fbToken,
+				'Cookie' => my_cookie	
 	      	}
 	      	options = {}	
 		    response = self.class.get(base_uri.to_str,

@@ -563,7 +563,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
         $scope.BagelsList = newList
         $timeout ->
           $scope.rebuildCarousel()
-        , 500;
+        , 100;
 
         # console.log jsonResults 
         console.log $scope.BagelsList
