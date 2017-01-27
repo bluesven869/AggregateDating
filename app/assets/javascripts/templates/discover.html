@@ -18,7 +18,7 @@
       <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
           <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
       </label> 
-      <a class="navbar-brand" href="">LOGO</a>
+      <a class="navbar-brand" href=""><img src="Images/logo.png" /></a>
     </div>
 
     <div class="collapse navbar-collapse text-center">
@@ -98,7 +98,7 @@
             <div class="clearfix"></div>
 
             <div class="control-group">
-              <label class="control control--checkbox  ">
+              <label class="control control--checkbox">
                 <label for="L-S-check" title="Recent" ng-class="{'network-recent-1': flag_l_r == true, 'network-recent-2':flag_l_r == false}" >&nbsp;</label>
                 <label for="L-S-check" class="network-span left-margin-30 font-14" ng-class="{'under-line':flag_l_r==true}"> Limited first</label>
                 <input type="checkbox" id="L-S-check"  ng-model="flag_l_r" ng-click="set_cookie_from_flag(2,1)" />
@@ -160,8 +160,8 @@
         <li>
             <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
             <ul>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                <li ng-if="page_number!=5">
+                    <a href="#!/account"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
                 </li>
             </ul>
         </li>

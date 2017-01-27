@@ -149,6 +149,7 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.page_number = 0;     # 2:discover
                                 # 3:message
                                 # 4:matches
+                                # 5:account
     $scope.matches_count = 0;
     $scope.discover_count = 0;
                                 
@@ -162,6 +163,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.flag_r_r = false #Recent flag
     $scope.flag_e_r = false #Expiring flag
     
+    $scope.account_tinder_flag   = false;
+    $scope.account_happn_flag    = false;
+    $scope.account_cmb_flag      = false;
+    $scope.account_okcupid_flag  = false;
+    $scope.account_bumble_flag   = false;
+
     $scope.flag_b_r = false
     $scope.flag_l_r = false   
     $scope.flag_a_r = false   
@@ -471,6 +478,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.init()
       $scope.page_number = 3
       $scope.select_bagel_by_random()
+    $scope.init_account = ->
+      $scope.page_number = 5
     $scope.select_bagel_by_random = ->      
       max = 0
       for d,i in $scope.BagelsList
@@ -670,5 +679,16 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
     $scope.onPrevImage =->      
       #$scope.parent.nextSlide()
       $scope.$$childHead.prevSlide()
+
+    $scope.on_click_happn_account_page =->
+      $scope.account_happn_flag = !$scope.account_happn_flag 
+    $scope.on_click_tinder_account_page =->
+      $scope.account_tinder_flag = !$scope.account_tinder_flag 
+    $scope.on_click_cmb_account_page =->
+      $scope.account_cmb_flag = !$scope.account_cmb_flag 
+    $scope.on_click_okcupid_account_page =->
+      $scope.account_okcupid_flag = !$scope.account_okcupid_flag 
+    $scope.on_click_bumble_account_page =->
+      $scope.account_bumble_flag = !$scope.account_bumble_flag 
 
   ])
