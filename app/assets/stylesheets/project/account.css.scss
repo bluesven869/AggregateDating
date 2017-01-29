@@ -1,0 +1,302 @@
+.my-profile{
+    height:100px;
+    overflow: auto;
+}
+.agg-icon{
+  margin-top:50px;
+  background: url("../../Images/footer-icons.png") no-repeat;
+  width:204px;
+  height:117px;
+}
+
+
+.added_message{
+
+  margin-top: 50px;
+  
+  height:225px;
+  .add_success{
+    width:168px;
+    height:168px;
+    font-size: 2em;
+    color:white;
+    padding-top:30px;
+    background-color: #62bb47;
+    margin-top:0px;
+    .check-icon{
+      font-size: 1.2em;
+    }
+    .check-caption{      
+      font-size:0.8em;    
+    }
+  }
+  .msg{
+    padding-left:20px;
+    text-align: left;
+    position: relative;
+    .add_buttons{
+      .add_more{
+        width:165px;
+        height: 50px;
+        border:3px solid #62bb47;
+        font-size: 1.2em;
+        text-align: center;
+        padding-top:10px;
+        position: relative;
+        color:#666;
+        .dot-line{
+          width:51px;
+          height:70px;
+          background:url("../../Images/dot-line.png") no-repeat;
+          position: absolute;
+          top:46px;          
+          left:2px;
+        }
+      }
+      .text-or {
+        padding-top:10px;
+        font-size:1.2em;
+        color:#999;
+      }
+      .hr-pos{
+        margin-left: 10px;
+        margin-right:10px;
+        margin-top:23px;
+      }
+      .btn-swipe{
+        width:170px;
+        height:40px;
+        background-color:#62bb47;
+        color:white;
+        border:none;
+        font-size:1.2em;
+        padding-left:35px;
+      }
+    }
+  }
+}
+.fixed-dlg{
+  position: fixed !important;
+  top:55px;
+  bottom:10px;
+  left:0;
+  right:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+.fixed-dlg::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    width: 3px;
+}
+
+.fixed-dlg::-webkit-scrollbar
+{
+    width: 3px;
+    background-color: #F5F5F5;
+}
+
+.fixed-dlg::-webkit-scrollbar-thumb
+
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+    width: 3px;
+}
+.avatar-circle{
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.networks{
+  margin-top:50px;
+  margin-bottom:50px;
+  .account-network{
+    position: relative;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    width:235px;
+    height:135px;
+    background-color: #f7f7f7;  
+    text-align: center;
+    margin:10px;
+    cursor: pointer;
+    .caption{
+      position: absolute;
+      left:0;
+      right:0px;
+      top:85px;
+      color:#4d9dd9;
+      font-size: 1.8em;
+    }
+    .more-caption{      
+      position: absolute;
+      left:0;
+      right:0px;
+      top:40px;
+      color:#4d9dd9;
+      font-size: 1.3em;
+    }
+    .network-icon{
+      opacity: 0.7;    
+    }
+    .happn-icon{
+      position: absolute;
+      top:25px;
+      left:95px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/HNGE.png") no-repeat;
+      background-size: 40px 40px;
+    }
+    .tinder-icon{
+      position: absolute;
+      top:16px;
+      left:98px;
+      width: 41px;
+      height:54px;
+      background:url("../../Images/TN.png") no-repeat;
+      background-size: 41px 54px;
+    }
+    .cmb-icon{
+      position: absolute;
+      top:25px;
+      left:95px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/CMB.png") no-repeat;
+      background-size: 40px 40px;
+    }
+    .okcupid-icon{
+      position: absolute;
+      top:25px;
+      left:95px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/OKC.png") no-repeat;
+      background-size: 40px 40px; 
+    }
+    .bumble-icon{
+      position: absolute;
+      top:25px;
+      left:95px;
+      width: 51px;
+      height:45px;
+      background:url("../../Images/BMB.png") no-repeat;
+      background-size: 51px 45px;  
+    }
+    .more-networks{
+      position: absolute;
+      top:25px;
+      left:95px;
+      height:15px;  
+    }
+  }
+  .account-network:hover{  
+    background-color: #f0f0f0;  
+    .network-icon{
+      opacity: 1;
+    }
+    .caption{
+      color:#1374bd;
+    }
+  }
+  .account-added{
+    position: relative;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    width:235px;
+    height:135px;
+    background-color: #f7f7f7;  
+    text-align: center;
+    margin:10px;
+    cursor: pointer;
+    img{
+      position: absolute;
+      left:75px;
+      top:13px;
+    }
+    .caption{
+      position: absolute;
+      left:0;
+      right:0px;
+      top:100px;
+      color:#4d9dd9;
+      font-size: 1.4em;
+    }
+    .more-caption{      
+      position: absolute;
+      left:0;
+      right:0px;
+      top:40px;
+      color:#4d9dd9;
+      font-size: 1.5em;
+    }
+    .network-icon{
+      opacity: 0.7;    
+    }
+    .happn-icon{
+      position: absolute;
+      top:50px;
+      left:130px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/HNGE.png") no-repeat;
+      background-size: 40px 40px;
+    }
+    .tinder-icon{
+      position: absolute;
+      top:41px;
+      left:135px;
+      width: 41px;
+      height:54px;
+      background:url("../../Images/TN.png") no-repeat;
+      background-size: 41px 54px;
+    }
+    .cmb-icon{
+      position: absolute;
+      top:50px;
+      left:130px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/CMB.png") no-repeat;
+      background-size: 40px 40px;
+    }
+    .okcupid-icon{
+      position: absolute;
+      top:50px;
+      left:130px;
+      width: 40px;
+      height:40px;
+      background:url("../../Images/OKC.png") no-repeat;
+      background-size: 40px 40px; 
+    }
+    .bumble-icon{
+      position: absolute;
+      top:50px;
+      left:125px;
+      width: 51px;
+      height:45px;
+      background:url("../../Images/BMB.png") no-repeat;
+      background-size: 51px 45px;  
+    }
+    .more-networks{
+      position: absolute;
+      top:25px;
+      left:95px;
+      height:15px;  
+    }
+  }
+  .account-added:hover{  
+    background-color: #f0f0f0;  
+    .network-icon{
+      opacity: 1;
+    }
+    .caption{
+      color:#1374bd;
+    }
+  }
+}

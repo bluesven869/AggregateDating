@@ -11,7 +11,7 @@
       <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
           <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
       </label> 
-      <a class="navbar-brand" href="#">LOGO</a>   
+      <a class="navbar-brand" href=""><img src="Images/logo.png" /></a>
     </div>
     <div class="collapse navbar-collapse">
       <div class="nav navbar-nav dropdown">      
@@ -148,8 +148,8 @@
         <li>
             <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
             <ul>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                <li ng-if="page_number!=5">
+                  <a href="#!/account"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
                 </li>
             </ul>
         </li>

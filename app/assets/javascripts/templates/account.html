@@ -1,27 +1,4 @@
-<style type="text/css">
-.my-profile{
-    height:100px;
-    overflow: auto;
-}
-
-.default-button{
-  border: 2px solid #ebebeb;
-  background-color: white;
-  padding:8px;
-}
-.width-100{
-  width:100px;
-}
-.right {
-  float:right;
-}
-.btn-upload{
-  position: absolute;
-  right:20px;
-  top:-10px;
-}
-</style>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_account()">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
@@ -31,7 +8,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">LOGO</a>   
+       <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
+          <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
+      </label> 
+      <a class="navbar-brand" href=""><img src="Images/logo.png" /></a>
     </div>
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav navbar-right">
@@ -41,158 +21,124 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>
-</nav>
-<div class="container1">
-  <div class="row center">    
-    <h1 align="center">Account</h1>
-    <div class="sm-col-4">
-      <div class="min-width-400 max-width-600 width-100-pro margin-center">
-        <div class="border padding-20">
-          <h3>My Activated Dating Networks</h3>
-          <div class="padding-top-20 relative"><label for="auth-all" class="network-span">Authorize All</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="auth-all" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label"  for="tinder-check" >T</label><label  for="tinder-check" class="network-span">Tinder</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="tinder-check">
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="okcupid-check">O</label><label class="network-span" for="okcupid-check">OKcupid</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "okcupid-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="pof-check">P</label><label class="network-span" for="pof-check">POF</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "pof-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="bumble-check">B</label><label class="network-span" for="bumble-check">Bumble</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "bumble-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="cmb-check">C</label><label class="network-span" for="cmb-check">CMB</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "cmb-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-        </div>
-        <p align="center" class="padding-20">
-          Click on a Network name to create, link or edit your account.
-        </p>
-        <hr size="100%" >
-        <h3>Global Profile</h3>
-        <div class="border padding-20">
-          <h4>Import your Global Profile to your Activated Networks</h4>
-          <div class="padding-top-20 relative"><label for="auth-all-activated" class="network-span">Authorize All</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="auth-all-activated" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          
-          <div class="relative">
-            <label class="network-label"  for="tinder-check-activated" >T</label><label  for="tinder-check-activated" class="network-span">Tinder</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="tinder-check-activated">
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="okcupid-check-activated">O</label><label class="network-span" for="okcupid-check-activated">OKcupid</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "okcupid-check-activated" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
 
-        </div>
-        <br />
-        <hr size="100%" >
-        <div class="padding-20">
-         <h3>Description</h3>
-        <div class="my-profile">
-          <p>
-            Now that I’ve given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements — some of these emails are based on actual emails that I’ve used in my time in online dating. I’m happy to say that I’ve formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guide to your own — just do me a favor, and make your words original.
-              Just like being interviewed for a job, you want to show certain important things — yes you want this date, but you must remind the potential date that you have value, that you are worth something and should be considered for a date for other reasons than the bare fact that you “need a date”. This requires a delicate balancing act, but if you steady yourself, put the kibosh on your raging emotions and try to think clearly, the words will come to you just as if you’re talking to someone you just met on the street. I would suggest you write a few sample intro emails and immediately discard the first two. This will get the cliches and the bad ideas out of your head and give you room to shine. Once you’ve written what you consider your final draft, just click the Send button. Remember that this person is seeking someone to date too, otherwise they wouldn’t be on the same dating site as you. They will most likely appreciate that you chose them — it is both a compliment and a good indication that there will be some compatibility between you.
-              Now that I'v given you the pep talk, here are some examples of dating introduction that fulfill all of the above requirements - some of these emails are based on actual emails that I've used in my time in online dating. I 'm happy to say that I've formed a long term relationship with a woman I met using one of the very examples below. There is nothing wrong with using these examples as a guid to your own - just do me a favor, and make your workds original.      
-          </p>
-        </div>
-        </div>
-        
-        <div class="relative">
-        <h3>Your Photos</h3><button class="default-button width-100 btn-upload">Upload</button>
-        </div>
-        <div class="padding-top-20">
-          <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-          <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-          <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-          <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-          <label class="picture"><i class="fa fa-picture-o" aria-hidden="true"></i></label>
-        </div>
-        <hr width="100%" >
-        <h3>Settings</h3>
-        <div class="default-color">
-          <label class="width-50-pro padding-20 ">
-            Distance(in miles) <br /><br />
-            <input type="text" class="condition" /> to <input type="text" class="condition" />
-          </label>
-          <label class="width-50-pro padding-20">
-            Age
-            <br /><br />
-            <input type="text" class="condition" /> to <input type="text" class="condition" />
-          </label>
-        </div>
-        <hr width="100%">
-        <h3>Linked Account</h3>
-        <div class="border padding-20">
+  <div  id="fixed-menu" class="fixed-menu-nav">
+    <div class="dropdown-menu">
+      <ul class="nav navbar-nav side-nav " >
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
+            <ul>
+                <li ng-if="page_number!=2">
+                    <a href="#!/discover"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER({{discover_count}})</a>
+                </li>
+                <li ng-if="page_number!=4">
+                    <a href="#!/matches"><i class="fa fa-fw fa-commenting-o"></i> MATCHES({{matches_count}})</a>
+                </li>
+                <li ng-if="page_number!=3">
+                    <a href="#!/messages"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> COMMUNITY</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> OPEN COMMENT SECTION</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> POSITIVE LEADERBOARD</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> IRL BLOG</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> TELL A FRIEND</a>
+                </li>
+            </ul>
+        </li>
 
-          <div class="relative"><label for="all-activated-check" class="network-span">Activate All</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="all-activated-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <br />
-          <div class="relative">
-            <label class="network-label"  for="activated-spotify-check" >SP</label><label  for="activated-spotify-check" class="network-span">Spotify</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id="activated-spotify-check">
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="activated-instagram-check">IN</label><label class="network-span" for="activated-instagram-check">Instagram</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "activated-instagram-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-          <div class="relative">
-            <label class="network-label" for="activated-snapchat-check">SC</label><label class="network-span" for="activated-snapchat-check">Snapchat</label> 
-            <label class="switch margin-custom-check">
-              <input type="checkbox" id = "activated-snapchat-check" />
-              <div class="slider round">&nbsp;</div>
-            </label>
-          </div>
-        </div>
-
-        <button class="default-button width-100 margin-top-10 right">Save</button>
-      </div>    
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
+            <ul>
+                <li ng-if="page_number!=5">
+                    <a href="#!/acount"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> LOGOUT</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">  
+    <div class="fixed-dlg" align="center">
+      <div ng-if="!account_added_flag" align="center">
+        <div class="agg-icon">&nbsp;</div>
+        <h1>Add your first dating network to <br /> begin using IRL</h1>
+      </div>
+      <div ng-if="account_added_flag" align="center" class="added_message">        
+        <label>
+          <div class="add_success avatar-circle left">
+            <div class="check-icon"><i class="fa fa-check fa-2x" aria-hidden="true"></i></div>
+            <div class="check-caption">Success!</div>
+          </div>
+          <label class="msg  left"><h1>Your {{account_network_msg}} profile <br />is ready to go.</h1>
+            <div class="add_buttons">
+            <label class="add_more avatar-circle left">Add more profiles
+              <div class="dot-line">&nbsp;</div>
+            </label><hr class="hr-pos left" width=30 /><label class="text-or left"> or </label> <hr class=" hr-pos left"  width=30 /> <button class="btn-swipe left" >Start swiping! <i class="fa fa-angle-right left-margin-13" aria-hidden="true"></i></button>
+
+            </div>
+          </label>
+          <div class="clearfix"></div>
+        </label>
+      </div>
+      <div class="networks">
+        <label ng-class="{'account-added':account_happn_flag==true, 'account-network':account_happn_flag==false}" ng-click="on_click_happn_account_page()">
+          <img ng-if="account_happn_flag" src="Images/avatar.png" width="80px" class="avatar-circle" />
+          <div class="happn-icon network-icon">&nbsp;</div>
+          <div class="caption" ng-if="!account_happn_flag">Happn</div>
+          <div class="caption" ng-if="account_happn_flag">View & Edit Profile</div>
+        </label>
+        <label  ng-class="{'account-added':account_tinder_flag==true, 'account-network':account_tinder_flag==false}" ng-click="on_click_tinder_account_page()">
+          <img ng-if="account_tinder_flag" src="Images/avatar.png" width="80px" class="avatar-circle" />
+          <div class="tinder-icon network-icon">&nbsp;</div>
+          <div class="caption" ng-if="!account_tinder_flag">Tinder</div>
+          <div class="caption" ng-if="account_tinder_flag">View & Edit Profile</div>
+        </label>
+        <label  ng-class="{'account-added':account_cmb_flag==true, 'account-network':account_cmb_flag==false}" ng-click="on_click_cmb_account_page()">
+          <img ng-if="account_cmb_flag" src="Images/avatar.png" width="80px" class="avatar-circle" />
+          <div class="cmb-icon network-icon">&nbsp;</div>
+          <div class="caption" ng-if="!account_cmb_flag">Coffee Meets Bagel</div>
+          <div class="caption" ng-if="account_cmb_flag">View & Edit Profile</div>
+        </label>
+        <label  ng-class="{'account-added':account_okcupid_flag==true, 'account-network':account_okcupid_flag==false}" ng-click="on_click_okcupid_account_page()">
+          <img ng-if="account_okcupid_flag" src="Images/avatar.png" width="80px" class="avatar-circle" />
+          <div class="okcupid-icon network-icon">&nbsp;</div>
+          <div class="caption" ng-if="!account_okcupid_flag">OKCupid</div>
+          <div class="caption" ng-if="account_okcupid_flag">View & Edit Profile</div>
+        </label>
+        <label  ng-class="{'account-added':account_bumble_flag==true, 'account-network':account_bumble_flag==false}" ng-click="on_click_bumble_account_page()">
+          <img ng-if="account_bumble_flag" src="Images/avatar.png" width="80px" class="avatar-circle" />
+          <div class="bumble-icon network-icon">&nbsp;</div>
+          <div class="caption" ng-if="!account_bumble_flag">OKCupid</div>
+          <div class="caption" ng-if="account_bumble_flag">View & Edit Profile</div>
+        </label>
+        
+        <label class="account-network">
+          <div class="more-networks network-icon">&nbsp;</div>
+          <div class="more-caption">More networks<br /> on the way!</div>
+        </label>
+      </div> 
+      <div class="bottom-btn">
+        <button class="btn btn-primary">Activate Global Profile</button>
+      </div> 
+    </div>    
   </div>  
 </div>
