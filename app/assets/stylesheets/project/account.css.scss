@@ -9,12 +9,16 @@
   height:117px;
 }
 
-
 .added_message{
 
   margin-top: 50px;
-  
-  height:225px;
+  @media (min-width: 688px) {
+    height:225px;  
+  }
+  @media (max-width: 687px) {
+    height:350px;  
+  }
+
   .add_success{
     width:168px;
     height:168px;
@@ -23,6 +27,11 @@
     padding-top:30px;
     background-color: #62bb47;
     margin-top:0px;
+    @media (min-width: 688px) {
+        float: left;
+    }
+  
+    
     .check-icon{
       font-size: 1.2em;
     }
@@ -30,10 +39,18 @@
       font-size:0.8em;    
     }
   }
+
   .msg{
     padding-left:20px;
-    text-align: left;
     position: relative;
+    @media (min-width: 688px) {
+        float: left;
+        text-align: left;
+    }
+    @media (max-width: 687px) {        
+        text-align: center;
+        height:200px;        
+    }
     .add_buttons{
       .add_more{
         width:165px;
@@ -49,19 +66,42 @@
           height:70px;
           background:url("../../Images/dot-line.png") no-repeat;
           position: absolute;
-          top:46px;          
-          left:2px;
+          @media (min-width: 517px) {
+            top:46px;                    
+            left:2px;          
+          }
+          @media (max-width: 516px) {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: "FlipH";
+            top:46px;          
+            left:112px; 
+          }
         }
       }
       .text-or {
         padding-top:10px;
         font-size:1.2em;
         color:#999;
+        @media (max-width: 516px) {
+          display: none;
+        }
       }
       .hr-pos{
         margin-left: 10px;
         margin-right:10px;
         margin-top:23px;
+      }
+      .hr-pos1{
+        margin-left: 10px;
+        margin-right:10px;
+        margin-top:23px;
+        @media (max-width: 516px) {
+          display: none;
+        }
       }
       .btn-swipe{
         width:170px;
