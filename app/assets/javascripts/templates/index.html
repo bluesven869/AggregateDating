@@ -1,208 +1,113 @@
-
-<header class="row">
-  <h1 class="text-center col-md-6 col-md-offset-3">Test Page</h1>
-</header>
-<div class="general_div completed">
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="loginFacebook()">CMB Login with Facebook</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <span class='loading-bar' ng-if="login_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!login_flag && cmbInfo">  
-  <div class="cmb_info">
-    <label>FaceBook Token</label> <span class='my_info'>{{fbToken}}</span><br />
-    <label>Session ID</label><span class='my_info'>{{sessionid}}</span> <br />
-    <label>User ID</label> <span class='my_info'>{{cmbInfo[0].jsonObj.profile_id}}</span> <br />
-    <label>Upgrade Available</label>  <span class='my_info'>{{cmbInfo[0].jsonObj.upgrade_available}}</span><br />
-    <label>Success </label>  <span class='my_info'>{{cmbInfo[0].jsonObj.success}}</span><br />
-    <label>Received From CMB</label> <span class='my_info'>{{cmbInfo[0]}}</span><br />
-</section>
-</div>
-
-<div class="general_div unverified">
-  <form name='myForm'>
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="getMyProfile()">Get my profile</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="get_profile_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-    <label>User Name</label> <input type='text' ng-model='user_name' placeholder="User Name" /> <br />
-    <label>User Gender</label> <input type='text' ng-model='user_gender'  placeholder="m/f" /><br />
-    <label>Birthday</label> <input type="date" id="user_birthday" name="user_birthday" ng-model="user_birthday"
-       placeholder="YYYY-MM-DD" min="1600-01-01" max="2099-12-31" required />
-       <span role="alert">
-         <span class="error" ng-show="myForm.user_birthday.$error.required">
-             Required!</span>
-         <span class="error" ng-show="myForm.user_birthday.$error.date">
-             Not a valid date!</span>
-      </span>
-    <br />
-    <label>Criteria Gender</label> <input type='text' ng-model='user_criteria_gender'   placeholder="m/f" /><br />
-    <label>User Email</label>
-    <input type="email" name="input" placeholder="example@email.com"  ng-model="user_email" required>
-     <span role="alert">
-      <span class="error" ng-show="myForm.input.$error.required">
-        Required!</span>
-      <span class="error" ng-show="myForm.input.$error.email">
-        Not valid email!</span>
-    </span>    
-    <section>
-    <button type="button" class="btn btn-primary btn-large" data-ng-click="setMyProfile()">Set my profile</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="profile_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-  </section>
-    <span class="my_info">
-    {{profileInfo[0].jsonObj}}
-    </span> &nbsp;&nbsp;
-    <span class="my_info">
-    {{setProfileInfo[0].jsonObj}}
-    </span>
-
-</form>
-</div>
-<div class= "general_div unverified">
-  <section>
-  </section>
-</div>
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="setBagels()">Get Bagels</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="bagels_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!bagels_flag && BagelsInfo">  
-  <label>current_token </label><span class='my_info'>{{BagelsInfo[0].jsonObj.current_token}}</span><br />
-  <label>cursor_after </label><span class='my_info'>{{BagelsInfo[0].jsonObj.cursor_after}}</span><br />
-  <label>cursor_before </label><span class='my_info'>{{BagelsInfo[0].jsonObj.cursor_before}}</span><br />
-  <label>more_after </label><span class='my_info'>{{BagelsInfo[0].jsonObj.more_after}}</span><br />
-  <label>more_before </label><span class='my_info'>{{BagelsInfo[0].jsonObj.more_before}}</span><br />
-  <ul>
-    <li ng-repeat="bagel in BagelsInfo[0].jsonObj.results">{{bagel.name}}</li>
-  </ul>
-  <span class="my_info">{{BagelsInfo[0].jsonObj}}</span>
-</section>    
-</div>
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="getBagelsHistory()">Bagels History</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="bagels_history_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!bagels_history_flag  && BagelsList">
-  <span class='my_info'>{{BagelsList}}</span>
-</section>    
-</div>
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="sendBaches()">Send Baches</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="baches_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section> class="main"></div>div>
-
-<section ng-if="!baches_flag && BachesInfo">  
-
-  <label>data </label><span class='my_info'>{{BachesInfo}}</span><br />  
-</section>    
-</div>
-
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="giveTake()">Give Take</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="give_take_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="girl_id">  
-<label> girl id </label><span class='my_info'>{{girl_id}}
-</span></section>
-<section ng-if="!give_take_flag && GiveTaskResult">  
-  <span class='my_info'>{{GiveTaskResult}}</span>
-</section>    
-</div>
-
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="purchase()">Purchase</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="purchase_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-
-<label> Item Count </label> <input type='text' ng-model='item_count' placeholder="Item Count" /> <br />
-<label> Item Name </label> <input type='text' ng-model='item_name' placeholder="Item Name" /> <br />
-<label> Expected Price </label> <input type='text' ng-model='expected_price' placeholder="Expected Price" /> <br />
-<label> Give ten id </label> <input type='text' ng-model='give_ten_id' placeholder="Give ten id" /> <br />
-
-<section ng-if="!purchase_flag && PurchaseResult">  
-  <span class='my_info'>{{PurchaseResult}}</span>
-</section>    
-</div>
-<didv c Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="getResources()">Resource</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="get_resources_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!get_resources_flag && ResourceInfo">  
-  <span class="my_info">{{ResourceInfo}}</span>
-
-</section> 
-
-</div>
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="photolabs()">Photo Labs</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="photolabs_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</
-  
-</section>
-<section ng-if="!photolabs_flag && PhotoLabs">  
-  <span class='my_info'>{{PhotoLabs}}</span>
-
-</section>    
-</div>
-</div>
-<div class="general_div completed">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="report()">Report</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="report_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section class='report_section' ng-if="!report_flag && ReportResult">  
-  <span class='my_info'>{{ReportResult}}</span>
-</section>    
-</div>
-
-<div class="general_div">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="photo()">Photo Upload</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="photo_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section>
- <div >
-  <label>My ID</label><span class="my_info">{{$scope.BagelInfo.hex_id}}</span> <br />
-  <label>Position</label> <input type='text' ng-model='photo_position' placeholder="Please input postion of photo" /> <br />
-  <label>Caption</label> <input type='text' ng-model='photo_caption'  placeholder="This is my 4th photo!" /><br />
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_account()">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <label class="dropdown-toggle hand-cursor" data-toggle="dropdown" data-target="#fixed-menu">
+          <label class="filter-sort-label">Menu </label>&nbsp;<span class="caret"></span>
+      </label> 
+      <a class="navbar-brand" href=""><img src="Images/logo.png" /></a>
+    </div>
+    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar-24" ng-src="Images/avatar.png" /> Meacheal Jackson</a>          
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
   </div>
-   <div class="button" ngf-select="upload($file)">Upload on file select</div>
-</section>
-</div>
 
+  <div  id="fixed-menu" class="fixed-menu-nav">
+    <div class="dropdown-menu">
+      <ul class="nav navbar-nav side-nav " >
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> DASHBOARD</a>
+            <ul>
+                <li ng-if="page_number!=2">
+                    <a href="#!/discover"><i class="fa fa-fw fa-comment-o" ></i> DISCOVER({{discover_count}})</a>
+                </li>
+                <li ng-if="page_number!=4">
+                    <a href="#!/matches"><i class="fa fa-fw fa-commenting-o"></i> MATCHES({{matches_count}})</a>
+                </li>
+                <li ng-if="page_number!=3">
+                    <a href="#!/messages"><i class="fa fa-fw fa-commenting-o"></i> MESSAGES</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> STATS</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> COMMUNITY</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> OPEN COMMENT SECTION</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> POSITIVE LEADERBOARD</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> IRL BLOG</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting-o"></i> TELL A FRIEND</a>
+                </li>
+            </ul>
+        </li>
 
-<div class="general_div">  
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="login_ChatMessage()">Chat Messages</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span class='loading-bar' ng-if="chat_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section class='report_section' ng-if="!chat_flag && ReportResult">  
-  <span class='my_info'>{{ReportResult}}</span>
-</section>    
-</div>
-
-<div class="general_div unverified">
-<section>
-  <button type="button" class="btn btn-primary btn-large" data-ng-click="loginFacebookForTinder()">Tinder Login with Facebook</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <span class='loading-bar' ng-if="tinder_login_flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-</section>
-<section ng-if="!tinder_login_flag && tinderInfo">  
-  <div>
-    <label>FaceBook Token</label> <span class='my_info'>{{fbToken}}</span><br />
-    <label>FaceBook ID</label><span class='my_info'>{{fbUserID}}</span> <br />
-    <label>Received From Tinder</label> <span class='my_info'>{{tinderInfo[0]}}</span><br />
-</section> 
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> SETTINGS</a>
+            <ul>
+                <li ng-if="page_number!=5">
+                    <a href="#!/acount"><i class="fa fa-fw fa-commenting-o"></i> ACCOUNTS</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-fw fa-dashboard"></i> LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="page" class="site">  
+  <div class="main-header-body row">
+    <div class="bar">&nbsp;</div>
+    <div class="introduce">
+      <h1>All your Dating Apps - in one unified experience </h1>
+      <p class="caption">Less "dating" on your phone, more meeting people in the real world.</p>
+      <div class="desk">&nbsp;</div>
+      <div class="right-computer">&nbsp;</div>
+      <div class="right-side">&nbsp;</div>
+      <div class="bar1">&nbsp;</div>
+      <div class="email_container"> 
+        <div class="kento_email_subscriber">
+          <div class="subscribe_theme_six">           
+            <div class="subscribe_main">
+              <div class="subscribe_form_option">
+                <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;Centralized feed for all prospects</div>
+                <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;Filter and sort matches across networks</div>
+                <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;One message inbox for all conversations</div>
+                <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;Change your profile once, update it everywhere</div>
+                <div class="email">
+                <input class="subscribe_email" placeholder="Get early access" name="email" type="email"><button class="subscribe_submit btn btn-success">SEND</button>
+                </div>
+                <h4 class="subscribe_text" style="display: none">Name</h4>
+                <input class="subscribe_name"  style="display: none;" placeholder="Type Your Name" name="name" type="name"> 
+                <div id='subscribe_status' class="result">Leave your email and we’ll add you to our beta invite list</div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>      
+    </div>
+    <div class="footer-icon">
+      &nbsp;
+    </div>
+  </div>
 </div>

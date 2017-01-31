@@ -14,7 +14,7 @@ aggregate_dating.config([ '$routeProvider',
   	($routeProvider)->
     	$routeProvider
         .when('/',
-          templateUrl: "login.html"
+          templateUrl: "index.html"
           controller: 'LoginController'
         )
         .when('/discover',
@@ -75,11 +75,11 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
         
     # ), (response) ->
     #     console.log 'FB Login Error', response
-
+    $scope.setFBTokenForHappn =->
+      MyAuthInfo.fbTokenForHappn = $scope.user_fb_token_for_happen        
+      $scope.loginHappen()
     $scope.setFBToken = ->
       #show loading icon
-      $("#load").css("visibility":"visible")
-
       MyAuthInfo.fbToken = $scope.user_fb_token
       $scope.loginCMB()
 
@@ -126,7 +126,24 @@ controllers.controller("LoginController", [ '$scope', '$routeParams', '$location
         $scope.cmb_login_flag = false
         # $scope.loginBumble()        
       )
-
+    $scope.loginHappen = ->
+      $scope.happn_login_flag = true
+      MyAuthInfo.happnInfo = [] 
+      Happn = $resource('/happn', { format: 'json' })
+      Happn.query(fbToken: MyAuthInfo.fbTokenForHappn , (results) ->         
+        console.log results[0]
+        if( results[0].loginResult == "success" )        
+          console.log "Happn Login Success"
+          MyAuthInfo.cmbInfo.profile_id = results[0].jsonObj.profile_id
+          MyAuthInfo.cmbInfo.sessionid = results[0].sessionid        
+          
+          $location.path('/discover')
+        else
+          console.log "Happn Login Failed"          
+          
+        $scope.happn_login_flag = false
+        # $scope.loginBumble()        
+      )
     # $scope.loginBumble = ->
     #   #login with CMB
     #   #CURL commands:
@@ -471,7 +488,12 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.flag_b_r = $scope.convert_to_bool($cookieStore.get('flag_b_r'), false)
       $scope.flag_l_r = $scope.convert_to_bool($cookieStore.get('flag_l_r'), false)
       $scope.flag_a_r = $scope.convert_to_bool($cookieStore.get('flag_a_r'), false)
-
+      jQuery('#filter_dlg').click (event) ->
+        event.stopPropagation()
+        return
+      jQuery('#small-mark').click (event) ->
+        event.stopPropagation()
+        return
       # console.log $scope.BagelsList
       $scope.getBagels()
       
@@ -484,12 +506,8 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       #   d1 = new Date(bagel.assigned_date)
       #   diff = today-d1
       #   bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
-      # $('#filter_dlg').click (event) ->
-      #   event.stopPropagation()
-      #   return
-      # $('#small-mark').click (event) ->
-      #   event.stopPropagation()
-      #   return
+
+        
       
     $scope.init_matches_page = ->
       $scope.init() 

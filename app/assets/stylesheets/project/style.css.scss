@@ -3,7 +3,8 @@
     height:100%;
     position:fixed;
     z-index:9999;
-    background:image-url('preloader.gif') no-repeat center center; // rgba(0,0,0,0.25);
+    background:image-url('loading.gif') no-repeat center center; // rgba(0,0,0,0.25);
+    background-size:60px 60px;
     visibility: hidden;
 }
 
@@ -745,3 +746,324 @@ input:checked + .slider:before {
 	animation: progressStripeRTL .6s linear infinite;
 }
 
+
+
+.main-header-body{
+	background-color:#e3e8ec;
+	position: relative;
+	padding-top:30px;
+	height:497px;
+}
+@media screen and ( min-width: 1000px ) {	
+	.main-header-body .introduce{
+		width:840px;			
+		margin:0 auto;	
+		position: relative;
+	}
+}
+
+@media screen and (max-width:999px ) and ( min-width: 900px ) {
+	
+	.main-header-body .introduce{
+		width:800px;
+		margin:0 auto;
+		position: relative;
+	}
+}
+@media screen and (max-width:899px ) and ( min-width: 810px ) {
+	
+	.main-header-body .introduce{
+		width:760px;
+		margin:0 auto;
+		position: relative;
+	}
+}
+@media screen and (max-width:809px ) and ( min-width: 768px ) {
+	
+	.main-header-body .introduce{
+		width:720px;
+		margin:0 auto;
+		position: relative;
+	}
+}
+
+@media screen and ( min-width: 769px ) {
+	
+	.main-header-body .introduce h1{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		font-size:27px;
+		color:#30343c;
+	}
+
+	.main-header-body .introduce .caption{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight:normal;
+		font-size:20px;
+		color:#30343c;
+	}
+	.main-header-body .introduce .desk{
+		width:839px;
+		height:102px;
+		background:url(../../Images/desk.png) no-repeat;
+		position: absolute;	
+		top:405px;
+		right:0px;
+	}
+
+	.main-header-body .introduce .right-side{
+		width:211px;
+		height:154px;
+		background:url(../../Images/app-bubbles.png) no-repeat;
+		position: absolute;
+		right:30px;
+		top:95px;
+	}
+	.main-header-body .introduce .right-computer{
+		width:232px;
+		height:150px;
+		background:url(../../Images/monitor.png) no-repeat;
+		position: absolute;
+		right:22px;
+		top:225px;
+	}
+	.main-header-body .bar{
+		width:100%;
+		height:9px;
+		background:url(../../Images/bar.png) repeat-x;
+		position: absolute;	
+		top:497px;
+		right:0px;
+	}
+	.email_container{
+
+		margin-top:-90px;
+		position: relative;
+	}
+	
+}
+
+@media screen and ( max-width: 768px ) {
+	
+	.main-header-body .introduce h1{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		font-size:27px;
+		color:#30343c;
+		padding-left:30px;
+	}
+
+	.main-header-body .introduce .caption{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight:normal;
+		font-size:20px;		
+		padding-left:30px;
+		color:#30343c;
+	}
+
+
+	.main-header-body .introduce .right-side{
+		display: none;
+	}
+	.main-header-body .introduce .right-computer{
+		display: none;
+	}
+	.main-header-body .introduce .desk{
+		display: none;
+	}
+	.main-header-body .bar{
+		display: none;
+	}
+
+	.email_container{
+		width:400px;
+		margin:0 auto;
+		margin-top:-90px;
+		position: relative;
+
+	}
+	
+}
+
+@media screen and ( min-width:648px ) {
+	.main-header-body .introduce .desk{
+		width:839px;
+		height:102px;
+		background:url(../../Images/desk.png) no-repeat;
+		position: absolute;	
+		top:355px;
+		right:0px;
+	}
+}
+@media screen and ( min-width:769px ) {
+
+	.main-header-body .introduce .bar1{
+		width:100%;
+		height:14px;
+		background:url(../../Images/bar_1.png) repeat-x;	
+		position: absolute;	
+		top:383px;
+		right:0px;
+	}
+}
+@media screen and ( max-width:768px ) {
+
+	.main-header-body .introduce .bar1{
+		display: none;
+	}
+}
+.font-18{
+	font-size:18px;
+}
+.main-header-body .check-text{
+	font-size:14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#252524;
+}
+.subscribe_form_option div{
+	margin-bottom: 10px;
+}
+
+.main-header-body .footer-icon{
+	position: relative;
+
+	width:204px;
+	height:117px;
+	margin: 0 auto;
+	margin-top:530px;	
+	z-index: 1000;
+	background:url(../../Images/footer-icons.png) no-repeat;
+}
+
+.main-header-body .result{
+	font-size:10px !important;
+	padding-left:15px;
+}
+.ok{
+	width: 26px;
+	height:25px;
+	float:left;
+	background: url(../../Images/hand.png) no-repeat;
+}
+
+span.subscribers-hint {
+  color: #01a753;
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.kento_subscribe_delete, .kento_subscribe_deleted {
+background: url("delete.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+display: block;
+height: 17px;
+margin-left: 13px;
+width: 17px;
+}
+.kento_subscribe_processing{ background: url("loding.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+.kento_subscribe_deleted{ background: url("garbage.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+.row-deleted{
+	opacity:0.3;
+}
+@media screen and ( min-width: 768px ) {
+  .kento_email_subscriber {
+    height: 215px;
+    position: absolute;
+    width: 380px;
+    padding-left:0px;
+    padding-right:0px;
+    top:100px;
+    left:10px;
+    font-size: 14px;
+  }
+}
+@media screen and ( max-width: 768px ) {
+  .kento_email_subscriber {
+    height: 215px;
+    position: absolute;
+    width: 100%;
+    padding-left:0px;
+    padding-right:0px;
+    top:100px;
+    left:0px;
+    font-size: 14px;
+  }
+}
+.kento_email_subscriber_close {
+background: url("close.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+display: block;
+height: 35px;
+margin:0 auto;
+width: 35px;
+}
+
+
+/*Theme Six*/
+
+
+.subscribe_theme_six {
+  /*background: url("bg_six.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: block;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  overflow: hidden;
+  width: 700px;*/
+}
+.subscribe_theme_six .subscribe_main {
+  background: none repeat scroll 0 0 #f0f4f7;
+  border: 2px solid #F3F3F3;
+  /*border-radius: 10px;*/
+  padding-left:30px;
+  /*margin: 95px auto 0;*/  
+  padding-left:40px;
+  padding-top:20px;
+  width: 400px;
+}
+.subscribe_theme_six .subscribe_main_another {
+  background: none repeat scroll 0 0 #FFFFFF;
+}
+.subscribe_theme_six .subscribe_email {
+  border: none !important;
+  border-radius: 2px;
+  
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 45px;
+  margin: 9px 0 9px 12px;
+  padding-left:15px;
+  width: 180px;
+  display: table-cell;
+  margin-top:-1px;
+}
+
+.subscribe_theme_six .subscribe_submit {
+  border: medium none;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: normal;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 90px;
+  background-color: #8dc73f;
+}
+.subscribe_theme_six .subscribe-status, .subscribe_theme_six .subscribe-status-email, .subscribe_theme_six .subscribe-status-name  {
+  color: #d46262;
+  display: inline-block;
+  float: left;
+  margin-top: 18px;
+}
+.error{
+  color: #d46262;
+}
+.email{
+  height:50px;
+}
+.thankyou{
+  font-size:14px !important;
+  padding-top:10px;
+}
