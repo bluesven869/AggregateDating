@@ -1,0 +1,1 @@
+json.array! @mailchimpInfo, partial: 'mailchimpElement', as: :mailchimpElement

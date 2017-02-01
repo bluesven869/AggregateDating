@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :bumble, only: [:index]  
   resources :mailchimp, only: [:index]
   get '/mailchimp/email_subscriber'
+  get '/mailchimp/email_subscriber_list'
+  get '/mailchimp/delete_email'
 end

@@ -17,6 +17,10 @@ aggregate_dating.config([ '$routeProvider',
           templateUrl: "index.html"
           controller: 'EmailSubscribe'
         )
+        .when('/admin-setting',
+          templateUrl: "admin-setting.html"
+          controller: 'Admin'
+        )
         .when('/discover',
           templateUrl: "discover.html"
           controller: 'AggController'
@@ -836,6 +840,23 @@ controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location'
       if( email_flag ==1 ) 
         MailChimp = $resource('/mailchimp/email_subscriber', { format: 'json' })
         MailChimp.query(email: email_subscriber, (results) -> 
-          console.log results      
+          jQuery(".result").html("")
+          jQuery(".email").html("<p class='thankyou'><label class='ok'>&nbsp;</label>Thank you! Your email has been submitted.</p>")
+        )
+  ])
+
+
+controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
+  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
+    $scope.email_list = []
+    MailChimp = $resource('/mailchimp/email_subscriber_list', { format: 'json' })
+    MailChimp.query((results) ->       
+      $scope.email_list = results[0].jsonObj
+    )
+    $scope.onDeleteEmail = (email) ->
+      if confirm "Do you want to delete this email?"
+        MailChimp = $resource('/mailchimp/delete_email', { format: 'json' })
+        MailChimp.query(id: email.id, (results) ->       
+          $scope.email_list = results[0].jsonObj
         )
   ])

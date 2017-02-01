@@ -9,12 +9,20 @@ class MailchimpController < ApplicationController
 		email = params[:email].to_str	
 		
 		emails = EmailSubscriber.where(["email_address = ?", email])
-		puts emails
 		count = emails.count()
-		puts count
 		if(count == 0)
 			EmailSubscriber.create(email_address: email)
 		end
 		@mailchimpInfo = [{"result": "OK", "jsonObj": count}]
+	end
+	def email_subscriber_list
+		emails = EmailSubscriber.order(created_at: :desc)
+		@mailchimpInfo = [{"result": "OK", "jsonObj": emails}]
+	end
+	def delete_email
+		id = params[:id]
+		EmailSubscriber.delete(id)
+		emails = EmailSubscriber.order(created_at: :desc)
+		@mailchimpInfo = [{"result": "OK", "jsonObj": emails}]
 	end
 end

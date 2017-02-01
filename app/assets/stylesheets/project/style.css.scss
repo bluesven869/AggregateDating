@@ -1097,3 +1097,43 @@ width: 35px;
   font-size:14px !important;
   padding-top:10px;
 }
+.delete-icon{
+	background: url(../../Images/delete.png) no-repeat;
+	width: 16px;
+	height:16px;	
+	cursor: pointer;					
+}
+.widefat{	
+	border: 1px solid #e5e5e5;
+	thead{
+		tr{
+			border-bottom: 1px solid #e1e1e1;
+			height:30px;
+			th{
+				color: #32373c;
+				line-height: 1.4em;
+				font-weight: 400;
+				font-size: 14px;
+				padding:8px;
+			}
+		}
+	}
+	tbody{
+		tr{
+			height:30px;
+
+			td{
+				color: #32373c;
+				line-height: 1.4em;
+				font-weight: 400;
+				font-size: 14px;
+				padding:8px;	
+
+			}
+		}
+	}
+	tbody>:nth-child(odd)
+	{
+		background-color: #f9f9f9;
+	}
+}
