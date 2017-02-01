@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get '/cmb/report'
   get '/cmb/photo'
   resources :tinder, only: [:index]  
-  resources :bumble, only: [:index]
+  resources :bumble, only: [:index]  
+  resources :mailchimp, only: [:index]
+  get '/mailchimp/email_subscriber'
 end

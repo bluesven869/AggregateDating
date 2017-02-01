@@ -15,7 +15,7 @@ aggregate_dating.config([ '$routeProvider',
     	$routeProvider
         .when('/',
           templateUrl: "index.html"
-          controller: 'LoginController'
+          controller: 'EmailSubscribe'
         )
         .when('/discover',
           templateUrl: "discover.html"
@@ -813,4 +813,29 @@ controllers.controller("AggController", [ '$scope', '$routeParams', '$location',
       $scope.account_added_flag   = $scope.account_bumble_flag
       $scope.account_network_msg  = "Bumble"
 
+  ])
+
+controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
+  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
+    
+    $scope.onEmailSubscribe = ->  
+      email_subscriber = jQuery(".subscribe_email").val()    
+      atpos       = email_subscriber.indexOf("@")
+      dotpos      = email_subscriber.lastIndexOf(".")
+      WhiteSpace  = email_subscriber.indexOf(' ')
+      email_flag  = 1
+      if atpos < 1 or dotpos < atpos + 2 or dotpos + 2 >= email_subscriber.length or WhiteSpace >= 0
+        jQuery("#subscribe_status").html("Not a valid e-mail address.")
+        jQuery("#subscribe_status").addClass("error")
+        $timeout ->
+          jQuery("#subscribe_status").removeClass("error")
+          jQuery("#subscribe_status").html("Leave your email and we’ll add you to our beta invite list")
+          jQuery(".subscribe_email").focus()
+        , 2000
+        email_flag = 0
+      if( email_flag ==1 ) 
+        MailChimp = $resource('/mailchimp/email_subscriber', { format: 'json' })
+        MailChimp.query(email: email_subscriber, (results) -> 
+          console.log results      
+        )
   ])

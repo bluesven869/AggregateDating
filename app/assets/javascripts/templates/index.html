@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-init="init_account()">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->  
   <div class="container-fluid">
     <div class="navbar-header">
@@ -98,7 +98,7 @@
                 <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;One message inbox for all conversations</div>
                 <div class="check-text"><i class="fa fa-check font-18" aria-hidden="true"></i>&nbsp;&nbsp;Change your profile once, update it everywhere</div>
                 <div class="email">
-                <input class="subscribe_email" placeholder="Get early access" name="email" type="email"><button class="subscribe_submit btn btn-success">SEND</button>
+                <input class="subscribe_email" placeholder="Get early access" type="email"><button class="subscribe_submit btn btn-success" ng-click="onEmailSubscribe()">SEND</button>
                 </div>
                 <h4 class="subscribe_text" style="display: none">Name</h4>
                 <input class="subscribe_name"  style="display: none;" placeholder="Type Your Name" name="name" type="name"> 
