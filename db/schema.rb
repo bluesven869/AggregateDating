@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 20170201033300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "email_subscriber_list", primary_key: "uid", id: :bigint, default: -> { "nextval('email_seq'::regclass)" }, force: :cascade do |t|
-    t.datetime "register_time"
-    t.text     "email_address"
-  end
-
   create_table "email_subscribers", force: :cascade do |t|
     t.string   "email_address"
     t.datetime "created_at",    null: false

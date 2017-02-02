@@ -35,7 +35,16 @@ body:not(.title-tagline-hidden) .site-branding-text {
     z-index:9999;
     background:image-url('loading.gif') no-repeat center center; // rgba(0,0,0,0.25);
     background-size:60px 60px;
-    visibility: hidden;
+
+    .back-layer {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+    	background-color: #555;
+    	opacity: 0.5;
+    }
 }
 
 @media (max-width: 768px) {
