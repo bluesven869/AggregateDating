@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201033300) do
+ActiveRecord::Schema.define(version: 20170201145149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,27 @@ ActiveRecord::Schema.define(version: 20170201033300) do
     t.string   "email_address"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "page_seos", force: :cascade do |t|
+    t.integer  "uri_id"
+    t.string   "page_title"
+    t.text     "page_description"
+    t.string   "page_keywords"
+    t.string   "url"
+    t.string   "fb_title"
+    t.text     "fb_description"
+    t.string   "twitter_title"
+    t.text     "twitter_description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "page_uris", force: :cascade do |t|
+    t.string   "page_uri"
+    t.integer  "page_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

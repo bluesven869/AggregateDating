@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="aggregate_dating">
   <head>
-    <title>AggregateDating</title>
+    <title ng-bind="ngMeta.title"></title>  
+    <meta name="keywords" content="{{ngMeta['keywords']}}" />    
+    <meta name="description" content="{{ngMeta.description}}" />
+    <meta property="og:url" content="{{ngMeta.url}}" />
+    <meta property="og:title" content="{{ngMeta.fb_title}}" />
+    <meta property="og:description" content="{{ngMeta.fb_description}}" />
+    <meta property="og:site_name" content="InRealLife" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{{ngMeta.twitter_title}}" />
+    <meta name="twitter:title" content="{{ngMeta.twitter_description}}" />
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

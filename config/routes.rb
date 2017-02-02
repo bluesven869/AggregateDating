@@ -22,4 +22,13 @@ Rails.application.routes.draw do
   get '/mailchimp/email_subscriber'
   get '/mailchimp/email_subscriber_list'
   get '/mailchimp/delete_email'
+
+  resources :admin, only: [:index]
+  get '/admin/get_page_uris'
+  get '/admin/add_page_uri'
+  get '/admin/update_page_uri'
+  get '/admin/delete_page_uri'
+  get '/admin/select_page_uri'
+  get '/admin/save_seo_data'
+  get '/admin/get_page_uri'
 end

@@ -20,6 +20,7 @@
 //= require angular-rails-templates
 //= require ng-file-upload-shim
 //= require ng-file-upload
+//= require ngMeta/dist/ngMeta
 //= require angular-touch
 //= require angular-carousel
 //= require angular-scroll-glue

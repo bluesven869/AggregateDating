@@ -1,0 +1,2 @@
+class PageSeo < ApplicationRecord
+end

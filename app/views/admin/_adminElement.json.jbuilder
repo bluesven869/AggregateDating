@@ -1,0 +1,1 @@
+json.(adminElement, :result, :jsonObj)

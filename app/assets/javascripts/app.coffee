@@ -7,42 +7,52 @@ aggregate_dating = angular.module('aggregate_dating',[
     'ngFileUpload',
     'ngCookies',
     'angular-carousel',
-    'luegg.directives'
+    'luegg.directives',
+    'ngMeta'
 ])
 
-aggregate_dating.config([ '$routeProvider',
-  	($routeProvider)->
+aggregate_dating.config([ '$routeProvider','ngMetaProvider'
+  	($routeProvider,ngMetaProvider)->
     	$routeProvider
         .when('/',
-          templateUrl: "index.html"
-          controller: 'EmailSubscribe'
+          templateUrl: "index.html",
+          controller: 'EmailSubscribe',
+          data: {
+            meta: {
+              'title': 'Home page',
+              'description': 'This is the description shown in Google search results'
+            }
+          }
         )
         .when('/admin-setting',
-          templateUrl: "admin-setting.html"
+          templateUrl: "admin-setting.html",
           controller: 'Admin'
         )
         .when('/discover',
-          templateUrl: "discover.html"
+          templateUrl: "discover.html",
           controller: 'AggController'
         )
         .when('/login',
-          templateUrl: "login.html"
+          templateUrl: "login.html",
           controller: 'LoginController'
         )
         .when('/messages',
-          templateUrl: "messages.html"
+          templateUrl: "messages.html",
           controller: 'AggController'
         )
         .when('/matches',
-          templateUrl: "matches.html"
+          templateUrl: "matches.html",
           controller: 'AggController'
         )        
         .when('/account',
-          templateUrl: "account.html"
+          templateUrl: "account.html",
           controller: 'AggController'
         )
 ])
-
+.run ['ngMeta'
+  (ngMeta) ->
+    ngMeta.init()
+]
 # aggregate_dating.config([ '$facebookProvider',
 #  	($facebookProvider)->
 #       	$facebookProvider
@@ -186,9 +196,8 @@ controllers.controller("LoginController", [ '$scope', '$rootScope', '$routeParam
     #   )
 ])
 
-
-controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams', '$location', '$http', '$resource', '$cookies', '$cookieStore', 'Upload', '$timeout'
-  ($scope, $rootScope, $routeParams, $location, $http, $resource, $cookies, $cookieStore, Upload, $timeout)->
+controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams', '$location', '$http', '$resource', '$cookies', '$cookieStore', 'Upload', '$timeout','ngMeta'
+  ($scope, $rootScope, $routeParams, $location, $http, $resource, $cookies, $cookieStore, Upload, $timeout, ngMeta)->
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
@@ -495,7 +504,8 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
         new_flag = flag
       return new_flag
 
-    $scope.init = ->            
+    $scope.init = ->  
+
       $scope.flag_t   = $scope.convert_to_bool($cookieStore.get('flag_t'),   true)
       $scope.flag_o   = $scope.convert_to_bool($cookieStore.get('flag_o'),   true)
       $scope.flag_p   = $scope.convert_to_bool($cookieStore.get('flag_p'),   true)
@@ -879,10 +889,25 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
       $scope.account_added_flag   = $scope.account_bumble_flag
       $scope.account_network_msg  = "Bumble"
 
+
   ])
 
-controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
-  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
+controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout','ngMeta'
+  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout, ngMeta)->
+    
+    Admin = $resource('/admin/get_page_uri', { format: 'json' })
+    Admin.query(link: '/', (results) ->       
+      seo = results[0].jsonObj
+      console.log seo[0]
+      ngMeta.setTitle(seo[0].page_title)
+      ngMeta.setTag('keywords', seo[0].page_keywords)
+      ngMeta.setTag('description', seo[0].page_description)
+      ngMeta.setTag('url', seo[0].url)
+      ngMeta.setTag('fb_title', seo[0].fb_title)
+      ngMeta.setTag('fb_description', seo[0].fb_description)
+      ngMeta.setTag('twitter_title', seo[0].twitter_title)
+      ngMeta.setTag('twitter_description', seo[0].twitter_description)
+    )
     
     $scope.onEmailSubscribe = ->  
       email_subscriber = jQuery(".subscribe_email").val()    
@@ -912,17 +937,126 @@ controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location'
 
 controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
   ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
-    
-    $scope.email_list = []
+
+    $scope.email_list = []    
+    $scope.page_uris = []
+    $scope.page_types = ["Admin Page","Front Page","Admin Page"]
+    $scope.edit_id = 0          # 0: Add New
+                                # >0: Update
+    $scope.seo_id = 0
+    $scope.seo_link_id = 0
+    $scope.help_1_flag  = false
+    $scope.prev_row_obj = null
+
     MailChimp = $resource('/mailchimp/email_subscriber_list', { format: 'json' })
     MailChimp.query((results) ->       
       $scope.email_list = results[0].jsonObj
     )
 
-    $scope.onDeleteEmail = (email) ->
-      if confirm "Do you want to delete this email?"
+    Admin = $resource('/admin/get_page_uris', { format: 'json' })
+    Admin.query((results) ->       
+      $scope.page_uris = results[0].jsonObj
+    )
+
+    $scope.onDeleteEmail = (email_obj) ->
+      if confirm "Do you want to delete the email?"
         MailChimp = $resource('/mailchimp/delete_email', { format: 'json' })
-        MailChimp.query(id: email.id, (results) ->       
+        MailChimp.query(id: $email_obj.id,(results) ->       
           $scope.email_list = results[0].jsonObj
         )
+    $scope.onAdd = ->
+      if($scope._add_page_link == undefined)
+        alert "Please input Page Link"
+        return
+      page_uri = {}
+      page_uri.id = 0      
+      page_uri.page_uri = $scope._add_page_link
+      page_uri.page_type = jQuery("#_add_page_type").val()
+      uri = '/admin/add_page_uri'
+      if ($scope.edit_id > 0)
+        uri = '/admin/update_page_uri'
+        page_uri.id = $scope.edit_id
+
+      Admin = $resource(uri, { format: 'json' })
+      Admin.query(link: page_uri, (results) ->       
+        $scope.page_uris = results[0].jsonObj
+        result = results[0].result
+        if(result != "OK")        
+          alert result
+        else
+          $scope._add_page_link = ""
+          jQuery("#btn_add").removeClass("btn-success").addClass("btn-primary")
+          jQuery("#btn_add").html("Add")
+          $scope.edit_id = 0        
+      )
+    $scope.onEditLink = (link) ->
+      $scope.edit_id = link.id
+      jQuery("#btn_add").removeClass("btn-primary").addClass("btn-success")
+      jQuery("#btn_add").html("Update")
+      $scope._add_page_link = link.page_uri
+      jQuery("#_add_page_type").val(link.page_type)
+    $scope.onDeleteLink = (link) ->
+      if confirm "Do you want to delete the link?"
+        Admin = $resource('/admin/delete_page_uri', { format: 'json' })
+        Admin.query(id: link.id,(results) ->       
+          $scope.page_uris = results[0].jsonObj
+        )
+    $scope.onSEOSetting = (link) ->      
+      if($scope.prev_row_obj != null)
+        jQuery($scope.prev_row_obj).removeClass("selected")
+      jQuery("#link_row_id_"+link.id).addClass("selected")
+      $scope.prev_row_obj = jQuery("#link_row_id_"+link.id)
+      $scope.seo_link_id = link.id
+      Admin = $resource('/admin/select_page_uri', { format: 'json' })
+      Admin.query(id: link.id,(results) ->       
+        seo = results[0].jsonObj
+        console.log seo
+        if seo.length == 0
+          $scope.seo_id = 0
+          $scope.seo_title = ""
+          $scope.seo_url = ""
+          $scope.seo_description = ""
+          $scope.seo_keyword = ""
+        else
+          $scope.seo_id = seo[0].id
+          $scope.seo_title = seo[0].page_title
+          $scope.seo_url = seo[0].url
+          $scope.seo_description = seo[0].page_description
+          $scope.seo_keyword = seo[0].page_keywords
+
+      )
+
+    $scope.onSaveSEO = ->      
+      seo = {}
+      seo.id                    = $scope.seo_id
+      seo.uri_id                = $scope.seo_link_id
+      seo.page_title            = $scope.seo_title
+      seo.url                   = $scope.seo_url
+      seo.page_description      = $scope.seo_description
+      seo.page_keywords         = $scope.seo_keyword
+      seo.fb_title              = $scope.fb_title
+      seo.fb_description        = $scope.fb_description
+      seo.twitter_title         = $scope.twitter_title
+      seo.twitter_description   = $scope.twitter_description
+      Admin = $resource('/admin/save_seo_data', { format: 'json' })
+      Admin.query(seo_obj: seo,(results) ->   
+
+        seo = results[0].jsonObj
+        if seo.length == 0
+          $scope.seo_id = 0
+          $scope.seo_title = ""
+          $scope.seo_url = ""
+          $scope.seo_description = ""
+          $scope.seo_keyword = ""
+        else
+          $scope.seo_id = seo[0].id
+          $scope.seo_title = seo[0].page_title
+          $scope.seo_url = seo[0].url
+          $scope.seo_description = seo[0].page_description
+          $scope.seo_keyword = seo[0].page_keywords
+
+      )
+    $scope.onClickHelp1 = ->
+      $scope.help_1_flag  = !$scope.help_1_flag
+
   ])
