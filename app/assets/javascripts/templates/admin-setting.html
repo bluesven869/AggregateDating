@@ -78,10 +78,10 @@
     </div>
   </div>
 </nav>
-<div id="page" class="site">  
-  <div>
-    <div class="wrap">
-      <h2>Subscriber List</h2>
+<div id="page" class="admin-setting">  
+  <div> 
+    
+      <h1>Subscriber List</h1>
       <table class="widefat" width="100%">
         <thead>
             <tr>              
@@ -96,6 +96,71 @@
           </tr>
         </tbody>
       </table>
+  </div>
+  <div  class="row">
+    <div class="col-sm-6">
+      <h1>Page Links</h1>
+      <table class="widefat" width="100%">
+        <thead>
+            <tr>              
+              <th scope="col" align="left">Page Link</th>
+              <th scope="col" align="left" width="120px">Page Type</th>
+              <th scope="col" align="center" width="100px">Action</th>            
+            </tr>
+            <tr class="control-th">              
+              <th scope="col" align="left"><input type="text" class="add_control" ng-model="_add_page_link" placeholder="Page Link"></th>
+              <th scope="col" align="left">
+              <select class="add_control" id="_add_page_type">
+                <option value="1" selected="selected">Front Page</option>
+                <option value="2">Admin Page</option>
+              </select>
+              </th>
+              <th scope="col" align="center"><button id="btn_add" ng-click = "onAdd()" class="btn btn-primary">Add</button></th>            
+            </tr>
+        </thead> 
+        <tbody>
+          <tr id="link_row_id_{{page_link.id}}" ng-repeat="page_link in page_uris">        
+            <td align="left">{{page_link.page_uri}}</td>              
+            <td align="left">{{page_types[page_link.page_type]}}</td>              
+            <td align="center"><a href="" title="Edit Link" ng-click="onEditLink(page_link)"><i class="fa fa-pencil-square-o" style="font-size:1.3em" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<label title="Delete Link" class="delete-icon" ng-click="onDeleteLink(page_link)">&nbsp;</label>
+            &nbsp;&nbsp;&nbsp;
+            <a href="" ng-click="onSEOSetting(page_link)"  title="SEO Setting"><i class="fa fa-puzzle-piece" style="font-size:1.3em" aria-hidden="true"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <h1>Seo Settings</h1>
+      <div class="border">
+        <span class="snippet"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Snippet Preview </span> <label ng-class="{'help selected1':help_1_flag==true, 'help':help_1_flag==false}" ng-click="onClickHelp1()"><i class="fa fa-question-circle" aria-hidden="true"></i></label><br />
+        <div class="help_capation" ng-if="help_1_flag">This is a rendering of what this post might look like in Google's search results.</div>
+        <div class="snippet_preview">
+          <div class="title">&nbsp;{{seo_title}}</div>
+          <div class="url">&nbsp;{{seo_url}}</div>
+          <div class="description">&nbsp;{{seo_description}}</div>
+        </div>
+        <div class="top-margin-20">
+          <div class="my_caption">SEO title</div>
+          <div class="my_control"><input type="text" placeholder="Please Input Title" ng-model="seo_title" /></div>          
+        </div>
+
+        <div class="top-margin-20">
+          <div class="my_caption">Url</div>
+          <div class="my_control"><input type="text" placeholder="Please Input Url" ng-model="seo_url" /></div>          
+        </div>
+        <div class="top-margin-20">
+          <div class="my_caption">Meta Description</div>
+          <div class="my_control"><textarea placeholder="Please Input Meta Description" ng-model="seo_description"></textarea></div>          
+        </div>
+        <div class="top-margin-20">
+          <div class="my_caption">Focus Keyword</div>
+          <div class="my_control"><input type="text" placeholder="Please Input Focus Keyword" ng-model="seo_keyword" /></div>          
+        </div> 
+        <div class="top-margin-20" align="right">
+          <button class="btn btn-primary" ng-click="onSaveSEO()">Save</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

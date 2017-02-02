@@ -15,10 +15,13 @@ class MailchimpController < ApplicationController
 		end
 		@mailchimpInfo = [{"result": "OK", "jsonObj": count}]
 	end
+
 	def email_subscriber_list
 		emails = EmailSubscriber.order(created_at: :desc)
+		
 		@mailchimpInfo = [{"result": "OK", "jsonObj": emails}]
 	end
+	
 	def delete_email
 		id = params[:id]
 		EmailSubscriber.delete(id)

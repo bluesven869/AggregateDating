@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AggregateDating</title>
+    <title ng-bind="metaservice.metaTitle()">Test</title>
+    <meta name="description" content="{{ metaservice.metaDescription() }}" />
+    <meta name="keywords" content="{{ metaservice.metaKeywords() }}" />
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
