@@ -65,12 +65,16 @@ class AdminController < ApplicationController
       		#seo.page_description  = $scope.seo_description
       		#seo.page_keywords     = $scope.seo_keyword
 
+      		#seo.fb_title              = $scope.fb_title
+      		#seo.fb_description        = $scope.fb_description
+      		#seo.twitter_title         = $scope.twitter_title
+      		#seo.twitter_description   = $scope.twitter_description
 			if (@seo_obj['id'] == 0)
-				PageSeo.create(uri_id: @seo_obj['uri_id'], page_title: @seo_obj['page_title'], url: @seo_obj['url'], page_description: @seo_obj['page_description'], page_keywords: @seo_obj['page_keywords'])
+				PageSeo.create(uri_id: @seo_obj['uri_id'], page_title: @seo_obj['page_title'], url: @seo_obj['url'], page_description: @seo_obj['page_description'], page_keywords: @seo_obj['page_keywords'], fb_title: @seo_obj['fb_title'], fb_description: @seo_obj['fb_description'], twitter_title: @seo_obj['twitter_title'], twitter_description: @seo_obj['twitter_description'])
 				
 			else
 				seo = PageSeo.where(["id = ?", @seo_obj["id"]])
-				sql = "uri_id=" + @seo_obj["uri_id"].to_s + ", page_title='" + @seo_obj["page_title"]+ "',url='" + @seo_obj["url"] + "',page_description='" + @seo_obj["page_description"] + "',page_keywords='" + @seo_obj["page_keywords"] + "'"
+				sql = "uri_id=" + @seo_obj["uri_id"].to_s + ", page_title='" + @seo_obj["page_title"]+ "',url='" + @seo_obj["url"] + "',page_description='" + @seo_obj["page_description"] + "',page_keywords='" + @seo_obj["page_keywords"] + "',fb_title='" + @seo_obj["fb_title"]+ "',fb_description='" + @seo_obj["fb_description"]+ "',twitter_title='" + @seo_obj["twitter_title"]+ "',twitter_description='" + @seo_obj["twitter_description"] + "'"
 				seo.update_all sql
 				
 			end	

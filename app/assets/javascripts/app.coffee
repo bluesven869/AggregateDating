@@ -988,19 +988,20 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
 
     $scope.onSaveSEO = ->      
       seo = {}
-      seo.id                = $scope.seo_id
-      seo.uri_id            = $scope.seo_link_id
-      seo.page_title        = $scope.seo_title
-      seo.url               = $scope.seo_url
-      seo.page_description  = $scope.seo_description
-      seo.page_keywords     = $scope.seo_keyword
-      console.log seo
+      seo.id                    = $scope.seo_id
+      seo.uri_id                = $scope.seo_link_id
+      seo.page_title            = $scope.seo_title
+      seo.url                   = $scope.seo_url
+      seo.page_description      = $scope.seo_description
+      seo.page_keywords         = $scope.seo_keyword
+      seo.fb_title              = $scope.fb_title
+      seo.fb_description        = $scope.fb_description
+      seo.twitter_title         = $scope.twitter_title
+      seo.twitter_description   = $scope.twitter_description
       Admin = $resource('/admin/save_seo_data', { format: 'json' })
       Admin.query(seo_obj: seo,(results) ->   
 
         seo = results[0].jsonObj
-        console.log seo    
-        return
         if seo.length == 0
           $scope.seo_id = 0
           $scope.seo_title = ""
