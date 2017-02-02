@@ -1,10 +1,15 @@
 
-<div id="load"></div>
+<div id="load" ng-if="cmb_logging_in">
+<!-- <div id="load"> -->
+  <div class="back-layer">
+  </div>
+</div>
+
 <div class="container">
 
   <h2 class="text-center">Login Form</h2>
   <br />
-  <div class="main_div text-center" id="login-form" ng-controller="LoginController">
+  <div class="main_div text-center" id="login-form">
 
     <section>
       <button class="facebook-button" data-ng-click="loginFacebook()">Facebook</button>
@@ -13,7 +18,7 @@
     </section>
     <div class="seperate">
       <hr width="130" size="8" align="center"><span class="middle-text">&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;</span><hr width="130" size="8" align="center">
-      <div class="clear" ng-if="happn_login_flag || cmb_login_flag"></div>
+      <div class="clear" ng-if="happn_login_flag || !cmb_logging_in"></div>
     </div>
     <section>
       <p class="user-name"><input type="text" ng-model='user_name' placeholder="User Name"/></p>
@@ -27,10 +32,10 @@
     <br/>
     <br/>
     <section>
-      <p class="Facebook Token"><input type="text" ng-model='user_fb_token' placeholder="Facebook Token"/></p>
-      <button class="login-button" data-ng-click="setFBToken()">Login</button>
-      <p class="Facebook Token"><input type="text" ng-model='user_fb_token_for_happen' placeholder="Facebook Token For Happn"/></p>
-      <button class="login-button" data-ng-click="setFBTokenForHappn()">Login for Happen</button>
+      <p class="Facebook Token"><input type="text" ng-model='user_fb_token_for_cmb' placeholder="Facebook Token For CMB"/></p>
+      <button class="login-button" data-ng-click="setFBTokenForCMB()">Login for CMB</button>
+      <p class="Facebook Token"><input type="text" ng-model='user_fb_token_for_happn' placeholder="Facebook Token For Happn"/></p>
+      <button class="login-button" data-ng-click="setFBTokenForHappn()">Login for Happn</button>
     </section>
   </div>
 </div>
