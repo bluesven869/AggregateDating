@@ -577,13 +577,15 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
 
         $rootScope.bagels = results[0].jsonObj.results
 
+        console.log $rootScope.bagels
+
         idx = 0
         while $rootScope.bagels.length > 0 && $rootScope.bagels.length > idx
           # console.log idx
           # console.log $rootScope.bagels.length
           # console.log $rootScope.bagels[idx]
           
-          if $rootScope.bagels[idx].action  == 0
+          if $rootScope.bagels[idx].action  == 0 || $rootScope.bagels[idx].action == 3
             idx = idx + 1
           else
             $rootScope.bagels.splice(idx, 1)  
@@ -595,29 +597,66 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
 
     $scope.showNextBagel = () ->
 
-      console.log $rootScope.bagels.length
+      if $rootScope.bagels.length > 0 
+        console.log $rootScope.bagels.length
 
-      newList = []
+        newList = []
 
-      for d,i in $rootScope.bagels[0].profile.photos
-        # console.log d
+        $scope.setActionToBagel(3)
 
-        # newList.push {images:[d.profile.photos[0].iphone_fullscreen], selected_image:0, CAP:'T'}
-        
-        newList.push {
-          bagel_id:"C0000022",
-          images:[d.iphone_fullscreen], selected_image:0, 
-          name: 'Alexus Vargas',     age:22, nearby:52, school:'Havard Raw School',
-          aboutme:'This is the Alexus Vargas\'s Profile.',
-          action:0,
-          star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false
-        }
+        for d,i in $rootScope.bagels[0].profile.photos
+          # console.log d
 
-      $scope.BagelsList = newList
+          # newList.push {images:[d.profile.photos[0].iphone_fullscreen], selected_image:0, CAP:'T'}
+          
+          newList.push {
+            bagel_id:"C0000022",
+            images:[d.iphone_fullscreen], selected_image:0, 
+            name: 'Alexus Vargas',     age:22, nearby:52, school:'Havard Raw School',
+            aboutme:'This is the Alexus Vargas\'s Profile.',
+            action:0,
+            star:0,CAP:'C', expire_days:3,assigned_date:'2017-1-6', selected:false
+          }
+
+        console.log "NEW LIST"
+        console.log newList
+
+        $scope.BagelsList = newList
       
       $timeout ->
         $scope.rebuildCarousel()
       , 100;
+
+
+    $scope.onLike = () ->
+      console.log 'Inside onLike'
+
+      $scope.setActionToBagel(1)
+
+    $scope.onPass = () ->
+      console.log 'Inside onPass'
+
+      $scope.setActionToBagel(2)
+
+
+    $scope.setActionToBagel = (actionNum) ->
+      if $rootScope.bagels.length <= 0
+        return
+
+      Cmb = $resource('/cmb/set_bagel', { format: 'json' })
+
+      console.log "Bagel ID"
+      console.log $rootScope.bagels[0].id
+      console.log actionNum
+
+      Cmb.query(fbToken: $rootScope.MyAuthInfo.fbToken, sessionid: $rootScope.MyAuthInfo.cmbInfo.sessionid, userid: $rootScope.bagels[0].id, actionNum: actionNum, (results) -> 
+
+        console.log results
+
+        if actionNum != 3
+          $rootScope.bagels.splice(0, 1)  # remove first bagel. it is shown currently        
+          $scope.showNextBagel()
+      )
 
 
     $scope.set_cookie_from_flag = (f, i)->  
@@ -662,11 +701,12 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
       $cookieStore.put('flag_l_r', $scope.flag_l_r)
       $cookieStore.put('flag_a_r', $scope.flag_a_r)
 
-      if($scope.page_number == 2)
-        #Discover Page
-        $timeout ->
-          $scope.rebuildCarousel()
-        , 100;
+      # LOAD Carousel at loading
+      # if($scope.page_number == 2)
+      #   #Discover Page
+      #   $timeout ->
+      #     $scope.rebuildCarousel()
+      #   , 100;
 
     # favorite filter in Matches Page      
     $scope.filterBagelonMatchPage = (bagel) ->        
@@ -785,18 +825,18 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
         $scope.flag_super_like = false
     
     $scope.onItemSelected = (bagel_id) ->      
-      # for d,i in $scope.BagelsList
-      #   if(d.bagel_id == bagel_id)
-      #     if(d.CAP == "T")
-      #       $scope.flag_woo_like = true
-      #     else
-      #       $scope.flag_woo_like = false
-      #     if(d.CAP == "C")
-      #       $scope.flag_super_like = true
-      #     else
-      #       $scope.flag_super_like = false
-      #     $scope.prev_bagel = d
-      #     break
+      for d,i in $scope.BagelsList
+        if(d.bagel_id == bagel_id)
+          if(d.CAP == "T")
+            $scope.flag_woo_like = true
+          else
+            $scope.flag_woo_like = false
+          if(d.CAP == "C")
+            $scope.flag_super_like = true
+          else
+            $scope.flag_super_like = false
+          $scope.prev_bagel = d
+          break
 
     $scope.addChatMsg = (str, date, time, sender) ->
       return
