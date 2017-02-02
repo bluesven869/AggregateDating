@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   get '/admin/delete_page_uri'
   get '/admin/select_page_uri'
   get '/admin/save_seo_data'
+  get '/admin/get_page_uri'
 end

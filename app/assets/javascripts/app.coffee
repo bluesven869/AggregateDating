@@ -7,42 +7,52 @@ aggregate_dating = angular.module('aggregate_dating',[
     'ngFileUpload',
     'ngCookies',
     'angular-carousel',
-    'luegg.directives'
+    'luegg.directives',
+    'ngMeta'
 ])
 
-aggregate_dating.config([ '$routeProvider',
-  	($routeProvider)->
+aggregate_dating.config([ '$routeProvider','ngMetaProvider'
+  	($routeProvider,ngMetaProvider)->
     	$routeProvider
         .when('/',
-          templateUrl: "index.html"
-          controller: 'EmailSubscribe'
+          templateUrl: "index.html",
+          controller: 'EmailSubscribe',
+          data: {
+            meta: {
+              'title': 'Home page',
+              'description': 'This is the description shown in Google search results'
+            }
+          }
         )
         .when('/admin-setting',
-          templateUrl: "admin-setting.html"
+          templateUrl: "admin-setting.html",
           controller: 'Admin'
         )
         .when('/discover',
-          templateUrl: "discover.html"
+          templateUrl: "discover.html",
           controller: 'AggController'
         )
         .when('/login',
-          templateUrl: "login.html"
+          templateUrl: "login.html",
           controller: 'LoginController'
         )
         .when('/messages',
-          templateUrl: "messages.html"
+          templateUrl: "messages.html",
           controller: 'AggController'
         )
         .when('/matches',
-          templateUrl: "matches.html"
+          templateUrl: "matches.html",
           controller: 'AggController'
         )        
         .when('/account',
-          templateUrl: "account.html"
+          templateUrl: "account.html",
           controller: 'AggController'
         )
 ])
-
+.run ['ngMeta'
+  (ngMeta) ->
+    ngMeta.init()
+]
 # aggregate_dating.config([ '$facebookProvider',
 #  	($facebookProvider)->
 #       	$facebookProvider
@@ -186,8 +196,8 @@ controllers.controller("LoginController", [ '$scope', '$rootScope', '$routeParam
     #   )
 ])
 
-controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams', '$location', '$http', '$resource', '$cookies', '$cookieStore', 'Upload', '$timeout'
-  ($scope, $rootScope, $routeParams, $location, $http, $resource, $cookies, $cookieStore, Upload, $timeout)->
+controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams', '$location', '$http', '$resource', '$cookies', '$cookieStore', 'Upload', '$timeout','ngMeta'
+  ($scope, $rootScope, $routeParams, $location, $http, $resource, $cookies, $cookieStore, Upload, $timeout, ngMeta)->
     
     $scope.login_flag = false
     $scope.show_filter_flag = false
@@ -494,7 +504,8 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
         new_flag = flag
       return new_flag
 
-    $scope.init = ->            
+    $scope.init = ->  
+
       $scope.flag_t   = $scope.convert_to_bool($cookieStore.get('flag_t'),   true)
       $scope.flag_o   = $scope.convert_to_bool($cookieStore.get('flag_o'),   true)
       $scope.flag_p   = $scope.convert_to_bool($cookieStore.get('flag_p'),   true)
@@ -841,8 +852,22 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
 
   ])
 
-controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout'
-  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout)->
+controllers.controller("EmailSubscribe", [ '$scope', '$routeParams', '$location', '$http', '$resource','$cookies','$cookieStore', 'Upload', '$timeout','ngMeta'
+  ($scope,$routeParams,$location,$http,$resource,$cookies,$cookieStore, Upload, $timeout, ngMeta)->
+    
+    Admin = $resource('/admin/get_page_uri', { format: 'json' })
+    Admin.query(link: '/', (results) ->       
+      seo = results[0].jsonObj
+      console.log seo[0]
+      ngMeta.setTitle(seo[0].page_title)
+      ngMeta.setTag('keywords', seo[0].page_keywords)
+      ngMeta.setTag('description', seo[0].page_description)
+      ngMeta.setTag('url', seo[0].url)
+      ngMeta.setTag('fb_title', seo[0].fb_title)
+      ngMeta.setTag('fb_description', seo[0].fb_description)
+      ngMeta.setTag('twitter_title', seo[0].twitter_title)
+      ngMeta.setTag('twitter_description', seo[0].twitter_description)
+    )
     
     $scope.onEmailSubscribe = ->  
       email_subscriber = jQuery(".subscribe_email").val()    

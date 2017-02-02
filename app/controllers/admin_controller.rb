@@ -76,7 +76,18 @@ class AdminController < ApplicationController
 			end	
 			seo = PageSeo.where(["uri_id = ?", @seo_obj["id"]])			
 			@adminInfo = [{"result": "OK", "jsonObj": seo}]
-		end		
-		
+		end	
 	end
+
+	def get_page_uri
+		if (not params.has_key?(:link))
+			@adminInfo = [{"result": "Unallowed access!","jsonObj": "no params"}]
+		else
+			link = params[:link].to_str
+			uri = PageUri.where(["page_uri = ?", link])
+			seo = PageSeo.where(["uri_id = ?", uri[0].id])			
+			@adminInfo = [{"result": "OK", "jsonObj": seo}]
+		end		
+	end
+
 end

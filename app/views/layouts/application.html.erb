@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="aggregate_dating">
   <head>
-    <title ng-bind="metaservice.metaTitle()">Test</title>
-    <meta name="description" content="{{ metaservice.metaDescription() }}" />
-    <meta name="keywords" content="{{ metaservice.metaKeywords() }}" />
+    <title ng-bind="ngMeta.title"></title>  
+    <meta name="keywords" content="{{ngMeta['keywords']}}" />    
+    <meta name="description" content="{{ngMeta.description}}" />
+    <meta property="og:url" content="{{ngMeta.url}}" />
+    <meta property="og:title" content="{{ngMeta.fb_title}}" />
+    <meta property="og:description" content="{{ngMeta.fb_description}}" />
+    <meta name="twitter:description" content="{{ngMeta.twitter_title}}" />
+    <meta name="twitter:title" content="{{ngMeta.twitter_description}}" />
+    <meta property="og:site_name" content="InRealLife" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
     
     <%= csrf_meta_tags %>
 
