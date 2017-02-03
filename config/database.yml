@@ -88,3 +88,4 @@ production:
   database: d23055f476871f
   username: ldbdvjexkojsuy
   password: 12df2a2bbae8f79b86fec63d557634cc9b1a7d4721fb1a2fdf6c923bdb84d453
+  host: ec2-107-21-215-254.compute-1.amazonaws.com  
