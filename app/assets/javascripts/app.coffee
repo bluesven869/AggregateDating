@@ -1094,12 +1094,21 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
           $scope.seo_url = ""
           $scope.seo_description = ""
           $scope.seo_keyword = ""
+          $scope.fb_title = ""
+          $scope.fb_description = ""
+          $scope.twitter_title = ""
+          $scope.twitter_description = ""
+
         else
-          $scope.seo_id = seo[0].id
-          $scope.seo_title = seo[0].page_title
-          $scope.seo_url = seo[0].url
-          $scope.seo_description = seo[0].page_description
-          $scope.seo_keyword = seo[0].page_keywords
+          $scope.seo_id               = seo[0].id
+          $scope.seo_title            = seo[0].page_title
+          $scope.seo_url              = seo[0].url
+          $scope.seo_description      = seo[0].page_description
+          $scope.seo_keyword          = seo[0].page_keywords
+          $scope.fb_title             = seo[0].fb_title
+          $scope.fb_description       = seo[0].fb_description
+          $scope.twitter_title        = seo[0].twitter_title
+          $scope.twitter_description  = seo[0].twitter_description
         $scope.save_seo_flag = false
 
       )
