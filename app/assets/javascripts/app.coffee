@@ -541,21 +541,39 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
       #   bagel.expire_days = Math.floor(diff / (3600 * 24*1000))
 
         
-      
+    $scope.init_meta_tag = (link_str) ->
+      Admin = $resource('/admin/get_page_uri', { format: 'json' })
+      Admin.query(link: link_str, (results) ->     
+        seo = results[0].jsonObj
+        ngMeta.setTitle(seo[0].page_title)
+        ngMeta.setTag('keywords', seo[0].page_keywords)
+        ngMeta.setTag('description', seo[0].page_description)
+        ngMeta.setTag('url', seo[0].url)
+        ngMeta.setTag('fb_title', seo[0].fb_title)
+        ngMeta.setTag('fb_description', seo[0].fb_description)
+        ngMeta.setTag('twitter_title', seo[0].twitter_title)
+        ngMeta.setTag('twitter_description', seo[0].twitter_description)
+      )  
     $scope.init_matches_page = ->
+      $scope.init_meta_tag("/matches")
       $scope.init() 
       $scope.page_number = 4
 
     $scope.init_discover_page = ->
+      $scope.init_meta_tag("/discover")
       $scope.init()
       $scope.page_number = 2 
 
-    $scope.init_message_page = ->
+    $scope.init_message_page = ->    
+      $scope.init_meta_tag("/message")
       $scope.init()
       $scope.page_number = 3
       $scope.select_bagel_by_random()
 
+
     $scope.init_account = ->
+
+      $scope.init_meta_tag("/account")
       $scope.page_number = 5
 
     $scope.select_bagel_by_random = ->      
