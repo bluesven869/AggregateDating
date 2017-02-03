@@ -202,6 +202,7 @@ controllers.controller("AggController", [ '$scope', '$rootScope', '$routeParams'
     $scope.login_flag = false
     $scope.show_filter_flag = false
     $scope.prev_bagel = null
+
     #if(not $rootScope.MyAuthInfo.fbToken?)
     #  $location.path('/login')
     $scope.page_number = 0      # 2:discover
@@ -947,6 +948,7 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
     $scope.seo_link_id = 0
     $scope.help_1_flag  = false
     $scope.prev_row_obj = null
+    $scope.save_seo_flag = false
 
     MailChimp = $resource('/mailchimp/email_subscriber_list', { format: 'json' })
     MailChimp.query((results) ->       
@@ -1028,6 +1030,23 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
 
     $scope.onSaveSEO = ->      
       seo = {}
+      if($scope.seo_title == undefined)
+        $scope.seo_title = ""
+      if($scope.seo_url == undefined)
+        $scope.seo_url = ""
+      if($scope.seo_description == undefined)
+        $scope.seo_description = ""
+      if($scope.seo_keyword == undefined)
+        $scope.seo_keyword = ""
+      if($scope.fb_title == undefined)
+        $scope.fb_title = ""
+      if($scope.fb_description == undefined)
+        $scope.fb_description = ""
+      if($scope.twitter_title == undefined)
+        $scope.twitter_title = ""
+      if($scope.twitter_description == undefined)
+        $scope.twitter_description = ""
+
       seo.id                    = $scope.seo_id
       seo.uri_id                = $scope.seo_link_id
       seo.page_title            = $scope.seo_title
@@ -1038,6 +1057,7 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
       seo.fb_description        = $scope.fb_description
       seo.twitter_title         = $scope.twitter_title
       seo.twitter_description   = $scope.twitter_description
+      $scope.save_seo_flag = true
       Admin = $resource('/admin/save_seo_data', { format: 'json' })
       Admin.query(seo_obj: seo,(results) ->   
 
@@ -1054,6 +1074,7 @@ controllers.controller("Admin", [ '$scope', '$routeParams', '$location', '$http'
           $scope.seo_url = seo[0].url
           $scope.seo_description = seo[0].page_description
           $scope.seo_keyword = seo[0].page_keywords
+        $scope.save_seo_flag = false
 
       )
     $scope.onClickHelp1 = ->
