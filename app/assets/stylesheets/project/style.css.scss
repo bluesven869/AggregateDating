@@ -7,7 +7,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	-moz-box-sizing: inherit;
 	line-height: 1.5;
 	padding-top:10px;
-	font-size:1.7em;
+	font-size:20px;
 	font-weight: 400;
 
 	
@@ -22,9 +22,11 @@ body:not(.title-tagline-hidden) .site-branding-text {
 .navbar-brand{
 	img{
 		opacity: 1;
+		margin-right:-10px !important;
 	}
 	img:hover{
 		opacity: 0.8;
+		margin-right:-10px !important;
 	}
 }
 .loading-w{
@@ -800,6 +802,10 @@ input:checked + .slider:before {
 	height:497px;
 }
 @media screen and ( min-width: 1000px ) {	
+	.nav_default_width{
+		width:840px;
+		margin: 0 auto;
+	}
 	.main-header-body .introduce{
 		width:840px;			
 		margin:0 auto;	
@@ -808,7 +814,10 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width:999px ) and ( min-width: 900px ) {
-	
+	.nav_default_width{
+		width:800px;
+		margin: 0 auto;
+	}
 	.main-header-body .introduce{
 		width:800px;
 		margin:0 auto;
@@ -816,7 +825,10 @@ input:checked + .slider:before {
 	}
 }
 @media screen and (max-width:899px ) and ( min-width: 810px ) {
-	
+	.nav_default_width{
+		width:760px;
+		margin: 0 auto;
+	}
 	.main-header-body .introduce{
 		width:760px;
 		margin:0 auto;
@@ -824,7 +836,10 @@ input:checked + .slider:before {
 	}
 }
 @media screen and (max-width:809px ) and ( min-width: 768px ) {
-	
+	.nav_default_width{
+		width:720px;
+		margin: 0 auto;
+	}
 	.main-header-body .introduce{
 		width:720px;
 		margin:0 auto;
@@ -1084,13 +1099,14 @@ width: 35px;
 }
 
 .subscribe_theme_six .subscribe_submit {
-  border: medium none;
-  border-radius: 2px;
+  /* border: medium none; */
+   border-radius: 0px !important;
   color: #ffffff;
   font-size: 15px;
   font-weight: normal;
-  height: 45px;
-  margin: 0;
+  height: 47px;
+  margin-top:-4px;
+
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 90px;
